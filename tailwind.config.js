@@ -32,6 +32,9 @@ module.exports = {
           "700_66_01": "#6e696966",
           "700_66": "#77606066",
         },
+        blue1:{
+         50:" #ecfdf5" 
+        },
         black: {
           900: "#000000",
           "900_b2": "#000000b2",
@@ -44,8 +47,9 @@ module.exports = {
           "900_02": "#0a0909",
           
         },
-        red: { 50: "#fceeee" },
-        blue_gray: { 100: "#cbcaca" },
+        red: { 50: "#fceeee",100:"#ef000e" },
+      
+        blue_gray: { 100: "#cbcaca" ,200:"#377d8e"},
         yellow: { A700: "#ffd600" },
         blue: { 100: "#c9eeff" },
         lime: { 800: "#8a8c30" },

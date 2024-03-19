@@ -201,7 +201,7 @@ export default function HotelBookingDescriptionPageUIPage() {
               <div className="w-full gap-10 grid-cols-3 md:grid-cols-2 md:gap-5 sm:grid-cols-1 grid">
                 <div className="h-[323px] w-full relative">
                   <Img
-                    src="images/img_7_1.png"
+                    src="images/img_73.png"
                     alt="image"
                     className="justify-center h-[323px] w-full sm:w-full left-0 bottom-0 right-0 top-0 m-auto object-cover absolute rounded-[30px]"
                   />
@@ -214,7 +214,7 @@ export default function HotelBookingDescriptionPageUIPage() {
                 </div>
                 <div className="h-[323px] w-full relative">
                   <Img
-                    src="images/img_7_2.png"
+                    src="images/img_73.png"
                     alt="image"
                     className="justify-center h-[323px] w-full sm:w-full left-0 bottom-0 right-0 top-0 m-auto object-cover absolute rounded-[30px]"
                   />
@@ -227,7 +227,7 @@ export default function HotelBookingDescriptionPageUIPage() {
                 </div>
                 <div className="h-[323px] w-full relative">
                   <Img
-                    src="images/img_7_3.png"
+                    src="images/img_73.png"
                     alt="image"
                     className="justify-center h-[323px] w-full sm:w-full left-0 bottom-0 right-0 top-0 m-auto object-cover absolute rounded-[30px]"
                   />
@@ -237,7 +237,7 @@ export default function HotelBookingDescriptionPageUIPage() {
                 </div>
                 <div className="h-[323px] w-full relative">
                   <Img
-                    src="images/img_7_1_323x444.png"
+                   src="images/img_73.png"
                     alt="image"
                     className="justify-center h-[323px] w-full sm:w-full left-0 bottom-0 right-0 top-0 m-auto object-cover absolute rounded-[30px]"
                   />
@@ -250,7 +250,7 @@ export default function HotelBookingDescriptionPageUIPage() {
                 </div>
                 <div className="h-[323px] w-full relative">
                   <Img
-                    src="images/img_7_3_323x444.png"
+                    src="images/img_73.png"
                     alt="image"
                     className="justify-center h-[323px] w-full sm:w-full left-0 bottom-0 right-0 top-0 m-auto object-cover absolute rounded-[30px]"
                   />
@@ -263,7 +263,7 @@ export default function HotelBookingDescriptionPageUIPage() {
                 </div>
                 <div className="h-[323px] w-full relative">
                   <Img
-                    src="images/img_7_2_323x300.png"
+                    src="images/img_73.png"
                     alt="image"
                     className="justify-center h-[323px] w-full sm:w-full left-0 bottom-0 right-0 top-0 m-auto object-cover absolute rounded-[30px]"
                   />

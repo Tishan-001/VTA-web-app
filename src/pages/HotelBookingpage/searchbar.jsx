@@ -35,6 +35,8 @@ const SearchBar = ({ hotelListRef, filterHotelListByDestination }) => {
         onChange={(e) => setDestination(e.target.value)}
       />
 
+      
+
 
       <Line className="bg-blue-100 h-[51px] md:h-px mb-[7px] md:ml-[0] ml-1 rotate-[-0deg] md:w-full w-[2.5px]" />
 

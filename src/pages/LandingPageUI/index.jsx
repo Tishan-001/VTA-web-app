@@ -13,7 +13,7 @@ import Navbar  from "../HotelBookingpage/nav"
 const LandingPageUIPage = () => {
   return ( 
     <>
-      <div className="bg-gray-100 flex flex-col font-inter items-center justify-start mx-auto pt-3 w-full">
+      <div className="bg-blue1-50  flex flex-col font-inter items-center justify-start mx-auto pt-3 w-full">
 
 
 
@@ -165,19 +165,21 @@ const LandingPageUIPage = () => {
                 orientation="horizontal"
               >
 
-                <div className="h-[500px] relative rounded-[20px] shadow-bs w-full">
+                <div className="h-[400px] relative rounded-[20px] shadow-bs w-full">
                  
                  
                  
                   <Img
-                    className="h-[500px] m-auto object-cover rounded-[20px] sm:w-full "
+                    className="h-[400px] w-full m-auto object-cover rounded-[20px] sm:w-full "
                     src="images/img_52.png"
                     alt="FiftyTwo"
                   />
 
 
-                  <div className="absolute flex flex-col md:gap-10 gap-[360px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
-                    <div className="flex flex-row items-center justify-between w-[97%] md:w-full">
+                  <div className="absolute flex flex-col  gap-[230px] md:gap-[200px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
+                   
+                   
+                    <div className="flex flex-row items-center mt-[10px] justify-between w-[97%] md:w-full" >
                       <Button
                         className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
                         shape="round"
@@ -236,14 +238,21 @@ const LandingPageUIPage = () => {
                 </div>
 
 
-                <div className="h-[500px] relative rounded-[20px] shadow-bs w-full">
+                <div className="h-[400px] relative rounded-[20px] shadow-bs w-full">
+                 
+                 
+                 
                   <Img
-                    className="h-[500px] m-auto object-cover rounded-[20px] w-full"
+                    className="h-[400px] w-full m-auto object-cover rounded-[20px] sm:w-full "
                     src="images/img_51.png"
                     alt="FiftyOne"
                   />
-                  <div className="absolute flex flex-col md:gap-10 gap-[360px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
-                    <div className="flex flex-row items-center justify-between w-[97%] md:w-full">
+
+
+                  <div className="absolute flex flex-col  gap-[230px] md:gap-[200px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
+                   
+                   
+                    <div className="flex flex-row items-center mt-[10px] justify-between w-[97%] md:w-full" >
                       <Button
                         className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
                         shape="round"
@@ -252,10 +261,12 @@ const LandingPageUIPage = () => {
                       >
                         7 Days
                       </Button>
+
+                      
                       <div className="bg-gray-700_66 flex flex-row gap-2.5 items-center justify-center p-[5px] rounded-[18px]">
                         <Img
                           className="h-[21px] ml-[9px] w-[22px]"
-                          src="images/img_star6_21x22.svg"
+                          src="images/img_star6.svg"
                           alt="starSix"
                         />
                         <Text
@@ -265,8 +276,11 @@ const LandingPageUIPage = () => {
                           4.9
                         </Text>
                       </div>
+                      
                     </div>
-                    <div className="bg-gray-600_99 flex flex-col items-center justify-end p-[11px] rounded-[20px] w-full">
+
+
+                    <div className="bg-gray-600_99  flex flex-col items-center justify-end p-[11px] rounded-[20px] w-full">
                       <div className="flex flex-col items-start justify-start mt-[9px] w-[97%] md:w-full">
                         <Text
                           className="text-[15px] text-white-A700"
@@ -290,19 +304,29 @@ const LandingPageUIPage = () => {
                         </div>
                       </div>
                     </div>
+
                   </div>
+
+
                 </div>
 
 
 
-                <div className="h-[500px] relative rounded-[20px] shadow-bs w-full">
+                <div className="h-[400px] relative rounded-[20px] shadow-bs w-full">
+                 
+                 
+                 
                   <Img
-                    className="h-[500px] m-auto object-cover rounded-[20px] w-full"
+                    className="h-[400px] w-full m-auto object-cover rounded-[20px] sm:w-full "
                     src="images/img_52_500x380.png"
                     alt="FiftyTwo"
                   />
-                  <div className="absolute flex flex-col md:gap-10 gap-[360px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
-                    <div className="flex flex-row items-center justify-between w-[97%] md:w-full">
+
+
+                  <div className="absolute flex flex-col  gap-[230px] md:gap-[200px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
+                   
+                   
+                    <div className="flex flex-row items-center mt-[10px] justify-between w-[97%] md:w-full" >
                       <Button
                         className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
                         shape="round"
@@ -311,10 +335,12 @@ const LandingPageUIPage = () => {
                       >
                         7 Days
                       </Button>
+
+                      
                       <div className="bg-gray-700_66 flex flex-row gap-2.5 items-center justify-center p-[5px] rounded-[18px]">
                         <Img
                           className="h-[21px] ml-[9px] w-[22px]"
-                          src="images/img_star6_1.svg"
+                          src="images/img_star6.svg"
                           alt="starSix"
                         />
                         <Text
@@ -324,8 +350,11 @@ const LandingPageUIPage = () => {
                           4.9
                         </Text>
                       </div>
+                      
                     </div>
-                    <div className="bg-gray-600_99 flex flex-col items-center justify-end p-[11px] rounded-[20px] w-full">
+
+
+                    <div className="bg-gray-600_99  flex flex-col items-center justify-end p-[11px] rounded-[20px] w-full">
                       <div className="flex flex-col items-start justify-start mt-[9px] w-[97%] md:w-full">
                         <Text
                           className="text-[15px] text-white-A700"
@@ -349,8 +378,20 @@ const LandingPageUIPage = () => {
                         </div>
                       </div>
                     </div>
+
                   </div>
+
+
                 </div>
+
+
+
+
+              
+
+
+
+                
 
               </List>
 
@@ -374,22 +415,22 @@ const LandingPageUIPage = () => {
 
 
 
-          <div className="flex flex-row justify-center w-[90%] md:w-full mt-[133px]">
+          <div className="flex flex-row  w-[70%] md:w-full mt-[120px] ml-[10px]">
             <div className="flex md:flex-col flex-row md:gap-[41px] items-center justify-between w-full">
               
               
               <Img
                 src="images/img_52_781x613.png"
                 alt="image"
-                className="w-[50%] h-[781] md:w-full md:h-auto object-cover rounded-[20px]"
+                className="w-[50%] h-[650px] md:w-full md:h-auto object-cover rounded-[20px]"
               />
 
 
-              <div className="flex flex-col items-start justify-start w-[47%] md:w-full mt-10 " >
-                <Text size="txtInterMedium20Black900b2" as="p" className="text-black-900_b2 text-xl mt-20">
+              <div className="flex flex-col ml-[15px] items-start justify-start w-[47%] md:w-full  bg-c" >
+                <Text size="txtInterMedium20Black900b2" as="p" className="text-black-900_b2 text-xl ml-10">
                   How it works
                 </Text>
-                <Text size="txtInterMedium50" as="p" className="text-black-900 w-max text-[50px] ">
+                <Text size="txtInterMedium50" as="p" className="text-black-900 w-max text-[41px] ml-10 ">
                   One Click For You
                 </Text>
 
@@ -399,43 +440,45 @@ const LandingPageUIPage = () => {
                   
                   <Link to="tourguidersui"> 
 
-                  <div className="flex flex-row justify-end w-[100%] md:w-full mt-[19px] p-[15px] bg-white-A700_01 rounded-[20px]">
-                     <div className="flex flex-row sm:flex-col justify-start items-start w-[100%] mb-3.5 gap-[18px] sm:gap-5">
+                  <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[19px] p-[10px] bg-white-A700_01 rounded-[20px] ml-10 md:ml-auto">
+                     <div className="flex flex-row sm:flex-Row justify-start items-start w-[100%] mb-3.5 gap-[28px] sm:gap-1">
+                       
                         <Img
                              src="images/img_icon.png"
                              alt="tour_guide_one"
-                             className="w-[73px] md:h-auto mt-px sm:mt-0 object-cover"
+                             className="w-[55px] md:h-auto mt-px sm:mt-0 object-cover"
                         />
-                        <div className="flex flex-col items-start justify-start w-[82%] sm:w-full gap-[7px]">
+                       
+                       
+                        <div className="flex flex-col items-start justify-start w-[100%] sm:w-full gap-[10px] mt-[18px] md:ml-[50px] ">
                            <Heading as="h5" className="!text-black-900_cc">
                              Tour Guide
                             </Heading>
-                            <Text size="xs" as="p" className="!text-black-900_02 !font-poppins">
-                            We provide you best travel plan for you for according to your budget and your preference{" "}
-                            </Text>
+                            
                         </div>
+
+
                     </div>
                  </div>
+
+
                  </Link>
 
 
                  <Link to="/tranportui"> 
 
-                 <div className="flex flex-row justify-end w-[100%] md:w-full mt-[19px] p-[15px] bg-white-A700_01 rounded-[20px]">
-                     <div className="flex flex-row sm:flex-col justify-start items-start w-[100%] mb-3.5 gap-[18px] sm:gap-5">
+                 <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[12px] p-[8px] bg-white-A700_01 rounded-[20px] ml-10">
+                     <div className="flex flex-row sm:flex-Row justify-start items-start w-[100%] mb-3.5 gap-[28px] sm:gap-1">
                         <Img
                              src="images/img_image2.png"
                              alt="imageTwo"
-                             className="w-[73px] md:h-auto mt-px sm:mt-0 object-cover"
+                             className="w-[55px] md:h-auto mt-px sm:mt-0 object-cover"
                         />
-                        <div className="flex flex-col items-start justify-start w-[82%] sm:w-full gap-[7px]">
+                         <div className="flex flex-col items-start justify-start w-[100%] sm:w-full gap-[10px] mt-[18px] md:ml-[50px]">
                            <Heading as="h5" className="!text-black-900_cc">
-                               Transport
+                             Transport
                             </Heading>
-                            <Text size="xs" as="p" className="!text-black-900_02 !font-poppins">
-                            Explore with ease! Our expert Tour Guides turn every journey into an unforgettable adventure.
-                            Discover, experience, and wander with confidence.{""}
-                            </Text>
+                            
                         </div>
                     </div>
                  </div>
@@ -446,21 +489,18 @@ const LandingPageUIPage = () => {
 
                  <Link to="/hotelbookingpage"> 
 
-                <div className="flex flex-row justify-end w-[100%] md:w-full mt-[19px] p-[15px] bg-white-A700_01 rounded-[20px]">
-                  <div className="flex flex-row sm:flex-col justify-start items-start w-[100%] mb-3.5 gap-[18px] sm:gap-5">
+                <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[12px] p-[8px] bg-white-A700_01 rounded-[20px] ml-10">
+                  <div className="flex flex-row sm:flex-row justify-start items-start w-[100%] mb-3.5 gap-[28px] sm:gap-1">
                     <Img
                        src="images/img_image3.png"
                        alt="imageThree"
-                       className="w-[73px] md:h-auto mt-px sm:mt-0 object-cover"
+                       className="w-[55px] md:h-auto mt-px sm:mt-0 object-cover"
                     />
-                    <div className="flex flex-col items-start justify-start w-[82%] sm:w-full gap-[7px]">
+                    <div className="flex flex-col items-start justify-start w-[100%] sm:w-full gap-[1px] mt-[18px] md:ml-[50px]">
                       <Heading as="h5" className="!text-black-900_cc">
                       Hotel Reservation
                       </Heading>
-                      <Text size="xs" as="p" className="!text-black-900_02 !font-poppins">
-                          &quot;Discover seamless travel with our hotel reservation service. Your perfect stay <br />
-                          awaits. Book now for unforgettable experiences
-                      </Text>
+                     
                     </div>
                   </div>
                 </div>
@@ -472,22 +512,19 @@ const LandingPageUIPage = () => {
                 
 
                 <Link to="/medical">
-                <div className="flex flex-row justify-end w-[100%] md:w-full mt-[19px] p-[15px] bg-white-A700_01 rounded-[20px]">
-                  <div className="flex flex-row sm:flex-col justify-start items-start w-[100%] mb-3.5 gap-[18px] sm:gap-5">
+                <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[12px] p-[8px] bg-white-A700_01 rounded-[20px] ml-10">
+                  <div className="flex flex-row sm:flex-row  justify-start items-start w-[100%] mb-3.5 gap-[28px] sm:gap-1">
                     <Img
                       src="images/img_image4.png"
                       alt="imageFour"
 
-                      className="w-[73px] md:h-auto mt-px sm:mt-0 object-cover"
+                      className="w-[55px] md:h-auto mt-px sm:mt-0 object-cover"
                     />
-                    <div className="flex flex-col items-start justify-start w-[82%] sm:w-full gap-[7px]">
+                    <div className="flex flex-col items-start justify-start w-[100%] sm:w-full gap-[1px] mt-[18px] md:ml-[50px]">
                       <Heading as="h5" className="!text-black-900_cc">
                         Health Care
                       </Heading>
-                      <Text size="xs" as="p" className="!text-black-900_02 !font-poppins">
-                        Explore with peace of mind! Our travel website offers premium health care services, ensuring a
-                        safe and memorable journey for every traveler.{" "}
-                      </Text>
+                     
                     </div>
                   </div>
                 </div>
@@ -496,22 +533,20 @@ const LandingPageUIPage = () => {
                 
 
                 <Link to="/allpackagespageui">
-                <div className="flex flex-row justify-end w-[100%] md:w-full mt-[19px] p-[15px] bg-white-A700_01 rounded-[20px]">
-                  <div className="flex flex-row sm:flex-col justify-start items-start w-[100%] mb-3.5 gap-[18px] sm:gap-5">
+                <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[19px] p-[8px] bg-white-A700_01 rounded-[20px] ml-10">
+                  <div className="flex flex-row  justify-start items-start w-[100%] mb-3.5 gap-[28px] sm:gap-1">
                     <Img
 
                       src="images/img_image5.png"
                       alt="imageFive"
 
-                      className="w-[73px] md:h-auto mt-px sm:mt-0 object-cover"
+                      className="w-[55px] md:h-auto mt-px sm:mt-0 object-cover"
                     />
-                    <div className="flex flex-col items-start justify-start w-[82%] sm:w-full gap-[7px]">
+                    <div className="flex flex-col items-start justify-start w-[100%] sm:w-full md:ml-[50px] gap-[1px] mt-[18px]">
                       <Heading as="h5" className="!text-black-900_cc">
                           Travel Plan
                       </Heading>
-                      <Text size="xs" as="p" className="!text-black-900_02 !font-poppins">
-                           We provide you best travel plan for you for according to your budget and your preference{" "}
-                      </Text>
+                      
                     </div>
                   </div>
                 </div>
@@ -539,11 +574,8 @@ const LandingPageUIPage = () => {
 
 
 
-
-
-
-          <div className="flex flex-col items-start justify-start mt-[129px] w-[90%]">
-            <Text
+          <div className="flex flex-col items-start justify-start mt-[129px] w-[100%]">
+          <Text
               className="text-black-900_b2 text-xl"
               size="txtInterMedium20Black900b2"
             >
@@ -555,10 +587,14 @@ const LandingPageUIPage = () => {
             >
               Sri Lankan tourism
             </Text>
-            <div className="gap-10 md:gap-5 grid sm:grid-cols-1 md:grid-cols-2 grid-cols-3 justify-center min-h-[auto] mt-[58px] w-full">
-              <div className="h-[323px] relative w-full">
+            </div>
+
+          <div className="flex flex-col items-start justify-start mt-[2px] w-[90%] ">
+           
+            <div className="gap-5 md:gap-5 grid sm:grid-cols-1 md:grid-cols-2 grid-cols-4 justify-center min-h-[20%] mt-[58px] w-full">
+              <div className="h-[200px] relative w-full">
                 <Img
-                  className="h-[323px] m-auto object-cover rounded-[30px] w-full"
+                  className="h-[200px] m-auto object-cover rounded-[30px] w-full"
                   src="images/img_71.png"
                   alt="SeventyOne"
                 />
@@ -566,13 +602,15 @@ const LandingPageUIPage = () => {
                   className="absolute bottom-[9%] cursor-pointer font-bold leading-[normal] left-[4%] min-w-[145px] rounded-[20px] text-center text-xl"
                   shape="round"
                   color="gray_600_99"
+                  
                 >
-                  Galle Fort{" "}
+                  <Link to="/locationdetails"> Galle Fort{" "}</Link>
+                 
                 </Button>
               </div>
-              <div className="h-[323px] relative w-full">
+              <div className="h-[200px] relative w-full">
                 <Img
-                  className="h-[323px] m-auto object-cover rounded-[30px] w-full"
+                  className="h-[200px] m-auto object-cover rounded-[30px] w-full"
                   src="images/img_72.png"
                   alt="SeventyTwo"
                 />
@@ -584,9 +622,9 @@ const LandingPageUIPage = () => {
                   Ambuluwawa
                 </Button>
               </div>
-              <div className="h-[323px] relative w-full">
+              <div className="h-[200px] relative w-full">
                 <Img
-                  className="h-[323px] m-auto object-cover rounded-[30px] w-full"
+                  className="h-[200px] m-auto object-cover rounded-[30px] w-full"
                   src="images/img_73.png"
                   alt="SeventyThree"
                 />
@@ -598,9 +636,9 @@ const LandingPageUIPage = () => {
                   Ella Rock
                 </Button>
               </div>
-              <div className="h-[323px] relative w-full">
+              <div className="h-[200px] relative w-full">
                 <Img
-                  className="h-[323px] m-auto object-cover rounded-[30px] w-full"
+                  className="h-[200px] m-auto object-cover rounded-[30px] w-full"
                   src="images/img_71_323x444.png"
                   alt="SeventyOne"
                 />
@@ -612,9 +650,9 @@ const LandingPageUIPage = () => {
                   Trinkomali
                 </Button>
               </div>
-              <div className="h-[323px] relative w-full">
+              <div className="h-[200px] relative w-full">
                 <Img
-                  className="h-[323px] m-auto object-cover rounded-[30px] w-full"
+                  className="h-[200px] m-auto object-cover rounded-[30px] w-full"
                   src="images/img_73_323x444.png"
                   alt="SeventyThree"
                 />
@@ -626,9 +664,9 @@ const LandingPageUIPage = () => {
                   Yaala
                 </Button>
               </div>
-              <div className="h-[323px] relative w-full">
+              <div className="h-[200px] relative w-full">
                 <Img
-                  className="h-[323px] m-auto object-cover rounded-[30px] w-full"
+                  className="h-[200px] m-auto object-cover rounded-[30px] w-full"
                   src="images/img_72_323x300.png"
                   alt="SeventyTwo"
                 />
@@ -640,6 +678,37 @@ const LandingPageUIPage = () => {
                   Lion Rock
                 </Button>
               </div>
+
+              <div className="h-[200px] relative w-full">
+                <Img
+                  className="h-[200px] m-auto object-cover rounded-[30px] w-full"
+                  src="images/img_73_323x444.png"
+                  alt="SeventyThree"
+                />
+                <Button
+                  className="absolute bottom-[6%] cursor-pointer font-bold leading-[normal] left-[5%] min-w-[108px] rounded-[20px] text-center text-xl"
+                  shape="round"
+                  color="gray_600_99"
+                >
+                  Yaala
+                </Button>
+              </div>
+              <div className="h-[200px] relative w-full">
+                <Img
+                  className="h-[200px] m-auto object-cover rounded-[30px] w-full"
+                  src="images/img_72_323x300.png"
+                  alt="SeventyTwo"
+                />
+                <Button
+                  className="absolute bottom-[6%] cursor-pointer font-bold leading-[normal] left-[5%] min-w-[145px] rounded-[20px] text-center text-xl"
+                  shape="round"
+                  color="gray_600_99"
+                >
+                  Lion Rock
+                </Button>
+              </div>
+
+
             </div>
           </div>
           <Button
@@ -647,7 +716,7 @@ const LandingPageUIPage = () => {
             color="black_900_01"
             size="md"
           >
-            view more
+            <Link to="/location"> view more</Link>
           </Button>
         </div>
 

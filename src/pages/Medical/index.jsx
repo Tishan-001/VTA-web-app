@@ -4,6 +4,7 @@ import { Button, Img ,Text } from "../../components";
 
 import { Heading } from "components/Heading";
 import Navbar  from "../HotelBookingpage/nav"
+import { Link } from "react-router-dom";
 
 
 export default function HotelBookingpagePage() {
@@ -43,7 +44,7 @@ export default function HotelBookingpagePage() {
                       </Text>
 
                       <Button size="lg1" shape="round" className="sm:px-5 font-medium min-w-[220px] sm:min-w-full  bg-gray-700_b5 hover:text-white-A700_01 text-xl">
-                        Find The Doctor
+                        <Link to="/medicaldetial">Find The Doctor</Link>
                       </Button>
                     </div>
                 </div>
@@ -60,7 +61,7 @@ export default function HotelBookingpagePage() {
           Our Specialist
         </Heading>
 
-        <div className="flex flex-col items-center justify-start w-full gap-14">
+        <div className="flex flex-col items-center justify-start  gap-14">
           
           <div
             className="flex flex-col items-center justify-start w-[92%] md:w-full mt-[51px]"
@@ -68,7 +69,7 @@ export default function HotelBookingpagePage() {
             selectedTabPanelClassName="mt-[100px] relative tab-panel--selected"
           >
             
-            <div className="justify-center w-[80%] ml-20 h-[50%] gap-14 grid-cols-3 md:grid-cols-2 md:gap-5 md:px-5 sm:grid-cols-1 grid max-w-[1314px]">
+            <div className="justify-center w-[85%] ml-20 h-[50%] gap-14 grid-cols-3 md:grid-cols-2 md:gap-5 md:px-5 sm:grid-cols-1 grid max-w-[1314px]">
              
              
               <div className="flex flex-col items-start justify-start h-[260px] w-[85%] sm:w-full sm:h-auto gap-10 p-[35px] sm:p-5 bg-cyan-400 shadow-sm">
@@ -179,21 +180,322 @@ export default function HotelBookingpagePage() {
 
 
 
-            <Heading size="3xl" as="h1" className="mt-[114px] !text-black-900_02">
-              Doctors
-            </Heading>
-          
-          
-            <a
-              href="#"
-              className="flex justify-center items-center w-[190px] h-[53px] mt-[54px] px-[35px] py-3.5 sm:px-5 bg-black-900 rounded-[10px]"
-            >
-              <Text size="lg" as="p">
-                view more
-              </Text>
-            </a>
+            
           </div>
-          <footer className="flex justify-center items-center w-full pl-14 pr-[97px] py-[97px] md:p-5 bg-black-900_01">
+
+
+
+        
+
+
+
+        
+
+
+
+
+          
+      </div>
+
+
+      <Heading size="3xl" as="h2" className="mt-[103px] ml-[81px] md:ml-5 !text-black-900_02">
+          Doctors
+        </Heading>
+      <div className="md:gap-5  gap-[91px] grid sm:grid-cols-1 md:grid-cols-2 grid-cols-3 justify-center min-h-[auto] mt-9 w-[76%] ml-[200px] md:w-full md:ml-auto  ">
+           
+         
+           
+            <div className="h-[500px] relative rounded-[20px] shadow-bs w-full">
+              <Img
+                className="h-[500px] m-auto object-cover rounded-[20px] w-full"
+                src="images/img_5_2_01.png"
+                alt="FiftyTwo"
+              />
+              <div className="absolute flex flex-col md:gap-10 gap-[352px] h-max inset-[0] justify-center m-auto w-[93%]">
+                <div className="bg-gray-700_66_01 flex flex-row gap-2.5 items-center justify-end md:ml-[0] ml-[220px] mr-8 p-[5px] rounded-[18px] w-[29%] md:w-full">
+                  <Img
+                    className="h-[21px] w-[22px] "
+                    src="images/img_star6.svg"
+                    alt="starSix"
+                  />
+                  <Text
+                    className="mr-4 text-white-A700_01 text-xl"
+                    size="txtInterMedium20WhiteA70001"
+                  >
+                    4.9
+                  </Text>
+                </div>
+                <div className="bg-gray-600_99 flex flex-col items-center justify-end p-3.5 rounded-[20px] w-full">
+                  <div className="flex flex-row items-start justify-between mt-[5px] w-[94%] md:w-full">
+                    <div className="flex flex-col items-start justify-start">
+                      <Text
+                        className="text-white-A700 text-xl"
+                        size="txtInterSemiBold20"
+                      >
+                        Dr. Pandula Kumara
+                      </Text>
+                      <Text
+                        className="text-white-A700 text-xl"
+                        size="txtInterMedium20WhiteA700"
+                      >
+                         Hart Specialist
+                      </Text>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div className="h-[500px] relative rounded-[20px] shadow-bs w-full">
+              <Img
+                className="h-[500px] m-auto object-cover rounded-[20px] w-full"
+                src="images/img_5_2_1.png"
+                alt="image"
+              />
+              <div className="absolute flex flex-col md:gap-10 gap-[352px] h-max inset-[0] justify-center m-auto w-[93%]">
+                <div className="bg-gray-700_66_01 flex flex-row gap-2.5 items-center justify-end md:ml-[0] ml-[220px] mr-2 p-[5px] rounded-[18px] w-[29%] md:w-full">
+                  <Img
+                    className="h-[21px] w-[22px]"
+                    src="images/img_star6_21x22.svg"
+                    alt="starSix"
+                  />
+                  <Text
+                    className="mr-4 text-white-A700_01 text-xl"
+                    size="txtInterMedium20WhiteA70001"
+                  >
+                    4.9
+                  </Text>
+                </div>
+                <div className="bg-gray-600_99 flex flex-col items-center justify-end p-3.5 rounded-[20px] w-full">
+                  <div className="flex flex-row items-start justify-between mt-[5px] w-[94%] md:w-full">
+                    <div className="flex flex-col items-start justify-start">
+                      <Text
+                        className="text-white-A700 text-xl"
+                        size="txtInterSemiBold20"
+                      >
+                        Dr. Ishani Devindi
+                      </Text>
+                      <Text
+                        className="text-white-A700 text-xl"
+                        size="txtInterMedium20WhiteA700"
+                      >
+                        Skin Specialist
+                      </Text>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div className="h-[500px] relative rounded-[20px] shadow-bs w-full">
+              <Img
+                className="h-[500px] m-auto object-cover rounded-[20px] w-full"
+                src="images/img_5_2_500x380.png"
+                alt="image"
+              />
+              <div className="absolute flex flex-col md:gap-10 gap-[352px] h-max inset-[0] justify-center m-auto w-[93%]">
+                <div className="bg-gray-700_66_01 flex flex-row gap-2.5 items-center justify-end md:ml-[0] ml-[220px] mr-2 p-[5px] rounded-[18px] w-[29%] md:w-full">
+                  <Img
+                    className="h-[21px] w-[22px]"
+                    src="images/img_star6_1.svg"
+                    alt="starSix"
+                  />
+                  <Text
+                    className="mr-4 text-white-A700_01 text-xl"
+                    size="txtInterMedium20WhiteA70001"
+                  >
+                    4.9
+                  </Text>
+                </div>
+                <div className="bg-gray-600_99 flex flex-col items-center justify-end p-3.5 rounded-[20px] w-full">
+                  <div className="flex flex-row items-start justify-between mt-[5px] w-[94%] md:w-full">
+                    <div className="flex flex-col items-start justify-start">
+                      <Text
+                        className="text-white-A700 text-xl"
+                        size="txtInterSemiBold20"
+                      >
+                          Dr. Priyanath Jayasuriya
+                      </Text>
+                      <Text
+                        className="text-white-A700 text-xl"
+                        size="txtInterMedium20WhiteA700"
+                      >
+                         Dentist Specialist
+                      </Text>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div className="h-[500px] relative rounded-[20px] shadow-bs w-full">
+              <Img
+                className="h-[500px] m-auto object-cover rounded-[20px] w-full"
+                src="images/img_5_2_01.png"
+                alt="FiftyTwo"
+              />
+              <div className="absolute flex flex-col md:gap-10 gap-[352px] h-max inset-[0] justify-center m-auto w-[93%]">
+                <div className="bg-gray-700_66_01 flex flex-row gap-2.5 items-center justify-end md:ml-[0] ml-[220px] mr-8 p-[5px] rounded-[18px] w-[29%] md:w-full">
+                  <Img
+                    className="h-[21px] w-[22px] "
+                    src="images/img_star6.svg"
+                    alt="starSix"
+                  />
+                  <Text
+                    className="mr-4 text-white-A700_01 text-xl"
+                    size="txtInterMedium20WhiteA70001"
+                  >
+                    4.9
+                  </Text>
+                </div>
+                <div className="bg-gray-600_99 flex flex-col items-center justify-end p-3.5 rounded-[20px] w-full">
+                  <div className="flex flex-row items-start justify-between mt-[5px] w-[94%] md:w-full">
+                    <div className="flex flex-col items-start justify-start">
+                      <Text
+                        className="text-white-A700 text-xl"
+                        size="txtInterSemiBold20"
+                      >
+                        Dr. Pandula Kumara
+                      </Text>
+                      <Text
+                        className="text-white-A700 text-xl"
+                        size="txtInterMedium20WhiteA700"
+                      >
+                         Hart Specialist
+                      </Text>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div className="h-[500px] relative rounded-[20px] shadow-bs w-full">
+              <Img
+                className="h-[500px] m-auto object-cover rounded-[20px] w-full"
+                src="images/img_5_2_1.png"
+                alt="image"
+              />
+              <div className="absolute flex flex-col md:gap-10 gap-[352px] h-max inset-[0] justify-center m-auto w-[93%]">
+                <div className="bg-gray-700_66_01 flex flex-row gap-2.5 items-center justify-end md:ml-[0] ml-[220px] mr-2 p-[5px] rounded-[18px] w-[29%] md:w-full">
+                  <Img
+                    className="h-[21px] w-[22px]"
+                    src="images/img_star6_21x22.svg"
+                    alt="starSix"
+                  />
+                  <Text
+                    className="mr-4 text-white-A700_01 text-xl"
+                    size="txtInterMedium20WhiteA70001"
+                  >
+                    4.9
+                  </Text>
+                </div>
+                <div className="bg-gray-600_99 flex flex-col items-center justify-end p-3.5 rounded-[20px] w-full">
+                  <div className="flex flex-row items-start justify-between mt-[5px] w-[94%] md:w-full">
+                    <div className="flex flex-col items-start justify-start">
+                      <Text
+                        className="text-white-A700 text-xl"
+                        size="txtInterSemiBold20"
+                      >
+                        Dr. Ishani Devindi
+                      </Text>
+                      <Text
+                        className="text-white-A700 text-xl"
+                        size="txtInterMedium20WhiteA700"
+                      >
+                        Skin Specialist
+                      </Text>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div className="h-[500px] relative rounded-[20px] shadow-bs w-full">
+              <Img
+                className="h-[500px] m-auto object-cover rounded-[20px] w-full"
+                src="images/img_5_2_500x380.png"
+                alt="image"
+              />
+              <div className="absolute flex flex-col md:gap-10 gap-[352px] h-max inset-[0] justify-center m-auto w-[93%]">
+                <div className="bg-gray-700_66_01 flex flex-row gap-2.5 items-center justify-end md:ml-[0] ml-[220px] mr-2 p-[5px] rounded-[18px] w-[29%] md:w-full">
+                  <Img
+                    className="h-[21px] w-[22px]"
+                    src="images/img_star6_1.svg"
+                    alt="starSix"
+                  />
+                  <Text
+                    className="mr-4 text-white-A700_01 text-xl"
+                    size="txtInterMedium20WhiteA70001"
+                  >
+                    4.9
+                  </Text>
+                </div>
+                <div className="bg-gray-600_99 flex flex-col items-center justify-end p-3.5 rounded-[20px] w-full">
+                  <div className="flex flex-row items-start justify-between mt-[5px] w-[94%] md:w-full">
+                    <div className="flex flex-col items-start justify-start">
+                      <Text
+                        className="text-white-A700 text-xl"
+                        size="txtInterSemiBold20"
+                      >
+                          Dr. Priyanath Jayasuriya
+                      </Text>
+                      <Text
+                        className="text-white-A700 text-xl"
+                        size="txtInterMedium20WhiteA700"
+                      >
+                         Dentist Specialist
+                      </Text>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <Button
+            className="cursor-pointer font-medium leading-[normal] min-w-[190px] mt-[59px] w-[40%] ml-[480px] rounded-[26px] text-center text-xl"
+            color="black_900_01"
+            size="md"
+          >
+            view more
+          </Button>
+
+
+
+
+            
+        </div>
+
+        
+
+
+       
+
+
+
+          
+          
+           
+
+        
+        <footer className="flex justify-center items-center w-full pl-14 pr-[97px] mt-20 py-[97px] md:p-5 bg-black-900_01">
             <div className="flex flex-row justify-center w-full mx-auto max-w-[1048px]">
               <div className="flex flex-row md:flex-col justify-between items-center w-full md:gap-10">
                 <div className="flex flex-col items-start justify-start mt-0.5 gap-[31px] md:mt-0">
@@ -350,7 +652,12 @@ export default function HotelBookingpagePage() {
               </div>
             </div>
           </footer>
-        </div>
+
+
+
+
+
+
 
       </div>
     </>
