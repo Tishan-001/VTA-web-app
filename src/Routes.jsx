@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "pages/Home";
 import NotFound from "pages/NotFound";
 import AddAdminData from "pages/AddAdminData";
+import AddFAQ from "pages/AddFAQ";
 const HotelBookingpage = React.lazy(() => import("pages/HotelBookingpage"));
 const AllpackagesPageUI = React.lazy(() => import("pages/AllpackagesPageUI"));
 const LandingPageUI = React.lazy(() => import("pages/LandingPageUI"));
@@ -47,6 +48,7 @@ const ProjectRoutes = () => {
           <Route path="/location" element={<Location/>}/>
           <Route path="/admin" element={<Admin/>}/>
           <Route path="/addadmindata" element={<AddAdminData/>}/>
+          <Route path="/addfaq" element={<AddFAQ/>}/>
         </Routes>
       </Router>
     </React.Suspense>
