@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "pages/Home";
 import NotFound from "pages/NotFound";
+import AddAdminData from "pages/AddAdminData";
 const HotelBookingpage = React.lazy(() => import("pages/HotelBookingpage"));
 const AllpackagesPageUI = React.lazy(() => import("pages/AllpackagesPageUI"));
 const LandingPageUI = React.lazy(() => import("pages/LandingPageUI"));
@@ -45,6 +46,7 @@ const ProjectRoutes = () => {
           <Route path="/locationdetails" element={<Locationdetails/>}/>
           <Route path="/location" element={<Location/>}/>
           <Route path="/admin" element={<Admin/>}/>
+          <Route path="/addadmindata" element={<AddAdminData/>}/>
         </Routes>
       </Router>
     </React.Suspense>
