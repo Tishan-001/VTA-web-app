@@ -10,8 +10,8 @@ export default function SignUpPage() {
     <>
       
       
-        <div className="flex flex-row md:flex-col justify-center items-center  h-[600px] w-[80%] gap-[33px] left-0 bottom-0 right-0 top-0 m-auto md:gap-5  shadow-xs absolute rounded-[40px]">
-        <div className="relative w-[40%] md:w-full md:h-[544px] rounded-bl-[10px] rounded-tl-[10px] overflow-hidden">
+      <div className="flex flex-row md:flex-col justify-center  bg-white-A700_01 items-center h-[700px] w-[70%] gap-[33px] left-0 bottom-0 right-0 top-0 m-auto md:gap-5 shadow-bs absolute rounded-[10px]">
+        <div className="relative w-[52%] h-[700px] md:w-full md:h-[544px] rounded-bl-[10px] rounded-tl-[10px] overflow-hidden">
           <div className="absolute inset-0 bg-opacity-50 bg-[#854a9bcc]"></div>
           <Img
             src="images/img_signup_1.png"
@@ -20,69 +20,85 @@ export default function SignUpPage() {
           />
         </div>
 
-          <div className="flex flex-col items-center justify-start w-[46%] md:w-full">
+          <div className="flex flex-col items-center justify-start w-[50%] md:w-full">
             
             <Heading size="xl" as="h1" className="tracking-[3.00px]">
               Sign Up Now
             </Heading>
 
             <div className="flex flex-col items-center justify-start w-[90%] md:w-full mt-11 gap-5">
+            
               <Input
                 color="deep_purple_400"
                 shape="square"
                 type="text"
                 name="name"
                 placeholder="Name"
-                className="w-full sm:w-full !text-deep_purple-400_01 ml-"
+                className="w-full sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
               />
-              <Input shape="square" type="email" name="email" placeholder="Email" className="w-full sm:w-full" />
               <Input
+                color="deep_purple_400"
                 shape="square"
-                type="password"
-                name="password"
+                type="email"
+                name="name"
+                placeholder="Email"
+                className="w-full sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
+              />
+              <Input
+                color="deep_purple_400"
+                shape="square"
+                type="text"
+                name="name"
                 placeholder="Password"
-                className="w-full sm:w-full"
+                className="w-full sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
               />
               <Input
+                color="deep_purple_400"
                 shape="square"
-                type="password"
-                name="password"
+                type="text"
+                name="name"
                 placeholder="Conform Password"
-                className="w-full sm:w-full"
+                className="w-full sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
               />
               <a
                 href="#"
-                className="flex justify-center items-center w-[119px] h-[38px] pt-2.5 pb-[5px] px-3.5 bg-deep_purple-400 text-shadow-ts rounded-[5px]"
+                className="flex justify-center items-center w-[200px] h-[38px] pt-2.5 pb-[5px] px-3.5 bg-deep_purple-400 text-shadow-ts rounded-[5px]"
               >
-                <Button size="xl" color="bg-deep_purple-400" as="h2" className="!text-white-A700 tracking-[3.60px]">
+                <Button size="xl" color="bg-deep_purple-400" as="h2" className="!text-white-A700 w-[150px] bg-[#854a9bcc] p-3 rounded-[5px] tracking-[3.60px]">
                   Sign Up
                 </Button>
               </a>
             </div>
             <div className="flex flex-row sm:flex-col justify-center items-center w-full mt-[11px] sm:gap-5">
               <div className="h-px w-[48%] bg-black-900_66" />
-              <Heading as="h3" className="ml-1.5 sm:ml-0 !text-black-900_66">
+              <Heading as="h3" className="ml-1.5 sm:ml-0 mt-5 mb-5 !text-black-900_66">
                 or
               </Heading>
               <div className="h-px w-[48%] ml-[3px] sm:ml-0 bg-black-900_66" />
             </div>
             <div className="flex flex-row justify-between items-center w-[47%] md:w-full">
-              <Img src="images/img_th_1.png" alt="thone_one" className="h-[35px] w-[35px] md:h-auto rounded-[50%]" />
-              <Img
-                src="images/img_png_transparent.png"
-                alt="pngtransparent"
-                className="h-[35px] w-[35px] md:h-auto rounded-[50%]"
-              />
-              <Img
-                src="images/img_social_media_ic.png"
-                alt="socialmediaic"
-                className="h-[33px] w-[33px] md:h-auto rounded-[50%]"
-              />
+              <button>
+                <Img src="images/img_th_1.png" alt="thone_one" className="h-[35px] w-[35px] md:h-auto rounded-[50%]" />
+              </button>
+              <button>
+                <Img
+                  src="images/img_png_transparent.png"
+                  alt="pngtransparent"
+                  className="h-[35px] w-[35px] md:h-auto rounded-[50%]"
+                />
+              </button>
+              <button>
+                <Img
+                  src="images/img_social_media_ic.png"
+                  alt="socialmediaic"
+                  className="h-[33px] w-[33px] md:h-auto rounded-[50%]"
+                />
+              </button>
             </div>
             <Text size="lg" as="p" className="mt-4 !text-black-900">
               <span className="text-black-900_66">Already have an Account ?</span>
               <span className="text-black-900"></span>
-              <span className="text-gray_600">Sign In</span>
+              <a href=""><span className="text-[#854a9bcc]"> Sign In</span></a>
             </Text>
           </div>
         </div>
