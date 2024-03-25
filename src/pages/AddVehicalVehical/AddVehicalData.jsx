@@ -8,11 +8,12 @@ import { SelectBox } from "components/SelectBox";
 import Publishbar from "components/Publishbar/publishbar";
 
 const dropDownOptions = [
-  { label: "Historical", value: "option1" },
-  { label: "Adventure", value: "option2" },
+  { label: "Cultural Tour Guides", value: "Single Room" },
+  { label: "Historical Tour Guides", value: "Double Room" },
+  { label: "Adventure Tour Guides", value: "Family Room" },
 ];
 
-export default function AddAdminData() {
+export default function AddVehicalData() {
   return (
     <>
       
@@ -30,18 +31,18 @@ export default function AddAdminData() {
                 <div className="flex sm:flex-col items-center gap-[9px]">
                   <div className="flex flex-col w-[31%] sm:w-full gap-7 sm:p-5">
                     <div className="flex flex-col gap-[18px]">
-                      <Heading as="h6" className="text-[20px] mt-[50px]">Hotel Package Title</Heading>
+                      <Heading as="h6" className="text-[20px] mt-[50px]">Vehical Package Title</Heading>
                       <Text size="s" as="p" className=" w-[220px]">
                         As your Package storefront, your title is the most important place to include keywords that
                         users would likely use to search for a service like yours.
                       </Text>
                     </div>
                     <div className="flex flex-col gap-[18px]">
-                      <Heading as="h6" className="text-[20px] mt-[30px]">Room Type</Heading>
+                      <Heading as="h6" className="text-[20px] mt-[30px]">Vehical Type</Heading>
                       <div>
                         <div>
                           <Text size="s" as="p" className=" w-[220px]">
-                            Choose the category and sub-category most suitable for your reservation.
+                            Choose the category and sub-category most suitable for your Gig.
                           </Text>
           
                         </div>
@@ -52,18 +53,18 @@ export default function AddAdminData() {
                     <TextArea
                       shape="round"
                       name="groupthree"
-                      placeholder={`Enter The Package Name`}
+                      placeholder={`Enter Package Name`}
                       className="self-stretch sm:pb-5 sm:pr-5 text-black-900_7f font-bold mt-[0px] opacity-60 p-2 h-10 rounded-md ml-[-15px]"
                     />
                     <Text size="s" as="p" className="self-end mt-[19px] !text-black-900_b2">
-                      0 / 80 max
+                      0 / 40 max
                     </Text>
                     <SelectBox
                       size="xl"
                       variant="outline"
                       shape="round"
                       name="selectaroom"
-                      placeholder={`SELECT Package Type`}
+                      placeholder={`SELECT Vehical Type`}
                       options={dropDownOptions}
                       className="w-[53%] h-[40px] mt-[90px] ml-[-290px] pl-2"
                     />

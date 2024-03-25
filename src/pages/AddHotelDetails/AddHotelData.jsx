@@ -8,11 +8,12 @@ import { SelectBox } from "components/SelectBox";
 import Publishbar from "components/Publishbar/publishbar";
 
 const dropDownOptions = [
-  { label: "Historical", value: "option1" },
-  { label: "Adventure", value: "option2" },
+  { label: "Single Room", value: "Single Room" },
+  { label: "Double Room", value: "Double Room" },
+  { label: "Family Room", value: "Family Room" },
 ];
 
-export default function AddAdminData() {
+export default function AddHotelData() {
   return (
     <>
       
@@ -30,18 +31,18 @@ export default function AddAdminData() {
                 <div className="flex sm:flex-col items-center gap-[9px]">
                   <div className="flex flex-col w-[31%] sm:w-full gap-7 sm:p-5">
                     <div className="flex flex-col gap-[18px]">
-                      <Heading as="h6" className="text-[20px] mt-[50px]">Hotel Package Title</Heading>
+                      <Heading as="h6" className="text-[20px] mt-[50px]">Package Title</Heading>
                       <Text size="s" as="p" className=" w-[220px]">
                         As your Package storefront, your title is the most important place to include keywords that
                         users would likely use to search for a service like yours.
                       </Text>
                     </div>
                     <div className="flex flex-col gap-[18px]">
-                      <Heading as="h6" className="text-[20px] mt-[30px]">Room Type</Heading>
+                      <Heading as="h6" className="text-[20px] mt-[30px]">Category</Heading>
                       <div>
                         <div>
                           <Text size="s" as="p" className=" w-[220px]">
-                            Choose the category and sub-category most suitable for your reservation.
+                            Choose the category and sub-category most suitable for your Gig.
                           </Text>
           
                         </div>
@@ -63,7 +64,7 @@ export default function AddAdminData() {
                       variant="outline"
                       shape="round"
                       name="selectaroom"
-                      placeholder={`SELECT Package Type`}
+                      placeholder={`SELECT Room Type`}
                       options={dropDownOptions}
                       className="w-[53%] h-[40px] mt-[90px] ml-[-290px] pl-2"
                     />

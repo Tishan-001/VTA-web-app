@@ -4,6 +4,13 @@ import Home from "pages/Home";
 import NotFound from "pages/NotFound";
 import AddAdminData from "pages/AddAdminData";
 import AddFAQ from "pages/AddFAQ";
+import AddPackagePricing from "pages/AddPackagePricing";
+import AddPackagePublish from "pages/AddPackagePublish";
+import AddHotelData from "pages/AddHotelDetails/AddHotelData";
+import AddHotelPricing from "pages/AddHotelPricing/AddHotelPricing";
+import AddGuiderData from "pages/AddGuiderData/AddGuiderData";
+import AddVehicalData from "pages/AddVehicalVehical/AddVehicalData";
+import AddVehicalPricing from "pages/AddVehicalPricing/AddVehicalPricing";
 const HotelBookingpage = React.lazy(() => import("pages/HotelBookingpage"));
 const AllpackagesPageUI = React.lazy(() => import("pages/AllpackagesPageUI"));
 const LandingPageUI = React.lazy(() => import("pages/LandingPageUI"));
@@ -49,6 +56,15 @@ const ProjectRoutes = () => {
           <Route path="/admin" element={<Admin/>}/>
           <Route path="/addadmindata" element={<AddAdminData/>}/>
           <Route path="/addfaq" element={<AddFAQ/>}/>
+          <Route path="/addpackagepricing" element={<AddPackagePricing/>}/>
+          <Route path="/addhoteldata" element={<AddHotelData/>}/>
+          <Route path="/addhotelpricing" element={<AddHotelPricing/>}/>
+          <Route path="/addguiderdata" element={<AddGuiderData/>}/>
+          <Route path="/addvehicaldata" element={<AddVehicalData/>}/>
+          <Route path="/addvehicalpricing" element={<AddVehicalPricing/>}/>
+
+          
+          
         </Routes>
       </Router>
     </React.Suspense>
