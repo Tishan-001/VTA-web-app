@@ -2,6 +2,20 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "pages/Home";
 import NotFound from "pages/NotFound";
+import AddAdminData from "pages/AddAdminData";
+import AddFAQ from "pages/AddFAQ";
+import AddPackagePricing from "pages/AddPackagePricing";
+import AddPackagePublish from "pages/AddPackagePublish";
+import AddHotelData from "pages/AddHotelDetails/AddHotelData";
+import AddHotelPricing from "pages/AddHotelPricing/AddHotelPricing";
+import AddGuiderData from "pages/AddGuiderData/AddGuiderData";
+import AddVehicalData from "pages/AddVehicalVehical/AddVehicalData";
+import AddVehicalPricing from "pages/AddVehicalPricing/AddVehicalPricing";
+import SignInPage from "pages/SignIn/SignIn";
+import EmailComformation from "pages/EmailComformation/EmailComformation";
+import FogotPassword from "pages/FogotPassword/FogotPassword";
+import InstructionSent from "pages/CheckEmail/CheckEmail";
+import NewPassword from "pages/CreateNewPassword/CreateNewPassword";
 const HotelBookingpage = React.lazy(() => import("pages/HotelBookingpage"));
 const AllpackagesPageUI = React.lazy(() => import("pages/AllpackagesPageUI"));
 const LandingPageUI = React.lazy(() => import("pages/LandingPageUI"));
@@ -42,6 +56,11 @@ const ProjectRoutes = () => {
           <Route path="/packagedetails" element={<PackageDetails/>}/>
           <Route path="/medical" element={<Medical/>}/>
           <Route path="/sinup" element={<Sinup/>}/>
+          <Route path="/emailConformation" element={<EmailComformation/>}/>
+          <Route path="/sinin" element={<SignInPage/>}/>
+          <Route path="/fogotpassword" element={<FogotPassword/>}/>
+          <Route path="/newpassword" element={<NewPassword/>}/>
+          <Route path="/Instructionsent" element={<InstructionSent/>}/>
           <Route path="/medicaldetial" element={<MedicalDetail/>}/>
           <Route path="/doctordetails" element={<DoctorDetails/>}/>
           <Route path="/locationdetails" element={<Locationdetails/>}/>
@@ -49,6 +68,14 @@ const ProjectRoutes = () => {
           <Route path="/admin" element={<Admin/>}/>
           <Route path="/adminhotel" element={<AdminHotel/>}/>
           <Route path="/adminguider" element={<AdminGuider/>}/>
+          <Route path="/addadmindata" element={<AddAdminData/>}/>
+          <Route path="/addfaq" element={<AddFAQ/>}/>
+          <Route path="/addpackagepricing" element={<AddPackagePricing/>}/>
+          <Route path="/addhoteldata" element={<AddHotelData/>}/>
+          <Route path="/addhotelpricing" element={<AddHotelPricing/>}/>
+          <Route path="/addguiderdata" element={<AddGuiderData/>}/>
+          <Route path="/addvehicaldata" element={<AddVehicalData/>}/>
+          <Route path="/addvehicalpricing" element={<AddVehicalPricing/>}/>
         </Routes>
       </Router>
     </React.Suspense>

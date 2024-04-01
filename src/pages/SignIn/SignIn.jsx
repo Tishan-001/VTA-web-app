@@ -4,8 +4,17 @@ import { Button, Img, Line, List, Text } from "components";
 
 import { Heading } from "components/Heading1";
 import { Input } from "components/Input";
+import { useState } from 'react';
 
-export default function SignUpPage() {
+
+export default function SignInPage() {
+
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheck = () => {
+    setIsChecked(!isChecked);
+  };
+
   return (
     <>
       
@@ -23,19 +32,11 @@ export default function SignUpPage() {
           <div className="flex flex-col items-center justify-start w-[50%] md:w-full">
             
             <Heading size="xl" as="h1" className="tracking-[3.00px]">
-              Sign Up Now
+              Sign In Now
             </Heading>
 
             <div className="flex flex-col items-center justify-start w-[90%] md:w-full mt-11 gap-5">
             
-              <Input
-                color="deep_purple_400"
-                shape="square"
-                type="text"
-                name="name"
-                placeholder="Name"
-                className="w-full sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
-              />
               <Input
                 color="deep_purple_400"
                 shape="square"
@@ -52,20 +53,30 @@ export default function SignUpPage() {
                 placeholder="Password"
                 className="w-full sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
               />
-              <Input
-                color="deep_purple_400"
-                shape="square"
-                type="text"
-                name="name"
-                placeholder="Conform Password"
-                className="w-full sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
-              />
+            <div className="flex flex-row items-center justify-between">
+                <div className="flex items-center">
+                    <input
+                        type="checkbox"
+                        id="rememberMe"
+                        checked={isChecked}
+                        onChange={handleCheck}
+                        className="mr-2"
+                    />
+                    <label htmlFor="rememberMe" className="text-sm opacity-80 font-bold">
+                        Remember Me
+                    </label>
+                </div>
+                <a href="" className="ml-[300px] font-bold text-[#854a9bcc]">
+                    Forgot Password ?
+                </a>
+            </div>
+
               <a
                 href="#"
                 className="flex justify-center items-center w-[200px] h-[38px] pt-2.5 pb-[5px] px-3.5 bg-deep_purple-400 text-shadow-ts rounded-[5px]"
               >
                 <Button size="xl" color="bg-deep_purple-400" as="h2" className="!text-white-A700 w-[150px] bg-[#854a9bcc] p-3 rounded-[5px] tracking-[3.60px]">
-                  Sign Up
+                  Sign In
                 </Button>
               </a>
             </div>
@@ -95,10 +106,13 @@ export default function SignUpPage() {
                 />
               </button>
             </div>
+            <div>
+                <a href=""></a>
+            </div>
             <Text size="lg" as="p" className="mt-4 !text-black-900">
-              <span className="text-black-900_66">Already have an Account ?</span>
+              <span className="text-black-900_66">Don’t you have an Account ?</span>
               <span className="text-black-900"></span>
-              <a href=""><span className="text-[#854a9bcc]"> Sign In</span></a>
+              <a href="/sinup"><span className="text-[#854a9bcc]"> Sign Up</span></a>
             </Text>
           </div>
         </div>

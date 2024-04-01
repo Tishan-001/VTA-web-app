@@ -5,7 +5,7 @@ const shapes = {
   square: "rounded-[0px]",
 };
 const variants = {
-  tarOutlineBlack90099: "border-black-900_99 border border-solid",
+  tarOutlineBlack90099: "border-black-900_33 border border-solid",
 };
 const sizes = {
   xs: "h-[127px]",

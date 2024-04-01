@@ -4,8 +4,11 @@ import { Button, Img, Line, List, Text } from "components";
 
 import { Heading } from "components/Heading1";
 import { Input } from "components/Input";
+import { useState } from 'react';
 
-export default function SignUpPage() {
+
+export default function NewPassword() {
+
   return (
     <>
       
@@ -22,86 +25,40 @@ export default function SignUpPage() {
 
           <div className="flex flex-col items-center justify-start w-[50%] md:w-full">
             
-            <Heading size="xl" as="h1" className="tracking-[3.00px]">
-              Sign Up Now
+            <Heading size="xl" as="h1" className="tracking-[3.00px] mb-[50px]">
+            Create New Password
             </Heading>
 
-            <div className="flex flex-col items-center justify-start w-[90%] md:w-full mt-11 gap-5">
+            <Text className="mb-5 w-[400px]">Enter the email address associated with your account to initiate the password recovery process. We'll send you instructions on how to reset your password shortly.</Text>
+            <Input
+                color="deep_purple_400"
+                shape="square"
+                type="password"
+                name="name"
+                placeholder="New Password"
+                className="w-[400px] sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
+              />
+              <Input
+                color="deep_purple_400"
+                shape="square"
+                type="password"
+                name="name"
+                placeholder="Re-enter Password"
+                className="w-[400px] sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
+              />
+
+
+
+            <Button size="xl" color="bg-deep_purple-400" as="h2" className="!text-white-A700 mt-5 w-[150px] bg-[#854a9bcc] p-3 rounded-[5px] tracking-[3.60px]">
+                Sign in
+            </Button>
             
-              <Input
-                color="deep_purple_400"
-                shape="square"
-                type="text"
-                name="name"
-                placeholder="Name"
-                className="w-full sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
-              />
-              <Input
-                color="deep_purple_400"
-                shape="square"
-                type="email"
-                name="name"
-                placeholder="Email"
-                className="w-full sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
-              />
-              <Input
-                color="deep_purple_400"
-                shape="square"
-                type="text"
-                name="name"
-                placeholder="Password"
-                className="w-full sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
-              />
-              <Input
-                color="deep_purple_400"
-                shape="square"
-                type="text"
-                name="name"
-                placeholder="Conform Password"
-                className="w-full sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
-              />
-              <a
-                href="#"
-                className="flex justify-center items-center w-[200px] h-[38px] pt-2.5 pb-[5px] px-3.5 bg-deep_purple-400 text-shadow-ts rounded-[5px]"
-              >
-                <Button size="xl" color="bg-deep_purple-400" as="h2" className="!text-white-A700 w-[150px] bg-[#854a9bcc] p-3 rounded-[5px] tracking-[3.60px]">
-                  Sign Up
-                </Button>
-              </a>
-            </div>
-            <div className="flex flex-row sm:flex-col justify-center items-center w-full mt-[11px] sm:gap-5">
-              <div className="h-px w-[48%] bg-black-900_66" />
-              <Heading as="h3" className="ml-1.5 sm:ml-0 mt-5 mb-5 !text-black-900_66">
-                or
-              </Heading>
-              <div className="h-px w-[48%] ml-[3px] sm:ml-0 bg-black-900_66" />
-            </div>
-            <div className="flex flex-row justify-between items-center w-[47%] md:w-full">
-              <button>
-                <Img src="images/img_th_1.png" alt="thone_one" className="h-[35px] w-[35px] md:h-auto rounded-[50%]" />
-              </button>
-              <button>
-                <Img
-                  src="images/img_png_transparent.png"
-                  alt="pngtransparent"
-                  className="h-[35px] w-[35px] md:h-auto rounded-[50%]"
-                />
-              </button>
-              <button>
-                <Img
-                  src="images/img_social_media_ic.png"
-                  alt="socialmediaic"
-                  className="h-[33px] w-[33px] md:h-auto rounded-[50%]"
-                />
-              </button>
-            </div>
-            <Text size="lg" as="p" className="mt-4 !text-black-900">
-              <span className="text-black-900_66">Already have an Account ?</span>
-              <span className="text-black-900"></span>
-              <a href=""><span className="text-[#854a9bcc]"> Sign In</span></a>
-            </Text>
+            
           </div>
+          
         </div>
+
+        
        
         <div className="w-[80%] h-[250px]"> 
         <div className="flex flex-col items-center justify-start w-[36%] h-max left-[15%] bottom-0 top-0 p-[31px] m-auto sm:p-5 rounded-tl-[10px] rounded-bl-[10px] absolute">
