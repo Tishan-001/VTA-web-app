@@ -7,6 +7,7 @@ export const articleData = [
       likes: 300,
       views: 300,
       shares: 300,
+      Status:"Availabel",
       service:"Hotel",
     },
 
@@ -16,6 +17,7 @@ export const articleData = [
         likes: 300,
         views: 300,
         shares: 300,
+        Status:"UnAvailabel",
         service:"Doctor",
       },
 
@@ -25,6 +27,7 @@ export const articleData = [
         likes: 300,
         views: 300,
         shares: 300,
+        Status:"Availabel",
         service:"Hotel",
       },
       {
@@ -33,6 +36,7 @@ export const articleData = [
         likes: 300,
         views: 300,
         shares: 300,
+        Status:"UnAvailabel",
         service:"Doctor",
       },
       {
@@ -41,7 +45,9 @@ export const articleData = [
         likes: 300,
         views: 300,
         shares: 300,
+        Status:"UnAvailabel",
         service:"Transport",
+
       },
       {
         title: "Sigiriya ",
@@ -49,6 +55,7 @@ export const articleData = [
         likes: 300,
         views: 300,
         shares: 300,
+        Status:"Availabel",
         service:"Travel Guider",
       },
       {
@@ -57,6 +64,7 @@ export const articleData = [
         likes: 300,
         views: 300,
         shares: 300,
+        Status:"UnAvailabel",
         service:"Hotel",
       },
       {
@@ -65,6 +73,7 @@ export const articleData = [
         likes: 300,
         views: 300,
         shares: 300,
+        Status:"Availabel",
         service:"Doctor",
       },
 
@@ -75,6 +84,7 @@ export const articleData = [
         views: 300,
         shares: 300,
         service:"Hotel",
+        Status:"Availabel",
       },
       {
         title: "Ambuluwawa",
@@ -82,6 +92,24 @@ export const articleData = [
         likes: 300,
         views: 300,
         shares: 300,
+        Status:"Availabel",
+        service:"Hotel",
+      },
+      {
+        title: "Sigiriya ",
+        imageSrc: "images/img_7_1.png",
+        likes: 300,
+        views: 300,
+        Status:"Availabel",
+        shares: 300,
+      },
+      {
+        title: "Ambuluwawa",
+        imageSrc: "images/img_7_1.png",
+        likes: 300,
+        views: 300,
+        shares: 300,
+        Status:"UnAvailabel",
         service:"Hotel",
       },
       {
@@ -90,21 +118,7 @@ export const articleData = [
         likes: 300,
         views: 300,
         shares: 300,
-      },
-      {
-        title: "Ambuluwawa",
-        imageSrc: "images/img_7_1.png",
-        likes: 300,
-        views: 300,
-        shares: 300,
-        service:"Hotel",
-      },
-      {
-        title: "Sigiriya ",
-        imageSrc: "images/img_7_1.png",
-        likes: 300,
-        views: 300,
-        shares: 300,
+        Status:"Availabel",
         service:"Hotel",
       },
     // Add more objects for additional items if needed
