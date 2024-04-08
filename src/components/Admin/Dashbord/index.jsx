@@ -128,28 +128,31 @@ export default function Dashbord() {
           
           <div className="flex flex-col gap-[18px] flex-1">
             <Header className="p-5 bg-white-A700" />
-            <div className="flex justify-center w-[95%] md:w-full ml-[30px] mb-[20px]">
-              <div className="flex flex-col w-full p-7 sm:p-5 bg-gray-100 shadow-xs rounded-[20px]">
+            <div className="flex justify-center w-[95%]  md:w-full ml-[30px] mb-[20px]  ">
+              <div className="flex flex-col w-full p-4   sm:p-5 bg-gray-100 shadow-xs rounded-[20px]">
                
                
-                <div className="gap-9 grid-cols-3 md:grid-cols-[1fr] grid">
-                  <div className="flex w-full bg-blue_gray-100 rounded-[10px]">
-                    <div className="w-full p-[13px] bg-blue_gray-200 rounded-[10px]">
+                <div className="gap-2 grid-cols-3 md:grid-cols-[1fr] grid">
+                 
+                 
+                 
+                  <div className="flex w-full h-[140px] bg-blue_gray-100 rounded-[10px] ">
+                    <div className="w-full h-[140px]  p-[18px] bg-blue_gray-200 rounded-[10px]">
                       
                      
                      
                       <div className="flex flex-col mt-0.5 ml-0.5 gap-[5px]">
-                        <Heading size="3xl" as="h1" className="ml-1 !text-white-A700">
+                        <Heading size="2xl" as="h1" className="ml-1 !text-white-A700">
                           Tour Plans
                         </Heading>
-                        <div className="flex justify-between items-center gap-5">
+                        <div className="flex justify-between items-center gap-1">
                           <Img
                             src="images/img_planning_1_1.png"
                             alt="tour_plans_one"
-                            className="self-end w-[70px] object-cover"
+                            className="self-end w-[60px] object-cover"
                           />
                           <div className="flex flex-col items-center">
-                            <Heading size="5xl" as="h2" className="!text-white-A700">
+                            <Heading size="4xl" as="h2" className="!text-white-A700">
                               376
                             </Heading>
                             <Heading size="xs" as="h3" className="!text-white-A700">
@@ -165,22 +168,23 @@ export default function Dashbord() {
 
 
 
-                  <div className="flex w-full p-[13px] bg-blue_gray-200 rounded-[10px]">
-                    <div className="flex flex-col w-full mt-0.5 ml-0.5 gap-[5px]">
-                      <Heading size="3xl" as="h4" className="ml-1 !text-white-A700">
+
+                  <div className="flex w-full h-[140px] p-[18px] bg-blue_gray-200 rounded-[10px]">
+                    <div className="flex flex-col h-[140px] w-full mt-0.5 ml-0.5 gap-[5px]">
+                      <Heading size="2xl" as="h4" className="ml-1 !text-white-A700">
                         Doctors
                       </Heading>
                       <div className="flex justify-between items-center gap-5">
                         <Img
                           src="images/img_planning_1_1_70x70.png"
                           alt="planning1one"
-                          className="self-end w-[70px] object-cover"
+                          className="self-end w-[60px] object-cover"
                         />
                         <div className="flex flex-col items-end">
-                          <Heading size="5xl" as="h5" className="!text-white-A700">
+                          <Heading size="4xl" as="h5" className="!text-white-A700">
                             128
                           </Heading>
-                          <Heading size="xs" as="h6" className="mr-[23px] !text-white-A700">
+                          <Heading size="xs" as="h6" className=" !text-white-A700">
                             Available
                           </Heading>
                         </div>
@@ -190,19 +194,19 @@ export default function Dashbord() {
 
 
 
-                  <div className="flex justify-center w-full p-[13px] bg-blue_gray-200 rounded-[10px]">
+                  <div className="flex justify-center w-full p-[18px] h-[140px] bg-blue_gray-200 rounded-[10px]">
                     <div className="flex flex-col w-full mt-[5px] gap-0.5">
-                      <Heading size="3xl" as="h1" className="ml-1 !text-white-A700">
+                      <Heading size="2xl" as="h1" className="ml-1 !text-white-A700">
                         Transportation
                       </Heading>
                       <div className="flex justify-between items-center gap-5">
                         <Img
                           src="images/img_planning_1_1_1.png"
                           alt="planning1one"
-                          className="self-end w-[70px] object-cover"
+                          className="self-end w-[60px] object-cover"
                         />
                         <div className="flex flex-col items-center">
-                          <Heading size="5xl" as="h1" className="!text-white-A700">
+                          <Heading size="4xl" as="h1" className="!text-white-A700">
                             2.1k
                           </Heading>
                           <Heading size="xs" as="p" className="!text-white-A700">
@@ -215,19 +219,19 @@ export default function Dashbord() {
 
 
 
-                  <div className="flex w-full p-[13px] bg-blue_gray-200 rounded-[10px]">
+                  <div className="flex w-full h-[140px] p-[18px] bg-blue_gray-200 rounded-[10px]">
                     <div className="flex flex-col w-full ml-0.5 gap-1.5">
-                      <Heading size="3xl" as="h1" className="ml-1 !text-white-A700">
+                      <Heading size="2xl" as="h1" className="ml-1 !text-white-A700">
                         Tour Guiders
                       </Heading>
                       <div className="flex justify-between items-center gap-5">
                         <Img
                           src="images/img_planning_1_1_2.png"
                           alt="planning1one"
-                          className="self-end w-[70px] object-cover"
+                          className="self-end w-[60px] object-cover"
                         />
                         <div className="flex flex-col items-center">
-                          <Heading size="5xl" as="h1" className="!text-white-A700">
+                          <Heading size="4xl" as="h1" className="!text-white-A700">
                             423
                           </Heading>
                           <Heading size="xs" as="p" className="!text-white-A700">
@@ -241,19 +245,19 @@ export default function Dashbord() {
 
 
 
-                  <div className="flex w-full p-[13px] bg-blue_gray-200 rounded-[10px]">
+                  <div className="flex w-full h-[140px] p-[18px] bg-blue_gray-200 rounded-[10px]">
                     <div className="flex justify-between items-center w-[88%] mt-0.5 ml-0.5 gap-5">
                       <div className="flex flex-col items-start w-full mb-[3px] gap-[17px]">
-                        <Heading size="3xl" as="h1" className="ml-1 !text-white-A700">
+                        <Heading size="2xl" as="h1" className="ml-1 !text-white-A700">
                           Hotels
                         </Heading>
-                        <Img src="images/img_planning_1_1_3.png" alt="planning1one" className="w-[70px] object-cover" />
+                        <Img src="images/img_planning_1_1_3.png" alt="planning1one" className="w-[60px] object-cover" />
                       </div>
                       <div className="flex flex-col self-end items-end">
-                        <Heading size="5xl" as="h1" className="!text-white-A700">
+                        <Heading size="4xl" as="h1" className="!text-white-A700">
                           1.1k
                         </Heading>
-                        <Heading size="xs" as="p" className="mr-5 !text-white-A700">
+                        <Heading size="xs" as="p" className=" !text-white-A700">
                           Available
                         </Heading>
                       </div>
@@ -263,16 +267,16 @@ export default function Dashbord() {
 
 
 
-                  <div className="flex justify-center w-full p-[13px] bg-blue_gray-200 rounded-[10px]">
+                  <div className="flex justify-center w-full h-[140px] p-[18px] bg-blue_gray-200 rounded-[10px]">
                     <div className="flex justify-between items-center w-full mt-0.5 gap-5">
                       <div className="flex flex-col items-start w-[43%] mb-[3px] gap-[17px]">
-                        <Heading size="3xl" as="h1" className="ml-1 !text-white-A700">
+                        <Heading size="2xl" as="h1" className="ml-1 !text-white-A700">
                           Users
                         </Heading>
-                        <Img src="images/img_planning_1_1_4.png" alt="planning1one" className="w-[70px] object-cover" />
+                        <Img src="images/img_planning_1_1_4.png" alt="planning1one" className="w-[60px] object-cover" />
                       </div>
                       <div className="flex flex-col self-end items-start">
-                        <Heading size="5xl" as="h1" className="!text-white-A700">
+                        <Heading size="4xl" as="h1" className="!text-white-A700">
                           9.4k
                         </Heading>
                         <Heading size="xs" as="p" className="ml-8 !text-white-A700">
@@ -285,7 +289,7 @@ export default function Dashbord() {
 
 
 
-                <Heading size="xl1" as="h5" className="mt-[41px] ml-[9px]">
+                <Heading size="xl1" as="h5" className="mt-[12px] ml-[9px]">
                   This Month Booking Summery
                 </Heading>
 
@@ -296,7 +300,7 @@ export default function Dashbord() {
                   bodyProps={{ className: "" }}
                   headerProps={{ className: "md:flex-col " }}
                   rowDataProps={{ className: "md:flex-col " }}
-                  className="w-[960px] mt-[13px] mb-[18px] md:w-[100px]"
+                  className="w-[960px] mt-[8px] mb-[18px] md:w-[100px]"
                   columns={tableColumns}
                   data={tableData}
                 />
