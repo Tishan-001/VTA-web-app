@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Sidebar1 from "../SliderBar/index";
-import HotelRoom from "../hotelRoom";
+import HotelRoom from "../Transport";
 import BookingNotification from "../BookingNotificaton";
 
 

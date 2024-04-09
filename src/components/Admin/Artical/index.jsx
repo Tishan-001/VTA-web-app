@@ -14,7 +14,7 @@ export default function ArticalPage(...props) {
   const [searchBarValue, setSearchBarValue] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [showPopup, setShowPopup] = useState(false); // State to control the visibility of the pop-up window
-  const articlesPerPage = 10;
+  const articlesPerPage = 7;
 
   const filteredArticles = articleData.filter((article) => {
     const isTitleMatch =
@@ -44,22 +44,22 @@ export default function ArticalPage(...props) {
           <div className="flex flex-col gap-[18px] flex-1">
             <header {...props}>
              
-              <div className="flex sm:flex-col self-end h-[100px] justify-between items-center w-full  gap-10 mx-auto md:p-5 max-w-full bg-white-A700 ">
-               
-                <Heading size="2xl" as="h4" className="ml-[100px]">
-                  Article
-                </Heading>
-                <div className="flex justify-between items-center w-[25%] sm:w-full gap-5 ">
-                  <Heading size="xl1" as="h5" className=" mr-[20]">
-                    Nuwani Thushari
+                <div className="flex sm:flex-col self-end h-[100px] justify-between items-center w-full  gap-10 mx-auto md:p-5 max-w-full bg-white-A700 ">
+                
+                  <Heading size="2xl" as="h4" className="ml-[100px]">
+                    Article
                   </Heading>
-                  <Img
-                    src="images/img_image_75.png"
-                    alt="imageseventyfiv"
-                    className="h-[55px] w-[56px] rounded-[50%] mr-[30px]"
-                  />
+                  <div className="flex justify-between items-center w-[25%] sm:w-full gap-5 ">
+                    <Heading size="xl1" as="h5" className=" mr-[20]">
+                      Nuwani Thushari
+                    </Heading>
+                    <Img
+                      src="images/img_image_75.png"
+                      alt="imageseventyfiv"
+                      className="h-[55px] w-[56px] rounded-[50%] mr-[30px]"
+                    />
+                  </div>
                 </div>
-              </div>
 
 
             </header>
@@ -104,11 +104,25 @@ export default function ArticalPage(...props) {
                   {showPopup && (
                     <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
                       <div className="bg-white p-8 rounded-lg">
-                      <div className="w-[1000px] h-[600px] p-[37px] sm:p-5 bg-gray-300">
+                      <div className="w-[1000px] h-[600px] p-[37px] sm:p-5 bg-white-A700_01 rounded-[30px] shadow-bs2">
                               <div className="flex flex-col mb-[82px] ml-[7px] gap-[33px] md:ml-0">
                              
-                              <svg class="h-8 w-8 text-red-500 ml-[900px] " onClick={togglePopup} width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="18" y1="6" x2="6" y2="18" />  <line x1="6" y1="6" x2="18" y2="18" /></svg>
-                              
+                              <svg
+                                    class="h-8 w-8 text-green-500 ml-auto cursor-pointer"
+                                    onClick={togglePopup}
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth="2"
+                                    stroke="currentColor"
+                                    fill="none"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  >
+                                    <path d="M0 0h24v24H0z" />
+                                    <line x1="18" y1="6" x2="6" y2="18" />
+                                    <line x1="6" y1="6" x2="18" y2="18" />
+                             </svg>
                                 <div>
                                   <div className="flex flex-col items-end">
                                    
@@ -148,11 +162,11 @@ export default function ArticalPage(...props) {
                                     </div>
                                   </div>
                                 </div>
-                                <div className="flex md:flex-col justify-between items-start gap-4 mt-[-2 0px]">
+                                <div className="flex md:flex-col justify-between items-start gap-4 mt-[-8px]">
                                   <Heading size="lg" as="h2">
                                     Images
                                   </Heading>
-                                  <div className="flex md:flex-col w-[80%] md:w-full mt-[7px] gap-[5px] md:p-5">
+                                  <div className="flex md:flex-col w-[80%] md:w-full mt-[1px] gap-[5px] md:p-5">
                                     <FileUpload
                                       allowMultiple
                                       preview
@@ -224,7 +238,7 @@ export default function ArticalPage(...props) {
                       <thead>
                        <tr>
                          <div className="flex md:flex-col justify-center items-center mb-[5px] mr-[150px]">
-                            <div className="flex self-start justify-center items-center ml-[94px] gap-[11px]">
+                            <div className="flex self-start justify-center items-center ml-[130px] gap-[11px]">
                               
                               <th >Title</th>
                             </div>
@@ -267,7 +281,7 @@ export default function ArticalPage(...props) {
 
                             <div className="flex self-start justify-center items-center ml-[94px] gap-[11px]">
                               
-                              <th >Action</th>
+                              <th > </th>
                             </div>
 
                           </div>
@@ -328,7 +342,7 @@ export default function ArticalPage(...props) {
 
                     <div className="w-full h-px bg-blue_gray-200" />
 
-                    <div className="flex sm:flex-col justify-center items-start w-[47%] md:w-full ml-[250px] mt-[30px]">
+                    <div className="flex sm:flex-col justify-center items-start w-[47%] md:w-full ml-[250px] mt-[20px]">
                       <Button
                         size="lg"
                         as="h6"

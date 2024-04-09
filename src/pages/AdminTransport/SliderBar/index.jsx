@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Img } from "./..";
+import { Img } from "components/Img";
 import { MenuItem, Menu, Sidebar } from "react-pro-sidebar";
 import { Link } from "react-router-dom";
 import { Heading } from "components/Heading1";
@@ -15,10 +15,10 @@ export default function Sidebar1({ onItemClick }) {
   return (
     <Sidebar
       width="370px !important"
-      collapsedWidth="80px !important"
-      className="flex flex-col h-screen top-0 p-[5px] bg-white-A700 !sticky overflow-auto"
+      collapsedWidth="50px !important"
+      className="flex flex-col h-[720px]   p-[3px] bg-white-A700 "
     >
-      <div className="flex flex-col items-end w-[85%] md:w-full mb-[40px] gap-[59px]">
+      <div className="flex flex-col items-end w-[85%] md:w-full mb-[4px] gap-[59px]">
         <div className="flex justify-end w-[69%] md:w-full mr-[58px]">
           <div className="flex flex-col items-center">
             <Heading size="4xl" as="h1">
@@ -61,7 +61,7 @@ export default function Sidebar1({ onItemClick }) {
             onClick={() => handleMenuItemClick("Dashboard")}
             active={selectedMenuItem === "Dashboard"}
           >
-            Dashboard
+            Transport Posts
           </MenuItem>
           <MenuItem className="mt-[15px]"
             icon={
@@ -74,34 +74,11 @@ export default function Sidebar1({ onItemClick }) {
             onClick={() => handleMenuItemClick("Article")}
             active={selectedMenuItem === "Article"}
           >
-            Article
+            Booking Notification
           </MenuItem>
-          <MenuItem  className="mt-[15px]"
-            icon={
-              <Img
-                src="images/img_artical_1_28x28.png"
-                alt="articalone"
-                className="h-[28px] w-[28px] object-cover"
-              />
-            }
-            onClick={() => handleMenuItemClick("Service Providers")}
-            active={selectedMenuItem === "Service Providers"}
-          >
-            Service Providers
-          </MenuItem>
-          <MenuItem className="mt-[15px]"
-            icon={
-              <Img
-                src="images/img_artical_1_1.png"
-                alt="articalone_five"
-                className="h-[28px] w-[28px] object-cover"
-              />
-            }
-            onClick={() => handleMenuItemClick("Tour Packages")}
-            active={selectedMenuItem === "Tour Packages"}
-          >
-            Tour Packages
-          </MenuItem>
+         
+         
+         
         </Menu>
       </div>
     </Sidebar>

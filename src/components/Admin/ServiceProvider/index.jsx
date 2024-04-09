@@ -13,7 +13,7 @@ export default function ArticalPage(...props) {
     const [selectedService, setSelectedService] = useState("");
   
     const [currentPage, setCurrentPage] = useState(1);
-    const articlesPerPage = 10;
+    const articlesPerPage = 7 ;
   
     const dropDownOptions = [
       { label: "Doctor", value: "Doctor" },
@@ -203,7 +203,7 @@ export default function ArticalPage(...props) {
                         </tbody>
                       </table>
                       <div className="w-full h-px bg-blue_gray-600" />
-                      <div className="flex sm:flex-col justify-center items-start w-[47%] md:w-full ml-[250px] mt-[30px]">
+                      <div className="flex sm:flex-col justify-center items-start w-[47%] md:w-full ml-[250px] mt-[10px]">
                         <Button
                           size="lg"
                           as="h6"

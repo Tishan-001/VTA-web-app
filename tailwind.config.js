@@ -6,7 +6,7 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
-    screens: { md: { max: "1050px" }, sm: { max: "550px" } },
+    screens: { md: { max: "1050px" }, sm: { max: "550px" } , xl: {max: "1280"} },
     extend: {
       colors: {
         white: {
@@ -63,6 +63,7 @@ module.exports = {
       boxShadow: {
         bs: "10px 10px  10px 10px #0000003f",
         bs1: "0px 0px  26px 10px #0000003f",
+        bs2: "0px 0px  7px 7px #84848499 ",
       },
       fontFamily: { inter: "Inter", poppins: "Poppins" },
       textShadow: { ts: "5px 5px  4px #ffffff3f" },

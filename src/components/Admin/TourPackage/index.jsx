@@ -15,7 +15,7 @@ export default function ArticalPage(...props) {
   const [searchBarValue, setSearchBarValue] = React.useState("");
 
   const [currentPage, setCurrentPage] = useState(1);
-  const articlesPerPage = 10;
+  const articlesPerPage = 7;
 
 
   const filteredArticles = articleData.filter((article) => {
@@ -141,7 +141,7 @@ export default function ArticalPage(...props) {
 
                             <div className="flex self-start justify-center items-center ml-[94px] gap-[11px]">
                               
-                              <th >Action</th>
+                              <th > </th>
                             </div>
 
                           </div>
@@ -202,7 +202,7 @@ export default function ArticalPage(...props) {
 
                     <div className="w-full h-px bg-blue_gray-200" />
 
-                    <div className="flex sm:flex-col justify-center items-start w-[47%] md:w-full ml-[250px] mt-[30px]">
+                    <div className="flex sm:flex-col justify-center items-start w-[47%] md:w-full ml-[250px] mt-[20px]">
                       <Button
                         size="lg"
                         as="h6"

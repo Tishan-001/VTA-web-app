@@ -36,6 +36,7 @@ const Location=React.lazy(()=>import("pages/Location"))
 const Admin=React.lazy(()=>import("pages/Admin"))
 const AdminHotel=React.lazy(()=>import("pages/AdminHotel/HotelSummary"))
 const AdminGuider=React.lazy(()=>import("pages/AdminGuider/GuiderSummary"))
+const AdminTravel=React.lazy(()=>import("pages/AdminTransport/AdminSumary"))
 
 
 
@@ -69,6 +70,7 @@ const ProjectRoutes = () => {
           <Route path="/admin" element={<Admin/>}/>
           <Route path="/adminhotel" element={<AdminHotel/>}/>
           <Route path="/adminguider" element={<AdminGuider/>}/>
+          <Route path="/admintransport" element={<AdminTravel/>}/>
           <Route path="/addadmindata" element={<AddAdminData/>}/>
           <Route path="/addfaq" element={<AddFAQ/>}/>
           <Route path="/addpackagepricing" element={<AddPackagePricing/>}/>
