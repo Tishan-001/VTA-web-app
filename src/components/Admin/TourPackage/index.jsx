@@ -6,6 +6,7 @@ import {Button} from "components/Button_Second";
 import { Heading } from "components/Heading1";
 import Header from "../../Header";
 import { Input } from "components/Input";
+import { Link } from 'react-router-dom';
 
 import Sidebar1 from "../../Sidebar1";
 import { articleData } from "../../../assets/data/articleData";
@@ -79,12 +80,14 @@ export default function ArticalPage(...props) {
                         }
                         className="flex items-center justify-center w-[38%] h-[53px] px-[35px] sm:px-5 text-black-900_7f text-xl font-bold bg-blue_gray-100 rounded-[26px]"
                       />
+                  <Link to="/addadmindata">
                     <Button
                       leftIcon={<Img src="images/img_plus_1.png" alt="plus 1" className="w-[17px] h-[17px]" />}
                       className="flex items-center justify-center h-[53px] pl-[17px] pr-[22px] gap-4 sm:pr-5 text-white-A700 text-center text-xl font-bold bg-blue_gray-200 min-w-[138px] rounded-[10px]"
                     >
-                      Create{" "}
+                      Create
                     </Button>
+                  </Link>
                   </div>
                   
                  

@@ -14,13 +14,7 @@ const LandingPageUIPage = () => {
   return ( 
     <>
       <div className="bg-blue1-50  flex flex-col font-inter items-center justify-start mx-auto pt-3 w-full">
-
-
-
-
         <div className="md:h-[1024px] md:flex-col sm:h-[703px] h-[756px] max-w-[1400px] mx-auto md:px-5 relative w-full">
-
-
           <div className="absolute md:h-[1024px] h-[703px] inset-x-[0] mx-auto top-[0] w-full">
 
             <Img

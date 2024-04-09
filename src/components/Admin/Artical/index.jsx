@@ -210,10 +210,6 @@ export default function ArticalPage(...props) {
                                     </FileUpload>
                                   </div>
                                 </div>
-
-                                
-                      
-                   
                               </div>
                             </div>
                            

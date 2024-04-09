@@ -6,6 +6,7 @@ import { ReactTable } from "../../components/ReactTable";
 import { createColumnHelper } from "@tanstack/react-table";
 import Publishbar from "components/Publishbar/publishbar";
 import { Heading } from "../../components/Heading1";
+import { Link } from 'react-router-dom';
 
 
 const dropDownOptions = [
@@ -66,13 +67,11 @@ export default function AddPackagePricing() {
                     <td class="pl-[10px] align-bottom pb-[10px] border border-slate-700 ...">Include Guider</td>
                     <td class="text-center border border-slate-700 ...">
                     <div class="inline-block relative">
-                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-32 focus:outline-none opacity-80">
+                      <select class="block  w-full bg-white cursor-pointer pr-10 px-4 py-2 focus:outline-none opacity-80">
                       <option value="" disabled selected>SELECT</option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
+                        <option>Local Guides</option>
+                        <option>Specialized Guides</option>
+                        <option>VIP Concierge Guides</option>
                       </select>
                       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <hr/>
@@ -85,13 +84,11 @@ export default function AddPackagePricing() {
                     </td>
                     <td class="text-center border border-slate-700 ...">
                     <div class="inline-block relative">
-                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-32 focus:outline-none opacity-80">
+                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-10 focus:outline-none opacity-80">
                       <option value="" disabled selected>SELECT</option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
+                        <option>Local Guides</option>
+                        <option>Specialized Guides</option>
+                        <option>VIP Concierge Guides</option>
                       </select>
                       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <hr/>
@@ -104,70 +101,11 @@ export default function AddPackagePricing() {
                     </td>
                     <td class="text-center border border-slate-700 ...">
                     <div class="inline-block relative">
-                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-32 focus:outline-none opacity-80">
+                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-10 focus:outline-none opacity-80">
                       <option value="" disabled selected>SELECT</option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
-                      </select>
-                      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                        <hr/>
-                        <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                          <path fill-rule="evenodd" d="M10 15l-5-5h10l-5 5z" clip-rule="evenodd" />
-                        </svg>
-                      </div>
-                    </div>
-                    <div className="self-stretch h-px opacity-30 bg-black-900_cc w-[180px] mx-auto" />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="pl-[10px] align-bottom pb-[10px] border border-slate-700 ...">Include Foods</td>
-                    <td class="text-center border border-slate-700 ...">
-                    <div class="inline-block relative">
-                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-32 focus:outline-none opacity-80">
-                      <option value="" disabled selected>SELECT</option>
-                        <option>YES</option>
-                        <option>NO</option>
-                      </select>
-                      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                        <hr/>
-                        <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                          <path fill-rule="evenodd" d="M10 15l-5-5h10l-5 5z" clip-rule="evenodd" />
-                        </svg>
-                      </div>
-                    </div>
-                    <div className="self-stretch h-px opacity-30 bg-black-900_cc w-[180px] mx-auto" />
-                    </td>
-                    <td class="text-center border border-slate-700 ...">
-                    <div class="inline-block relative">
-                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-32 focus:outline-none opacity-80">
-                      <option value="" disabled selected>SELECT</option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
-                      </select>
-                      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                        <hr/>
-                        <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                          <path fill-rule="evenodd" d="M10 15l-5-5h10l-5 5z" clip-rule="evenodd" />
-                        </svg>
-                      </div>
-                    </div>
-                    <div className="self-stretch h-px opacity-30 bg-black-900_cc w-[180px] mx-auto" />
-                    </td>
-                    <td class="text-center border border-slate-700 ...">
-                    <div class="inline-block relative">
-                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-32 focus:outline-none opacity-80">
-                      <option value="" disabled selected>SELECT</option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
+                        <option>Local Guides</option>
+                        <option>Specialized Guides</option>
+                        <option>VIP Concierge Guides</option>
                       </select>
                       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <hr/>
@@ -180,16 +118,14 @@ export default function AddPackagePricing() {
                     </td>
                   </tr>
                   <tr>
-                    <td class="pl-[10px] align-bottom pb-[10px] border border-slate-700 ...">Include Accommodation</td>
+                    <td class="pl-[10px] align-bottom pb-[10px] border border-slate-700 ...">Foods Pacakge</td>
                     <td class="text-center border border-slate-700 ...">
                     <div class="inline-block relative">
-                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-32 focus:outline-none opacity-80">
+                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-10 focus:outline-none opacity-80">
                       <option value="" disabled selected>SELECT</option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
+                        <option>Local Cuisine Sampler</option>
+                        <option>Culinary Exploration</option>
+                        <option>Luxury Dining</option>
                       </select>
                       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <hr/>
@@ -202,13 +138,11 @@ export default function AddPackagePricing() {
                     </td>
                     <td class="text-center border border-slate-700 ...">
                     <div class="inline-block relative">
-                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-32 focus:outline-none opacity-80">
+                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-10 focus:outline-none opacity-80">
                       <option value="" disabled selected>SELECT</option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
+                        <option>Local Cuisine Sampler</option>
+                        <option>Culinary Exploration</option>
+                        <option>Luxury Dining</option>
                       </select>
                       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <hr/>
@@ -221,13 +155,65 @@ export default function AddPackagePricing() {
                     </td>
                     <td class="text-center border border-slate-700 ...">
                     <div class="inline-block relative">
-                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-32 focus:outline-none opacity-80">
+                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-10 focus:outline-none opacity-80">
                       <option value="" disabled selected>SELECT</option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
+                        <option>Local Cuisine Sampler</option>
+                        <option>Culinary Exploration</option>
+                        <option>Luxury Dining</option>
+                      </select>
+                      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <hr/>
+                        <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M10 15l-5-5h10l-5 5z" clip-rule="evenodd" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="self-stretch h-px opacity-30 bg-black-900_cc w-[180px] mx-auto" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="pl-[10px] align-bottom pb-[10px] border border-slate-700 ...">Accommodations</td>
+                    <td class="text-center border border-slate-700 ...">
+                    <div class="inline-block relative">
+                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-20 focus:outline-none opacity-80">
+                      <option value="" disabled selected>SELECT</option>
+                        <option>Budget Stay</option>
+                        <option>Mid-range Stay</option>
+                        <option>Luxury Stay</option>
+                      </select>
+                      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <hr/>
+                        <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M10 15l-5-5h10l-5 5z" clip-rule="evenodd" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="self-stretch h-px opacity-30 bg-black-900_cc w-[180px] mx-auto" />
+                    </td>
+                    <td class="text-center border border-slate-700 ...">
+                    <div class="inline-block relative">
+                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-20 focus:outline-none opacity-80">
+                      <option value="" disabled selected>SELECT</option>
+                        <option>Budget Stay</option>
+                        <option>Mid-range Stay</option>
+                        <option>Luxury Stay</option>
+                      </select>
+                      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <hr/>
+                        <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M10 15l-5-5h10l-5 5z" clip-rule="evenodd" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="self-stretch h-px opacity-30 bg-black-900_cc w-[180px] mx-auto" />
+                    </td>
+                    <td class="text-center border border-slate-700 ...">
+                    <div class="inline-block relative">
+                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-20 focus:outline-none opacity-80">
+                      <option value="" disabled selected>SELECT</option>
+                        <option>Budget Stay</option>
+                        <option>Mid-range Stay</option>
+                        <option>Luxury Stay</option>
                       </select>
                       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <hr/>
@@ -243,13 +229,11 @@ export default function AddPackagePricing() {
                     <td class="pl-[10px] align-bottom pb-[10px] border border-slate-700 ...">Include Transportation</td>
                     <td class="text-center border border-slate-700 ...">
                     <div class="inline-block relative">
-                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-32 focus:outline-none opacity-80">
+                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-10 focus:outline-none opacity-80">
                       <option value="" disabled selected>SELECT</option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
+                        <option>Essential Transit</option>
+                        <option>Comfortable Transport</option>
+                        <option>Luxury Transport</option>
                       </select>
                       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <hr/>
@@ -262,13 +246,11 @@ export default function AddPackagePricing() {
                     </td>
                     <td class="text-center border border-slate-700 ...">
                     <div class="inline-block relative">
-                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-32 focus:outline-none opacity-80">
+                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-10 focus:outline-none opacity-80">
                       <option value="" disabled selected>SELECT</option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
+                        <option>Essential Transit</option>
+                        <option>Comfortable Transport</option>
+                        <option>Luxury Transport</option>
                       </select>
                       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <hr/>
@@ -281,13 +263,11 @@ export default function AddPackagePricing() {
                     </td>
                     <td class="text-center border border-slate-700 ...">
                     <div class="inline-block relative">
-                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-32 focus:outline-none opacity-80">
+                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-10 focus:outline-none opacity-80">
                       <option value="" disabled selected>SELECT</option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
+                        <option>Essential Transit</option>
+                        <option>Comfortable Transport</option>
+                        <option>Luxury Transport</option>
                       </select>
                       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <hr/>
@@ -303,13 +283,13 @@ export default function AddPackagePricing() {
                     <td class="pl-[10px] align-bottom pb-[10px] border border-slate-700 ...">Maximum Persons</td>
                     <td class="text-center border border-slate-700 ...">
                     <div class="inline-block relative">
-                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-32 focus:outline-none opacity-80">
+                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-24 focus:outline-none opacity-80">
                       <option value="" disabled selected>SELECT</option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
+                        <option>2 person</option>
+                        <option>Less than 5</option>
+                        <option>Less than 10</option>
+                        <option>Less than 20</option>
+                        <option>Less than 30</option>
                       </select>
                       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <hr/>
@@ -322,13 +302,13 @@ export default function AddPackagePricing() {
                     </td>
                     <td class="text-center border border-slate-700 ...">
                     <div class="inline-block relative">
-                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-32 focus:outline-none opacity-80">
+                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-24 focus:outline-none opacity-80">
                       <option value="" disabled selected>SELECT</option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
+                        <option>2 person</option>
+                        <option>Less than 5</option>
+                        <option>Less than 10</option>
+                        <option>Less than 20</option>
+                        <option>Less than 30</option>
                       </select>
                       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <hr/>
@@ -341,13 +321,13 @@ export default function AddPackagePricing() {
                     </td>
                     <td class="text-center border border-slate-700 ...">
                     <div class="inline-block relative">
-                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-32 focus:outline-none opacity-80">
+                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-24 focus:outline-none opacity-80">
                       <option value="" disabled selected>SELECT</option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
+                        <option>2 person</option>
+                        <option>Less than 5</option>
+                        <option>Less than 10</option>
+                        <option>Less than 20</option>
+                        <option>Less than 30</option>
                       </select>
                       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <hr/>
@@ -360,14 +340,14 @@ export default function AddPackagePricing() {
                     </td>
                   </tr>
                   <tr>
-                    <td class="pl-[10px] align-bottom pb-[10px] border border-slate-700 ...">Maximum Children</td>
+                    <td class="pl-[10px] align-bottom pb-[10px] border border-slate-700 ...">Tour Insurance</td>
                     <td class="text-center border border-slate-700 ...">
                     <div class="inline-block relative">
-                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-32 focus:outline-none opacity-80">
+                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-5 focus:outline-none opacity-80">
                       <option value="" disabled selected>SELECT</option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
+                        <option>Essential Coverage</option>
+                        <option>Comprehensive Coverage</option>
+                        <option>Deluxe Assurance</option>
                         <option>Option 4</option>
                         <option>Option 5</option>
                       </select>
@@ -437,9 +417,11 @@ export default function AddPackagePricing() {
                 </tbody>
               </table>
               
-              <Button shape="round" className="ml-[800px] mt-[39px] w-[150px]">
-                Save & Continue
-              </Button>
+              <Link to="/addfaq">
+                <Button shape="round" className="ml-[800px] mt-[39px] w-[150px]">
+                  Save & Continue
+                </Button>
+              </Link>
 
             </div>
           </div>

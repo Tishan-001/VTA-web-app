@@ -6,6 +6,7 @@ import Publishbar from "components/Publishbar/publishbar";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { Heading } from "../../components/Heading1";
+import { Link } from 'react-router-dom';
 
 export default function AddFAQ() {
   const [faqInputs, setFaqInputs] = useState([]);
@@ -216,9 +217,11 @@ export default function AddFAQ() {
                 ))}
                 <div className="h-px mt-[31px] bg-black-900_cc" />
               </div>
-              <Button shape="round" className="self-end mt-10 min-w-[138px]">
-                Save & Continue
-              </Button>
+              <Link to="/addadmingallery" className="self-end">
+                <Button shape="round" className="self-end mt-10 min-w-[138px]">
+                  Save & Continue
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
