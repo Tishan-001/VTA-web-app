@@ -16,6 +16,7 @@ import EmailComformation from "pages/EmailComformation/EmailComformation";
 import FogotPassword from "pages/FogotPassword/FogotPassword";
 import InstructionSent from "pages/CheckEmail/CheckEmail";
 import NewPassword from "pages/CreateNewPassword/CreateNewPassword";
+import AddAdminGallery from "pages/AddAdminGallery";
 const HotelBookingpage = React.lazy(() => import("pages/HotelBookingpage"));
 const AllpackagesPageUI = React.lazy(() => import("pages/AllpackagesPageUI"));
 const LandingPageUI = React.lazy(() => import("pages/LandingPageUI"));
@@ -62,7 +63,7 @@ const ProjectRoutes = () => {
           <Route path="/sinin" element={<SignInPage/>}/>
           <Route path="/fogotpassword" element={<FogotPassword/>}/>
           <Route path="/newpassword" element={<NewPassword/>}/>
-          <Route path="/Instructionsent" element={<InstructionSent/>}/>
+          <Route path="/ " element={<InstructionSent/>}/>
           <Route path="/medicaldetial" element={<MedicalDetail/>}/>
           <Route path="/doctordetails" element={<DoctorDetails/>}/>
           <Route path="/locationdetails" element={<Locationdetails/>}/>
@@ -79,7 +80,12 @@ const ProjectRoutes = () => {
           <Route path="/addguiderdata" element={<AddGuiderData/>}/>
           <Route path="/addvehicaldata" element={<AddVehicalData/>}/>
           <Route path="/addvehicalpricing" element={<AddVehicalPricing/>}/>
+
           <Route path="/payment" element={<Payment/>}/>
+
+          <Route path="/addadmingallery" element={<AddAdminGallery/>}/>
+          <Route path="/addadminpublish" element={<AddPackagePublish/>}/>
+
         </Routes>
       </Router>
     </React.Suspense>

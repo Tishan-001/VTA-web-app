@@ -208,6 +208,7 @@ export default function ArticalPage(...props) {
                                         Secondary Image
                                       </Text>
                                     </FileUpload>
+                                    
                                     <FileUpload
                                       allowMultiple
                                       preview
@@ -224,10 +225,6 @@ export default function ArticalPage(...props) {
                                     </FileUpload>
                                   </div>
                                 </div>
-
-                                
-                      
-                   
                               </div>
                             </div>
                            

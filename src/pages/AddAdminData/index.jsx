@@ -6,10 +6,12 @@ import Header from "../../components/Header1";
 import { TextArea } from "components/TextArea";
 import { SelectBox } from "components/SelectBox";
 import Publishbar from "components/Publishbar/publishbar";
+import { Link } from "react-router-dom";
 
 const dropDownOptions = [
   { label: "Historical", value: "option1" },
   { label: "Adventure", value: "option2" },
+  { label: "Cultural ", value: "option3" },
 ];
 
 export default function AddAdminData() {
@@ -30,14 +32,14 @@ export default function AddAdminData() {
                 <div className="flex sm:flex-col items-center gap-[9px]">
                   <div className="flex flex-col w-[31%] sm:w-full gap-7 sm:p-5">
                     <div className="flex flex-col gap-[18px]">
-                      <Heading as="h6" className="text-[20px] mt-[50px]">Hotel Package Title</Heading>
+                      <Heading as="h6" className="text-[20px] mt-[50px]">Package Title</Heading>
                       <Text size="s" as="p" className=" w-[220px]">
                         As your Package storefront, your title is the most important place to include keywords that
                         users would likely use to search for a service like yours.
                       </Text>
                     </div>
                     <div className="flex flex-col gap-[18px]">
-                      <Heading as="h6" className="text-[20px] mt-[30px]">Room Type</Heading>
+                      <Heading as="h6" className="text-[20px] mt-[30px]">Tour Catogory</Heading>
                       <div>
                         <div>
                           <Text size="s" as="p" className=" w-[220px]">
@@ -97,9 +99,11 @@ export default function AddAdminData() {
                     <Text size="s" as="p" className="mt-3 !text-black-900_66 ml-[110px]">
                       5 tags maximum. Use letters and numbers only.
                     </Text>
-                    <Button shape="round" className=" mt-6 w-[150px] ml-[538px] md:ml-0">
-                      Save & Continue
-                    </Button>
+                    <Link to="/addpackagepricing">
+                      <Button shape="round" className=" mt-6 w-[150px] ml-[538px] md:ml-0">
+                        Save & Continue
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -110,3 +114,4 @@ export default function AddAdminData() {
     </>
   );
 }
+
