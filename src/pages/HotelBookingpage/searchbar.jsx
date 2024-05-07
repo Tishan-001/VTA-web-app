@@ -74,6 +74,7 @@ const SearchBar = ({ hotelListRef, filterHotelListByDestination }) => {
         color="white_A700"
 
          onClick={handleSearchNow}
+         
       >
         Search Now
       </Button>

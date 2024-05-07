@@ -7,73 +7,46 @@ import { Link } from "react-router-dom";
 const AllpackagesPageUIPage = () => {
   return (
     <>
-      <div className="bg-gray-100_01 flex flex-col font-inter items-center justify-end mx-auto pt-[21px] w-full">
-        <div className="h-[723px] max-w-[1418px] mx-auto md:px-5 relative w-full">
-          <Img
-            className="h-[723px] m-auto object-cover rounded-[30px] w-full"
-            src="images/img_rectangle4.png"
-            alt="rectangleFour"
-          />
-          <div className="absolute flex flex-col md:gap-10 gap-[388px] justify-start right-[4%] top-[5%] w-[77%]">
-            <div className="flex md:flex-col flex-row md:gap-10 items-center justify-between md:ml-[0] ml-[152px] w-[87%] md:w-full">
-              <div className="bg-gray-700_b5 border-2 border-solid flex flex-row items-center justify-between p-[17px] rounded-[30px] w-[67%] md:w-full white_A700_black_900_00_border2">
-                <Text
-                  className="ml-6 my-[3px] text-center text-white-A700_7f text-xl"
-                  size="txtInterBold20WhiteA7007f"
-                >
-                  Home
-                </Text>
-                <Text
-                  className="my-[3px] text-center text-white-A700 text-xl"
-                  size="txtInterBold20"
-                >
-                  Services
-                </Text>
-                <Text
-                  className="mt-2 text-center text-white-A700_7f text-xl"
-                  size="txtInterBold20WhiteA7007f"
-                >
-                  Gallery
-                </Text>
-                <Text
-                  className="mr-[30px] my-[3px] text-center text-white-A700_7f text-xl"
-                  size="txtInterBold20WhiteA7007f"
-                >
-                  About Us
-                </Text>
-              </div>
-              <Button
-                className="cursor-pointer font-bold leading-[normal] min-w-[134px] rounded-[30px] text-center text-xl"
-                color="white_A700_72"
-                size="lg"
-              >
-                LogOut
-              </Button>
-            </div>
-            <div className="bg-gray-700_66_01 flex md:flex-col flex-row md:gap-5 items-center justify-start mr-[219px] p-[15px] rounded-[44px] w-4/5 md:w-full">
-              <Text
-                className="md:ml-[0] ml-[79px] text-center text-white-A700 text-xl"
-                size="txtInterBold20"
-              >
-                Location
-              </Text>
-              <Line className="bg-blue-100 h-[51px] md:h-px mb-1.5 md:ml-[0] ml-[102px] rotate-[-91deg] md:w-full w-px" />
-              <Text
-                className="md:ml-[0] ml-[114px] text-center text-gray-200 text-xl"
-                size="txtInterBold20Gray200"
-              >
-                Date
-              </Text>
-              <Line className="bg-blue-100 h-[51px] md:h-px mb-1.5 md:ml-[0] ml-[114px] rotate-[-91deg] md:w-full w-px" />
-              <Button
-                className="cursor-pointer font-bold leading-[normal] min-w-[179px] md:ml-[0] ml-[74px] md:mt-0 my-1.5 rounded-[23px] text-center text-xl"
-                color="white_A700"
-              >
-                Search Now
-              </Button>
-            </div>
+      <div className="bg-gray-100_01 flex flex-col font-inter items-center justify-start mx-auto pt-3 px-3 w-full">
+
+
+       <div className="md:h-[1024px] md:flex-col sm:h-[703px] h-[700px]   w-full mx-auto md:px-5 relative ">
+          <div className="absolute md:h-[1024px] h-[703px] inset-x-[0] mx-auto top-[0] w-full">
+              <Img
+                className="h-[660px] m-auto object-cover rounded-[30px] w-full"
+                src="images/img_rectangle4.png"
+                alt="rectangleFour"
+              />
+            <div className="absolute flex flex-col md:gap-10 gap-[388px] justify-start right-[4%] top-[5%] w-[77%]">
+             
+                    <div className="bg-gray-700_66_01 flex md:flex-col flex-row md:gap-5 items-center justify-start mr-[219px] p-[15px] rounded-[44px] w-4/5 md:w-full">
+                      <Text
+                        className="md:ml-[0] ml-[79px] text-center text-white-A700 text-xl"
+                        size="txtInterBold20"
+                      >
+                        Location
+                      </Text>
+                      <Line className="bg-blue-100 h-[51px] md:h-px mb-1.5 md:ml-[0] ml-[102px] rotate-[-91deg] md:w-full w-px" />
+                      <Text
+                        className="md:ml-[0] ml-[114px] text-center text-gray-200 text-xl"
+                        size="txtInterBold20Gray200"
+                      >
+                        Date
+                      </Text>
+                      <Line className="bg-blue-100 h-[51px] md:h-px mb-1.5 md:ml-[0] ml-[114px] rotate-[-91deg] md:w-full w-px" />
+                      <Button
+                        className="cursor-pointer font-bold leading-[normal] min-w-[179px] md:ml-[0] ml-[74px] md:mt-0 my-1.5 rounded-[23px] text-center text-xl"
+                        color="white_A700"
+                      >
+                        Search Now
+                      </Button>
+                    </div>
+             </div>
           </div>
         </div>
+
+
+
         <div className="flex flex-col items-start justify-start max-w-[1271px] mt-[68px] mx-auto md:px-5 w-full">
           <Text
             className="text-black-900_b2 text-xl"
