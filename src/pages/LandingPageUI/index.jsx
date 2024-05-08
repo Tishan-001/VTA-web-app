@@ -58,23 +58,24 @@ const LandingPageUIPage = () => {
 
 
         <div className="flex flex-row md:flex-col w-[92%] mt-[-100px] gap-[52px] z-[5]">
-            <div className="flex flex-col ml-12 items-center justify-center w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700 shadow-xs rounded-[20px]">
+          <div className="flex flex-col ml-12 items-center justify-center w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700 shadow-2xl rounded-[20px]">
               <Text
-                className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
-                size="txtInterMedium40"
+                  className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
+                  size="txtInterMedium40"
               >
-                10M +
+                  10M +
               </Text>
               <Text
-                className="text-black-900 text-center text-xl"
-                size="txtInterMedium20"
+                  className="text-black-900 text-center text-xl"
+                  size="txtInterMedium20"
               >
-                Total Customer
+                  Total Customer
               </Text>
-            </div>
+          </div>
 
 
-            <div className="flex flex-col items-center justify-start w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700 shadow-xs rounded-[20px]">
+
+            <div className="flex flex-col items-center justify-start w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700 shadow-2xl rounded-[20px]">
               <Text
                 className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
                 size="txtInterMedium40"
@@ -88,7 +89,7 @@ const LandingPageUIPage = () => {
                 Tour Guiders
               </Text>
             </div>
-            <div className="flex flex-col items-center justify-center w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700 shadow-xs rounded-[20px]">
+            <div className="flex flex-col items-center justify-center w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700 shadow-2xl rounded-[20px]">
               <Text
                 className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
                 size="txtInterMedium40"
@@ -104,7 +105,7 @@ const LandingPageUIPage = () => {
             </div>
 
             
-            <div className="flex flex-col mr-12 items-center justify-center w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700_01 shadow-xs rounded-[20px]">
+            <div className="flex flex-col mr-12 items-center justify-center w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700_01 shadow-2xl rounded-[20px]">
               <Text
                 className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
                 size="txtInterMedium40"

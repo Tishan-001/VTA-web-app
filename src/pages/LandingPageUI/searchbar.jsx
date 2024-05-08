@@ -47,10 +47,10 @@ const SearchBar = ({ hotelListRef, filterHotelListByDestination }) => {
     </div>*/
 
 
-         <div className="bg-gray-700_66_01 flex md:flex-col flex-row md:gap-5  justify-start mr-10 mt-8 p-[10px] rounded-[44px] shadow-bs w-[88%]  border-2 border-solid md:w-full white_A700_black_900_00_border3 ">
+          <div class="bg-gray-700_66_01 flex md:flex-col flex-row  md:gap-5 justify-center mr-10 mt-8 p-[10px] rounded-[44px] shadow-bs w-[60%] border-2 border-solid md:w-full white_A700_black_900_00_border3">
                 <input
                     type="text"
-                    className="ml-20 md:ml-[0] text-center text-gray-200 text-xl border-none focus:outline-none bg-transparent placeholder-white"
+                    className="ml-20 md:ml-[0] text-center text-gray-200 justify-center text-xl border-none focus:outline-none bg-transparent placeholder-white"
                     placeholder="wher are you going..."  
                     onChange={(e) => setDestination(e.target.value)}
                 />
