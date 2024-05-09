@@ -40,7 +40,7 @@ export default function EmailComformation() {
           navigate('/login');
         } else {
           console.error("Verification failed:", data);
-          alert(data.message || "An error occurred during verification.");
+          alert(data.error || "An error occurred during verification.");
         }
       } catch (e) {
         // Handle JSON parsing error

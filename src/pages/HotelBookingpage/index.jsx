@@ -1,29 +1,45 @@
-import React,{useRef,useState} from "react";
-
+import React, { useRef, useState, useEffect } from "react";
 import { Button, Img, Line, List, Text } from "components";
 import Footer from "components/Footer";
 import Nav12 from "./nav.jsx";
 import Searchbar from "./searchbar.jsx";
 import Filter from "./filter.jsx";
 import HotelList from "./hotelList.jsx";
-import HotelData from "../../assets/data/HotelData";
-
 
 const HotelBookingpagePage = () => {
+  const [hotels, setHotels] = useState([]);
+  const [filteredHotelList, setFilteredHotelList] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    setFilteredHotelList(hotels);
+  }, [hotels]);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/hotels/");
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const data = await response.json();
+      setHotels(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   const hotelListRef = useRef(null);
-  
-  const [filteredHotelList, setFilteredHotelList] = useState(HotelData);
 
   const filterHotelListByDestination = (destination) => {
-    const filteredList = HotelData.filter((hotel) =>
-      hotel.City.toLowerCase() === destination.toLowerCase()
+    const filteredList = hotels.filter((hotel) =>
+      hotel.city.toLowerCase() === destination.toLowerCase()
     );
     setFilteredHotelList(filteredList);
   };
   
-
-
 
   return (
     <>

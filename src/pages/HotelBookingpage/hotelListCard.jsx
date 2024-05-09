@@ -11,15 +11,9 @@ import { Button, Img, Line, List, Text } from "../../components";
 
 const HotelListCard=({tour})=>{
 
-
-    const {id,Name,photo,price,Rate}=tour;
-
-    
-
+    const {id,name,photo,pricePerNight,starRating}=tour;
+    console.log(name);
     return(
-
-
-
         <div className="h-[404px] relative w-full">
         <Img
           className="h-[404px] m-auto object-cover rounded-[30px] w-full"
@@ -33,13 +27,13 @@ const HotelListCard=({tour})=>{
                 className="text-white-A700 text-xl"
                 size="txtInterSemiBold20"
               >
-                {Name}
+                {name}
               </Text>
               <Text
                 className="text-white-A700 text-xl"
                 size="txtInterMedium20WhiteA700"
               >
-                ${price}
+                ${pricePerNight}
               </Text>
             </div>
             
@@ -62,26 +56,11 @@ const HotelListCard=({tour})=>{
                     className="mr-4 text-white-A700_01 text-xl"
                     size="txtInterMedium20WhiteA70001"
                   >
-                    {Rate}
+                    {starRating}
                   </Text>
          </div>
-
-
-
-
-
-
-       
-
       </div>
-
-
-
-
-
-
-
-       
+      
     );
 };
 

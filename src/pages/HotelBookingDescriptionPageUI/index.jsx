@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Img, List, Text } from "components";
 import Footer from "components/Footer";
 import hotelData from "../../assets/data/HotelData";
@@ -9,27 +9,34 @@ import Image1 from "../../assets/images/img_12129860mapl.png"
 
 const HotelBookingDescriptionPageUIPage = () => {
   const { id } = useParams();
-  const tour = hotelData.find((tour) => tour.id === parseInt(id));
+  const [hotels, setHotels] = useState([]);
+  const [mainImage, setMainImage] = useState('');
 
-  const {
-    Name,
-    photo,
-    price,
-    Rate,
-    p1,
-    p2,
-    p3,
-    p4,
-    p5,
-    p6,
-    addres,
-    RP1,
-    RP2,
-    RP3,
-    rooms,
-  } = tour;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/hotels/");
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const data = await response.json();
+        setHotels(data);
+        const hotel = data.find(hotel => hotel.id.toString() === id); // Ensure matching string to string or number to number
+        if (hotel && hotel.media && hotel.media.length > 0) {
+          setMainImage(hotel.media[0]);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, [id]); // Ensure useEffect is called when id changes
 
-  const [mainImage, setMainImage] = useState(p1);
+  const hotel = hotels.find(hotel => hotel.id.toString() === id);
+
+  if (!hotel) {
+    return <div>Loading...</div>; // Or any other loading or error placeholder
+  }
 
   const handleClick = (newImage) => {
     setMainImage(newImage);
@@ -63,7 +70,7 @@ const HotelBookingDescriptionPageUIPage = () => {
                 className="md:text-5xl text-6xl text-black-900"
                 size="txtInterBold60"
               >
-                {Name}
+                {hotel.name}
               </Text>
               <div className="flex flex-row gap-[18px] items-start justify-start ml-0.5 md:ml-[0] mt-[19px] w-[56%] md:w-full">
                 <Img
@@ -73,7 +80,7 @@ const HotelBookingDescriptionPageUIPage = () => {
                 />
                 <a href="link_to_map" className="text-black-900_b2 underline-on-hover">
                   <Text size="xl" as="p">
-                    {addres}
+                    {hotel.address}
                   </Text>
                 </a>
               </div>
@@ -91,9 +98,9 @@ const HotelBookingDescriptionPageUIPage = () => {
                 </span>
                 <span className="text-black-900 font-inter text-left font-light">
                   <br />
-                  Experience unmatched luxury at {Name}, where refined
+                  Experience unmatched luxury at {hotel.name}, where refined
                   elegance meets exceptional service. Immerse yourself in a
-                  world of comfort and sophistication in the heart of {addres}.
+                  world of comfort and sophistication in the heart of {hotel.address}.
                 </span>
               </Text>
 
@@ -109,11 +116,15 @@ const HotelBookingDescriptionPageUIPage = () => {
             <div className="flex flex-col items-center justify-start w-[54%] gap-3.5">
               <img src={mainImage} alt="Main Image" className="w-full object-cover rounded-[20px]" />
               <div className="flex flex-row w-[85%] gap-3">
-                <img src={p1} alt="_" className="w-[19%] object-cover rounded-[5px]" onClick={() => handleClick(p1)} />
-                <img src={p2} alt="_" className="w-[19%] object-cover rounded-[5px]" onClick={() => handleClick(p2)} />
-                <img src={p3} alt="_" className="w-[19%] object-cover rounded-[5px]" onClick={() => handleClick(p3)} />
-                <img src={p4} alt="_" className="w-[19%] object-cover rounded-[5px]" onClick={() => handleClick(p4)} />
-                <img src={p5} alt="_" className="w-[19%] object-cover rounded-[5px]" onClick={() => handleClick(p5)} />
+                {hotel?.media?.map((image, index) => (
+                  <img 
+                    key={index} 
+                    src={image} 
+                    alt={`Thumbnail ${index + 1}`}
+                    className="w-[19%] object-cover rounded-[5px]" 
+                    onClick={() => handleClick(image)} 
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -130,7 +141,7 @@ const HotelBookingDescriptionPageUIPage = () => {
               className="absolute sm:flex-col flex-row md:gap-10 gap-[100px] grid sm:grid-cols-1 md:grid-cols-2 grid-cols-3 inset-[0] justify-start m-auto w-auto"
               orientation="horizontal"
             >
-              {rooms.map((room) => (
+              {hotel.rooms.map((room) => (
                 <div key={room.id} className="h-[500px] relative w-full">
                   <Img
                     className="h-[500px] m-auto object-cover rounded-[20px] w-[380px]"

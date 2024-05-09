@@ -34,7 +34,7 @@ export default function SignUpPage() {
           navigate('/emailConformation', { state: { email: email } });
         } else {
           console.error("Signup failed:", data);
-          alert(data.message || "An error occurred during signup.");
+          alert(data.error || "An error occurred during signup.");
         }
       } catch (e) {
         // Handle JSON parsing error

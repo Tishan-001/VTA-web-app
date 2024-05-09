@@ -35,12 +35,10 @@ export default function SignInPage() {
         const data = await response.json();
         if (response.ok) {
           console.log("Login successful", data);
-          // Save token to localStorage
-          localStorage.setItem('authToken', data.token);
           navigate('/');
         } else {
           console.error("Login failed:", data);
-          alert(data.message || "An error occurred during login.");
+          alert(data.error || "An error occurred during login.");
         }
       } catch (e) {
         // Handle JSON parsing error
