@@ -66,6 +66,7 @@ export default function SignUpPage() {
             </Heading>
 
             <div className="flex flex-col items-center justify-start w-[90%] md:w-full mt-11 gap-5">
+
               <Input
                 color="deep_purple_400"
                 shape="square"
@@ -104,6 +105,7 @@ export default function SignUpPage() {
                 placeholder="Conform Password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
+
                 className="w-full sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
               />
               <a
