@@ -28,14 +28,6 @@ const SearchBar = ({ hotelListRef, filterHotelListByDestination }) => {
 
 
       <Line className="bg-blue-100 h-[51px] md:h-px mb-[7px] md:ml-[0] ml-1 rotate-[-0deg] md:w-full w-[2.5px]" />
-
-
-
-
-      
-
-
-
       <Button
         className="cursor-pointer font-bold leading-[normal] mb-[5px] min-w-[168px] md:ml-[0] ml-5 md:mt-0 mt-[9px] rounded-[23px] text-center text-xl"
         color="white_A700"

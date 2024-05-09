@@ -60,7 +60,10 @@ export default function Location() {
 
         <div className="gap-[50px] flex flex-col mt-[150px]">
                        <div className="flex flex-col-3 w-[100%] md:w-full gap-[10px] ml-[250px]">
+                          
+                          
                           <div className="flex sm:flex-col justify-center gap-[20px] mt-[2px]">
+                           
                             <div className="h-[200px] relative ">
                                     <Img
                                     src="images/images/img_image_73.png"
@@ -77,6 +80,7 @@ export default function Location() {
                                   
                                   </Button>
                             </div>
+
 
                             <div className="h-[200px] relative ">
                                   <Img

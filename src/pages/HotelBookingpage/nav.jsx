@@ -12,7 +12,7 @@ const Nav = () => {
       <div className="bg-gray-700_66_01 0_b5  md:flex-col md:items-center md:text-center  border-2 border-solid flex flex-row items-center justify-between p-[17px] rounded-[30px] w-[67%]  white_A700_black_900_00_border3">
         <a
           href="/signup"
-          className="ml-6 my-[3px] text-center text-white-A700_7f text-xl md:ml-[0] text-center"
+          className="ml-6 my-[3px] text-center text-white-A700_7f text-xl md:ml-[0] "
           size="txtInterBold20WhiteA7007f"
         >
           Home
