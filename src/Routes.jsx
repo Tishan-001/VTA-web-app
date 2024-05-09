@@ -28,11 +28,7 @@ const GuideDetail= React.lazy(()=>import("pages/GuideDetailOne"));
 const TaxiDetail= React.lazy(()=>import("pages/TaxiDetail"));
 const PackageDetails=React.lazy(()=>import("pages/PackageDetails"))
 const Medical=React.lazy(()=>import("pages/Medical"))
-<<<<<<< HEAD
 const Signup=React.lazy(()=>import("pages/SignUp"))
-=======
-const Sinup=React.lazy(()=>import("pages/SignUp"))
->>>>>>> 062ef950bd3e20315de8a7e1cc76d0bdb5df61d8
 const MedicalDetail=React.lazy(()=>import("pages/MedicalDetail"))
 const DoctorDetails=React.lazy(()=>import("pages/DoctorDetails"))
 const Locationdetails=React.lazy(()=>import("pages/LocationDetails"))
@@ -62,15 +58,9 @@ const ProjectRoutes = () => {
           <Route path="/taxidetil" element={<TaxiDetail/>}/>
           <Route path="/packagedetails" element={<PackageDetails/>}/>
           <Route path="/medical" element={<Medical/>}/>
-<<<<<<< HEAD
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/emailConformation" element={<EmailComformation/>}/>
           <Route path="/login" element={<SignInPage/>}/>
-=======
-          <Route path="/sinup" element={<Sinup/>}/>
-          <Route path="/emailConformation" element={<EmailComformation/>}/>
-          <Route path="/sinin" element={<SignInPage/>}/>
->>>>>>> 062ef950bd3e20315de8a7e1cc76d0bdb5df61d8
           <Route path="/fogotpassword" element={<FogotPassword/>}/>
           <Route path="/newpassword" element={<NewPassword/>}/>
           <Route path="/ " element={<InstructionSent/>}/>
