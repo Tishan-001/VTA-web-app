@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Img, List, Text } from "components";
 import Footer from "components/Footer";
-import hotelData from "../../assets/data/HotelData";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Facility from "./facility";
