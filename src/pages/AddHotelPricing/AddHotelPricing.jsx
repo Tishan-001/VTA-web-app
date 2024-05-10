@@ -63,16 +63,14 @@ export default function AddHotelPricing() {
                 </thead>
                 <tbody>
                   <tr>
-                    <td class="pl-[10px] align-bottom pb-[10px] border border-slate-700 ...">Include Welcome Drink</td>
+                    <td class="pl-[10px] align-bottom pb-[10px] border border-slate-700 ...">Fitness Center Access</td>
                     <td class="text-center border border-slate-700 ...">
                     <div class="inline-block relative">
-                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-32 focus:outline-none opacity-80">
+                      <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-10 focus:outline-none opacity-80">
                       <option value="" disabled selected>SELECT</option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
+                        <option>No Access</option>
+                        <option>Standard Gym</option>
+                        <option>Personal Training</option>
                       </select>
                       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <hr/>
@@ -87,11 +85,9 @@ export default function AddHotelPricing() {
                     <div class="inline-block relative">
                       <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-32 focus:outline-none opacity-80">
                       <option value="" disabled selected>SELECT</option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
+                        <option>No Access</option>
+                        <option>Standard Gym</option>
+                        <option>Personal Training</option>
                       </select>
                       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <hr/>
@@ -106,11 +102,9 @@ export default function AddHotelPricing() {
                     <div class="inline-block relative">
                       <select class="block  w-full bg-white cursor-pointer px-4 py-2 pr-32 focus:outline-none opacity-80">
                       <option value="" disabled selected>SELECT</option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
+                        <option>No Access</option>
+                        <option>Standard Gym</option>
+                        <option>Personal Training</option>
                       </select>
                       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <hr/>
