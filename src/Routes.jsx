@@ -17,6 +17,10 @@ import FogotPassword from "pages/FogotPassword/FogotPassword";
 import InstructionSent from "pages/CheckEmail/CheckEmail";
 import NewPassword from "pages/CreateNewPassword/CreateNewPassword";
 import AddAdminGallery from "pages/AddAdminGallery";
+
+import Header from'./components/Header';
+
+
 const HotelBookingpage = React.lazy(() => import("pages/HotelBookingpage"));
 const AllpackagesPageUI = React.lazy(() => import("pages/AllpackagesPageUI"));
 const LandingPageUI = React.lazy(() => import("pages/LandingPageUI"));
@@ -41,11 +45,20 @@ const Payment=React.lazy(()=>import("pages/Payment"))
 
 
 
+
+
+
 const ProjectRoutes = () => {
   return (
+
+    
     <React.Suspense fallback={<>Loading...</>}>
+     
       <Router>
+
+      
         <Routes>
+          
           <Route path="/" element={<LandingPageUI />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/allpackagespageui" element={<AllpackagesPageUI />} />

@@ -14,7 +14,7 @@ const AllpackagesPageUIPage = () => {
           <div className="absolute md:h-[1024px] h-[703px] inset-x-[0] mx-auto top-[0] w-full">
               <Img
                 className="h-[660px] m-auto object-cover rounded-[30px] w-full"
-                src="images/img_rectangle4.png"
+                src="images/travel4.jpg"
                 alt="rectangleFour"
               />
             <div className="absolute flex flex-col md:gap-10 gap-[388px] justify-start right-[4%] top-[5%] w-[77%]">

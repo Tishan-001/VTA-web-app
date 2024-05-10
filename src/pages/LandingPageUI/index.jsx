@@ -5,7 +5,7 @@ import { Button, Img, Line, List, Text } from "components";
 import { Heading } from "components/Heading/index.jsx";
 
 import { Link } from "react-router-dom";
-
+import Header from'../../components/Navbar.jsx';
 
 import Searchbar from "./searchbar.jsx";
 
@@ -14,12 +14,49 @@ const LandingPageUIPage = () => {
   return ( 
     <>
 
+
+
+    
+
+
+    
+
+    <Header/>
+
+
+
+  
+
+    
+
+
+    
+
+
+
+
+
+
+
+
       <div className=" bg-bg1-20 flex flex-col font-inter items-center justify-start mx-auto px-3 pt-3 w-full">
+
+
+
+     
+
+
+     
+
+        
+
 
 
 
 
         <div className="md:h-[1024px] md:flex-col sm:h-[703px] h-[756px]   w-full mx-auto md:px-5 relative ">
+
+       
 
           <div className="absolute md:h-[1024px] h-[703px] inset-x-[0] mx-auto top-[0] w-full">
 
@@ -60,7 +97,7 @@ const LandingPageUIPage = () => {
 
 
         <div className="flex flex-row md:flex-col w-[92%] mt-[-115px] gap-[52px] z-[5]">
-            <div className="flex flex-col ml-12 sm:ml-[0px] md:ml-[0px] sm:mt-[200px] md:mt-[-80px] items-center justify-center w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700 shadow-xs rounded-[20px]">
+            <div className="flex flex-col ml-12 sm:ml-[0px] md:ml-[0px] sm:mt-[200px] md:mt-[-80px] items-center justify-center w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700 shadow-bs2 rounded-[20px]">
               <Text
                 className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
                 size="txtInterMedium40"
@@ -76,7 +113,7 @@ const LandingPageUIPage = () => {
             </div>
 
 
-            <div className="flex flex-col items-center justify-start w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700 shadow-xs rounded-[20px]">
+            <div className="flex flex-col items-center justify-start w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700 shadow-bs2 rounded-[20px]">
               <Text
                 className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
                 size="txtInterMedium40"
@@ -90,7 +127,7 @@ const LandingPageUIPage = () => {
                 Tour Guiders
               </Text>
             </div>
-            <div className="flex flex-col items-center justify-center w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700 shadow-xs rounded-[20px]">
+            <div className="flex flex-col items-center justify-center w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700 shadow-bs2 rounded-[20px]">
               <Text
                 className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
                 size="txtInterMedium40"
@@ -106,7 +143,7 @@ const LandingPageUIPage = () => {
             </div>
 
             
-            <div className="flex flex-col mr-12 items-center justify-center w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700_01 shadow-xs rounded-[20px]">
+            <div className="flex flex-col mr-12 items-center justify-center w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700_01 shadow-bs2 rounded-[20px]">
               <Text
                 className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
                 size="txtInterMedium40"
@@ -152,7 +189,7 @@ const LandingPageUIPage = () => {
               <div className="flex flex-col ml-5 mr-5 items-start justify-start w-full">
 
               <List
-                className="sm:flex-col   flex-row md:gap-10 gap-16 grid sm:grid-cols-1 md:grid-cols-2 grid-cols-3 justify-center mt-[70px] ml-20 md:ml-auto md:w-full  w-[88%] "
+                className="sm:flex-col   flex-row md:gap-10 gap-16 grid sm:grid-cols-1 md:grid-cols-2 grid-cols-4 justify-center mt-[70px] md:ml-[-15px] md:w-full  w-[100%] "
                 orientation="horizontal">
 
                 <div className="h-[400px] relative rounded-[20px] shadow-bs w-full">
@@ -364,6 +401,94 @@ const LandingPageUIPage = () => {
 
                 </div>   
 
+
+
+
+
+
+                <div className="h-[400px] relative rounded-[20px] shadow-bs w-full">
+                  <Img
+                    className="h-[400px] w-full m-auto object-cover rounded-[20px] sm:w-full "
+                    src="images/img_52.png"
+                    alt="FiftyTwo"/>
+
+
+                  <div className="absolute flex flex-col  gap-[230px] md:gap-[200px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
+                   
+                   
+                    <div className="flex flex-row items-center mt-[10px] justify-between w-[97%] md:w-full" >
+                      <Button
+                        className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
+                        shape="round"
+                        color="gray_700_66"
+                        size="xs"
+                      >
+                        7 Days
+                      </Button>
+
+                      
+                      <div className="bg-gray-700_66 flex flex-row gap-2.5 items-center justify-center p-[5px] rounded-[18px]">
+                        <Img
+                          className="h-[21px] ml-[9px] w-[22px]"
+                          src="images/img_star6.svg"
+                          alt="starSix"
+                        />
+                        <Text
+                          className="mr-4 text-white-A700_01 text-xl"
+                          size="txtInterMedium20WhiteA70001"
+                        >
+                          4.9
+                        </Text>
+                      </div>
+                      
+                    </div>
+
+
+                    <div className="bg-gray-600_99  flex flex-col items-center justify-end p-[11px] rounded-[20px] w-full">
+                      <div className="flex flex-col items-start justify-start mt-[9px] w-[97%] md:w-full">
+                        <Text
+                          className="text-[15px] text-white-A700"
+                          size="txtInterLight15"
+                        >
+                          29 AUGUST - 29 AUGUST
+                        </Text>
+                        <div className="flex flex-row gap-[39px] items-start justify-between w-full">
+                          <Text
+                            className="text-white-A700 text-xl"
+                            size="txtInterSemiBold20"
+                          >
+                            Minneriya National Park
+                          </Text>
+                          <Text
+                            className="text-white-A700 text-xl"
+                            size="txtInterMedium20WhiteA700"
+                          >
+                            $285
+                          </Text>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
               </List>
               </div>
             </div>
@@ -373,9 +498,9 @@ const LandingPageUIPage = () => {
 
 
           <Button
-            className="cursor-pointer font-medium leading-[normal] min-w-[190px] mt-[70px] rounded-[26px] text-center text-xl"
+            className="cursor-pointer  hover:bg-[#5AB2FF] hover:text-black-900 font-medium leading-[normal] min-w-[190px] mt-[90px] ml-[50px] rounded-[15px] text-center text-xl"
             color="black_900_01"
-            size="md"
+            size="lg1"
           >
             <Link to="/allpackagespageui">view more</Link>
             
@@ -383,7 +508,7 @@ const LandingPageUIPage = () => {
 
 
 
-          <div className="flex flex-row  w-[72%] md:w-full mt-[100px] sm:mt-[70px] md:mt-[70px] ml-[10px]">
+          <div className="flex flex-row  w-[72%] md:w-full mt-[140px] sm:mt-[70px] md:mt-[70px] ml-[10px]">
             <div className="flex md:flex-col flex-row md:gap-[41px] items-center justify-between w-full">
               
               
@@ -408,7 +533,7 @@ const LandingPageUIPage = () => {
                   
                   <Link to="tourguidersui"> 
 
-                  <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[19px] p-[10px] bg-white-A700_01 rounded-[20px] ml-10 sm:ml-auto md:ml-[120px]">
+                  <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[19px] p-[10px] bg-white-A700_01 rounded-[20px] ml-10 sm:ml-auto md:ml-[120px]  hover:bg-[#A0DEFF]  ">
                      <div className="flex flex-row sm:flex-Row justify-start items-start w-[100%] mb-3.5 gap-[28px] sm:gap-1">
                        
                         <Img
@@ -435,7 +560,7 @@ const LandingPageUIPage = () => {
 
                  <Link to="/tranportui"> 
 
-                 <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[12px] p-[8px] bg-white-A700_01 rounded-[20px] ml-10 sm:ml-auto md:ml-[120px]">
+                 <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[12px] p-[8px] bg-white-A700_01  rounded-[20px] ml-10 sm:ml-auto md:ml-[120px]  hover:bg-[#A0DEFF] ">
                      <div className="flex flex-row sm:flex-Row justify-start items-start w-[100%] mb-3.5 gap-[28px] sm:gap-1">
                         <Img
                              src="images/img_image2.png"
@@ -457,7 +582,7 @@ const LandingPageUIPage = () => {
 
                  <Link to="/hotelbookingpage"> 
 
-                <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[12px] p-[8px] bg-white-A700_01 rounded-[20px] ml-10 sm:ml-auto md:ml-[120px]">
+                <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[12px] p-[8px] bg-white-A700_01 rounded-[20px] ml-10 sm:ml-auto md:ml-[120px]  hover:bg-[#A0DEFF]">
                   <div className="flex flex-row sm:flex-row justify-start items-start w-[100%] mb-3.5 gap-[28px] sm:gap-1">
                     <Img
                        src="images/img_image3.png"
@@ -480,7 +605,7 @@ const LandingPageUIPage = () => {
                 
 
                 <Link to="/medical">
-                <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[12px] p-[8px] bg-white-A700_01 rounded-[20px] ml-10 sm:ml-auto md:ml-[120px]">
+                <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[12px] p-[8px] bg-white-A700_01 rounded-[20px] ml-10 sm:ml-auto md:ml-[120px] hover:bg-[#A0DEFF]">
                   <div className="flex flex-row sm:flex-row  justify-start items-start w-[100%] mb-3.5 gap-[28px] sm:gap-1">
                     <Img
                       src="images/img_image4.png"
@@ -501,7 +626,7 @@ const LandingPageUIPage = () => {
                 
 
                 <Link to="/allpackagespageui">
-                <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[19px] p-[8px] bg-white-A700_01 rounded-[20px] ml-10 sm:ml-auto md:ml-[120px]">
+                <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[19px] p-[8px] bg-white-A700_01 rounded-[20px] ml-10 sm:ml-auto md:ml-[120px] hover:bg-[#A0DEFF]">
                   <div className="flex flex-row  justify-start items-start w-[100%] mb-3.5 gap-[28px] sm:gap-1">
                     <Img
 
@@ -542,7 +667,7 @@ const LandingPageUIPage = () => {
 
 
 
-          <div className="flex flex-col items-start justify-start mt-[129px] w-[100%]">
+          <div className="flex flex-col items-start justify-start mt-[150px] w-[100%]">
           <Text
               className="text-black-900_b2 text-xl"
               size="txtInterMedium20Black900b2"
@@ -569,7 +694,7 @@ const LandingPageUIPage = () => {
                   alt="SeventyOne"
                 />
                 <Button
-                  className="absolute bottom-[9%] cursor-pointer font-bold leading-[normal] left-[4%] min-w-[145px] rounded-[20px] text-center text-xl"
+                  className="absolute bottom-[9%] cursor-pointer font-bold leading-[normal] left-[4%] min-w-[145px] rounded-[15px] text-center text-xl hover:bg-[#CAF4FF] hover:text-black-900"
                   shape="round"
                   color="gray_600_99"
                   
@@ -683,9 +808,9 @@ const LandingPageUIPage = () => {
             </div>
           </div>
           <Button
-            className="cursor-pointer font-medium leading-[normal] min-w-[190px] mt-[59px] rounded-[26px] text-center text-xl"
-            color="black_900_01"
-            size="md"
+             className="cursor-pointer  hover:bg-[#5AB2FF] hover:text-black-900 font-medium leading-[normal] min-w-[190px] mt-[90px]  rounded-[15px] text-center text-xl"
+             color="black_900_01"
+             size="lg1"
           >
             <Link to="/location"> view more</Link>
           </Button>
