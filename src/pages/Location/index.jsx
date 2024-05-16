@@ -29,8 +29,8 @@ export default function Location() {
                 <Text
                 className="text-3xl sm:text-[26px] md:text-[28px] text-white-A700"
                 size="txtInterMedium30">
-                 There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                alteration in some form, by injected humour.
+                  There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                  alteration in some form, by injected humour.
                 </Text>
               </div>
 

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const shapes = { round: "rounded-[18px]" };
+const shapes = { round: "rounded-[10px]" };
 const variants = {
   fill: {
     black_900_01: "bg-black-900_01 text-white-A700",
