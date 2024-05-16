@@ -4,6 +4,8 @@ import { Button, Img, Line, List, Text } from "components";
 import Footer from "components/Footer";
 import { Link } from "react-router-dom";
 
+import Searchbar from "./searchbar.jsx";
+
 const AllpackagesPageUIPage = () => {
   return (
     <>
@@ -19,28 +21,9 @@ const AllpackagesPageUIPage = () => {
               />
             <div className="absolute flex flex-col md:gap-10 gap-[388px] justify-start right-[4%] top-[5%] w-[77%]">
              
-                    <div className="bg-gray-700_66_01 flex md:flex-col flex-row md:gap-5 items-center justify-start mr-[219px] p-[15px] rounded-[44px] w-4/5 md:w-full">
-                      <Text
-                        className="md:ml-[0] ml-[79px] text-center text-white-A700 text-xl"
-                        size="txtInterBold20"
-                      >
-                        Location
-                      </Text>
-                      <Line className="bg-blue-100 h-[51px] md:h-px mb-1.5 md:ml-[0] ml-[102px] rotate-[-91deg] md:w-full w-px" />
-                      <Text
-                        className="md:ml-[0] ml-[114px] text-center text-gray-200 text-xl"
-                        size="txtInterBold20Gray200"
-                      >
-                        Date
-                      </Text>
-                      <Line className="bg-blue-100 h-[51px] md:h-px mb-1.5 md:ml-[0] ml-[114px] rotate-[-91deg] md:w-full w-px" />
-                      <Button
-                        className="cursor-pointer font-bold leading-[normal] min-w-[179px] md:ml-[0] ml-[74px] md:mt-0 my-1.5 rounded-[23px] text-center text-xl"
-                        color="white_A700"
-                      >
-                        Search Now
-                      </Button>
-                    </div>
+            <section>
+                     <Searchbar/>
+                  </section>
              </div>
           </div>
         </div>

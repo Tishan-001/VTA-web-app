@@ -7,7 +7,7 @@ import { Heading } from "components/Heading/index.jsx";
 import { Link } from "react-router-dom";
 import Header from'../../components/Navbar.jsx';
 
-import Searchbar from "./searchbar.jsx";
+import Searchbar from "../AllpackagesPageUI/searchbar.jsx";
 
 import Navbar  from "../HotelBookingpage/nav"
 
@@ -121,12 +121,10 @@ const LandingPageUIPage = () => {
 
             <div className="absolute flex flex-col justify-start right-[7%] top-[4%] w-[76%]">
              
-                  <section>
-                    <Navbar/>
-                  </section>
+                
 
               <Text
-                className="ml-2 md:ml-[10]  md:text-5xl text-6xl text-black-900 text-center justify-start absolute right-[14%] top-[30%]"
+                className="ml-2 md:ml-[10]  md:text-5xl text-6xl mt-[-100px] text-black-900 text-center justify-start absolute right-[14%] top-[30%]"
                 size="txtInterBold60"
               >
                 Traveling opens the doors to creating memories
