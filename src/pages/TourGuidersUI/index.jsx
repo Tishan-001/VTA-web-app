@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
 import { Button, Img, Line, Text } from "components";
 import Footer from "components/Footer";
 import Navbar  from "../HotelBookingpage/nav"
@@ -11,6 +10,25 @@ import { Link } from "react-router-dom";
 import Header from'../../components/Navbar.jsx';
 
 const TourGuidersUIPage = () => {
+  const [tourGuides, setTourGuides] = useState([]);
+
+  useEffect(() => {
+    fetchTourGuides();
+  }, [])
+
+  const fetchTourGuides = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/tourguides/");
+      if (!response.ok) {
+        throw new Error("Failed to fetch tour guides");
+      }
+      const data = await response.json();
+      setTourGuides(data);
+    } catch (error) {
+      console.error("Error fetching tour guides:", error);
+    }
+  };
+
   return (
     <>
 
@@ -36,9 +54,7 @@ const TourGuidersUIPage = () => {
                   <section>
                     <SearchBar/>
                   </section>
-
             </div>
-
           </div>
         </div>
 

@@ -5,14 +5,52 @@ import { Button, Img, Line, List, Text } from "components";
 import { Heading } from "components/Heading1";
 import { Input } from "components/Input";
 import { useState } from 'react';
-
+import { useNavigate } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
 export default function EmailComformation() {
 
+  const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(false);
+  const location = useLocation();
+  const { email } = location.state || {};
+  const [otp, setOtp] = useState('');
 
   const handleCheck = () => {
     setIsChecked(!isChecked);
+  };
+
+  const handleSubmit = async () => { 
+    try {
+      const response = await fetch("http://localhost:5000/auth/register/email/verify", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          source: email,
+          otp: otp
+        })
+      });
+  
+      try {
+        const data = await response.json();
+        if (response.ok) {
+          console.log("Verfication successful", data);
+          navigate('/login');
+        } else {
+          console.error("Verification failed:", data);
+          alert(data.error || "An error occurred during verification.");
+        }
+      } catch (e) {
+        // Handle JSON parsing error
+        console.error("Error parsing JSON:", e);
+        alert("An error occurred, please try again.");
+      }
+    } catch (error) {
+      console.error("Error during verification:", error);
+      alert("An error occurred, please check your network and try again.");
+    }
   };
 
   return (
@@ -41,9 +79,10 @@ export default function EmailComformation() {
                 name="message"
                 rows="4"  // Specify the number of visible text lines
                 className="border border-gray-300 mb-5 rounded-md px-3 py-2 mt-4 h-10 w-[200px]"
-                
+                value={otp}
+                onChange={(e) => setOtp(e.target.value)}
             />
-            <Button size="xl" color="bg-deep_purple-400" as="h2" className="!text-white-A700 mt-5 w-[150px] bg-[#854a9bcc] p-3 rounded-[5px] tracking-[3.60px]">
+            <Button onClick={handleSubmit} size="xl" color="bg-deep_purple-400" as="h2" className="!text-white-A700 mt-5 w-[150px] bg-[#854a9bcc] p-3 rounded-[5px] tracking-[3.60px]">
               Verify
             </Button>
             <Text size="lg" as="p" className="mt-5 !text-black-900">

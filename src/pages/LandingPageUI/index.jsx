@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 import { Button, Img, Line, List, Text } from "components";
 
@@ -10,7 +10,58 @@ import Header from'../../components/Navbar.jsx';
 import Searchbar from "./searchbar.jsx";
 
 import Navbar  from "../HotelBookingpage/nav"
+
 const LandingPageUIPage = () => {
+
+  const [hotelCount, setHotelCount] = useState("");
+  const [guidersCount, setGuidersCount] = useState("");
+  const [customerCount, setCustormerCount] = useState("");
+
+  useEffect(() => {
+    fetchHotelCount();
+    fetGuidersCount();
+    fetCustomerCount();
+  }, []);
+
+  const fetchHotelCount = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/hotels/count");
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const data = await response.json();
+      setHotelCount(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  const fetGuidersCount = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/tourguides/count");
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const data = await response.json();
+      setGuidersCount(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+
+  const fetCustomerCount = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/auth/count");
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const data = await response.json();
+      setCustormerCount(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+
   return ( 
     <>
 
@@ -106,7 +157,7 @@ const LandingPageUIPage = () => {
                   className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
                   size="txtInterMedium40"
               >
-                  10M +
+                {customerCount} +
               </Text>
               <Text
                   className="text-black-900 text-center text-xl"
@@ -124,7 +175,7 @@ const LandingPageUIPage = () => {
                 className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
                 size="txtInterMedium40"
               >
-                24 +
+                {guidersCount} +
               </Text>
               <Text
                 className="text-black-900 text-center text-xl"
@@ -140,7 +191,7 @@ const LandingPageUIPage = () => {
                 className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
                 size="txtInterMedium40"
               >
-                200 +
+                {hotelCount} +
               </Text>
               <Text
                 className="text-black-900 text-center text-xl"

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Button, Img, Line, List, Text } from "components";
 
@@ -8,11 +9,46 @@ import { useState } from 'react';
 
 
 export default function SignInPage() {
-
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [isChecked, setIsChecked] = useState(false);
 
   const handleCheck = () => {
     setIsChecked(!isChecked);
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/auth/login/email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password
+        })
+      });
+  
+      try {
+        const data = await response.json();
+        if (response.ok) {
+          console.log("Login successful", data);
+          navigate('/');
+        } else {
+          console.error("Login failed:", data);
+          alert(data.error || "An error occurred during login.");
+        }
+      } catch (e) {
+        // Handle JSON parsing error
+        console.error("Error parsing JSON:", e);
+        alert("An error occurred, please try again.");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      alert("An error occurred, please check your network and try again.");
+    }
   };
 
   return (
@@ -41,16 +77,20 @@ export default function SignInPage() {
                 color="deep_purple_400"
                 shape="square"
                 type="email"
-                name="name"
+                name="email"
                 placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
               />
               <Input
                 color="deep_purple_400"
                 shape="square"
-                type="text"
-                name="name"
+                type="password"
+                name="password"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
               />
             <div className="flex flex-row items-center justify-between">
@@ -75,7 +115,7 @@ export default function SignInPage() {
                 href="#"
                 className="flex justify-center items-center w-[200px] h-[38px] pt-2.5 pb-[5px] px-3.5 bg-deep_purple-400 text-shadow-ts rounded-[5px]"
               >
-                <Button size="xl" color="bg-deep_purple-400" as="h2" className="!text-white-A700 w-[150px] bg-[#854a9bcc] p-3 rounded-[5px] tracking-[3.60px]">
+                <Button onClick={handleSubmit} size="xl" color="bg-deep_purple-400" as="h2" className="!text-white-A700 w-[150px] bg-[#854a9bcc] p-3 rounded-[5px] tracking-[3.60px]">
                   Sign In
                 </Button>
               </a>

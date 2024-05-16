@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import Header from'../../components/Navbar.jsx';
 import SearchBar from "./searchbar.jsx";
 
+import Searchbar from "./searchbar.jsx";
+
 const AllpackagesPageUIPage = () => {
   return (
     <>
