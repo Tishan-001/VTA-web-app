@@ -64,7 +64,7 @@ const ProjectRoutes = () => {
           <Route path="/tourguidersui" element={<TourGuidersUI />} />
           <Route path="/guidedetil/:id" element={<GuideDetail/>}/>
           <Route path="/taxidetil" element={<TaxiDetail/>}/>
-          <Route path="/packagedetails" element={<PackageDetails/>}/>
+          <Route path="/packagedetails/:id" element={<PackageDetails/>}/>
           <Route path="/medical" element={<Medical/>}/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/emailConformation" element={<EmailComformation/>}/>

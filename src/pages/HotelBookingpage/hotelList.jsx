@@ -1,4 +1,3 @@
-// hotelList.jsx
 import React from "react";
 import TourCard from "./hotelListCard";
 

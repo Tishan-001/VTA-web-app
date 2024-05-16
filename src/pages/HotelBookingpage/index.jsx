@@ -35,11 +35,11 @@ const HotelBookingpagePage = () => {
 
   const filterHotelListByDestination = (destination) => {
     const filteredList = hotels.filter((hotel) =>
-      hotel.city.toLowerCase() === destination.toLowerCase()
+      hotel.city.toLowerCase().includes(destination.toLowerCase())
     );
     setFilteredHotelList(filteredList);
   };
-  
+
   return (
     <>
       <div className="bg-gray-100_01 flex flex-col font-inter items-center justify-end mx-auto pt-2.5 w-full">
@@ -50,26 +50,19 @@ const HotelBookingpagePage = () => {
               src="images/img_rectangle5.png"
               alt="rectangleFive"
             />
-
             <div className="absolute flex flex-col md:gap-10 gap-[385px] justify-start right-[6%] top-[6%] w-[77%]">
-                <section>
-                  <Nav12 />
-                </section>
-                <section>
-                    {/* Pass hotelListRef to SearchBar component */}
-                   <Searchbar hotelListRef={hotelListRef} filterHotelListByDestination={filterHotelListByDestination} />
-               </section>
+              <section>
+                <Nav12 />
+              </section>
+              <section>
+                <Searchbar hotelListRef={hotelListRef} filterHotelListByDestination={filterHotelListByDestination} />
+              </section>
             </div>
           </div>
-
           <div className="flex flex-col items-start justify-start max-w-[1278px] mt-[109px] mx-auto md:px-5 w-full">
-            <Text
-              className="text-black-900_b2 text-xl"
-              size="txtInterMedium20Black900b2"
-            >
+            <Text className="text-black-900_b2 text-xl" size="txtInterMedium20Black900b2">
               Property Type
             </Text>
-
             <div className="flex md:flex-col flex-row md:gap-10 gap-[69px] items-start justify-start mt-[30px] w-auto md:w-full">
               <div className="h-[500px] relative rounded-[20px] shadow-bs w-[30%] md:w-full">
                 <Img
@@ -77,20 +70,15 @@ const HotelBookingpagePage = () => {
                   src="images/img_52_1.png"
                   alt="FiftyTwo"
                 />
-
                 <Button
                   className="!text-gray-50_01 absolute cursor-pointer font-bold leading-[normal] left-[4%] min-w-[192px] rounded-[20px] text-2xl md:text-[22px] text-center sm:text-xl top-[5%]"
                   shape="round"
-                  color="gray_600_99"  > Hotel
+                  color="gray_600_99"
+                >
+                  Hotel
                 </Button>
-               
               </div>
-
-              <List
-                className="sm:flex-col flex-row md:gap-10 gap-[69px] grid md:grid-cols-1 grid-cols-2 w-[65%] md:w-full"
-                orientation="horizontal"
-              >
-
+              <List className="sm:flex-col flex-row md:gap-10 gap-[69px] grid md:grid-cols-1 grid-cols-2 w-[65%] md:w-full" orientation="horizontal">
                 <div className="h-[500px] relative rounded-[20px] shadow-bs w-full">
                   <Img
                     className="h-[500px] m-auto object-cover rounded-[20px] w-full"
@@ -105,7 +93,6 @@ const HotelBookingpagePage = () => {
                     Apartments
                   </Button>
                 </div>
-
                 <div className="h-[500px] relative rounded-[20px] shadow-bs w-full">
                   <Img
                     className="h-[500px] m-auto object-cover rounded-[20px] w-full"
@@ -120,45 +107,27 @@ const HotelBookingpagePage = () => {
                     Villas
                   </Button>
                 </div>
-
               </List>
-
             </div>
-
-            <Text
-              className="mt-44 text-black-900_b2 text-xl"
-              size="txtInterMedium20Black900b2"
-            >
+            <Text className="mt-44 text-black-900_b2 text-xl" size="txtInterMedium20Black900b2">
               Accommodation
             </Text>
-
           </div>
-
           <div className="flex md:flex-col flex-row gap-[38px] items-start justify-start max-w-[1302px] mx-auto md:px-5 w-full">
             <div className="flex md:flex-1 flex-col gap-[30px] justify-start w-[33%] md:w-full">
-              <Text
-                className="ml-6 md:ml-[0] sm:text-4xl md:text-[38px] text-[40px] text-black-900"
-                size="txtInterBold40"
-              >
+              <Text className="ml-6 md:ml-[0] sm:text-4xl md:text-[38px] text-[40px] text-black-900" size="txtInterBold40">
                 Our Best Hotels
               </Text>
-
               <section>
                 <Filter />
               </section>
             </div>
-
-            <List
-              className="flex flex-col gap-[69px] md:mt-0 mt-[78px] w-full"
-              orientation="vertical"
-            >
-                    <div ref={hotelListRef}>
-                       <HotelList hotelList={filteredHotelList} />
-                    </div>
+            <List className="flex flex-col gap-[69px] md:mt-0 mt-[78px] w-full" orientation="vertical">
+              <div ref={hotelListRef}>
+                <HotelList hotelList={filteredHotelList} />
+              </div>
             </List>
-
           </div>
-          
           <Footer className="bg-black-900_02 flex items-center justify-center mt-[86px] md:px-5 w-full" />
         </div>
       </div>
