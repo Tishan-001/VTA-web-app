@@ -97,9 +97,7 @@ const HotelBookingDescriptionPageUIPage = () => {
                 </span>
                 <span className="text-black-900 font-inter text-left font-light">
                   <br />
-                  Experience unmatched luxury at {hotel.name}, where refined
-                  elegance meets exceptional service. Immerse yourself in a
-                  world of comfort and sophistication in the heart of {hotel.address}.
+                  {hotel.description}
                 </span>
               </Text>
 

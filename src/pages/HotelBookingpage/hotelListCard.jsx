@@ -12,7 +12,7 @@ import { Button, Img, Line, List, Text } from "../../components";
 const HotelListCard=({tour})=>{
 
     const {id,name,photo,pricePerNight,starRating}=tour;
-    console.log(name);
+    console.log(photo)
     return(
         <div className="h-[404px] relative w-full">
         <Img
