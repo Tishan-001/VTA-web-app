@@ -3,7 +3,7 @@ import { Button, Img, Text } from "components";
 import Footer from "components/Footer";
 import { Link } from "react-router-dom";
 import Header from "../../components/Navbar.jsx";
-import SearchBar from "./searchbar.jsx";
+import Searchbar from "./searchbar.jsx";
 
 const AllpackagesPageUIPage = () => {
   const [tourPackages, setTourPackages] = useState([]);
@@ -38,7 +38,9 @@ const AllpackagesPageUIPage = () => {
               alt="rectangleFour"
             />
             <div className="absolute flex flex-col md:gap-10 gap-[388px] justify-start right-[5%] top-[5%] w-[77%] mt-[450px] md:mt-[300px]">
-              <SearchBar />
+            <section>
+                      <Searchbar/>
+                    </section>
             </div>
           </div>
         </div>

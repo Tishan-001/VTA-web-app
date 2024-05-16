@@ -64,53 +64,11 @@ const LandingPageUIPage = () => {
 
   return ( 
     <>
-
-
-
-
-    
-
-
-    
-
     <Header/>
-
-
-
-  
-
-    
-
-
-    
-
-
-
-
-
-
-
 
       <div className=" bg-bg1-20 flex flex-col font-inter items-center justify-start mx-auto px-3 pt-3 w-full">
 
-
-
-     
-
-
-     
-
-        
-
-
-
-
-
         <div className="md:h-[1024px] md:flex-col sm:h-[703px] h-[756px]   w-full mx-auto md:px-5 relative ">
-
-       
-
-
            <div className="absolute md:h-[1024px] h-[703px] inset-x-[0] mx-auto top-[0] w-full">
 
               <Img
@@ -134,21 +92,11 @@ const LandingPageUIPage = () => {
                 >
                   Exploring Sri Lanka is an unforgettable adventure
                 </Text>
-
-                     <section>
-                      <Searchbar/>
-                    </section>
-
               </div>
 
           </div>
 
         </div>
-
-
-
-
-
 
         <div className="flex flex-row md:flex-col w-[92%] mt-[-115px] gap-[52px] z-[5]">
             <div className="flex flex-col ml-12 sm:ml-[0px] md:ml-[0px] sm:mt-[200px] md:mt-[-80px] items-center justify-center w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700 shadow-bs2 rounded-[20px]">
@@ -166,8 +114,6 @@ const LandingPageUIPage = () => {
                   Total Customer
               </Text>
           </div>
-
-
 
             <div className="flex flex-col items-center justify-start w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700 shadow-bs2 rounded-[20px]">
 
@@ -219,16 +165,6 @@ const LandingPageUIPage = () => {
               </Text>
             </div>
           </div>
-
-
-
-
-
-
-
-
-
-
 
         <div className="flex flex-col items-center justify-start max-w-[1268px] mt-[106px] mx-auto md:px-5 w-full">
          
@@ -329,20 +265,15 @@ const LandingPageUIPage = () => {
 
                   </div>
 
-
                 </div>
 
-
                 <div className="h-[400px] relative rounded-[20px] shadow-bs w-full">
-                 
-                 
-                 
+
                   <Img
                     className="h-[400px] w-full m-auto object-cover rounded-[20px] sm:w-full "
                     src="images/img_51.png"
                     alt="FiftyOne"
                   />
-
 
                   <div className="absolute flex flex-col  gap-[230px] md:gap-[200px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
                    
@@ -402,10 +333,7 @@ const LandingPageUIPage = () => {
 
                   </div>
 
-
                 </div>
-
-
 
                 <div className="h-[400px] relative rounded-[20px] shadow-bs w-full">
                  
@@ -479,20 +407,6 @@ const LandingPageUIPage = () => {
 
                 </div>
 
-
-
-
-              
-
-
-
-                
-
-
-
-
-
-
                 <div className="h-[400px] relative rounded-[20px] shadow-bs w-full">
                   <Img
                     className="h-[400px] w-full m-auto object-cover rounded-[20px] sm:w-full "
@@ -558,24 +472,6 @@ const LandingPageUIPage = () => {
                   </div>
                 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
               </List>
 
               </div>
@@ -583,9 +479,6 @@ const LandingPageUIPage = () => {
             </div>
 
           </div>
-
-
-
 
           <Button
 
@@ -597,9 +490,6 @@ const LandingPageUIPage = () => {
             <Link to="/allpackagespageui">view more</Link>
             
           </Button>
-
-
-
 
           <div className="flex flex-row  w-[72%] md:w-full mt-[140px] sm:mt-[70px] md:mt-[70px] ml-[10px]">
 
@@ -621,10 +511,6 @@ const LandingPageUIPage = () => {
                   One Click For You
                 </Text>
 
-
-                
-                  
-                  
                   <Link to="tourguidersui"> 
 
 
@@ -700,10 +586,6 @@ const LandingPageUIPage = () => {
 
                 </Link>
 
-
-
-                
-
                 <Link to="/medical">
 
                 <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[12px] p-[8px] bg-white-A700_01 rounded-[20px] ml-10 sm:ml-auto md:ml-[120px] hover:bg-[#A0DEFF]">
@@ -749,27 +631,10 @@ const LandingPageUIPage = () => {
                 </div>
 
                 </Link>
-
-
-
-               
-
-
-                
+ 
               </div>
             </div>
           </div>
-
-
-
-
-
-
-
-
-
-
-
 
           <div className="flex flex-col items-start justify-start mt-[150px] w-[100%]">
           <Text
@@ -917,17 +782,6 @@ const LandingPageUIPage = () => {
           </Button>
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
         <footer className="bg-black-900_02 flex items-center justify-center mt-28 md:px-5 w-full">
           <div className="flex flex-col items-center justify-center ml-[290px] mr-[103px] my-[98px] w-[73%]">
             <div className="flex md:flex-col flex-row md:gap-10 items-center justify-between w-full">
@@ -1030,9 +884,6 @@ const LandingPageUIPage = () => {
             </div>
           </div>
         </footer>
-
-
-
 
       </div>
     </>
