@@ -117,6 +117,11 @@ export default function NewHotemServiceProvider() {
               <hr className="mt-1 border-t-2 border-gray-300"/>
             </div>
             <div className="mb-10">
+              <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="hotline">Whatsapp</label>
+              <input className="border-b border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500" id="hotline" type="tel" placeholder="Whatsapp" />
+              <hr className="mt-1 border-t-2 border-gray-300"/>
+            </div>
+            <div className="mb-10">
               <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="hotline">Email</label>
               <input className="border-b border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500" id="email" type="tel" placeholder="Hotline" />
               <hr className="mt-1 border-t-2 border-gray-300"/>
