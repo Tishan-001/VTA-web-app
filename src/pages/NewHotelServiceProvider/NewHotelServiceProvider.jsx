@@ -21,8 +21,8 @@ export default function NewHotemServiceProvider() {
       <div className="container mx-auto max-w-5xl py-8">
         {/* Creative Topic and Description */}
         <div className="text-center mb-8">
-          <h1 className="text-5xl font-bold mb-2">Welcome to VTA (Virtual Travel Assistance)</h1>
-          <p className="text-gray-600 text-lg">We're excited to assist you in your virtual travel adventures. Please fill out the form below:</p>
+          <h1 className="text-5xl font-bold mb-2">Welcome to Virtual Travel Assistance</h1>
+          <p className="text-gray-600 text-lg">We're excited to assist you in your virtual travel adventures. Please fill out the form below</p>
         </div>
   
         {/* Form */}

@@ -20,6 +20,7 @@ import AddAdminGallery from "pages/AddAdminGallery";
 
 import Header from'./components/Header';
 import NewHotemServiceProvider from "pages/NewHotelServiceProvider/NewHotelServiceProvider";
+import NewTourGuideServiceProvider from "pages/NewTourGuideServiceProvider/NewTourGuideServiceProvider";
 
 
 const HotelBookingpage = React.lazy(() => import("pages/HotelBookingpage"));
@@ -100,6 +101,7 @@ const ProjectRoutes = () => {
           <Route path="/addadmingallery" element={<AddAdminGallery/>}/>
           <Route path="/addadminpublish" element={<AddPackagePublish/>}/>
           <Route path="/newhotemserviceprovider" element={<NewHotemServiceProvider/>}/>
+          <Route path="/newtourguideserviceprovider" element={<NewTourGuideServiceProvider/>}/>
 
         </Routes>
       </Router>
