@@ -39,8 +39,8 @@ const AllpackagesPageUIPage = () => {
             />
             <div className="absolute flex flex-col md:gap-10 gap-[388px] justify-start right-[5%] top-[5%] w-[77%] mt-[450px] md:mt-[300px]">
             <section>
-                      <Searchbar/>
-                    </section>
+              <Searchbar/>
+            </section>
             </div>
           </div>
         </div>

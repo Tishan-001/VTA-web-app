@@ -20,19 +20,28 @@ const Navbar = () => {
   // Array containing navigation items
   const navItems = [
     { id: 1, text: 'Home', link: '/' }, // Add Link to Home
-    { id: 2, text: 'Services', hasDropdown: true, dropdownItems: [ 'Tour Guide', 'Transport','Hotel Reservation','Health care', 'Travel plan'] },
-
-
-    { id: 3, text: 'Gallery',link:'/location' },
-    { id: 4, text: 'About us' },
-    { id: 5, text: 'Sign in',link:'/sinin'  },
-    { id: 6, text: 'Sign Up',link:'/sinup' },
+    {
+      id: 2,
+      text: 'Services',
+      hasDropdown: true,
+      dropdownItems: [
+        { text: 'Tour Guide', link: '/tourguidersui' },
+        { text: 'Transport', link: '/tranportui' },
+        { text: 'Hotel Reservation', link: '/hotelbookingpage' },
+        { text: 'Health care', link: '/medical' },
+        { text: 'Travel plan', link: '/allpackagespageui' }
+      ]
+    },
+    { id: 3, text: 'Gallery', link: '/location' },
+    { id: 4, text: 'About us', link: '/about-us' },
+    { id: 5, text: 'Sign in', link: '/signin' },
+    { id: 6, text: 'Sign Up', link: '/signup' },
   ];
 
   return (
     <div className='bg-black flex justify-between items-center h-24 max-w-[1110px] mx-auto px-5 text-white'>
       {/* Logo */}
-      <img className="h-20 w-20 ml-[-150px] md:ml-[40px]" src="images/img_image_75.png" alt="" />
+      <img className="h-20 w-20 ml-[-150px] md:ml-[40px] rounded-full" src="images/img_image_75.png" alt="Logo" />
 
       {/* Desktop Navigation */}
       <ul className='flex mr-[-230px] md:hidden'>
@@ -47,12 +56,12 @@ const Navbar = () => {
             ) : (
               item.text // Otherwise just render the text
             )}
-            {item.hasDropdown && <AiOutlineDown size={10} />}
+            {item.hasDropdown && showServices && <AiOutlineDown size={10} />}
             {item.hasDropdown && showServices && (
               <ul className="absolute left-1 top-full mt-1 bg-white-A700 border border-gray-600 rounded-lg z-50">
                 {item.dropdownItems.map((dropdownItem, index) => (
                   <li key={index} className="px-6 py-2 hover:bg-[#A0DEFF] hover:text-black cursor-pointer">
-                    {dropdownItem}
+                    <Link to={dropdownItem.link}>{dropdownItem.text}</Link>
                   </li>
                 ))}
               </ul>
@@ -70,12 +79,12 @@ const Navbar = () => {
       <ul
         className={
           nav
-            ? 'fixed left-0 top-0 w-[60%] h-[600px] border rounded-[15px] border-gray-900 bg-white-A700 ease-in-out duration-500 z-50'
+            ? 'fixed left-0 top-[24px] w-[60%] h-[600px] border rounded-[15px] border-gray-900 bg-white-A700 ease-in-out duration-500 z-50'
             : 'ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]'
         }
       >
         {/* Mobile Logo */}
-        <img className="h-20 w-20 ml-[-100px] md:ml-[40px]" src="images/img_image_75.png" alt="" />
+        <img className="h-20 w-20 ml-[-100px] md:ml-[40px] rounded-full" src="images/img_image_75.png" alt="Logo" />
 
         {/* Mobile Navigation Items */}
         {navItems.map(item => (
@@ -89,12 +98,12 @@ const Navbar = () => {
             ) : (
               item.text // Otherwise just render the text
             )}
-            {item.hasDropdown && <AiOutlineDown size={20} />}
+            {item.hasDropdown && showServices && <AiOutlineDown size={20} />}
             {item.hasDropdown && showServices && (
               <ul className="mt-[20px] bg-white-A700 border border-gray-600 rounded-lg z-50 ">
                 {item.dropdownItems.map((dropdownItem, index) => (
                   <li key={index} className="px-4 py-2 hover:bg-[#A0DEFF] hover:text-black cursor-pointer">
-                    {dropdownItem}
+                    <Link to={dropdownItem.link}>{dropdownItem.text}</Link>
                   </li>
                 ))}
               </ul>

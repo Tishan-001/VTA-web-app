@@ -7,10 +7,6 @@ import { Heading } from "components/Heading/index.jsx";
 import { Link } from "react-router-dom";
 import Header from'../../components/Navbar.jsx';
 
-import Searchbar from "./searchbar.jsx";
-
-import Navbar  from "../HotelBookingpage/nav"
-
 const LandingPageUIPage = () => {
 
   const [hotelCount, setHotelCount] = useState("");

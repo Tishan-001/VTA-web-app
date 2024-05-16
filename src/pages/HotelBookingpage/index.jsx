@@ -5,6 +5,7 @@ import Nav12 from "./nav.jsx";
 import Searchbar from "./searchbar.jsx";
 import Filter from "./filter.jsx";
 import HotelList from "./hotelList.jsx";
+import Header from "../../components/Navbar.jsx";
 
 const HotelBookingpagePage = () => {
   const [hotels, setHotels] = useState([]);
@@ -42,6 +43,7 @@ const HotelBookingpagePage = () => {
   
   return (
     <>
+    <Header />
       <div className="bg-gray-100_01 flex flex-col font-inter items-center justify-end mx-auto pt-2.5 w-full">
         <div className="flex flex-col items-center justify-start w-full">
           <div className="h-[723px] max-w-[1418px] mx-auto md:px-5 relative w-full">
