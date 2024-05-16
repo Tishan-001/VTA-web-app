@@ -32,7 +32,7 @@ const GuideDetail= React.lazy(()=>import("pages/GuideDetailOne"));
 const TaxiDetail= React.lazy(()=>import("pages/TaxiDetail"));
 const PackageDetails=React.lazy(()=>import("pages/PackageDetails"))
 const Medical=React.lazy(()=>import("pages/Medical"))
-const Sinup=React.lazy(()=>import("pages/SignUp"))
+const Signup=React.lazy(()=>import("pages/SignUp"))
 const MedicalDetail=React.lazy(()=>import("pages/MedicalDetail"))
 const DoctorDetails=React.lazy(()=>import("pages/DoctorDetails"))
 const Locationdetails=React.lazy(()=>import("pages/LocationDetails"))
@@ -67,13 +67,13 @@ const ProjectRoutes = () => {
           <Route path='/tours/:id' element={<HotelBookingDescriptionPageUI />} />
           <Route path="/tranportui" element={<TranportUIPage />} />
           <Route path="/tourguidersui" element={<TourGuidersUI />} />
-          <Route path="/guidedetil" element={<GuideDetail/>}/>
+          <Route path="/guidedetil/:id" element={<GuideDetail/>}/>
           <Route path="/taxidetil" element={<TaxiDetail/>}/>
           <Route path="/packagedetails" element={<PackageDetails/>}/>
           <Route path="/medical" element={<Medical/>}/>
-          <Route path="/sinup" element={<Sinup/>}/>
+          <Route path="/signup" element={<Signup/>}/>
           <Route path="/emailConformation" element={<EmailComformation/>}/>
-          <Route path="/sinin" element={<SignInPage/>}/>
+          <Route path="/login" element={<SignInPage/>}/>
           <Route path="/fogotpassword" element={<FogotPassword/>}/>
           <Route path="/newpassword" element={<NewPassword/>}/>
           <Route path="/ " element={<InstructionSent/>}/>

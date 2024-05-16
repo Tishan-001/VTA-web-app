@@ -7,37 +7,37 @@ import { Heading } from "components/Heading";
 
 const tableData = [
   {
-    place: "images/img_22_2.png",
+    place: "../images/img_22_1.png",
     date: "Temple of Tooth",
     reservation: "Hilton Hotel in Nuwara",
     description: "There are very relaable weather and \ncold and so on.",
   },
   {
-    place: "images/img_22_2.png",
+    place: "../images/img_22_1.png",
     date: "Temple of Tooth",
     reservation: "Hilton Hotel in Nuwara",
     description: "There are very relaable weather and \ncold and so on.",
   },
   {
-    place: "images/img_22_2.png",
+    place: "../images/img_22_1.png",
     date: "Temple of Tooth",
     reservation: "Hilton Hotel in Nuwara",
     description: "There are very relaable weather and \ncold and so on.",
   },
   {
-    place: "images/img_22_2.png",
+    place: "../images/img_22_1.png",
     date: "Temple of Tooth",
     reservation: "Hilton Hotel in Nuwara",
     description: "There are very relaable weather and \ncold and so on.",
   },
   {
-    place: "images/img_22_2.png",
+    place: "../images/img_22_1.png",
     date: "Temple of Tooth",
     reservation: "Hilton Hotel in Nuwara",
     description: "There are very relaable weather and \ncold and so on.",
   },
   {
-    place: "images/img_22_2.png",
+    place: "../images/img_22_1.png",
     date: "Temple of Tooth",
     reservation: "Hilton Hotel in Nuwara",
     description: "There are very relaable weather and \ncold and so on.",

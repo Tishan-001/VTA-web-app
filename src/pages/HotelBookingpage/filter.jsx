@@ -73,12 +73,6 @@ const filter =()=>{
                 </Text>
               </div>
 
-
-
-
-
-
-
               <Text
                 className="md:ml-[0] ml-[3px] mt-[33px] sm:text-[21px] md:text-[23px] text-[25px] text-black-900 w-auto"
                 size="txtInterBold25Black900"

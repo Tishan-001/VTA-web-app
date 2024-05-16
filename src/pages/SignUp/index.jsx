@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Button, Img, Line, List, Text } from "components";
 
@@ -6,10 +7,49 @@ import { Heading } from "components/Heading1";
 import { Input } from "components/Input";
 
 export default function SignUpPage() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/auth/register/email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email: email,
+          name: name,
+          password: password,
+          role: "USER"
+        })
+      });
+  
+      try {
+        const data = await response.json();
+        if (response.ok) {
+          console.log("Signup successful", data);
+          navigate('/emailConformation', { state: { email: email } });
+        } else {
+          console.error("Signup failed:", data);
+          alert(data.error || "An error occurred during signup.");
+        }
+      } catch (e) {
+        // Handle JSON parsing error
+        console.error("Error parsing JSON:", e);
+        alert("An error occurred, please try again.");
+      }
+    } catch (error) {
+      console.error("Error during signup:", error);
+      alert("An error occurred, please check your network and try again.");
+    }
+  };  
+
   return (
     <>
-      
-      
       <div className="flex flex-row md:flex-col justify-center  bg-white-A700_01 items-center h-[700px] w-[70%] gap-[33px] left-0 bottom-0 right-0 top-0 m-auto md:gap-5 shadow-bs absolute rounded-[10px]">
         <div className="relative w-[52%] h-[700px] md:w-full md:h-[544px] rounded-bl-[10px] rounded-tl-[10px] overflow-hidden">
           <div className="absolute inset-0 bg-opacity-50 bg-[#854a9bcc]"></div>
@@ -27,44 +67,53 @@ export default function SignUpPage() {
             </Heading>
 
             <div className="flex flex-col items-center justify-start w-[90%] md:w-full mt-11 gap-5">
-            
+
               <Input
                 color="deep_purple_400"
                 shape="square"
                 type="text"
                 name="name"
                 placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="w-full sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
               />
               <Input
                 color="deep_purple_400"
                 shape="square"
                 type="email"
-                name="name"
+                name="email"
                 placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
               />
               <Input
                 color="deep_purple_400"
                 shape="square"
-                type="text"
-                name="name"
+                type="password"
+                name="password"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
               />
               <Input
                 color="deep_purple_400"
                 shape="square"
-                type="text"
-                name="name"
+                type="password"
+                name="conformPassword"
                 placeholder="Conform Password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+
                 className="w-full sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
               />
               <a
                 href="#"
                 className="flex justify-center items-center w-[200px] h-[38px] pt-2.5 pb-[5px] px-3.5 bg-deep_purple-400 text-shadow-ts rounded-[5px]"
               >
-                <Button size="xl" color="bg-deep_purple-400" as="h2" className="!text-white-A700 w-[150px] bg-[#854a9bcc] p-3 rounded-[5px] tracking-[3.60px]">
+                <Button onClick={handleSubmit} size="xl" color="bg-deep_purple-400" as="h2" className="!text-white-A700 w-[150px] bg-[#854a9bcc] p-3 rounded-[5px] tracking-[3.60px]">
                   Sign Up
                 </Button>
               </a>

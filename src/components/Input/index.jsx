@@ -8,27 +8,35 @@ const Input = React.forwardRef(
       name = "",
       placeholder = "",
       type = "text",
-      children,
       label = "",
       prefix,
       suffix,
       onChange,
-
       ...restProps
     },
     ref,
   ) => {
     const handleChange = (e) => {
-      if (onChange) onChange(e?.target?.value);
+      if (onChange) {
+        // Pass the full event back to parent component
+        onChange(e);
+      }
     };
 
     return (
       <>
-        <div className={`${className} undefined   `}>
-          {!!label && label}
-          {!!prefix && prefix}
-          <input ref={ref} type={type} name={name} onChange={handleChange} placeholder={placeholder} {...restProps} />
-          {!!suffix && suffix}
+        <div className={className.trim()}>
+          {!!label && <label htmlFor={name}>{label}</label>}
+          {!!prefix && <span>{prefix}</span>}
+          <input 
+            ref={ref} 
+            type={type} 
+            name={name} 
+            onChange={handleChange} 
+            placeholder={placeholder} 
+            {...restProps} 
+          />
+          {!!suffix && <span>{suffix}</span>}
         </div>
       </>
     );
@@ -43,6 +51,7 @@ Input.propTypes = {
   label: PropTypes.string,
   prefix: PropTypes.node,
   suffix: PropTypes.node,
+  onChange: PropTypes.func,
 };
 
 export { Input };
