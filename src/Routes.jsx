@@ -17,8 +17,6 @@ import FogotPassword from "pages/FogotPassword/FogotPassword";
 import InstructionSent from "pages/CheckEmail/CheckEmail";
 import NewPassword from "pages/CreateNewPassword/CreateNewPassword";
 import AddAdminGallery from "pages/AddAdminGallery";
-
-import Header from'./components/Header';
 import NewHotemServiceProvider from "pages/NewHotelServiceProvider/NewHotelServiceProvider";
 import NewTourGuideServiceProvider from "pages/NewTourGuideServiceProvider/NewTourGuideServiceProvider";
 
@@ -45,22 +43,11 @@ const AdminGuider=React.lazy(()=>import("pages/AdminGuider/GuiderSummary"))
 const AdminTravel=React.lazy(()=>import("pages/AdminTransport/AdminSumary"))
 const Payment=React.lazy(()=>import("pages/Payment"))
 
-
-
-
-
-
 const ProjectRoutes = () => {
   return (
-
-    
     <React.Suspense fallback={<>Loading...</>}>
-     
       <Router>
-
-      
         <Routes>
-          
           <Route path="/" element={<LandingPageUI />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/allpackagespageui" element={<AllpackagesPageUI />} />
@@ -71,7 +58,7 @@ const ProjectRoutes = () => {
           <Route path="/tourguidersui" element={<TourGuidersUI />} />
           <Route path="/guidedetil/:id" element={<GuideDetail/>}/>
           <Route path="/taxidetil" element={<TaxiDetail/>}/>
-          <Route path="/packagedetails" element={<PackageDetails/>}/>
+          <Route path="/packagedetails/:id" element={<PackageDetails/>}/>
           <Route path="/medical" element={<Medical/>}/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/emailConformation" element={<EmailComformation/>}/>
@@ -95,14 +82,11 @@ const ProjectRoutes = () => {
           <Route path="/addguiderdata" element={<AddGuiderData/>}/>
           <Route path="/addvehicaldata" element={<AddVehicalData/>}/>
           <Route path="/addvehicalpricing" element={<AddVehicalPricing/>}/>
-
           <Route path="/payment" element={<Payment/>}/>
-
           <Route path="/addadmingallery" element={<AddAdminGallery/>}/>
           <Route path="/addadminpublish" element={<AddPackagePublish/>}/>
           <Route path="/newhotemserviceprovider" element={<NewHotemServiceProvider/>}/>
           <Route path="/newtourguideserviceprovider" element={<NewTourGuideServiceProvider/>}/>
-
         </Routes>
       </Router>
     </React.Suspense>
