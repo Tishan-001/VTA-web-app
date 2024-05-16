@@ -3,11 +3,16 @@ import React from "react";
 import { Button, Img, Line, List, Text } from "components";
 import Footer from "components/Footer";
 import { Link } from "react-router-dom";
+import Header from'../../components/Navbar.jsx';
+import SearchBar from "./searchbar.jsx";
 
 const AllpackagesPageUIPage = () => {
   return (
     <>
-      <div className="bg-gray-100_01 flex flex-col font-inter items-center justify-start mx-auto pt-3 px-3 w-full">
+
+
+      <Header/>
+      <div className=" bg-bg1-20 flex flex-col font-inter items-center justify-start mx-auto pt-3 sm:px-3 px-20 w-full">
 
 
        <div className="md:h-[1024px] md:flex-col sm:h-[703px] h-[700px]   w-full mx-auto md:px-5 relative ">
@@ -17,30 +22,11 @@ const AllpackagesPageUIPage = () => {
                 src="images/travel4.jpg"
                 alt="rectangleFour"
               />
-            <div className="absolute flex flex-col md:gap-10 gap-[388px] justify-start right-[4%] top-[5%] w-[77%]">
+            <div className="absolute flex flex-col md:gap-10 gap-[388px] justify-start right-[5%] top-[5%] w-[77%] mt-[450px] md:mt-[300px]">
              
-                    <div className="bg-gray-700_66_01 flex md:flex-col flex-row md:gap-5 items-center justify-start mr-[219px] p-[15px] rounded-[44px] w-4/5 md:w-full">
-                      <Text
-                        className="md:ml-[0] ml-[79px] text-center text-white-A700 text-xl"
-                        size="txtInterBold20"
-                      >
-                        Location
-                      </Text>
-                      <Line className="bg-blue-100 h-[51px] md:h-px mb-1.5 md:ml-[0] ml-[102px] rotate-[-91deg] md:w-full w-px" />
-                      <Text
-                        className="md:ml-[0] ml-[114px] text-center text-gray-200 text-xl"
-                        size="txtInterBold20Gray200"
-                      >
-                        Date
-                      </Text>
-                      <Line className="bg-blue-100 h-[51px] md:h-px mb-1.5 md:ml-[0] ml-[114px] rotate-[-91deg] md:w-full w-px" />
-                      <Button
-                        className="cursor-pointer font-bold leading-[normal] min-w-[179px] md:ml-[0] ml-[74px] md:mt-0 my-1.5 rounded-[23px] text-center text-xl"
-                        color="white_A700"
-                      >
-                        Search Now
-                      </Button>
-                    </div>
+                    
+               
+                    <SearchBar/>
              </div>
           </div>
         </div>
@@ -60,14 +46,18 @@ const AllpackagesPageUIPage = () => {
           >
             Our Best Package
           </Text>
-          <div className="gap-16 md:gap-5 grid sm:grid-cols-1 md:grid-cols-2 grid-cols-3 justify-center min-h-[auto] mt-[49px] w-[90%] ml-20 md:w-full md:ml-auto">
-            <div className="hover:cursor-pointer h-[500px] hover:relative relative rounded-[20px] hover:shadow-bs shadow-bs hover:w-full w-full">
+          <div className="gap-16 md:gap-5 grid sm:grid-cols-1 md:grid-cols-2 grid-cols-4 justify-center min-h-[auto] mt-[49px] w-[105%]  md:w-full md:ml-auto">
+            
+            
+            
+            
+            <div className="hover:cursor-pointer h-[450px]  hover:relative relative rounded-[20px] hover:shadow-bs shadow-bs hover:w-full w-[100%]">
               <Img
-                className="h-[500px] m-auto object-cover rounded-[20px] w-full"
+                className="h-[450px] m-auto object-cover rounded-[20px] w-full"
                 src="images/img_52.png"
                 alt="FiftyTwo"
               />
-              <div className="absolute flex flex-col md:gap-10 gap-[352px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
+              <div className="absolute flex flex-col md:gap-90 gap-[300px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
                 <div className="flex flex-row items-center justify-between w-[97%] md:w-full">
                   <Button
                     className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
@@ -91,7 +81,7 @@ const AllpackagesPageUIPage = () => {
                     </Text>
                   </div>
                 </div>
-                <div className="bg-gray-600_99 md:h-12 h-[87px] p-[5px] relative rounded-[20px] w-full">
+                <div className="bg-gray-600_99 md:h-30 md:mb-[-10px] h-[87px] p-[5px] relative rounded-[20px] w-full">
                   <Text
                     className="absolute left-[6%] text-white-A700 text-xl top-[8%]"
                     size="txtInterSemiBold20"
@@ -106,19 +96,27 @@ const AllpackagesPageUIPage = () => {
                   >
                     $285
                   </Text>
-                  <Button className="absolute cursor-pointer font-light h-max inset-y-[0] leading-[normal] min-w-[130px] my-auto right-[7%] rounded-[23px] text-center text-xl">
+                  <Button 
+                  className="absolute hover:bg-[#CAF4FF] hover:text-black-900 cursor-pointer font-bold h-max inset-y-[0] leading-[normal] min-w-[130px] my-auto right-[7%] rounded-[15px] text-center text-1xl mb-[6px]">
+                   
+                   
                    <Link to="/packagedetails">Book Now</Link> 
                   </Button>
                 </div>
               </div>
             </div>
-            <div className="hover:cursor-pointer h-[500px] hover:relative relative hover:shadow-bs hover:w-full w-full">
+
+
+
+
+
+            <div className="hover:cursor-pointer h-[450px]  hover:relative relative rounded-[20px] hover:shadow-bs shadow-bs hover:w-full w-[100%]">
               <Img
-                className="h-[500px] m-auto object-cover rounded-[20px] w-full"
+                className="h-[450px] m-auto object-cover rounded-[20px] w-full"
                 src="images/img_51.png"
-                alt="FiftyOne"
+                alt="FiftyTwo"
               />
-              <div className="absolute flex flex-col md:gap-10 gap-[352px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
+              <div className="absolute flex flex-col md:gap-90 gap-[300px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
                 <div className="flex flex-row items-center justify-between w-[97%] md:w-full">
                   <Button
                     className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
@@ -131,7 +129,7 @@ const AllpackagesPageUIPage = () => {
                   <div className="bg-gray-700_66 flex flex-row gap-2.5 items-center justify-center p-[5px] rounded-[18px]">
                     <Img
                       className="h-[21px] ml-[9px] w-[22px]"
-                      src="images/img_star6_3.svg"
+                      src="images/img_star6_2.svg"
                       alt="starSix"
                     />
                     <Text
@@ -142,14 +140,13 @@ const AllpackagesPageUIPage = () => {
                     </Text>
                   </div>
                 </div>
-                <div className="bg-gray-600_99 md:h-12 h-[87px] p-[5px] relative rounded-[20px] w-full">
+                <div className="bg-gray-600_99 md:h-30 md:mb-[-10px] h-[87px] p-[5px] relative rounded-[20px] w-full">
                   <Text
                     className="absolute left-[6%] text-white-A700 text-xl top-[8%]"
                     size="txtInterSemiBold20"
                   >
                     <>
-                      Minneriya <br />
-                      National Park
+                      Nuwara Eliya
                     </>
                   </Text>
                   <Text
@@ -158,19 +155,28 @@ const AllpackagesPageUIPage = () => {
                   >
                     $285
                   </Text>
-                  <Button className="absolute cursor-pointer font-light h-max inset-y-[0] leading-[normal] min-w-[130px] my-auto right-[7%] rounded-[23px] text-center text-xl">
-                    Book Now
+                  <Button 
+                  className="absolute hover:bg-[#CAF4FF] hover:text-black-900 cursor-pointer font-bold h-max inset-y-[0] leading-[normal] min-w-[130px] my-auto right-[7%] rounded-[15px] text-center text-1xl mb-[6px]">
+                   
+                   
+                   <Link to="/packagedetails">Book Now</Link> 
                   </Button>
                 </div>
               </div>
             </div>
-            <div className="hover:cursor-pointer h-[500px] hover:relative relative hover:shadow-bs hover:w-full w-full">
+
+
+
+
+
+
+            <div className="hover:cursor-pointer h-[450px]  hover:relative relative rounded-[20px] hover:shadow-bs shadow-bs hover:w-full w-[100%]">
               <Img
-                className="h-[500px] m-auto object-cover rounded-[20px] w-full"
+                className="h-[450px] m-auto object-cover rounded-[20px] w-full"
                 src="images/img_52_500x380.png"
                 alt="FiftyTwo"
               />
-              <div className="absolute flex flex-col md:gap-10 gap-[352px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
+              <div className="absolute flex flex-col md:gap-90 gap-[300px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
                 <div className="flex flex-row items-center justify-between w-[97%] md:w-full">
                   <Button
                     className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
@@ -183,7 +189,7 @@ const AllpackagesPageUIPage = () => {
                   <div className="bg-gray-700_66 flex flex-row gap-2.5 items-center justify-center p-[5px] rounded-[18px]">
                     <Img
                       className="h-[21px] ml-[9px] w-[22px]"
-                      src="images/img_star6_4.svg"
+                      src="images/img_star6_2.svg"
                       alt="starSix"
                     />
                     <Text
@@ -194,14 +200,13 @@ const AllpackagesPageUIPage = () => {
                     </Text>
                   </div>
                 </div>
-                <div className="bg-gray-600_99 md:h-12 h-[87px] p-[5px] relative rounded-[20px] w-full">
+                <div className="bg-gray-600_99 md:h-30 md:mb-[-10px] h-[87px] p-[5px] relative rounded-[20px] w-full">
                   <Text
                     className="absolute left-[6%] text-white-A700 text-xl top-[8%]"
                     size="txtInterSemiBold20"
                   >
                     <>
-                      Minneriya <br />
-                      National Park
+                      Nuwara Eliya
                     </>
                   </Text>
                   <Text
@@ -210,19 +215,26 @@ const AllpackagesPageUIPage = () => {
                   >
                     $285
                   </Text>
-                  <Button className="absolute cursor-pointer font-light h-max inset-y-[0] leading-[normal] min-w-[130px] my-auto right-[7%] rounded-[23px] text-center text-xl">
-                    Book Now
+                  <Button 
+                  className="absolute hover:bg-[#CAF4FF] hover:text-black-900 cursor-pointer font-bold h-max inset-y-[0] leading-[normal] min-w-[130px] my-auto right-[7%] rounded-[15px] text-center text-1xl mb-[6px]">
+                   
+                   
+                   <Link to="/packagedetails">Book Now</Link> 
                   </Button>
                 </div>
               </div>
             </div>
-            <div className="hover:cursor-pointer h-[500px] hover:relative relative rounded-[20px] hover:shadow-bs shadow-bs hover:w-full w-full">
+
+
+
+
+            <div className="hover:cursor-pointer h-[450px]  hover:relative relative rounded-[20px] hover:shadow-bs shadow-bs hover:w-full w-[100%]">
               <Img
-                className="h-[500px] m-auto object-cover rounded-[20px] w-full"
+                className="h-[450px] m-auto object-cover rounded-[20px] w-full"
                 src="images/img_52.png"
                 alt="FiftyTwo"
               />
-              <div className="absolute flex flex-col md:gap-10 gap-[352px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
+              <div className="absolute flex flex-col md:gap-90 gap-[300px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
                 <div className="flex flex-row items-center justify-between w-[97%] md:w-full">
                   <Button
                     className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
@@ -235,7 +247,7 @@ const AllpackagesPageUIPage = () => {
                   <div className="bg-gray-700_66 flex flex-row gap-2.5 items-center justify-center p-[5px] rounded-[18px]">
                     <Img
                       className="h-[21px] ml-[9px] w-[22px]"
-                      src="images/img_star6_5.svg"
+                      src="images/img_star6_2.svg"
                       alt="starSix"
                     />
                     <Text
@@ -246,14 +258,13 @@ const AllpackagesPageUIPage = () => {
                     </Text>
                   </div>
                 </div>
-                <div className="bg-gray-600_99 md:h-12 h-[87px] p-[5px] relative rounded-[20px] w-full">
+                <div className="bg-gray-600_99 md:h-30 md:mb-[-10px] h-[87px] p-[5px] relative rounded-[20px] w-full">
                   <Text
                     className="absolute left-[6%] text-white-A700 text-xl top-[8%]"
                     size="txtInterSemiBold20"
                   >
                     <>
-                      Minneriya <br />
-                      National Park
+                      Nuwara Eliyaa 
                     </>
                   </Text>
                   <Text
@@ -262,273 +273,24 @@ const AllpackagesPageUIPage = () => {
                   >
                     $285
                   </Text>
-                  <Button className="absolute cursor-pointer font-light h-max inset-y-[0] leading-[normal] min-w-[130px] my-auto right-[7%] rounded-[23px] text-center text-xl">
-                    Book Now
+                  <Button 
+                  className="absolute hover:bg-[#CAF4FF] hover:text-black-900 cursor-pointer font-bold h-max inset-y-[0] leading-[normal] min-w-[130px] my-auto right-[7%] rounded-[15px] text-center text-1xl mb-[6px]">
+                   
+                   
+                   <Link to="/packagedetails">Book Now</Link> 
                   </Button>
                 </div>
               </div>
             </div>
-            <div className="hover:cursor-pointer h-[500px] hover:relative relative hover:shadow-bs hover:w-full w-full">
-              <Img
-                className="h-[500px] m-auto object-cover rounded-[20px] w-full"
-                src="images/img_51.png"
-                alt="FiftyOne"
-              />
-              <div className="absolute flex flex-col md:gap-10 gap-[352px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
-                <div className="flex flex-row items-center justify-between shadow-bs w-[97%] md:w-full">
-                  <Button
-                    className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
-                    shape="round"
-                    color="gray_700_66"
-                    size="xs"
-                  >
-                    7 Days
-                  </Button>
-                  <div className="bg-gray-700_66 flex flex-row gap-2.5 items-center justify-center p-[5px] rounded-[18px]">
-                    <Img
-                      className="h-[21px] ml-[9px] w-[22px]"
-                      src="images/img_star6_6.svg"
-                      alt="starSix"
-                    />
-                    <Text
-                      className="mr-4 text-white-A700_01 text-xl"
-                      size="txtInterMedium20WhiteA70001"
-                    >
-                      4.9
-                    </Text>
-                  </div>
-                </div>
-                <div className="bg-gray-600_99 md:h-12 h-[87px] p-[5px] relative rounded-[20px] w-full">
-                  <Text
-                    className="absolute left-[6%] text-white-A700 text-xl top-[8%]"
-                    size="txtInterSemiBold20"
-                  >
-                    <>
-                      Minneriya <br />
-                      National Park
-                    </>
-                  </Text>
-                  <Text
-                    className="absolute bottom-[6%] left-[6%] text-white-A700 text-xl"
-                    size="txtInterMedium20WhiteA700"
-                  >
-                    $285
-                  </Text>
-                  <Button className="absolute cursor-pointer font-light h-max inset-y-[0] leading-[normal] min-w-[130px] my-auto right-[7%] rounded-[23px] text-center text-xl">
-                    Book Now
-                  </Button>
-                </div>
-              </div>
-            </div>
-            <div className="hover:cursor-pointer h-[500px] hover:relative relative hover:shadow-bs hover:w-full w-full">
-              <Img
-                className="h-[500px] m-auto object-cover rounded-[20px] w-full"
-                src="images/img_52_500x380.png"
-                alt="FiftyTwo"
-              />
-              <div className="absolute flex flex-col md:gap-10 gap-[352px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
-                <div className="flex flex-row items-center justify-between shadow-bs w-[97%] md:w-full">
-                  <Button
-                    className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
-                    shape="round"
-                    color="gray_700_66"
-                    size="xs"
-                  >
-                    7 Days
-                  </Button>
-                  <div className="bg-gray-700_66 flex flex-row gap-2.5 items-center justify-center p-[5px] rounded-[18px]">
-                    <Img
-                      className="h-[21px] ml-[9px] w-[22px]"
-                      src="images/img_star6_7.svg"
-                      alt="starSix"
-                    />
-                    <Text
-                      className="mr-4 text-white-A700_01 text-xl"
-                      size="txtInterMedium20WhiteA70001"
-                    >
-                      4.9
-                    </Text>
-                  </div>
-                </div>
-                <div className="bg-gray-600_99 md:h-12 h-[87px] p-[5px] relative rounded-[20px] w-full">
-                  <Text
-                    className="absolute left-[6%] text-white-A700 text-xl top-[8%]"
-                    size="txtInterSemiBold20"
-                  >
-                    <>
-                      Minneriya <br />
-                      National Park
-                    </>
-                  </Text>
-                  <Text
-                    className="absolute bottom-[6%] left-[6%] text-white-A700 text-xl"
-                    size="txtInterMedium20WhiteA700"
-                  >
-                    $285
-                  </Text>
-                  <Button className="absolute cursor-pointer font-light h-max inset-y-[0] leading-[normal] min-w-[130px] my-auto right-[7%] rounded-[23px] text-center text-xl">
-                    Book Now
-                  </Button>
-                </div>
-              </div>
-            </div>
-            <div className="hover:cursor-pointer h-[500px] hover:relative relative rounded-[20px] hover:shadow-bs shadow-bs hover:w-full w-full">
-              <Img
-                className="h-[500px] m-auto object-cover rounded-[20px] w-full"
-                src="images/img_52.png"
-                alt="FiftyTwo"
-              />
-              <div className="absolute flex flex-col md:gap-10 gap-[350px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
-                <div className="flex flex-row items-center justify-between w-[97%] md:w-full">
-                  <Button
-                    className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
-                    shape="round"
-                    color="gray_700_66"
-                    size="xs"
-                  >
-                    7 Days
-                  </Button>
-                  <div className="bg-gray-700_66 flex flex-row gap-2.5 items-center justify-center p-[5px] rounded-[18px]">
-                    <Img
-                      className="h-[21px] ml-[9px] w-[22px]"
-                      src="images/img_star6_8.svg"
-                      alt="starSix"
-                    />
-                    <Text
-                      className="mr-4 text-white-A700_01 text-xl"
-                      size="txtInterMedium20WhiteA70001"
-                    >
-                      4.9
-                    </Text>
-                  </div>
-                </div>
-                <div className="bg-gray-600_99 md:h-12 h-[87px] p-[5px] relative rounded-[20px] w-full">
-                  <Text
-                    className="absolute left-[6%] text-white-A700 text-xl top-[8%]"
-                    size="txtInterSemiBold20"
-                  >
-                    <>
-                      Minneriya <br />
-                      National Park
-                    </>
-                  </Text>
-                  <Text
-                    className="absolute bottom-[6%] left-[6%] text-white-A700 text-xl"
-                    size="txtInterMedium20WhiteA700"
-                  >
-                    $285
-                  </Text>
-                  <Button className="absolute cursor-pointer font-light h-max inset-y-[0] leading-[normal] min-w-[130px] my-auto right-[7%] rounded-[23px] text-center text-xl">
-                    Book Now
-                  </Button>
-                </div>
-              </div>
-            </div>
-            <div className="hover:cursor-pointer h-[500px] hover:relative relative hover:shadow-bs hover:w-full w-full">
-              <Img
-                className="h-[500px] m-auto object-cover rounded-[20px] w-full"
-                src="images/img_51.png"
-                alt="FiftyOne"
-              />
-              <div className="absolute flex flex-col md:gap-10 gap-[350px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
-                <div className="flex flex-row items-center justify-between shadow-bs w-[97%] md:w-full">
-                  <Button
-                    className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
-                    shape="round"
-                    color="gray_700_66"
-                    size="xs"
-                  >
-                    7 Days
-                  </Button>
-                  <div className="bg-gray-700_66 flex flex-row gap-2.5 items-center justify-center p-[5px] rounded-[18px]">
-                    <Img
-                      className="h-[21px] ml-[9px] w-[22px]"
-                      src="images/img_star6_9.svg"
-                      alt="starSix"
-                    />
-                    <Text
-                      className="mr-4 text-white-A700_01 text-xl"
-                      size="txtInterMedium20WhiteA70001"
-                    >
-                      4.9
-                    </Text>
-                  </div>
-                </div>
-                <div className="bg-gray-600_99 md:h-12 h-[87px] p-[5px] relative rounded-[20px] w-full">
-                  <Text
-                    className="absolute left-[6%] text-white-A700 text-xl top-[8%]"
-                    size="txtInterSemiBold20"
-                  >
-                    <>
-                      Minneriya <br />
-                      National Park
-                    </>
-                  </Text>
-                  <Text
-                    className="absolute bottom-[6%] left-[6%] text-white-A700 text-xl"
-                    size="txtInterMedium20WhiteA700"
-                  >
-                    $285
-                  </Text>
-                  <Button className="absolute cursor-pointer font-light h-max inset-y-[0] leading-[normal] min-w-[130px] my-auto right-[7%] rounded-[23px] text-center text-xl">
-                    Book Now
-                  </Button>
-                </div>
-              </div>
-            </div>
-            <div className="hover:cursor-pointer h-[500px] hover:relative relative hover:shadow-bs hover:w-full w-full">
-              <Img
-                className="h-[500px] m-auto object-cover rounded-[20px] w-full"
-                src="images/img_52_500x380.png"
-                alt="FiftyTwo"
-              />
-              <div className="absolute flex flex-col md:gap-10 gap-[350px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
-                <div className="flex flex-row items-center justify-between shadow-bs w-[97%] md:w-full">
-                  <Button
-                    className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
-                    shape="round"
-                    color="gray_700_66"
-                    size="xs"
-                  >
-                    7 Days
-                  </Button>
-                  <div className="bg-gray-700_66 flex flex-row gap-2.5 items-center justify-center p-[5px] rounded-[18px]">
-                    <Img
-                      className="h-[21px] ml-[9px] w-[22px]"
-                      src="images/img_star6_10.svg"
-                      alt="starSix"
-                    />
-                    <Text
-                      className="mr-4 text-white-A700_01 text-xl"
-                      size="txtInterMedium20WhiteA70001"
-                    >
-                      4.9
-                    </Text>
-                  </div>
-                </div>
-                <div className="bg-gray-600_99 md:h-12 h-[87px] p-[5px] relative rounded-[20px] w-full">
-                  <Text
-                    className="absolute left-[6%] text-white-A700 text-xl top-[8%]"
-                    size="txtInterSemiBold20"
-                  >
-                    <>
-                      Minneriya <br />
-                      National Park
-                    </>
-                  </Text>
-                  <Text
-                    className="absolute bottom-[6%] left-[6%] text-white-A700 text-xl"
-                    size="txtInterMedium20WhiteA700"
-                  >
-                    $285
-                  </Text>
-                  <Button className="absolute cursor-pointer font-light h-max inset-y-[0] leading-[normal] min-w-[130px] my-auto right-[7%] rounded-[23px] text-center text-xl">
-                    Book Now
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
+
+
+
+
+
+
+
+
+        </div>
         </div>
         
         <Footer className="bg-black-900_02 flex items-center justify-center mt-[161px] md:px-5 w-full" />

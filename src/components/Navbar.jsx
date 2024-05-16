@@ -30,7 +30,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className='bg-black flex justify-between items-center h-24 max-w-[1150px] mx-auto px-5 text-white'>
+    <div className='bg-black flex justify-between items-center h-24 max-w-[1110px] mx-auto px-5 text-white'>
       {/* Logo */}
       <img className="h-20 w-20 ml-[-150px] md:ml-[40px]" src="images/img_image_75.png" alt="" />
 

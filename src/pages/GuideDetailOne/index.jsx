@@ -12,8 +12,8 @@ export default function GuideDetailOnePage() {
   return (
     <>
      
-      <div className="flex flex-col items-center justify-start w-full pt-4 gap-[228px] bg-white-A700">
-        <div className="flex flex-col items-center justify-start w-full md:px-5 max-w-[1418px]">
+      <div className="flex flex-col items-center justify-start w-full pt-4 gap-[200px]  bg-bg1-20">
+        <div className="flex flex-col items-center justify-start w-full md:px-5 px-10">
           <div className="flex flex-col items-center justify-start w-full">
            
            

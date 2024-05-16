@@ -60,39 +60,35 @@ const LandingPageUIPage = () => {
        
 
 
-          <div className="absolute md:h-[1024px] h-[703px] inset-x-[0] mx-auto top-[0] w-full">
+           <div className="absolute md:h-[1024px] h-[703px] inset-x-[0] mx-auto top-[0] w-full">
 
-            <Img
-              className="h-[703px] m-auto object-cover rounded-[30px] w-full"
-              src="images/img_heropicture.png"
-              alt="heropicture"
-            />
+              <Img
+                className="h-[703px] m-auto object-cover rounded-[30px] w-full"
+                src="images/img_rectangle4.png"
+                alt="heropicture"
+              />
 
-            <div className="absolute flex flex-col justify-start right-[7%] top-[4%] w-[76%]">
-             
-                  <section>
-                    <Navbar/>
-                  </section>
+              <div className="absolute flex flex-col justify-start right-[7%] top-[4%] w-[76%]">
 
-              <Text
-                className="ml-2 md:ml-[10]  md:text-5xl text-6xl text-black-900 text-center justify-start absolute right-[14%] top-[30%]"
-                size="txtInterBold60"
-              >
-                Traveling opens the doors to creating memories
-              </Text>
-              
-              <Text
-                className=" md:ml-[0] ml-1 mt-60 mr-[50px] sm:text-[21px] md:text-[23px] text-[25px] text-center text-white-A700"
-                size="txtInterMedium25"
-              >
-                Exploring Sri Lanka is an unforgettable adventure
-              </Text>
+                <Text
+                  className="ml-2 md:ml-[10]  md:text-5xl sm:mt-[-20%] text-6xl text-black-900 text-center justify-start absolute right-[14%] top-[10%]"
+                  size="txtInterBold60"
+                >
+                  Traveling opens the doors to creating memories
+                </Text>
+                
+                <Text
+                  className=" md:ml-[0] ml-[-100px] mt-60 sm:mt-60 mr-[50px] sm:text-[21px] md:text-[23px] text-[25px] text-center text-white-A700 "
+                  size="txtInterMedium25"
+                >
+                  Exploring Sri Lanka is an unforgettable adventure
+                </Text>
 
-                  <section>
-                     <Searchbar/>
-                  </section>
+                     <section>
+                      <Searchbar/>
+                    </section>
 
-            </div>
+              </div>
 
           </div>
 
@@ -560,7 +556,7 @@ const LandingPageUIPage = () => {
               
               
               <Img
-                src="images/img_52_781x613.png"
+                 src="images/travel2.webp"
                 alt="image"
                 className="w-[50%] h-[650px] md:w-full md:h-auto object-cover rounded-[20px]"
               />

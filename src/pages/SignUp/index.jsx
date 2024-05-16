@@ -28,7 +28,7 @@ export default function SignUpPage() {
 
             <div className="flex flex-col items-center justify-start w-[90%] md:w-full mt-11 gap-5">
             
-              <Input
+              <input
                 color="deep_purple_400"
                 shape="square"
                 type="text"

@@ -26,7 +26,7 @@ const SearchBar = ({ hotelListRef, filterHotelListByDestination }) => {
 };
 
   return (
-    <div className="bg-gray-700_66_01 absolute right-[12%] md:right-[7%] flex md:flex-col flex-row md:gap-5 items-center justify-start  p-[13px] rounded-[44px] w-[88%]  border-2 border-solid md:w-full white_A700_black_900_00_border3"   style={{backgroundColor: "rgba(110,106,106,0.5)"}}>
+    <div className="bg-gray-700_66_01 absolute right-[12%] md:right-[7%] flex md:flex-col flex-row md:gap-5 items-center justify-start  p-[13px] rounded-[44px] w-[83%]  border-2 border-solid md:w-full white_A700_black_900_00_border3"   style={{backgroundColor: "rgba(110,106,106,0.5)"}}>
 
       <input
         type="text"
@@ -36,10 +36,10 @@ const SearchBar = ({ hotelListRef, filterHotelListByDestination }) => {
       />
 
 
-      <Line className="bg-blue-100 h-[51px] md:h-px mb-[7px] md:ml-[0] mr-4 rotate-[-0deg] md:w-full w-[2.5px]" />
+      <Line className="bg-blue-100 ml-5 h-[51px] md:h-px mb-[7px] md:ml-[0] mr-4 rotate-[-0deg] md:w-full w-[2.5px]" />
 
       <Text
-        className="md:ml-[0] ml-0 text-center text-gray-50 text-xl"
+        className="md:ml-[0] ml-4 text-center text-gray-50 text-xl"
         size="txtInterBold20Gray50"
       >
         In:
@@ -55,7 +55,7 @@ const SearchBar = ({ hotelListRef, filterHotelListByDestination }) => {
 
 
       <Text
-        className="md:ml-[0] ml-0 text-center text-gray-50 text-xl"
+        className="md:ml-[0] ml-4 text-center text-gray-50 text-xl"
         size="txtInterBold20Gray50"
       >
         out:
@@ -70,11 +70,11 @@ const SearchBar = ({ hotelListRef, filterHotelListByDestination }) => {
       />
 
 
-      <Line className="bg-blue-100 h-[51px] md:h-px mb-[7px] ml-1 md:ml-[0] rotate-[-0deg] md:w-full w-[2.5px]" />
+      <Line className="bg-blue-100  h-[51px] md:h-px mb-[7px] ml-[50px] md:ml-[0] rotate-[-0deg] md:w-full w-[2.5px]" />
 
 
       <Button
-        className="cursor-pointer font-bold leading-[normal] mb-[5px] min-w-[168px] md:ml-[0] ml-5 md:mt-0 mt-[9px] rounded-[23px] text-center text-xl"
+        className="cursor-pointer font-bold leading-[normal] mb-[5px] min-w-[168px] md:ml-[0] ml-[100px] md:mt-0 mt-[9px] rounded-[15px] text-center text-xl hover:bg-[#A0DEFF] "
         color="white_A700"
 
          onClick={handleSearchNow}
