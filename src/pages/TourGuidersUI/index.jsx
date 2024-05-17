@@ -39,7 +39,7 @@ const TourGuidersUIPage = () => {
          
           <div className="absolute h-[703px] md:h-[500px] inset-[0] justify-center m-auto w-full">
             <Img
-              className="h-[703px] md:h-[500px] m-auto object-cover rounded-[30px] w-full"
+              className="h-[703px] md:h-[700px] m-auto object-cover rounded-[30px] w-full"
               src="images/img_rectangle4_1.png"
               alt="rectangleFour"
             />

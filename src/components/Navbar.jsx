@@ -41,7 +41,12 @@ const Navbar = () => {
   return (
     <div className='bg-black flex justify-between items-center h-24 max-w-[1110px] mx-auto px-5 text-white'>
       {/* Logo */}
-      <img className="h-20 w-20 ml-[-150px] md:ml-[40px] rounded-full" src="images/img_image_75.png" alt="Logo" />
+      <a href="/">
+        <div>
+          <h1 className="text-4xl font-bold ml-[-200px]">VTA</h1>
+          <h1 className="ml-[-255px] mt-[5px]">Viertual Travel Assistance</h1>
+        </div>
+      </a>
 
       {/* Desktop Navigation */}
       <ul className='flex mr-[-230px] md:hidden'>
