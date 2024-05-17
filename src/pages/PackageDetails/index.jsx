@@ -4,6 +4,7 @@ import { ReactTable } from "../../components/ReactTable";
 import { createColumnHelper } from "@tanstack/react-table";
 import { Heading } from "components/Heading";
 import { useParams } from "react-router-dom";
+import Footer from "components/Footer";
 
 export default function TourPackageDescriptionPageUIPage() {
   const { id } = useParams();
@@ -187,107 +188,7 @@ export default function TourPackageDescriptionPageUIPage() {
             </Button>
           </div>
         </div>
-        <footer className="flex justify-center items-center w-full pl-14 pr-[97px] py-[97px] md:p-5 bg-black-900_01">
-          <div className="flex flex-row justify-center w-full mx-auto max-w-[1048px]">
-            <div className="flex flex-row md:flex-col justify-between w-full">
-              <div className="flex flex-col gap-[46px] sm:gap-10 md:gap-5 w-[30%] md:w-full">
-                <Text size="md" as="p" className="!font-normal text-white-A700">
-                  <span className="text-white-A700 font-poppins">
-                    <>
-                      No 2, Galle Road,
-                      <br />
-                      Colombo
-                    </>
-                  </span>
-                </Text>
-                <div className="flex flex-row gap-3.5">
-                  <Button shape="icbRoundedBorder5" className="h-[41px] w-[41px]">
-                    <Img src="images/img_group19.svg" alt="Social Icon" className="h-[19px]" />
-                  </Button>
-                  <Button shape="icbRoundedBorder5" className="h-[41px] w-[41px]">
-                    <Img src="images/img_group20.svg" alt="Social Icon One" className="h-[19px]" />
-                  </Button>
-                  <Button shape="icbRoundedBorder5" className="h-[41px] w-[41px]">
-                    <Img src="images/img_group22.svg" alt="Social Icon Two" className="h-[19px]" />
-                  </Button>
-                </div>
-              </div>
-              <div className="flex flex-row md:flex-col justify-between w-[69%] md:w-full gap-[92px] md:gap-10">
-                <div className="flex flex-col gap-[31px] md:gap-10 w-[28%] md:w-full">
-                  <Text size="md" as="p" className="!text-white-A700">
-                    Company
-                  </Text>
-                  <ul className="flex flex-col gap-2.5 pl-3.5">
-                    <li className="mt-0.5">
-                      <Text size="lg" as="a" href="#" className="cursor-pointer !text-gray-600_b2">
-                        About Us
-                      </Text>
-                    </li>
-                    <li>
-                      <Text size="lg" as="a" href="#" className="cursor-pointer !text-gray-600_b2">
-                        Blog
-                      </Text>
-                    </li>
-                    <li>
-                      <Text size="lg" as="a" href="#" className="cursor-pointer !text-gray-600_b2">
-                        FAQ
-                      </Text>
-                    </li>
-                  </ul>
-                </div>
-                <div className="flex flex-col gap-[31px] md:gap-10 w-[35%] md:w-full">
-                  <Text size="md" as="p" className="!text-white-A700">
-                    Contact
-                  </Text>
-                  <ul className="flex flex-col gap-2.5 pl-3.5">
-                    <li className="mt-0.5">
-                      <Text size="lg" as="a" href="#" className="cursor-pointer !text-gray-600_b2">
-                        Help/FAQ
-                      </Text>
-                    </li>
-                    <li>
-                      <Text size="lg" as="a" href="#" className="cursor-pointer !text-gray-600_b2">
-                        Press
-                      </Text>
-                    </li>
-                    <li>
-                      <Text size="lg" as="a" href="#" className="cursor-pointer !text-gray-600_b2">
-                        Affilates
-                      </Text>
-                    </li>
-                    <li>
-                      <Text size="lg" as="a" href="#" className="cursor-pointer !text-gray-600_b2">
-                        Hotel Owners
-                      </Text>
-                    </li>
-                  </ul>
-                </div>
-                <div className="flex flex-col gap-[31px] md:gap-10 w-[35%] md:w-full">
-                  <Text size="md" as="p" className="!text-white-A700">
-                    Legal
-                  </Text>
-                  <ul className="flex flex-col gap-2.5 pl-3.5">
-                    <li className="mt-0.5">
-                      <Text size="lg" as="a" href="#" className="cursor-pointer !text-gray-600_b2">
-                        Privacy Policy
-                      </Text>
-                    </li>
-                    <li>
-                      <Text size="lg" as="a" href="#" className="cursor-pointer !text-gray-600_b2">
-                        Terms &amp; Conditions
-                      </Text>
-                    </li>
-                    <li>
-                      <Text size="lg" as="a" href="#" className="cursor-pointer !text-gray-600_b2">
-                        Sitemap
-                      </Text>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer className="bg-black-900_02 flex items-center justify-center md:px-5 w-[1870px]" />
       </div>
     </>
   );

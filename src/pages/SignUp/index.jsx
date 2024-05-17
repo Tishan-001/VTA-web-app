@@ -147,7 +147,7 @@ export default function SignUpPage() {
             <Text size="lg" as="p" className="mt-4 !text-black-900">
               <span className="text-black-900_66">Already have an Account ?</span>
               <span className="text-black-900"></span>
-              <a href=""><span className="text-[#854a9bcc]"> Sign In</span></a>
+              <a href="/login"><span className="text-[#854a9bcc]"> Sign In</span></a>
             </Text>
           </div>
         </div>
