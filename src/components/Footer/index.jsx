@@ -6,10 +6,10 @@ const Footer = (props) => {
   return (
     <>
       <footer className={props.className}>
-        <div className="flex flex-col items-center justify-center ml-[290px] mr-[102px] my-[98px] w-[73%]">
+        <div className="flex flex-col items-center  justify-center my-[98px] w-[100%] pl-[200px] pr-[200px]" >
           <div className="flex md:flex-col flex-row md:gap-10 items-center justify-between w-full">
-            <div className="flex md:flex-1 flex-col gap-[31px] items-start justify-start md:mt-0 mt-0.5 w-[70%] md:w-full">
-              <div className="flex sm:flex-col flex-row sm:gap-10 items-center justify-between w-full">
+            <div className="flex md:flex-1 flex-col  gap-[31px] items-start justify-start md:mt-0 mt-0.5 w-[100%] md:w-full">
+              <div className="flex sm:flex-col  flex-row sm:gap-10 items-center justify-between w-[100%]">
                 <Text
                   className="sm:text-[21px] md:text-[23px] text-[25px] text-white-A700"
                   size="txtInterBold25"
@@ -23,33 +23,39 @@ const Footer = (props) => {
                   Contact Us
                 </Text>
                 <Text
-                  className="sm:text-[21px] md:text-[23px] text-[25px] text-white-A700"
+                  className="sm:text-[21px] md:text-[23px] w-[200px] text-[25px] text-white-A700"
                   size="txtInterBold25"
                 >
                   Quick Link
                 </Text>
+                <Text
+                  className="sm:text-[21px] md:text-[23px] w-[200px] text-[25px] text-white-A700"
+                  size="txtInterBold25"
+                >
+                  Social Share
+                </Text>
               </div>
-              <div className="flex md:flex-col flex-row md:gap-5 items-start justify-start w-[91%] md:w-full">
+              <div className="flex md:flex-col flex-row md:gap-5 items-start justify-start  w-[100%] md:w-full">
                 <Text
                   className="text-[13px] text-red-50"
                   size="txtInterRegular13"
                 >
                   <>
-                    Blog
+                    <a href="">Blog</a>
                     <br />
                     <br />
-                    Privacy Policy
+                    <a href="" className="">Privacy Policy</a>
                     <br />
                     <br />
-                    FAQ’s
+                    <a href="">FAQ’s</a>
                     <br />
                     <br />
-                    Contact
+                    <a href="">Contact</a>
                   </>
                 </Text>
                 <Text
-                  className="md:ml-[0] ml-[213px] text-[13px] text-white-A700"
-                  size="txtInterRegular13WhiteA700"
+                  className="md:ml-[0] text-[13px] text-white-A700 ml-[300px]"
+                  size="txtInterRegular13WhiteA700" 
                 >
                   <>
                     NO: 1, Main Street, Galle,
@@ -64,45 +70,40 @@ const Footer = (props) => {
                   </>
                 </Text>
                 <Text
-                  className="md:ml-[0] ml-[147px] text-[13px] text-white-A700"
+                  className="md:ml-[0] ml-[260px] text-[13px] text-white-A700"
                   size="txtInterRegular13WhiteA700"
                 >
                   <>
-                    Packages
+                    <a href="">Packages</a>
                     <br />
                     <br />
-                    Services
+                    <a href="">Services</a>
                     <br />
                     <br />
-                    Gallery
+                    <a href="">Gallery</a>
                   </>
                 </Text>
+
+                <div className="md:h-[101px] h-[119px]  relative w-[18%] md:w-full ml-[315px]">
+                  <div className="md:h-[101px] h-[119px] m-auto w-full">
+                    <a href=""><Img
+                      className="absolute bottom-[21%] h-[50px] object-cover right-[0] w-[50px]"
+                      src="images/img_twitter.png"
+                      alt="twitter"
+                    /></a>
+                    <a href=""><Img
+                      className="absolute bottom-[3%] h-[90px] left-[25%] object-cover w-[90px]"
+                      src="images/img_facebook.png"
+                      alt="facebook"
+                    /></a>
+                  </div>
+                  <a href=""><Img
+                    className="absolute bottom-[23%] h-[45px] object-cover right-[25%] w-[45px]"
+                    src="images/img_instagram.png"
+                    alt="instagram"
+                  /></a>
+                </div>
               </div>
-            </div>
-            <div className="md:h-[101px] h-[119px] relative w-[18%] md:w-full">
-              <div className="md:h-[101px] h-[119px] m-auto w-full">
-                <Text
-                  className="absolute right-[2%] sm:text-[21px] md:text-[23px] text-[25px] text-white-A700 top-[0]"
-                  size="txtInterBold25"
-                >
-                  Social Share
-                </Text>
-                <Img
-                  className="absolute bottom-[19%] h-[59px] object-cover right-[0] w-[58px]"
-                  src="images/img_twitter.png"
-                  alt="twitter"
-                />
-                <Img
-                  className="absolute bottom-[0] h-[101px] left-[0] object-cover w-[101px]"
-                  src="images/img_facebook.png"
-                  alt="facebook"
-                />
-              </div>
-              <Img
-                className="absolute bottom-[22%] h-[51px] object-cover right-[31%] w-[27%]"
-                src="images/img_instagram.png"
-                alt="instagram"
-              />
             </div>
           </div>
         </div>
