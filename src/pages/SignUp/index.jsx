@@ -73,7 +73,6 @@ export default function SignUpPage() {
           <Heading size="xl" as="h1" className="tracking-[3.00px]">
             Sign Up Now
           </Heading>
-
           <div className="flex flex-col items-center justify-start w-[90%] md:w-full mt-11 gap-5">
             <Input
               color="deep_purple_400"

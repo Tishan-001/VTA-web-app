@@ -5,18 +5,20 @@ import Footer from "components/Footer";
 
 import Navbar  from "../HotelBookingpage/nav"
 import { Link } from "react-router-dom";
+import Header from'../../components/Navbar.jsx';
 
 const TranportUIPage = () => {
   return (
     <>
-      <div className="bg-white-A700 flex flex-col font-inter items-center justify-end mx-auto pt-3 w-full">
+      <Header/>
+      <div className="bg-bg1-20  flex flex-col font-inter items-center justify-end mx-auto pt-3 w-full">
        
        
         <div className="h-[723px] md:h-[755px] max-w-[1418px] mx-auto md:px-5 relative w-full">
           
           
           <Img
-            className="h-[723px] m-auto object-cover rounded-[30px] w-full"
+            className="h-[723px] m-auto object-cover rounded-[30px] w-[1500px]"
             src="images/img_rectangle4_723x1418.png"
             alt="rectangleFour"
           />
@@ -24,20 +26,7 @@ const TranportUIPage = () => {
          
          
           <div className="absolute flex flex-col md:gap-10 gap-[402px] justify-start right-[1%] top-[5%] w-[85%]">
-
-
-             <section>
-               <Navbar/>
-             </section>
-            
-
-
-
-
-
-
-
-            <div className="  bg-gray-600_99 border border-white-A700_01 flex flex-col items-center justify-start mr-[59px] rounded-[44px] shadow-bs w-[86%] md:w-full">
+            <div className="  bg-gray-600_99 mt-[500px] border border-white-A700_01 flex flex-col items-center justify-start mr-[59px] rounded-[44px] shadow-bs w-[86%] md:w-full">
               <div className="bg-gray-700_66 flex md:flex-col flex-row md:gap-5 items-center justify-start p-3.5 rounded-[44px] w-full">
                 <Text
                   className="md:ml-[0] ml-[54px] text-center text-white-A700 text-xl"
@@ -100,26 +89,24 @@ const TranportUIPage = () => {
             className="sm:flex-col flex-row md:gap-10 gap-[66px] grid sm:grid-cols-1 md:grid-cols-3 grid-cols-5 justify-center w-[100%] md:w-full"
             orientation="horizontal"
           >
-            <div className="flex flex-1 flex-col items-center justify-start rounded-[20px] shadow-bs w-full">
-              <div className="h-[283px] relative w-full">
+            <div className="flex flex-1 flex-col items-center justify-start rounded-lg shadow-bs w-full cursor-pointer">
+              <div className="h-72 relative w-full overflow-hidden rounded-lg transition-transform duration-300 transform hover:scale-105">
                 <Img
-                  className="h-[283px] m-auto object-cover rounded-[20px] w-full"
+                  className="h-full w-full object-cover"
                   src="images/img_52_283x208.png"
                   alt="FiftyTwo"
                 />
                 <Button
-                  className="absolute cursor-pointer font-semibold leading-[normal] left-[6%] min-w-[62px] rounded-[14px] text-center text-xs top-[5%]"
-                  color="gray_600_99"
-                  size="xs"
+                  className="absolute left-6 top-6 font-semibold leading-normal min-w-20 rounded-lg text-center text-xs text-gray-600 bg-gray-100 bg-opacity-50 px-2 py-1"
                 >
                   Tuk Tuk
                 </Button>
               </div>
             </div>
-            <div className="flex flex-1 flex-col items-center justify-start rounded-[20px] shadow-bs w-full">
-              <div className="h-[283px] relative w-full">
+            <div className="flex flex-1 flex-col items-center justify-start rounded-[20px] shadow-bs w-full cursor-pointer">
+              <div className="h-72 relative w-full overflow-hidden rounded-lg transition-transform duration-300 transform hover:scale-105">
                 <Img
-                  className="h-[283px] m-auto object-cover rounded-[20px] w-full"
+                  className="h-full m-auto object-cover rounded-[20px] w-full"
                   src="images/img_52_1_0.png"
                   alt="FiftyTwo"
                 />
@@ -132,10 +119,10 @@ const TranportUIPage = () => {
                 </Button>
               </div>
             </div>
-            <div className="flex flex-1 flex-col items-center justify-start rounded-[20px] shadow-bs w-full">
-              <div className="h-[283px] relative w-full">
+            <div className="flex flex-1 flex-col items-center justify-start rounded-[20px] shadow-bs w-full cursor-pointer">
+              <div className="h-72 relative w-full overflow-hidden rounded-lg transition-transform duration-300 transform hover:scale-105">
                 <Img
-                  className="h-[283px] m-auto object-cover rounded-[20px] w-full"
+                  className="h-full m-auto object-cover rounded-[20px] w-full"
                   src="images/img_52_2_0.png"
                   alt="FiftyTwo"
                 />
@@ -148,10 +135,10 @@ const TranportUIPage = () => {
                 </Button>
               </div>
             </div>
-            <div className="flex flex-1 flex-col items-center justify-start rounded-[20px] shadow-bs w-full">
-              <div className="h-[283px] relative w-full">
+            <div className="flex flex-1 flex-col items-center justify-start rounded-[20px] shadow-bs w-full cursor-pointer">
+              <div className="h-72 relative w-full overflow-hidden rounded-lg transition-transform duration-300 transform hover:scale-105">
                 <Img
-                  className="h-[283px] m-auto object-cover rounded-[20px] w-full"
+                  className="h-full m-auto object-cover rounded-[20px] w-full"
                   src="images/img_52_3_0.png"
                   alt="FiftyTwo"
                 />
@@ -164,10 +151,10 @@ const TranportUIPage = () => {
                 </Button>
               </div>
             </div>
-            <div className="flex flex-1 flex-col items-center justify-start rounded-[20px] shadow-bs w-full">
-              <div className="h-[283px] relative w-full">
+            <div className="flex flex-1 flex-col items-center justify-start rounded-[20px] shadow-bs w-full cursor-pointer">
+            <div className="h-72 relative w-full overflow-hidden rounded-lg transition-transform duration-300 transform hover:scale-105">
                 <Img
-                  className="h-[283px] m-auto object-cover rounded-[20px] w-full"
+                  className="h-full m-auto object-cover rounded-[20px] w-full"
                   src="images/img_52_4.png"
                   alt="FiftyTwo"
                 />
@@ -619,7 +606,7 @@ const TranportUIPage = () => {
             </div>
           </div>
         </div>
-        <Footer className="bg-black-900_02 flex items-center justify-center mt-[161px] md:px-5 w-[1870px]" />
+        <Footer/>
       </div>
     </>
   );

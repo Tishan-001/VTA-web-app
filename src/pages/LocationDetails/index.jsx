@@ -152,7 +152,7 @@ export default function HotelBookingpageFourOnePage() {
 
 
 
-        <Footer className="pl-14 pr-[97px] py-[97px] md:p-5 bg-black-900_01" />
+        <Footer/>
       </div>
     </>
   );

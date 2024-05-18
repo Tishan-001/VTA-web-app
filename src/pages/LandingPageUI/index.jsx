@@ -193,20 +193,13 @@ const LandingPageUIPage = () => {
                 orientation="horizontal">
 
 
-                <div className="h-[400px] relative rounded-[20px] shadow-bs w-full">
-                 
-                 
-                 
+                <div className="h-[400px] relative rounded-[20px] shadow-bs w-full duration-1000 transform hover:scale-105 cursor-pointer">
                   <Img
                     className="h-[400px] w-full m-auto object-cover rounded-[20px] sm:w-full "
                     src="images/img_52.png"
                     alt="FiftyTwo"
                   />
-
-
                   <div className="absolute flex flex-col  gap-[230px] md:gap-[200px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
-                   
-                   
                     <div className="flex flex-row items-center mt-[10px] justify-between w-[97%] md:w-full" >
                       <Button
                         className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
@@ -216,8 +209,6 @@ const LandingPageUIPage = () => {
                       >
                         7 Days
                       </Button>
-
-                      
                       <div className="bg-gray-700_66 flex flex-row gap-2.5 items-center justify-center p-[5px] rounded-[18px]">
                         <Img
                           className="h-[21px] ml-[9px] w-[22px]"
@@ -231,11 +222,10 @@ const LandingPageUIPage = () => {
                           4.9
                         </Text>
                       </div>
-                      
                     </div>
 
 
-                    <div className="bg-gray-600_99  flex flex-col items-center justify-end p-[11px] rounded-[20px] w-full">
+                    <div className="bg-gray-600_99  flex flex-col items-center justify-end p-[11px] rounded-[20px] w-full ">
                       <div className="flex flex-col items-start justify-start mt-[9px] w-[97%] md:w-full">
                         <Text
                           className="text-[15px] text-white-A700"
@@ -264,7 +254,7 @@ const LandingPageUIPage = () => {
 
                 </div>
 
-                <div className="h-[400px] relative rounded-[20px] shadow-bs w-full">
+                <div className="h-[400px] relative rounded-[20px] shadow-bs w-full duration-1000 transform hover:scale-105 cursor-pointer">
 
                   <Img
                     className="h-[400px] w-full m-auto object-cover rounded-[20px] sm:w-full "
@@ -332,20 +322,13 @@ const LandingPageUIPage = () => {
 
                 </div>
 
-                <div className="h-[400px] relative rounded-[20px] shadow-bs w-full">
-                 
-                 
-                 
+                <div className="h-[400px] relative rounded-[20px] shadow-bs w-full duration-1000 transform hover:scale-105 cursor-pointer">
                   <Img
                     className="h-[400px] w-full m-auto object-cover rounded-[20px] sm:w-full "
                     src="images/img_52_500x380.png"
                     alt="FiftyTwo"
                   />
-
-
                   <div className="absolute flex flex-col  gap-[230px] md:gap-[200px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
-                   
-                   
                     <div className="flex flex-row items-center mt-[10px] justify-between w-[97%] md:w-full" >
                       <Button
                         className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
@@ -355,8 +338,6 @@ const LandingPageUIPage = () => {
                       >
                         7 Days
                       </Button>
-
-                      
                       <div className="bg-gray-700_66 flex flex-row gap-2.5 items-center justify-center p-[5px] rounded-[18px]">
                         <Img
                           className="h-[21px] ml-[9px] w-[22px]"
@@ -404,16 +385,12 @@ const LandingPageUIPage = () => {
 
                 </div>
 
-                <div className="h-[400px] relative rounded-[20px] shadow-bs w-full">
+                <div className="h-[400px] relative rounded-[20px] shadow-bs w-full duration-1000 transform hover:scale-105 cursor-pointer">
                   <Img
                     className="h-[400px] w-full m-auto object-cover rounded-[20px] sm:w-full "
                     src="images/img_52.png"
                     alt="FiftyTwo"/>
-
-
                   <div className="absolute flex flex-col  gap-[230px] md:gap-[200px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
-                   
-                   
                     <div className="flex flex-row items-center mt-[10px] justify-between w-[97%] md:w-full" >
                       <Button
                         className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
@@ -651,14 +628,14 @@ const LandingPageUIPage = () => {
           <div className="flex flex-col items-start justify-start mt-[2px] w-[90%] ">
            
             <div className="gap-5 md:gap-5 grid sm:grid-cols-1 md:grid-cols-2 grid-cols-4 justify-center min-h-[20%] mt-[58px] w-full">
-              <div className="h-[200px] relative w-full">
+              <div className="h-[200px] relative w-full duration-300 transform hover:scale-105 cursor-pointer">
                 <Img
                   className="h-[200px] m-auto object-cover rounded-[30px] w-full"
                   src="images/img_71.png"
                   alt="SeventyOne"
                 />
                 <Button
-                  className="absolute bottom-[9%] cursor-pointer font-bold leading-[normal] left-[4%] min-w-[145px] rounded-[15px] text-center text-xl hover:bg-[#CAF4FF] hover:text-black-900"
+                  className="absolute bottom-[9%] cursor-pointer font-bold leading-[normal] left-[4%] min-w-[145px] rounded-[15px] text-center text-xl"
                   shape="round"
                   color="gray_600_99"
                   
@@ -667,7 +644,7 @@ const LandingPageUIPage = () => {
                  
                 </Button>
               </div>
-              <div className="h-[200px] relative w-full">
+              <div className="h-[200px] relative w-full duration-300 transform hover:scale-105 cursor-pointer">
                 <Img
                   className="h-[200px] m-auto object-cover rounded-[30px] w-full"
                   src="images/img_72.png"
@@ -681,7 +658,7 @@ const LandingPageUIPage = () => {
                   Ambuluwawa
                 </Button>
               </div>
-              <div className="h-[200px] relative w-full">
+              <div className="h-[200px] relative w-full duration-300 transform hover:scale-105 cursor-pointer">
                 <Img
                   className="h-[200px] m-auto object-cover rounded-[30px] w-full"
                   src="images/img_73.png"
@@ -695,7 +672,7 @@ const LandingPageUIPage = () => {
                   Ella Rock
                 </Button>
               </div>
-              <div className="h-[200px] relative w-full">
+              <div className="h-[200px] relative w-full duration-300 transform hover:scale-105 cursor-pointer">
                 <Img
                   className="h-[200px] m-auto object-cover rounded-[30px] w-full"
                   src="images/img_71_323x444.png"
@@ -709,7 +686,7 @@ const LandingPageUIPage = () => {
                   Trinkomali
                 </Button>
               </div>
-              <div className="h-[200px] relative w-full">
+              <div className="h-[200px] relative w-full duration-300 transform hover:scale-105 cursor-pointer">
                 <Img
                   className="h-[200px] m-auto object-cover rounded-[30px] w-full"
                   src="images/img_73_323x444.png"
@@ -723,7 +700,7 @@ const LandingPageUIPage = () => {
                   Yaala
                 </Button>
               </div>
-              <div className="h-[200px] relative w-full">
+              <div className="h-[200px] relative w-full duration-300 transform hover:scale-105 cursor-pointer">
                 <Img
                   className="h-[200px] m-auto object-cover rounded-[30px] w-full"
                   src="images/img_72_323x300.png"
@@ -737,8 +714,7 @@ const LandingPageUIPage = () => {
                   Lion Rock
                 </Button>
               </div>
-
-              <div className="h-[200px] relative w-full">
+              <div className="h-[200px] relative w-full duration-300 transform hover:scale-105 cursor-pointer">
                 <Img
                   className="h-[200px] m-auto object-cover rounded-[30px] w-full"
                   src="images/img_73_323x444.png"
@@ -752,7 +728,7 @@ const LandingPageUIPage = () => {
                   Yaala
                 </Button>
               </div>
-              <div className="h-[200px] relative w-full">
+              <div className="h-[200px] relative w-full duration-300 transform hover:scale-105 cursor-pointer">
                 <Img
                   className="h-[200px] m-auto object-cover rounded-[30px] w-full"
                   src="images/img_72_323x300.png"
@@ -766,8 +742,6 @@ const LandingPageUIPage = () => {
                   Lion Rock
                 </Button>
               </div>
-
-
             </div>
           </div>
           <Button
@@ -779,7 +753,7 @@ const LandingPageUIPage = () => {
           </Button>
         </div>
 
-        <Footer className="bg-black-900_02 flex items-center justify-center mt-[161px] md:px-5 w-[1870px]" />
+        <Footer/>
 
       </div>
     </>

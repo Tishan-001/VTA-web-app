@@ -44,7 +44,7 @@ const HotelBookingpagePage = () => {
   return (
     <>
     <Header />
-      <div className="bg-gray-100_01 flex flex-col font-inter items-center justify-end mx-auto pt-2.5 w-full">
+      <div className="bg-bg1-20  flex flex-col font-inter items-center justify-end mx-auto pt-2.5 w-full">
         <div className="flex flex-col items-center justify-start w-full">
           <div className="h-[723px] max-w-[1418px] mx-auto md:px-5 relative w-full">
             <Img
@@ -53,10 +53,8 @@ const HotelBookingpagePage = () => {
               alt="rectangleFive"
             />
 
-            <div className="absolute flex flex-col md:gap-10 gap-[385px] justify-start right-[6%] top-[6%] w-[77%]">
-                <section>
-                  <Nav12 />
-                </section>
+            <div className="absolute flex mt-[500px] flex-col md:gap-10 gap-[385px] justify-start right-[6%] top-[6%] w-[77%]">
+                
                 <section>
                     {/* Pass hotelListRef to SearchBar component */}
                    <Searchbar hotelListRef={hotelListRef} filterHotelListByDestination={filterHotelListByDestination} />
@@ -66,14 +64,15 @@ const HotelBookingpagePage = () => {
 
           <div className="flex flex-col items-start justify-start max-w-[1278px] mt-[109px] mx-auto md:px-5 w-full">
             <Text
-              className="text-black-900_b2 text-xl"
+              className="text-black-900_b2 text-5xl mb-[30px]"
               size="txtInterMedium20Black900b2"
+              
             >
               Property Type
             </Text>
 
             <div className="flex md:flex-col flex-row md:gap-10 gap-[69px] items-start justify-start mt-[30px] w-auto md:w-full">
-              <div className="h-[500px] relative rounded-[20px] shadow-bs w-[30%] md:w-full">
+              <div className="h-[500px] rounded-[20px] relative overflow-hidden shadow-bs w-[30%] md:w-full transition-transform duration-1000 transform hover:scale-105 cursor-pointer">
                 <Img
                   className="h-[500px] m-auto object-cover rounded-[20px] w-full"
                   src="images/img_52_1.png"
@@ -93,7 +92,7 @@ const HotelBookingpagePage = () => {
                 orientation="horizontal"
               >
 
-                <div className="h-[500px] relative rounded-[20px] shadow-bs w-full">
+                <div className="h-[500px] relative rounded-[20px] shadow-bs w-full transform hover:scale-105 cursor-pointer duration-1000">
                   <Img
                     className="h-[500px] m-auto object-cover rounded-[20px] w-full"
                     src="images/img_52_2.png"
@@ -108,7 +107,7 @@ const HotelBookingpagePage = () => {
                   </Button>
                 </div>
 
-                <div className="h-[500px] relative rounded-[20px] shadow-bs w-full">
+                <div className="h-[500px] relative rounded-[20px] shadow-bs w-full transform hover:scale-105 cursor-pointer duration-1000">
                   <Img
                     className="h-[500px] m-auto object-cover rounded-[20px] w-full"
                     src="images/img_52_3.png"
@@ -161,7 +160,7 @@ const HotelBookingpagePage = () => {
 
           </div>
           
-          <Footer className="bg-black-900_02 flex items-center justify-center mt-[161px] md:px-5 w-[1870px]" />
+          <Footer/>
         </div>
       </div>
     </>

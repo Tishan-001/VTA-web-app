@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Button, Img, Line, List, Text } from "components";
 import { Heading } from "components/Heading";
+import Footer from "components/Footer";
 
 
 export default function GuideDetailOnePage() {
@@ -50,7 +51,7 @@ export default function GuideDetailOnePage() {
                 </Text>
               </div>
             </div>
-            <div className="flex flex-row md:flex-col justify-between items-center w-[83%] md:w-full mt-[254px] md:gap-10">
+            <div className="flex flex-row md:flex-col justify-between items-center w-[83%] md:w-full mt-[100px] md:gap-10">
               <Img
                 src={tourGuide.media}
                 alt="circleimage"
@@ -89,7 +90,7 @@ export default function GuideDetailOnePage() {
                       </div>
 
                     </div>
-                    <div className="flex flex-row sm:flex-col justify-start items-center w-full gap-[40px] sm:gap-5">
+                    <div className="flex flex-row sm:flex-col justify-between items-center w-full sm:gap-10">
                       <Img
                         src="../images/img_depositphotos_8.png"
                         alt="imagefiftysix"
@@ -104,7 +105,7 @@ export default function GuideDetailOnePage() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-row sm:flex-col justify-start items-center w-full gap-11 sm:gap-5">
+                  <div className="flex flex-row sm:flex-col justify-between items-center w-full sm:gap-10">
                       <Img
                         src="../images/img_download_removebg_preview.png"
                         alt="imagefiftysix"
@@ -121,16 +122,16 @@ export default function GuideDetailOnePage() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col mt-20 items-start justify-start w-[80%] pl-[79px] pr-14 py-[79px] md:p-5  bg-gray-600_99 rounded-[30px]">
-             <div className="flex flex-col items-start justify-start mt-[11px] mb-[61px] gap-[45px]">
+            <div className="flex flex-col mt-20 items-start justify-start w-[80%] pl-[40px] py-[20px] md:p-5  bg-gray-600_99 rounded-[30px]">
+             <div className="flex flex-col items-start justify-start mt-[10px] mb-[61px] gap-[45px]">
                 <Text
-                     className="md:text-5xl text-[20px] text-black-900 font-bold"
+                     className="md:text-5xl text-[30px] text-black-900 font-bold"
                      size="txtInterBold20"
                 >
                  Description:
                </Text>
                <Text
-               className="text-2xl sm:text-[26px] md:text-[28px] text-black-900"
+               className="text-2xl sm:text-[20px] md:text-[28px] text-black-900"
                size="txtInterMedium30">
                   {tourGuide.description}
                </Text>
@@ -145,157 +146,7 @@ export default function GuideDetailOnePage() {
             </Button>
           </div>
         </div>
-        <footer className="flex justify-center items-center w-full pl-14 pr-[97px] py-[97px] md:p-5 bg-black-900_01">
-          <div className="flex flex-row justify-center w-full mx-auto max-w-[1048px]">
-            <div className="flex flex-row md:flex-col justify-between items-center w-full md:gap-10">
-              <div className="flex flex-col items-start justify-start mt-0.5 gap-[31px] md:mt-0">
-                <a href="#">
-                  <Heading as="h4">Company</Heading>
-                </a>
-                <ul className="flex flex-col items-start justify-start gap-[27px]">
-                  <li>
-                    <a href="#">
-                      <Text as="p" className="!text-red-50">
-                        Blog
-                      </Text>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <Text as="p" className="!text-red-50" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <Text as="p" className="!text-red-50">
-                        Privacy Policy
-                      </Text>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <Text as="p" className="!text-red-50" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <Text as="p" className="!text-red-50">
-                        FAQ’s
-                      </Text>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <Text as="p" className="!text-red-50" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <Text as="p" className="!text-red-50">
-                        Contact
-                      </Text>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="flex flex-row sm:flex-col justify-between items-start w-[72%] md:w-full sm:gap-10">
-                <div className="flex flex-col items-start justify-start mt-[3px] gap-[30px] sm:mt-0">
-                  <a href="#">
-                    <Heading as="h4">Contact Us</Heading>
-                  </a>
-                  <ul className="flex flex-col items-start justify-start ml-[3px] gap-7 md:ml-0">
-                    <li>
-                      <a href="#">
-                        <Text as="p">NO: 1, Main Street, Galle,</Text>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <Text as="p">Sri Lanka</Text>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <Text as="p" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <Text as="p">+9411-111-111</Text>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <Text as="p" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <Text as="p">vta@gmail.com</Text>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="flex flex-col items-start justify-start mt-[3px] gap-[30px] sm:mt-0">
-                  <a href="#">
-                    <Heading as="h4">Quick Link</Heading>
-                  </a>
-                  <ul className="flex flex-col items-start justify-start gap-[29px]">
-                    <li>
-                      <a href="#">
-                        <Text as="p">Packages</Text>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <Text as="p" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <Text as="p">Services</Text>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <Text as="p" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <Text as="p">Gallery</Text>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="h-[119px] w-[25%] sm:w-full relative">
-                  <Img
-                    src="../images/img_facebook.png"
-                    alt="facebook_one"
-                    className="h-[101px] w-[101px] bottom-0 left-0 m-auto object-cover absolute"
-                  />
-                  <div className="flex flex-row justify-end w-[86%] right-0 top-0 m-auto absolute">
-                    <div className="flex flex-col items-end justify-start w-full gap-1.5">
-                      <Heading as="h4" className="mr-1">
-                        Social Share
-                      </Heading>
-                      <div className="flex flex-row justify-end items-center w-[67%] md:w-full">
-                        <Button size="sm" shape="square" className="w-[47%] z-[1]">
-                          <Img src="../images/img_instagram.png" />
-                        </Button>
-                        <Img
-                          src="../images/img_twitter.png"
-                          alt="twitter_one"
-                          className="w-[58px] md:h-auto sm:w-full ml-[-2px] object-cover"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer/>
       </div>
     </>
   );
