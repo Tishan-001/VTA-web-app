@@ -33,11 +33,11 @@ const TourGuidersUIPage = () => {
     <>
 
       <Header/>
-      <div className="bg-bg1-20 flex flex-col font-inter items-center justify-start px-20 mx-auto pt-3 w-full">
+      <div className="bg-bg1-20 flex flex-col font-inter items-center justify-start mx-auto pt-3 w-full">
        
-        <div className="h-[703px] mt-[10px] md:h-[500px] mx-auto md:px-5 relative w-full">
+        <div className="h-[703px] mt-[10px] md:h-[500px] mx-auto md:px-5 relative  w-full">
          
-          <div className="absolute h-[703px] md:h-[500px] inset-[0] justify-center m-auto w-full">
+          <div className="absolute h-[703px] md:h-[500px] inset-[0] justify-center px-10 m-auto w-full">
             <Img
               className="h-[703px] md:h-[700px] m-auto object-cover rounded-[30px] w-full"
               src="images/img_rectangle4_1.png"
@@ -112,7 +112,7 @@ const TourGuidersUIPage = () => {
             ))}
           </div>
         </div>
-        <Footer className="bg-black-900_02 flex items-center justify-center mt-[161px] md:px-5 w-[1870px]" />
+        <Footer/>
       </div>
     </>
   );

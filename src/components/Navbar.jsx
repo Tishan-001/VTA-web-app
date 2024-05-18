@@ -1,25 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AiOutlineClose, AiOutlineMenu, AiOutlineDown } from 'react-icons/ai';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
-  // State to manage the navbar's visibility
   const [nav, setNav] = useState(false);
   const [showServices, setShowServices] = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  const navigate = useNavigate();
 
-  // Toggle function to handle the navbar's display
+  useEffect(() => {
+    // Check if the user is signed in by looking for the token in local storage
+    const token = localStorage.getItem('token');
+    setIsSignedIn(!!token);
+  }, []);
+
   const handleNav = () => {
     setNav(!nav);
   };
 
-  // Toggle function to handle showing/hiding the services dropdown
   const toggleServices = () => {
     setShowServices(!showServices);
   };
 
-  // Array containing navigation items
+  const handleSignOut = () => {
+    localStorage.removeItem('token');
+    setIsSignedIn(false);
+    navigate('/');
+  };
+
   const navItems = [
-    { id: 1, text: 'Home', link: '/' }, // Add Link to Home
+    { id: 1, text: 'Home', link: '/' },
     {
       id: 2,
       text: 'Services',
@@ -34,32 +44,37 @@ const Navbar = () => {
     },
     { id: 3, text: 'Gallery', link: '/location' },
     { id: 4, text: 'About us', link: '/about-us' },
-    { id: 5, text: 'Sign in', link: '/signin' },
-    { id: 6, text: 'Sign Up', link: '/signup' },
+    ...(!isSignedIn
+      ? [
+          { id: 5, text: 'Sign in', link: '/login' },
+          { id: 6, text: 'Sign Up', link: '/signup' },
+        ]
+      : [{ id: 7, text: 'Sign out', link: '/tourguidersui', onClick: handleSignOut }])
   ];
 
   return (
     <div className='bg-black flex justify-between items-center h-24 max-w-[1110px] mx-auto px-5 text-white'>
-      {/* Logo */}
       <a href="/">
         <div>
-          <h1 className="text-4xl font-bold ml-[-200px]">VTA</h1>
-          <h1 className="ml-[-255px] mt-[5px]">Viertual Travel Assistance</h1>
+          <h1 className="text-4xl font-bold ml-[-110%]">VTA</h1>
+          <h1 className="ml-[-140%] mt-[5px]">Viertual Travel Assistance</h1>
         </div>
       </a>
-
-      {/* Desktop Navigation */}
-      <ul className='flex mr-[-230px] md:hidden'>
+      <ul className='flex mr-[-25%] md:hidden'>
         {navItems.map(item => (
           <li
             key={item.id}
             className='p-4 ml-[10px] text-[20px] hover:bg-[#A0DEFF] rounded-xl h-[60px] m-2 cursor-pointer duration-300 hover:text-black hover:text-1xl hover:text-black-900_01 relative z-50'
             onClick={() => item.hasDropdown && toggleServices()}
           >
-            {item.link ? ( // Check if item has a link
-              <Link to={item.link}>{item.text}</Link> // Render Link if available
+            {item.link ? (
+              item.onClick ? (
+                <button onClick={item.onClick}>{item.text}</button>
+              ) : (
+                <Link to={item.link}>{item.text}</Link>
+              )
             ) : (
-              item.text // Otherwise just render the text
+              item.text
             )}
             {item.hasDropdown && showServices && <AiOutlineDown size={10} />}
             {item.hasDropdown && showServices && (
@@ -74,13 +89,9 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-
-      {/* Mobile Navigation Icon */}
       <div onClick={handleNav} className=' md:mr-10 hidden md:flex'>
         {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
       </div>
-
-      {/* Mobile Navigation Menu */}
       <ul
         className={
           nav
@@ -88,20 +99,20 @@ const Navbar = () => {
             : 'ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]'
         }
       >
-        {/* Mobile Logo */}
-        <img className="h-20 w-20 ml-[-100px] md:ml-[40px] rounded-full" src="images/img_image_75.png" alt="Logo" />
-
-        {/* Mobile Navigation Items */}
         {navItems.map(item => (
           <li
             key={item.id}
             className=' p-4 border-b rounded-xl hover:bg-[#A0DEFF] duration-300 hover:text-black cursor-pointer border-gray-600 relative'
             onClick={() => item.hasDropdown && toggleServices()}
           >
-            {item.link ? ( // Check if item has a link
-              <Link to={item.link}>{item.text}</Link> // Render Link if available
+            {item.link ? (
+              item.onClick ? (
+                <button onClick={item.onClick}>{item.text}</button>
+              ) : (
+                <Link to={item.link}>{item.text}</Link>
+              )
             ) : (
-              item.text // Otherwise just render the text
+              item.text
             )}
             {item.hasDropdown && showServices && <AiOutlineDown size={20} />}
             {item.hasDropdown && showServices && (

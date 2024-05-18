@@ -202,7 +202,7 @@ const HotelBookingDescriptionPageUIPage = () => {
               What Our Fantastic Clients Say
             </Text>
 
-            <Footer className="bg-black-900_01 flex items-center justify-center mt-[707px] md:px-5 w-full" />
+            <Footer/>
           </div>
         </div>
       </div>

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Button, Img, Text } from "../../components";
-import { ReactTable } from "../../components/ReactTable";
-import { createColumnHelper } from "@tanstack/react-table";
 import { Heading } from "components/Heading";
 import { useParams } from "react-router-dom";
 import Footer from "components/Footer";
@@ -17,87 +15,21 @@ export default function TourPackageDescriptionPageUIPage() {
       .catch((error) => console.error("Error fetching tour data:", error));
   }, [id]);
 
-  const tableColumns = React.useMemo(() => {
-    const tableColumnHelper = createColumnHelper();
-    return [
-      tableColumnHelper.accessor("place", {
-        cell: (info) => (
-          <div className="flex items-center justify-start">
-            <Text size="md" as="p" className="mt-1 text-black-900_02">
-              {info?.getValue?.()}
-            </Text>
-          </div>
-        ),
-        header: (info) => (
-          <Heading size="s" as="h4" className="p-px !text-black-900_02">
-            Place
-          </Heading>
-        ),
-        meta: { width: "288px" },
-      }),
-      tableColumnHelper.accessor("date", {
-        cell: (info) => (
-          <div className="flex items-center justify-start">
-            <Text size="md" as="p" className="mt-1 text-black-900_02">
-              {info?.getValue?.()}
-            </Text>
-          </div>
-        ),
-        header: (info) => (
-          <Heading size="s" as="h5" className="px-[35px] py-px sm:px-5 !text-black-900_02">
-            Date
-          </Heading>
-        ),
-        meta: { width: "414px" },
-      }),
-      tableColumnHelper.accessor("reservation", {
-        cell: (info) => (
-          <div className="flex items-center justify-start">
-            <Text size="md" as="p" className="text-black-900_02">
-              {info?.getValue?.()}
-            </Text>
-          </div>
-        ),
-        header: (info) => (
-          <Heading size="s" as="h6" className="py-px !text-black-900_02">
-            Reservation
-          </Heading>
-        ),
-        meta: { width: "360px" },
-      }),
-      tableColumnHelper.accessor("description", {
-        cell: (info) => (
-          <div className="flex items-center justify-start">
-            <Text size="md" as="p" className="text-black-900_02">
-              {info?.getValue?.()}
-            </Text>
-          </div>
-        ),
-        header: (info) => (
-          <Heading size="s" as="h2" className="py-px !text-black-900_02">
-            Description
-          </Heading>
-        ),
-        meta: { width: "429px" },
-      }),
-    ];
-  }, []);
-
   if (!tourData) {
     return <div>Loading...</div>;
   }
 
   return (
     <>
-      <div className="flex flex-col items-center justify-start w-full pt-[22px] gap-[69px] sm:pt-5 bg-white-A700">
+      <div className="flex flex-col items-center justify-start w-full pt-[22px] gap-[69px] sm:pt-5 bg-bg1-20">
         <div className="flex flex-col items-center justify-start w-full md:px-5 max-w-[1418px]">
           <div className="flex flex-col items-center justify-start w-full gap-[85px]">
             <div className="flex flex-col items-center justify-start w-full p-[31px] sm:p-5 bg-gray-600 rounded-[30px]">
-              <div className="flex flex-col items-center justify-start w-[92%] md:w-full mb-[50px] gap-[55px]">
-                <Heading size="xl" as="h1" className="w-[98%] text-center">
+              <div className="flex flex-col items-center justify-start w-full md:w-full mb-[50px] gap-[55px]">
+                <Heading size="xl" as="h1" className="w-full text-center text-5xl">
                   Plan Your Journey With Our Experience
                 </Heading>
-                <Text size="lg" as="p">
+                <Text size="lg" as="p" className="text-2xl">
                   Embark on Your Journey Where Dreams Meet Destinations - Book Your Adventure with
                 </Text>
               </div>
@@ -146,24 +78,37 @@ export default function TourPackageDescriptionPageUIPage() {
                 <Heading size="md" as="h3" className="!text-black-900_02">
                   Time Plan and Locations
                 </Heading>
-                <ReactTable
-                  size="xs"
-                  bodyProps={{ className: "md:flex-col" }}
-                  headerProps={{ className: "md:flex-col md:gap-5" }}
-                  rowDataProps={{ className: "md:flex-col md:gap-5" }}
-                  className="w-[1291px]"
-                  columns={tableColumns}
-                  data={tourData.timePlaneList}
-                />
+                <div className="overflow-x-auto w-full">
+                  <table className="w-full bg-white">
+                    <thead className="bg-blue-300">
+                      <tr>
+                        <th className="py-2 text-3xl px-4 border-b border-gray-300 text-left text-gray-600">Place</th>
+                        <th className="py-2 text-3xl px-4 border-b border-gray-300 text-right text-gray-600">Date</th>
+                        <th className="py-2 text-3xl px-4 border-b border-gray-300 text-right text-gray-600">Reservation</th>
+                        <th className="py-2 text-3xl px-4 border-b border-gray-300 text-right text-gray-600">Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {tourData.timePlaneList.map((row) => (
+                        <tr key={row.id} className="hover:bg-gray-100">
+                          <td className="py-2 px-4 border-b border-gray-300">{row.place}</td>
+                          <td className="py-2 px-4 border-b border-gray-300 text-right">{row.date}</td>
+                          <td className="py-2 px-4 border-b border-gray-300 text-right">{row.reservation}</td>
+                          <td className="py-2 px-4 border-b border-gray-300 text-right">{row.description}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
             <div className="flex flex-col items-start justify-start w-[90%] md:w-full gap-[54px]">
               <Heading size="md" as="h1" className="!text-black-900_02">
                 Gallery
               </Heading>
-              <div className="w-full gap-10 grid-cols-3 md:grid-cols-2 md:gap-5 sm:grid-cols-1 grid">
+              <div className="w-full gap-10 grid-cols-3 md:grid-cols-2 md:gap-5 sm:grid-cols-1 grid ">
                 {tourData.gallery.map((imgSrc, index) => (
-                  <div key={index} className="h-[323px] w-full relative">
+                  <div key={index} className="h-[323px] w-full relative duration-300 transform hover:scale-105">
                     <Img
                       src={imgSrc}
                       alt={`gallery_image_${index}`}
@@ -182,13 +127,13 @@ export default function TourPackageDescriptionPageUIPage() {
             <Button
               color="black_900"
               size="md"
-              className="sm:px-5 font-medium min-w-[190px] rounded-[10px] sm:min-w-full"
+              className="sm:px-5 font-medium min-w-[190px] rounded-[10px] sm:min-w-full hover:bg-blue-400 hover:text-black-900 bg-black-900 text-white-A700_01"
             >
               Pay Now
             </Button>
           </div>
         </div>
-        <Footer className="bg-black-900_02 flex items-center justify-center md:px-5 w-[1870px]" />
+        <Footer/>
       </div>
     </>
   );

@@ -160,7 +160,7 @@ const HotelBookingpagePage = () => {
 
           </div>
           
-          <Footer className="bg-black-900_02 flex items-center justify-center mt-[161px] md:px-5 w-[1870px]" />
+          <Footer/>
         </div>
       </div>
     </>
