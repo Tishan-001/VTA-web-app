@@ -159,7 +159,6 @@ const HotelBookingpagePage = () => {
             </List>
 
           </div>
-          
           <Footer/>
         </div>
       </div>
