@@ -8,7 +8,7 @@ export default function HotelBookingpageFourPage() {
   return (
     <>
       
-      <div className="flex flex-col w-full gap-[60px] sm:gap-[30px] bg-white-A700">
+      <div className="flex flex-col w-full gap-[60px] sm:gap-[30px] bg-bg1-20">
         <div className="w-full mt-[21px] mx-auto md:p-5 max-w-[1418px]">
           <div className="flex flex-col items-center gap-[52px] sm:gap-[26px]">
             <div className="flex self-stretch p-[31px] sm:p-5 bg-gray-600 rounded-[30px]">
@@ -128,7 +128,7 @@ export default function HotelBookingpageFourPage() {
             </div>
           </div>
         </div>
-        <Footer className="pl-14 pr-[97px] py-[97px] md:p-5 bg-black-900_01" />
+        <Footer className="bg-black-900_02 flex items-center justify-center mt-[100px] md:px-5 w-[1870px]" />
       </div>
     </>
   );

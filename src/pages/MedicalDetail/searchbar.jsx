@@ -60,7 +60,7 @@ const SearchBar = ({ hotelListRef}) => {
 };
 
   return (
-    <div className="bg-gray-700_66_01 mt-[100px] ml-[220px] md:ml-auto  md:right-[7%] flex md:flex-col flex-row md:gap-5 items-center justify-start  p-[13px] rounded-[20px] w-[70%]  border-2 border-solid md:w-full white_A700_black_900_00_border3"   style={{backgroundColor: "rgba(110,106,106,0.5)"}}>
+    <div className="bg-gray-700_66_01 mt-[100px] md:ml-auto  md:right-[7%] flex md:flex-col flex-row md:gap-5 items-center justify-start  p-[13px] rounded-[20px] w-[70%]  border-2 border-solid md:w-full white_A700_black_900_00_border3"   style={{backgroundColor: "rgba(110,106,106,0.5)"}}>
 
       
 <div className="  ml-12  w-[180px] font-medium h-8">

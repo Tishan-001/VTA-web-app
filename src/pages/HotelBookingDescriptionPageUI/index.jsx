@@ -43,7 +43,7 @@ const HotelBookingDescriptionPageUIPage = () => {
 
   return (
     <>
-      <div className="bg-white-A700 flex flex-col font-inter items-center justify-end mx-auto pt-[22px] w-full">
+      <div className="bg-bg1-20 flex flex-col font-inter items-center justify-end mx-auto pt-[22px] w-full">
         <div className="flex flex-col items-center justify-start w-full">
           <div className="bg-gray-600 flex flex-col items-start justify-start max-w-[1418px] mx-auto p-[106px] md:px-5 rounded-[30px] w-full">
             <div className="flex flex-col gap-9 items-start justify-start mb-[22px] mt-[5px]">
