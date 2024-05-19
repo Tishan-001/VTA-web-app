@@ -77,14 +77,14 @@ const LandingPageUIPage = () => {
               <div className="absolute flex flex-col justify-start right-[7%] top-[4%] w-[76%]">
 
                 <Text
-                  className="ml-2 md:ml-[10]  md:text-5xl sm:mt-[-20%] text-6xl text-black-900 text-center justify-start absolute right-[14%] top-[10%]"
+                  className="ml-2 md:ml-[10]  md:text-5xl sm:mt-[-20%] text-6xl text-black-900 text-center justify-start absolute mt-[100px] right-[14%] top-[10%]"
                   size="txtInterBold60"
                 >
                   Traveling opens the doors to creating memories
                 </Text>
                 
                 <Text
-                  className=" md:ml-[0] ml-[-100px] mt-60 sm:mt-60 mr-[50px] sm:text-[21px] md:text-[23px] text-[25px] text-center text-white-A700 "
+                  className=" md:ml-[0] ml-[-100px] mt-[300px] sm:mt-60 mr-[50px] sm:text-[21px] md:text-[23px] text-[25px] text-center text-white-A700 "
                   size="txtInterMedium25"
                 >
                   Exploring Sri Lanka is an unforgettable adventure
