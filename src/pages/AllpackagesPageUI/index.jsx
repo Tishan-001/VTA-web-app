@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Button, Img, Text } from "components";
 import Footer from "components/Footer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../../components/Navbar.jsx";
 import Searchbar from "./searchbar.jsx";
 
 const AllpackagesPageUIPage = () => {
   const [tourPackages, setTourPackages] = useState([]);
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchTourPackages();
+    checkSignInStatus();
   }, []);
 
   const fetchTourPackages = async () => {
@@ -22,6 +26,22 @@ const AllpackagesPageUIPage = () => {
       setTourPackages(data);
     } catch (error) {
       console.error("Error fetching tour packages:", error);
+    }
+  };
+
+  const checkSignInStatus = () => {
+    const token = localStorage.getItem('token');
+    setIsSignedIn(!!token);
+  };
+
+  const handleBookNow = (packageId) => {
+    if (isSignedIn) {
+      navigate(`/packagedetails/${packageId}`);
+    } else {
+      setErrorMessage("You need to sign in to book a tour package.");
+      setTimeout(() => {
+        navigate('/login');
+      }, 5000); // Redirect after 5 seconds
     }
   };
 
@@ -38,9 +58,9 @@ const AllpackagesPageUIPage = () => {
               alt="rectangleFour"
             />
             <div className="absolute flex flex-col md:gap-10 gap-[388px] justify-start right-[5%] top-[5%] w-[77%] mt-[450px] md:mt-[300px]">
-            <section>
-              <Searchbar/>
-            </section>
+              <section>
+                <Searchbar/>
+              </section>
             </div>
           </div>
         </div>
@@ -53,6 +73,11 @@ const AllpackagesPageUIPage = () => {
           <Text className="sm:text-4xl md:text-[38px] text-[40px] text-black-900" size="txtInterBold40">
             Our Best Package
           </Text>
+          {errorMessage && (
+            <div className="bg-red-300 items-center text-center py-2 px-4 mb-4 rounded">
+              {errorMessage}
+            </div>
+          )}
           <div className="gap-16 md:gap-5 grid sm:grid-cols-1 md:grid-cols-2 grid-cols-4 justify-center min-h-[auto] mt-[49px] w-[105%]  md:w-full md:ml-auto">
             {tourPackages.map((tourPackage) => (
               <div key={tourPackage.id} className="hover:cursor-pointer h-[450px]  hover:relative relative rounded-[20px] hover:shadow-bs shadow-bs hover:w-full w-[100%]">
@@ -100,8 +125,9 @@ const AllpackagesPageUIPage = () => {
                     </Text>
                     <Button
                       className="absolute hover:bg-[#CAF4FF] hover:text-black-900 cursor-pointer font-bold h-max inset-y-[0] leading-[normal] min-w-[130px] my-auto right-[7%] rounded-[15px] text-center text-1xl mb-[6px]"
+                      onClick={() => handleBookNow(tourPackage.id)}
                     >
-                      <Link to={`/packagedetails/${tourPackage.id}`}>Book Now</Link>
+                      Book Now
                     </Button>
                   </div>
                 </div>
