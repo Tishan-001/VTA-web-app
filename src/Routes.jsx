@@ -21,6 +21,7 @@ import NewHotemServiceProvider from "pages/NewHotelServiceProvider/NewHotelServi
 import NewTourGuideServiceProvider from "pages/NewTourGuideServiceProvider/NewTourGuideServiceProvider";
 import ChooseServiceProviders from "pages/ChooseServiceProviders/ChooseServiceProviders";
 import NewTourPackage from "pages/NewTourPackage/NewTourPackage";
+import AddNewRoom from "pages/AddNewRoom/AddNewRoom";
 
 
 const HotelBookingpage = React.lazy(() => import("pages/HotelBookingpage"));
@@ -91,6 +92,7 @@ const ProjectRoutes = () => {
           <Route path="/newtourguideserviceprovider" element={<NewTourGuideServiceProvider/>}/>
           <Route path="/chooseserviceproviders" element={<ChooseServiceProviders/>}/>
           <Route path="/newtourpackage" element={<NewTourPackage/>}/>
+          <Route path="/addnewroom" element={<AddNewRoom/>}/>
         </Routes>
       </Router>
     </React.Suspense>

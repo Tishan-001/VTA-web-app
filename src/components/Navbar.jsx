@@ -49,7 +49,11 @@ const Navbar = () => {
           { id: 5, text: 'Sign in', link: '/login' },
           { id: 6, text: 'Sign Up', link: '/signup' },
         ]
-      : [{ id: 7, text: 'Sign out', link: '/tourguidersui', onClick: handleSignOut }])
+      : [{ id: 7, text: 'Sign out', link: '/tourguidersui', onClick: handleSignOut }]),
+
+      { id: 1, text: 'Offer Services', link: '/chooseserviceproviders' }
+
+
   ];
 
   return (
