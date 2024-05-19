@@ -47,7 +47,7 @@ const TourGuidersUIPage = () => {
 
   return (
     <>
-      <Header />
+      
       <div className="bg-bg1-20 flex flex-col font-inter items-center justify-start mx-auto pt-3 w-full">
        
         <div className="h-[703px] mt-[10px] md:h-[500px] mx-auto md:px-5 relative  w-full">

@@ -43,7 +43,7 @@ const Navbar = () => {
       ]
     },
     { id: 3, text: 'Gallery', link: '/location' },
-    { id: 4, text: 'About us', link: '/about-us' },
+    { id: 4, text: 'About us', link: '/aboutus' },
     ...(!isSignedIn
       ? [
           { id: 5, text: 'Sign in', link: '/login' },
