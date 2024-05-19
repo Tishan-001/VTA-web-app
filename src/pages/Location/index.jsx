@@ -4,13 +4,19 @@ import { Button, Img, Text , Input } from "../../components";
 import { RatingBar } from "components/RatingBar";
 import { Heading } from "components/Heading";
 
+import Navbar from "components/Navbar";
+
+import Footer from "components/Footer";
+
 import { Link } from "react-router-dom";
 
 export default function Location() {
   return (
     <>
+
+      <Navbar/>
       
-      <div className="flex flex-col items-center justify-start w-full pt-4 gap-[664px] bg-white-A700">
+      <div className="flex flex-col items-center justify-start w-full pt-4 gap-[1px] bg-bg1-20">
         
         
         
@@ -21,13 +27,13 @@ export default function Location() {
            
               <div className="flex flex-col items-start justify-start mt-[11px] mb-[61px] gap-[45px]">
                  <Text
-                      className="md:text-5xl text-[80px] text-white-A700"
+                      className="md:text-4xl text-[50px] text-white-A700 text-center"
                       size="txtInterBold80"
                  >
                   Tourism Locations
                 </Text>
                 <Text
-                className="text-3xl sm:text-[26px] md:text-[28px] text-white-A700"
+                className="text-3xl sm:text-[20px] md:text-[24px] text-justify text-white-A700"
                 size="txtInterMedium30">
                   There are many variations of passages of Lorem Ipsum available, but the majority have suffered
                   alteration in some form, by injected humour.
@@ -39,36 +45,14 @@ export default function Location() {
         </div>
 
 
-
-
-
-
-        
-
-
-
-
-
-       
-      </div>
-
-     
-
-
-
-
-
-        <div className="gap-[50px] flex flex-col mt-[150px]">
-                       <div className="flex flex-col-3 w-[100%] md:w-full gap-[10px] ml-[250px]">
-                          
-                          
-                          <div className="flex sm:flex-col justify-center gap-[20px] mt-[2px]">
-                           
-                            <div className="h-[200px] relative ">
+         <div className="gap-[50px] flex flex-col mt-[150px] md:w-[90%] sm:mt-[50px]">
+                       <div className="flex flex-col-3   w-[100%]  gap-[10px] ">
+                          <div className="flex sm:flex-col justify-center gap-[20px] sm:gap-[20px] sm mt-[2px]">
+                            <div className="h-[200px] relative  sm:h-[200px] sm:w-full  ">
                                     <Img
                                     src="images/images/img_image_73.png"
                                     alt="imageseventythr"
-                                    className="h-[240px] w-[400px] object-cover rounded-[10px]"
+                                    className="h-[240px] w-[400px] object-cover rounded-[10px]  sm:h-[200px] sm:w-full "
                                   />
                                   <Button
                                     className="absolute bottom-[1%] cursor-pointer font-bold leading-[normal] left-[4%] min-w-[145px] rounded-[20px] text-center text-xl"
@@ -82,14 +66,14 @@ export default function Location() {
                             </div>
 
 
-                            <div className="h-[200px] relative ">
+                            <div className="h-[200px] relative  sm:h-[200px] sm:w-full ">
                                   <Img
                                     src="images/images/img_image_72.png"
                                     alt="imageseventytwo"
-                                    className="w-[200px] h-[240px] sm:w-full sm:h-auto object-cover rounded-[10px]"
+                                    className="w-[200px] h-[240px]  sm:h-[200px] sm:w-full  object-cover rounded-[10px]"
                                   />
                                   <Button
-                                    className="absolute bottom-[1%] cursor-pointer font-bold leading-[normal] left-[4%] min-w-[145px] rounded-[20px] text-center text-xl"
+                                    className="absolute bottom-[1%] cursor-pointer font-bold leading-[normal] left-[4%] min-w-[15px] rounded-[20px] text-center text-xl"
                                     shape="round"
                                     color="gray_600_99"
                                     
@@ -99,12 +83,12 @@ export default function Location() {
                                   </Button>
                             </div>
 
-                            <div className="h-[200px] relative ">
+                            <div className="h-[200px] relative  sm:h-[200px] sm:w-full ">
                                  
                                   <Img
                                     src="images/images/img_image_73.png"
                                     alt="imageseventythr"
-                                    className="h-[240px] w-[400px] object-cover rounded-[10px]"
+                                    className="h-[240px] w-[400px] object-cover rounded-[10px]  sm:h-[200px] sm:w-full "
                                   />
                                   <Button
                                     className="absolute bottom-[1%] cursor-pointer font-bold leading-[normal] left-[4%] min-w-[145px] rounded-[20px] text-center text-xl"
@@ -122,13 +106,16 @@ export default function Location() {
 
 
 
+
+
+
                         <div className="flex flex-col w-[100%] md:w-full gap-[10px]">
                           <div className="flex sm:flex-col justify-center gap-[20px] mt-[2px]">
-                            <div className="h-[200px] relative ">
+                            <div className="h-[200px] relative   sm:h-[200px] sm:w-full ">
                                     <Img
                                     src="images/images/img_image_73.png"
                                     alt="imageseventythr"
-                                    className="h-[240px] w-[400px] object-cover rounded-[10px]"
+                                    className="h-[240px] w-[400px]  sm:h-[200px] sm:w-full  object-cover rounded-[10px]"
                                   />
                                   <Button
                                     className="absolute bottom-[1%] cursor-pointer font-bold leading-[normal] left-[4%] min-w-[145px] rounded-[20px] text-center text-xl"
@@ -143,12 +130,12 @@ export default function Location() {
 
                             
 
-                            <div className="h-[200px] relative ">
+                            <div className="h-[200px]  sm:h-[200px] sm:w-full  relative ">
                                  
                                   <Img
                                     src="images/images/img_image_73.png"
                                     alt="imageseventythr"
-                                    className="h-[240px] w-[400px] object-cover rounded-[10px]"
+                                    className="h-[240px] w-[400px]  sm:h-[200px] sm:w-full  object-cover rounded-[10px]"
                                   />
                                   <Button
                                     className="absolute bottom-[1%] cursor-pointer font-bold leading-[normal] left-[4%] min-w-[145px] rounded-[20px] text-center text-xl"
@@ -162,14 +149,14 @@ export default function Location() {
                             </div>
 
 
-                            <div className="h-[200px] relative ">
+                            <div className="h-[200px]   sm:h-[200px] sm:w-full  relative ">
                                   <Img
                                     src="images/images/img_image_72.png"
                                     alt="imageseventytwo"
-                                    className="w-[200px] h-[240px] sm:w-full sm:h-auto object-cover rounded-[10px]"
+                                    className="w-[200px] h-[240px]   sm:h-[200px] sm:w-full  object-cover rounded-[10px]"
                                   />
                                   <Button
-                                    className="absolute bottom-[1%] cursor-pointer font-bold leading-[normal] left-[4%] min-w-[145px] rounded-[20px] text-center text-xl"
+                                    className="absolute bottom-[1%] cursor-pointer font-bold leading-[normal] left-[4%] min-w-[15px] rounded-[20px] text-center text-xl"
                                     shape="round"
                                     color="gray_600_99"
                                     
@@ -184,13 +171,15 @@ export default function Location() {
 
 
 
+
+
                         <div className="flex flex-col w-[100%] md:w-full gap-[10px]">
                           <div className="flex sm:flex-col justify-center gap-[20px] mt-[2px]">
-                            <div className="h-[200px] relative ">
+                            <div className="h-[200px]  sm:h-[200px] sm:w-full  relative ">
                                     <Img
                                     src="images/images/img_image_73.png"
                                     alt="imageseventythr"
-                                    className="h-[240px] w-[400px] object-cover rounded-[10px]"
+                                    className="h-[240px] w-[400px]  sm:h-[200px]   object-cover rounded-[10px]"
                                   />
                                   <Button
                                     className="absolute bottom-[1%] cursor-pointer font-bold leading-[normal] left-[4%] min-w-[145px] rounded-[20px] text-center text-xl"
@@ -203,14 +192,14 @@ export default function Location() {
                                   </Button>
                             </div>
 
-                            <div className="h-[200px] relative ">
+                            <div className="h-[200px]  sm:h-[200px] sm:w-full  relative ">
                                   <Img
                                     src="images/images/img_image_72.png"
                                     alt="imageseventytwo"
-                                    className="w-[200px] h-[240px] sm:w-full sm:h-auto object-cover rounded-[10px]"
+                                    className="w-[200px] h-[240px]  sm:h-[200px] sm:w-full  object-cover rounded-[10px]"
                                   />
                                   <Button
-                                    className="absolute bottom-[1%] cursor-pointer font-bold leading-[normal] left-[4%] min-w-[145px] rounded-[20px] text-center text-xl"
+                                    className="absolute bottom-[1%] cursor-pointer font-bold leading-[normal] left-[4%] min-w-[15px] rounded-[20px] text-center text-xl"
                                     shape="round"
                                     color="gray_600_99"
                                     
@@ -220,12 +209,12 @@ export default function Location() {
                                   </Button>
                             </div>
 
-                            <div className="h-[200px] relative ">
+                            <div className="h-[200px]  sm:h-[200px] sm:w-full  relative ">
                                  
                                   <Img
                                     src="images/images/img_image_73.png"
                                     alt="imageseventythr"
-                                    className="h-[240px] w-[400px] object-cover rounded-[10px]"
+                                    className="h-[240px] w-[400px]   sm:h-[200px] sm:w-full  object-cover rounded-[10px]"
                                   />
                                   <Button
                                     className="absolute bottom-[1%] cursor-pointer font-bold leading-[normal] left-[4%] min-w-[145px] rounded-[20px] text-center text-xl"
@@ -244,26 +233,13 @@ export default function Location() {
                   
 
 
-                  </div>
+                  </div> 
 
-
-
-      
-
-
-            <Button
-            className="cursor-pointer font-medium leading-[normal] min-w-[190px] mt-[59px] w-[40%] ml-[480px] rounded-[26px] text-center text-xl"
-            color="black_900_01"
-            size="md"
-          >
-            view more
-          </Button>
-
-
-
-
-            
+                  <Footer/>
+     </div>
     
+
+
 
     </>
   );
