@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { Button, Img, Heading, Text, Input, TextArea } from "components";
 
 import HotelData from "../../assets/data/HotelData";
+import Footer from "components/Footer";
 
 import Img1 from "../../assets/images/img_image_59.png" 
 import Img2 from "../../assets/images/img_image_60.png" 
