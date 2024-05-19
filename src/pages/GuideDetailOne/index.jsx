@@ -27,6 +27,8 @@ export default function GuideDetailOnePage() {
     fetchData();
   }, [id]);
 
+  
+
   if (!tourGuide) {
     return <div>Loading...</div>; // Render a loading state if data isn't yet available
   }
@@ -38,15 +40,15 @@ export default function GuideDetailOnePage() {
         <div className="flex flex-col items-center justify-start w-full md:px-5 px-10">
           <div className="flex flex-col items-center justify-start w-full">
             <div className="flex flex-col items-start justify-start w-full pl-[79px] pr-14 py-[79px] md:p-5 bg-lime-800 rounded-[30px]">
-              <div className="flex flex-col items-start justify-start mt-[11px] mb-[61px] gap-[45px]">
+              <div className="flex flex-col items-start justify-center mt-[11px] mb-[61px] gap-[45px]">
                  <Text
-                      className="md:text-5xl text-[80px] text-white-A700"
+                      className="md:text-5xl sm:text-4xl text-[80px] text-white-A700"
                       size="txtInterBold80"
                  >
                   Book Your Guide
                 </Text>
                 <Text
-                className="text-3xl sm:text-[26px] md:text-[28px] text-white-A700"
+                className="text-3xl sm:text-2xl md:text-2xl text-white-A700"
                 size="txtInterMedium30">
                   Embark on Your Journey Where Dreams Meet Destinations - Book Your Adventure with Seamless Ease
                 </Text>
@@ -56,12 +58,12 @@ export default function GuideDetailOnePage() {
               <Img
                 src={tourGuide.media}
                 alt="circleimage"
-                className="h-[543px] w-[543px] object-cover md:h-auto rounded-[50%]"
+                className="h-[543px] w-[543px] sm:h-[250px] sm:w-[250px] object-cover md:h-auto rounded-[50%]"
               />
               <div className="flex flex-col items-center justify-start w-[47%] md:w-full">
                 <div className="flex flex-col items-center justify-start w-full gap-[52px]">
-                  <div className="flex flex-col items-center justify-start w-[98%] md:w-full gap-[52px]">
-                    <div className="flex flex-row sm:flex-col justify-between items-center w-full sm:gap-10">
+                  <div className="flex flex-col items-center justify-start w-[98%] md:w-[80%] sm:w-full gap-[52px]">
+                    <div className="flex flex-row sm:flex-row justify-between items-center w-full sm:gap-5">
                       <Img
                         src="../images/img_image_56.png"
                         alt="imagefiftysix"
@@ -75,7 +77,7 @@ export default function GuideDetailOnePage() {
                         </Text>
                       </div>
                     </div>
-                    <div className="flex flex-row sm:flex-col justify-between items-center w-full sm:gap-10">
+                    <div className="flex flex-row sm:flex-row justify-between items-center w-full sm:gap-5 sm:mt-[-20px]">
                       <Img
                         src="../images/img_12_129860_map_l.png"
                         alt="imagefiftysix"
@@ -91,7 +93,7 @@ export default function GuideDetailOnePage() {
                       </div>
 
                     </div>
-                    <div className="flex flex-row sm:flex-col justify-between items-center w-full sm:gap-10">
+                    <div className="flex flex-row sm:flex-row justify-between items-center w-full sm:gap-5 sm:mt-[-20px]">
                       <Img
                         src="../images/img_depositphotos_8.png"
                         alt="imagefiftysix"
@@ -105,8 +107,8 @@ export default function GuideDetailOnePage() {
                         </Text>
                       </div>
                     </div>
-                  </div>
-                  <div className="flex flex-row sm:flex-col justify-between items-center w-full sm:gap-10">
+
+                    <div className="flex flex-row sm:flex-row justify-between items-center w-full sm:gap-5 sm:mt-[-20px]">
                       <Img
                         src="../images/img_download_removebg_preview.png"
                         alt="imagefiftysix"
@@ -119,14 +121,16 @@ export default function GuideDetailOnePage() {
                           </>
                         </Text>
                       </div>
-                  </div>
+                   </div>
+                 </div>
                 </div>
+                 
               </div>
             </div>
-            <div className="flex flex-col mt-20 items-start justify-start w-[80%] pl-[40px] py-[20px] md:p-5  bg-gray-600_99 rounded-[30px]">
+            <div className="flex flex-col mt-20 items-start justify-start w-[80%] sm:w-[100%] pl-[40px] py-[20px] md:p-5  bg-gray-600_99 rounded-[30px]">
              <div className="flex flex-col items-start justify-start mt-[10px] mb-[61px] gap-[45px]">
                 <Text
-                     className="md:text-5xl text-[30px] text-black-900 font-bold"
+                     className="md:text-3xl sm:text-2xl text-[30px] text-black-900 font-bold"
                      size="txtInterBold20"
                 >
                  Description:

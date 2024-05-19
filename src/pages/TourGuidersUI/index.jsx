@@ -37,26 +37,26 @@ const TourGuidersUIPage = () => {
        
         <div className="h-[703px] mt-[10px] md:h-[500px] mx-auto md:px-5 relative  w-full">
          
-          <div className="absolute h-[703px] md:h-[500px] inset-[0] justify-center px-10 m-auto w-full">
+          <div className="absolute h-[703px] md:h-[500px] inset-[0] justify-center px-10 md:px-2 m-auto w-full">
 
             <Img
-              className="h-[800px] md:h-[700px] m-auto object-cover rounded-[30px] w-full"
+              className="h-[800px] md:h-[600px] m-auto object-cover rounded-[30px] w-full"
               src="images/img_rectangle4_1.png"
               alt="rectangleFour"
             />
-            <div className="absolute flex flex-col md:gap-10 gap-[399px] justify-start right-[8%] top-[30%] w-[76%] mt-[450px] md:mt-[100px]">
+            <div className="absolute flex flex-col md:gap-10 gap-[399px] justify-start right-[8%] top-[30%] w-[76%] mt-[450px] md:mt-[70px]">
                   <section>
                     <SearchBar/>
                   </section>
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-start justify-start max-w-[1334px] mt-[120px] md:mt-[50px] mx-auto md:px-5 w-full">
+        <div className="flex flex-col items-start justify-start max-w-[1334px] mt-[120px] md:mt-[150px] mx-auto md:px-5 w-full">
           <Text className="text-black-900_b2 text-xl" size="txtInterMedium20">
             Tour Guiders
           </Text>
           <Text
-            className="sm:text-4xl md:text-[38px] text-[40px] text-black-900"
+            className="sm:text-3xl md:text-[38px] text-[40px] text-black-900"
             size="txtInterBold40"
           >
             Our Best Tour Guiders
