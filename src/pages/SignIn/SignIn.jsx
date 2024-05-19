@@ -30,7 +30,12 @@ export default function SignInPage() {
       if (response.ok) {
         console.log("Login successful", data);
         localStorage.setItem('token', data.token); // Save the token in local storage
-        navigate('/');
+        if(data.role === "USER") {
+          navigate('/');
+        }
+        if(data.role === "TOURGUIDE") {
+          navigate("/adminguider")
+        }
       } else {
         console.error("Login failed:", data);
         alert(data.error || "An error occurred during login.");

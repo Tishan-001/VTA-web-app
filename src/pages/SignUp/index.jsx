@@ -23,6 +23,11 @@ export default function SignUpPage() {
   }, [location.state]);
 
   const handleSubmit = async () => {
+
+    if (password !== confirmPassword) {
+      alert("Password doesn't match");
+    }
+
     try {
       const response = await fetch("http://localhost:5000/auth/register/email", {
         method: "POST",
@@ -55,6 +60,10 @@ export default function SignUpPage() {
       console.error("Error during signup:", error);
       alert("An error occurred, please check your network and try again.");
     }
+  };
+
+  const handleSignIn = () => {
+    navigate("/login");
   };
 
   return (
@@ -150,9 +159,12 @@ export default function SignUpPage() {
             </button>
           </div>
           <Text size="lg" as="p" className="mt-4 !text-black-900">
-            <span className="text-black-900_66">Already have an Account ?</span>
-            <span className="text-black-900"></span>
-            <a href=""><span className="text-[#854a9bcc]"> Sign In</span></a>
+            <span className="text-black-900_66">Already have an Account ?</span>{" "}
+            <span className="text-black-900">
+              <a onClick={handleSignIn} className="text-[#854a9bcc] cursor-pointer">
+                Sign In
+              </a>
+            </span>
           </Text>
         </div>
       </div>

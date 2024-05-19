@@ -1,6 +1,7 @@
 {
-  "name": "vat",
-  "version": "0.1.0",
+  "name": "vta-web-app",
+  "version": "1.0.0",
+  "description": "travel website",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.4",

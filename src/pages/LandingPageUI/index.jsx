@@ -63,10 +63,10 @@ const LandingPageUIPage = () => {
     <>
     <Header/>
 
-      <div className=" bg-bg1-20 flex flex-col font-inter items-center justify-start mx-auto px-3 pt-3 w-full">
+      <div className=" bg-bg1-20 flex flex-col font-inter items-center justify-start mx-auto pt-3 w-full">
 
         <div className="md:h-[1024px] md:flex-col sm:h-[703px] h-[756px]   w-full mx-auto md:px-5 relative ">
-           <div className="absolute md:h-[1024px] h-[703px] inset-x-[0] mx-auto top-[0] w-full">
+           <div className="absolute md:h-[1024px] h-[703px] inset-x-[0] mx-auto top-[0] w-full px-3">
 
               <Img
                 className="h-[703px] m-auto object-cover rounded-[30px] w-full"
