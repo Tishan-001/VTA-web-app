@@ -30,6 +30,7 @@ export default function SignInPage() {
       if (response.ok) {
         console.log("Login successful", data);
         localStorage.setItem('token', data.token); // Save the token in local storage
+        localStorage.setItem('email', email); // Save the email in local storage
         if(data.role === "USER") {
           navigate('/');
         }
