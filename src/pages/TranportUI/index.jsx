@@ -191,7 +191,7 @@ const TranportUIPage = () => {
                         className="text-white-A700 text-xl"
                         size="txtInterSemiBold20"
                       >
-                        James Petterrrrrrrrrrrrr
+                        James Petter
                       </Text>
                       <Text
                         className="text-white-A700 text-xl"
