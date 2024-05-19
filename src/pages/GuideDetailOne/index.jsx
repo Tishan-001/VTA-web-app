@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Button, Img, Line, List, Text } from "components";
 import { Heading } from "components/Heading";
 import Footer from "components/Footer";
+import { Link } from "react-router-dom";
 
 
 export default function GuideDetailOnePage() {
@@ -55,7 +56,7 @@ export default function GuideDetailOnePage() {
               <Img
                 src={tourGuide.media}
                 alt="circleimage"
-                className="h-[543px] w-[543px] md:h-auto rounded-[50%]"
+                className="h-[543px] w-[543px] object-cover md:h-auto rounded-[50%]"
               />
               <div className="flex flex-col items-center justify-start w-[47%] md:w-full">
                 <div className="flex flex-col items-center justify-start w-full gap-[52px]">
@@ -137,13 +138,16 @@ export default function GuideDetailOnePage() {
                </Text>
              </div>
            </div>
-            <Button
-              color="bg-gray-600_99"
-              size="xl"
-              className="mt-[52px] h-14 bg-gray-600_99 sm:px-5 text-black-900 font-light shadow-xs min-w-[188px] rounded-[37px] sm:min-w-full"
-            >
-              Book Now
-            </Button>
+           <Link to="/payment" className="mb-[-200px]">
+              <Button
+                  color="bg-gray-600_99"
+                  size="xl"
+                  className="mt-[52px] h-14 bg-gray-600_99 sm:px-5 text-black-900 font-light shadow-xs min-w-[188px] rounded-[10px] sm:min-w-full hover:bg-green-500"
+                >
+                  Book Now
+                </Button>
+           </Link>
+            
           </div>
         </div>
         <Footer/>

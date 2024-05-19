@@ -19,7 +19,7 @@ export default function SignInPage() {
     <>
       
       
-      <div className="flex flex-row md:flex-col justify-center  bg-white-A700_01 items-center h-[700px] md:h-[1500px] w-[70%] gap-[33px] left-0 bottom-0 right-0 top-0 m-auto md:gap-5 shadow-bs absolute rounded-[10px]">
+      <div className="flex flex-row md:flex-col justify-center  bg-white-A700_01 items-center h-[700px] md:h-[1500px] w-[70%] gap-[33px] left-0 bottom-0 right-0 top-0 m-auto md:gap-5 shadow-bs1 absolute rounded-[10px]">
        
        
       <div className="flex w-full justify-center rounded-[10px] bg-white-A700 p-[26px] md:p-5">
@@ -107,7 +107,7 @@ export default function SignInPage() {
                     name="savecard"
                     label="save card"
                     id="savecard"
-                    className="mb-[5px] gap-3 self-end p-px text-left text-lg font-medium text-black-900_cc"
+                    className="mb-[5px] gap-3 ml-[-70px] self-end p-px text-left text-lg font-medium text-black-900_cc"
                   />
 
                    <div className="flex items-center">
@@ -122,9 +122,9 @@ export default function SignInPage() {
                                 Save Card
                             </label>
                    </div>
-                  <Button  className="sm:px-5 bg-black-900 w-[120px] text-cyan-50 rounded-[10px]">
+                  <button  className="sm:px-5 bg-blue-700 w-[120px] h-[50px] text-white-A700 hover:bg-green-400 rounded-[10px]">
                     Pay
-                  </Button>
+                  </button>
                 </div>
               </div>
             </div>
@@ -151,13 +151,13 @@ export default function SignInPage() {
                   <Text as="p" className="self-start">
                     Invoice
                   </Text>
-                  <Text as="p" className="  !text-black-900_e5">
-                    pck - 234 - 01
+                  <Text as="p" className="mr-[15px]">
+                  pck - 234 - 01
                   </Text>
                 </div>
                 <div className="mt-6 flex flex-wrap   justify-between gap-5 self-stretch">
                   <Text as="p">Delivery Time</Text>
-                  <Text as="p" className="!text-black-900_e5 ">
+                  <Text as="p" className="!text-black-900_e5 mr-[16px]">
                     11/01/2022,10.00am
                   </Text>
                 </div>

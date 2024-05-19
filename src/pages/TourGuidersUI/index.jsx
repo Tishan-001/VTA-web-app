@@ -38,12 +38,13 @@ const TourGuidersUIPage = () => {
         <div className="h-[703px] mt-[10px] md:h-[500px] mx-auto md:px-5 relative  w-full">
          
           <div className="absolute h-[703px] md:h-[500px] inset-[0] justify-center px-10 m-auto w-full">
+
             <Img
-              className="h-[703px] md:h-[700px] m-auto object-cover rounded-[30px] w-full"
+              className="h-[800px] md:h-[700px] m-auto object-cover rounded-[30px] w-full"
               src="images/img_rectangle4_1.png"
               alt="rectangleFour"
             />
-            <div className="absolute flex flex-col md:gap-10 gap-[399px] justify-start right-[8%] top-[5%] w-[76%] mt-[450px] md:mt-[100px]">
+            <div className="absolute flex flex-col md:gap-10 gap-[399px] justify-start right-[8%] top-[30%] w-[76%] mt-[450px] md:mt-[100px]">
                   <section>
                     <SearchBar/>
                   </section>
@@ -99,12 +100,14 @@ const TourGuidersUIPage = () => {
                           ${tourGuide.price}
                         </Text>
                       </div>
-                      <Button
-                        className="absolute hover:bg-[#CAF4FF] hover:text-black-900 cursor-pointer font-bold h-max inset-y-[0] leading-[normal] min-w-[130px] my-auto right-[7%] rounded-[15px] text-center text-1xl mb-[10px]"
-                        shape="round"
-                      >
-                        <Link to={`/guidedetil/${tourGuide.id}`}>Book Now</Link>
-                      </Button>
+                      <Link to={`/guidedetil/${tourGuide.id}`}>
+                        <Button
+                          className="absolute hover:bg-[#CAF4FF] hover:text-black-900 cursor-pointer font-bold h-max inset-y-[0] leading-[normal] min-w-[130px] my-auto right-[7%] rounded-[15px] text-center text-1xl mb-[10px]"
+                          shape="round"
+                        >
+                          Book Now
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                 </div>

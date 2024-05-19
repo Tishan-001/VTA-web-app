@@ -11,73 +11,24 @@ const TranportUIPage = () => {
   return (
     <>
       <Header/>
-      <div className="bg-bg1-20  flex flex-col font-inter items-center justify-end mx-auto pt-3 w-full">
-       
-       
-        <div className="h-[723px] md:h-[755px] max-w-[1418px] mx-auto md:px-5 relative w-full">
-          
+      <div className="bg-bg1-20  flex flex-col font-inter items-center mx-auto pt-3 w-full">
+        <div className="h-[723px] md:h-[755px] mx-auto md:px-5 w-full px-10">
           
           <Img
-            className="h-[723px] m-auto object-cover rounded-[30px] w-[1500px]"
+            className="h-[800px] object-cover rounded-[30px] w-full"
             src="images/img_rectangle4_723x1418.png"
             alt="rectangleFour"
           />
          
          
          
-          <div className="absolute flex flex-col md:gap-10 gap-[402px] justify-start right-[1%] top-[5%] w-[85%]">
-            <div className="  bg-gray-600_99 mt-[500px] border border-white-A700_01 flex flex-col items-center justify-start mr-[59px] rounded-[44px] shadow-bs w-[86%] md:w-full">
-              <div className="bg-gray-700_66 flex md:flex-col flex-row md:gap-5 items-center justify-start p-3.5 rounded-[44px] w-full">
-                <Text
-                  className="md:ml-[0] ml-[54px] text-center text-white-A700 text-xl"
-                  size="txtInterBold20WhiteA700"
-                >
-                  Location
-                </Text>
-                <Line className="bg-blue-100 md:h-0.5 h-[51px] mb-1.5 ml-11 md:ml-[0] w-0.5 md:w-full" />
-                <Text
-                  className="ml-8 md:ml-[0] text-center text-gray-200 text-xl"
-                  size="txtInterBold20Gray200"
-                >
-                  Check in Date
-                </Text>
-                <Line className="bg-blue-100 md:h-0.5 h-[51px] md:ml-[0] ml-[33px] md:mt-0 my-[3px] w-0.5 md:w-full" />
-                <Text
-                  className="md:ml-[0] ml-[37px] text-center text-gray-50 text-xl"
-                  size="txtInterBold20Gray50"
-                >
-                  Check out Date
-                </Text>
-                <Line className="bg-blue-100 md:h-0.5 h-[51px] mb-1.5 md:ml-[0] ml-[38px] w-0.5 md:w-full" />
-                <Text
-                  className="ml-12 md:ml-[0] text-center text-gray-50 text-xl"
-                  size="txtInterBold20Gray50"
-                >
-                  Category
-                </Text>
-                <Line className="bg-blue-100 md:h-0.5 h-[51px] md:ml-[0] ml-[47px] md:mt-0 my-[3px] w-0.5 md:w-full" />
-                <Button
-                  className="cursor-pointer font-bold leading-[normal] mb-[3px] min-w-[200px] md:ml-[0] ml-[37px] md:mt-0 mt-2 text-center text-xl"
-                  shape="round"
-                  color="white_A700"
-                >
-                  Search Now
-                </Button>
-              </div>
-            </div>
-
-
-
-        </div>
       </div>
 
 
 
 
-        <div className="flex flex-col items-start md:px-10 sm:px-5 px-[75px] w-full">
-          <Line className="bg-white-A700 h-[5px] w-[24%]" />
-        </div>
-        <div className="flex flex-col gap-[50px] items-start justify-start max-w-[1308px] mt-[114px] mx-auto md:px-5 w-full">
+        
+        <div className="flex flex-col gap-[50px] items-start justify-start max-w-[1308px] mt-[150px] mx-auto md:px-5 w-full">
           <Text className="text-black-900_b2 text-xl" size="txtInterMedium20">
             Categories
           </Text>
@@ -173,7 +124,6 @@ const TranportUIPage = () => {
        
         <div className="flex flex-col items-start justify-start max-w-[1323px] mt-[161px] mx-auto md:px-5 w-full">
         
-        
           <Text className="text-black-900_b2 text-xl" size="txtInterMedium20">
             Transpotaion
           </Text>
@@ -222,12 +172,12 @@ const TranportUIPage = () => {
                         $150
                       </Text>
                     </div>
-                    <Button
-                      className="cursor-pointer font-light leading-[normal] mb-[5px] min-w-[130px] text-center text-xl"
+                    <button
+                      className="cursor-pointer font-light leading-[normal] mb-[5px] min-w-[130px] text-center text-xl bg-slate-200 h-[40px] rounded-[10px] hover:bg-blue-300"
                       shape="round"
                     >
                       Book Now
-                    </Button>
+                    </button>
                   </div>
                 </div>
               </div>
