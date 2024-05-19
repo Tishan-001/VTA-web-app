@@ -127,7 +127,7 @@ export default function SignUpPage() {
               href="#"
               className="flex justify-center items-center w-[200px] h-[38px] pt-2.5 pb-[5px] px-3.5 bg-deep_purple-400 text-shadow-ts rounded-[5px]"
             >
-              <Button onClick={handleSubmit} size="xl" color="bg-deep_purple-400" as="h2" className="!text-white-A700 w-[150px] bg-[#854a9bcc] p-3 rounded-[5px] tracking-[3.60px]">
+              <Button onClick={handleSubmit} size="xl" color="bg-deep_purple-400" as="h2" className="!text-white-A700 w-[150px] hover:bg-[#854a9bcc] bg-gray-500 p-3 rounded-[5px] tracking-[3.60px]">
                 Sign Up
               </Button>
             </a>
