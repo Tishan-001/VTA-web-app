@@ -102,7 +102,7 @@ const LandingPageUIPage = () => {
                   className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
                   size="txtInterMedium40"
               >
-                {customerCount} +
+                {customerCount !== null ? customerCount : 0} +
               </Text>
               <Text
                   className="text-black-900 text-center text-xl"
@@ -118,7 +118,7 @@ const LandingPageUIPage = () => {
                 className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
                 size="txtInterMedium40"
               >
-                {guidersCount} +
+                {guidersCount !== null ? guidersCount : 0} +
               </Text>
               <Text
                 className="text-black-900 text-center text-xl"
@@ -134,7 +134,7 @@ const LandingPageUIPage = () => {
                 className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
                 size="txtInterMedium40"
               >
-                {hotelCount} +
+                {hotelCount !== null ? hotelCount : 0} +
               </Text>
               <Text
                 className="text-black-900 text-center text-xl"

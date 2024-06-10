@@ -9,9 +9,9 @@ export default function Header({ ...props }) {
         <Heading size="2xl" as="h4">
           Dashboard
         </Heading>
-        <div className="flex justify-between items-center w-[25%] sm:w-full gap-5 ">
+        <div className="flex justify-between items-center w-[45%] sm:w-full gap-5 ">
           <Heading size="xl1" as="h5" className=" ">
-            Nuwani Thushari
+          Virtual Travel Assistance
           </Heading>
           <Img src="images/img_image_75.png" alt="imageseventyfiv" className="h-[55px] w-[56px] rounded-[50%]" />
         </div>

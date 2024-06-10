@@ -37,6 +37,15 @@ export default function SignInPage() {
         if(data.role === "TOURGUIDE") {
           navigate("/adminguider")
         }
+        if(data.role === "HOTEL") {
+          navigate("/adminhotel")
+        }
+        if(data.role === "ADMIN") {
+          navigate("/admin")
+        }
+        if(data.role === "TRANSPORT") {
+          navigate("/admintransport")
+        }
       } else {
         console.error("Login failed:", data);
         alert(data.error || "An error occurred during login.");

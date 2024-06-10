@@ -51,7 +51,7 @@ export default function ArticalPage(...props) {
                   </Heading>
                   <div className="flex justify-between items-center w-[25%] sm:w-full gap-5 ">
                     <Heading size="xl1" as="h5" className=" mr-[20]">
-                      Nuwani Thushari
+                    Virtual Travel Assistance
                     </Heading>
                     <Img
                       src="images/img_image_75.png"

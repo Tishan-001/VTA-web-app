@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Img, List, Text } from "components";
 import Footer from "components/Footer";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Facility from "./facility";
 import Image1 from "../../assets/images/img_12129860mapl.png"
 
@@ -10,6 +10,14 @@ const HotelBookingDescriptionPageUIPage = () => {
   const { id } = useParams();
   const [hotels, setHotels] = useState([]);
   const [mainImage, setMainImage] = useState('');
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const checkSignInStatus = () => {
+    const token = localStorage.getItem('token');
+    setIsSignedIn(!!token);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,6 +37,7 @@ const HotelBookingDescriptionPageUIPage = () => {
       }
     };
     fetchData();
+    checkSignInStatus();
   }, [id]); // Ensure useEffect is called when id changes
 
   const hotel = hotels.find(hotel => hotel.id.toString() === id);
@@ -39,6 +48,17 @@ const HotelBookingDescriptionPageUIPage = () => {
 
   const handleClick = (newImage) => {
     setMainImage(newImage);
+  };
+
+  const handleBookNow = (roomId) => {
+    if (isSignedIn) {
+      navigate(`/frameOne/${roomId}`);
+    } else {
+      alert("You need to sign in to book a room.");
+      setTimeout(() => {
+        navigate('/login');
+      }, 5000); // Redirect after 2 seconds
+    }
   };
 
   return (
@@ -170,8 +190,9 @@ const HotelBookingDescriptionPageUIPage = () => {
                       <Button
                         className="cursor-pointer font-light leading-[normal] mb-[5px] min-w-[130px] mt-[9px] text-center text-xl"
                         shape="round"
+                        onClick={() => handleBookNow(room.id)}
                       >
-                        <Link to={`/frameOne/${room.id}`}>Book Now</Link>
+                      Book Now
                       </Button>
                     </div>
                   </div>

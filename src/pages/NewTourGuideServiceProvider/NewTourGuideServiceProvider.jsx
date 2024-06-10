@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Img } from "../../components";
 import { Heading } from "components/Heading1";
 import { FileUpload } from "components/FileUpload";
+import { useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
@@ -12,12 +13,37 @@ export default function NewTourGuideServiceProvider() {
     const [address, setAddress] = useState('');
     const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
-    const [media, setMedia] = useState("https://res.cloudinary.com/dyie6dtcm/image/upload/v1715316682/cmwseqvlk40ggcvvpoag.jpg");
+    const [media, setMedia] = useState('');
     const [starRating, setStarRating] = useState('');
+    const navigate = useNavigate();
 
     const token = localStorage.getItem('token');
 
     console.log(token)
+
+    const handleUpload = async (files) => {
+        try {
+            const formData = new FormData();
+            formData.append("file", files[0]); // Assuming only one file is selected
+
+            const response = await fetch("http://localhost:5000/images/upload", {
+                method: "POST",
+                body: formData
+            });
+
+            const data =  await response.text();
+            console.log("Upload Response:", data);
+
+            if (response.ok) {
+                setMedia(data); // Assuming the response contains the URL of the uploaded image
+                console.log("Image uploaded successfully");
+            } else {
+                console.error("Upload Error:", data.error);
+            }
+        } catch (error) {
+            console.error("Upload Error:", error);
+        }
+    };
     
     const handleSubmit = async () => {
         try {
@@ -40,11 +66,12 @@ export default function NewTourGuideServiceProvider() {
                 })
             });
 
-            const data = await response.json();
+            const data = await response.text();
             console.log("Response:", data);
 
             if (response.ok) {
                 alert("Data save successfully");
+                navigate("/adminguider")
             } else {
                 // Handle error response, e.g., display error message to the user
                 console.error("Error:", data.error);
@@ -111,7 +138,7 @@ export default function NewTourGuideServiceProvider() {
                                 preview
                                 name="column"
                                 Thumbnail={FileUpload.PreviewItem}
-                                onUpload={(files) => console.log({ files })}
+                                onUpload={handleUpload}
                                 placeholder={() => (<Heading size="1xl" as="p">Main Image</Heading>)}
                                 className="flex flex-row items-center w-[200px] h-[120px] gap-[15px] p-[18px] bg-blue_gray-100 rounded-[5px]"
                             >

@@ -24,6 +24,10 @@ export default function SignUpPage() {
 
   const handleSubmit = async () => {
 
+    if(email === null && name === null && password === null) {
+      alert("Fill the all feilds");
+    }
+
     if (password !== confirmPassword) {
       alert("Password doesn't match");
     }
