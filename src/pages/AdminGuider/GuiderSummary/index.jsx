@@ -39,7 +39,7 @@ export default function ArticalPage(...props) {
           console.error("Error fetching guider details:", error);
         });
     }
-  }, [email, guiderDetails]);
+  }, []);
 
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);

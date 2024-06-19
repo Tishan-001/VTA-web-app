@@ -75,7 +75,7 @@ const ProjectRoutes = () => {
           <Route path="/locationdetails" element={<Locationdetails/>}/>
           <Route path="/location" element={<Location/>}/>
           <Route path="/admin" element={<Admin/>}/>
-          <Route path="/adminhotel" element={<AdminHotel/>}/>
+          <Route path="/admin-hotel" element={<AdminHotel/>}/>
           <Route path="/adminguider" element={<AdminGuider/>}/>
           <Route path="/admintransport" element={<AdminTravel/>}/>
           <Route path="/addadmindata" element={<AddAdminData/>}/>
@@ -89,11 +89,11 @@ const ProjectRoutes = () => {
           <Route path="/payment" element={<Payment/>}/>
           <Route path="/addadmingallery" element={<AddAdminGallery/>}/>
           <Route path="/addadminpublish" element={<AddPackagePublish/>}/>
-          <Route path="/newhotemserviceprovider" element={<NewHotemServiceProvider/>}/>
+          <Route path="/new-hotel-add" element={<NewHotemServiceProvider/>}/>
           <Route path="/newtourguideserviceprovider" element={<NewTourGuideServiceProvider/>}/>
           <Route path="/chooseserviceproviders" element={<ChooseServiceProviders/>}/>
           <Route path="/newtourpackage" element={<NewTourPackage/>}/>
-          <Route path="/addnewroom" element={<AddNewRoom/>}/>
+          <Route path="/add-new-room" element={<AddNewRoom/>}/>
           <Route path="/aboutus" element={<AboutUs/>}/>
         </Routes>
       </Router>

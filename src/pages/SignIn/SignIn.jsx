@@ -38,7 +38,7 @@ export default function SignInPage() {
           navigate("/adminguider")
         }
         if(data.role === "HOTEL") {
-          navigate("/adminhotel")
+          navigate("/admin-hotel")
         }
         if(data.role === "ADMIN") {
           navigate("/admin")
