@@ -67,7 +67,6 @@ export default function SignInPage() {
           className="w-full h-full object-cover"
         />
       </div>
-
       <div className="flex flex-col items-center justify-start w-[50%] md:w-full">
         <h1 className="text-xl font-bold tracking-[3.00px]">Sign In Now</h1>
         <div className="flex flex-col items-center justify-start w-[90%] md:w-full mt-11 gap-5">
@@ -79,6 +78,9 @@ export default function SignInPage() {
             onChange={(e) => setEmail(e.target.value)}
             className="w-full sm:w-full mt-5 !text-deep_purple-400_01 pb-2 !border-b-2 !border-gray-300"
           />
+          <div>
+       
+      </div>
           <input
             type="password"
             name="password"
