@@ -58,7 +58,7 @@ const ProjectRoutes = () => {
           <Route path="*" element={<NotFound />} />
           <Route path="/allpackagespageui" element={<AllpackagesPageUI />} />
           <Route path="/hotelbookingpage" element={<HotelBookingpage />} />
-          <Route path="/frameOne/:roomId" element={<FrameOne />} />
+          <Route path="/room/:roomId" element={<FrameOne />} />
           <Route path='/tours/:id' element={<HotelBookingDescriptionPageUI />} />
           <Route path="/tranportui" element={<TranportUIPage />} />
           <Route path="/tourguidersui" element={<TourGuidersUI />} />

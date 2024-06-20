@@ -235,73 +235,78 @@ export default function ArticalPage(...props) {
 
                     <div className="w-full h-[400px] overflow-y-auto">
                       <table>
-                        <tbody>
-                          {rooms.map((room) => (
-                            <tr key={room.id}>
-                              <div className="flex flex-col gap-[2px] p-2.5">
-                                <div className="flex md:flex-col justify-center items-end mr-[20px] flex-1">
-                                  <td style={{ width: "180px" }}>{room.type}</td>
-                                  <td style={{ width: "200px" }}>
-                                    <img
-                                      src={room.photo}
-                                      alt="room"
-                                      className="w-[37px] object-cover rounded-[5px]"
-                                    />
-                                  </td>
-                                  <td style={{ width: "190px" }}>{room.price}</td>
-                                  <td style={{ width: "190px" }}>{room.bedCount}</td>
-                                  <td style={{ width: "100px" }}>
-                                    {room.isAvailable ? (
-                                      <span
-                                        style={{
-                                          display: "block",
-                                          backgroundColor: "green",
-                                          padding: "3px",
-                                          borderRadius: "5px",
-                                          color: "white",
-                                          width: "100%",
-                                        }}
-                                      >
-                                        Available
-                                      </span>
-                                    ) : (
-                                      <span
-                                        style={{
-                                          display: "block",
-                                          backgroundColor: "red",
-                                          padding: "3px",
-                                          borderRadius: "5px",
-                                          color: "white",
-                                          width: "100%",
-                                        }}
-                                      >
-                                        UnAvailable
-                                      </span>
-                                    )}
-                                  </td>
-                                  <div className="flex justify-center gap-2">
-                                    <td>
-                                      <div className="flex justify-center ml-[90px] gap-3">
-                                        <Button className="flex items-center justify-center h-[28px] w-[28px] bg-green-500 rounded-[5px]">
-                                          <Img
-                                            src="images/img_group_34.png "
-                                            className="w-[20px] h-[20px]"
-                                          />
-                                        </Button>
-                                        <Button className="flex items-center justify-center h-[28px] w-[28px] bg-red-100 rounded-[5px]"
-                                        onClick={() => deleteRoom(room.id)}>
-                                          <Img
-                                            src="images/img_group_33.png"
-                                            className="w-[20px] h-[20px]"
-                                          />
-                                        </Button>
-                                      </div>
+                        <tbody>{rooms && rooms.length > 0 ? (
+                            rooms.map((room) => (
+                              <tr key={room.id}>
+                                <div className="flex flex-col gap-[2px] p-2.5">
+                                  <div className="flex md:flex-col justify-center items-end mr-[20px] flex-1">
+                                    <td style={{ width: "180px" }}>{room.name}</td>
+                                    <td style={{ width: "200px" }}>
+                                      <img
+                                        src={room.photo}
+                                        alt="room"
+                                        className="w-[37px] object-cover rounded-[5px]"
+                                      />
                                     </td>
+                                    <td style={{ width: "190px" }}>{room.price}</td>
+                                    <td style={{ width: "190px" }}>{room.bedCount}</td>
+                                    <td style={{ width: "100px" }}>
+                                      {room.isAvailable ? (
+                                        <span
+                                          style={{
+                                            display: "block",
+                                            backgroundColor: "green",
+                                            padding: "3px",
+                                            borderRadius: "5px",
+                                            color: "white",
+                                            width: "100%",
+                                          }}
+                                        >
+                                          Available
+                                        </span>
+                                      ) : (
+                                        <span
+                                          style={{
+                                            display: "block",
+                                            backgroundColor: "red",
+                                            padding: "3px",
+                                            borderRadius: "5px",
+                                            color: "white",
+                                            width: "100%",
+                                          }}
+                                        >
+                                          UnAvailable
+                                        </span>
+                                      )}
+                                    </td>
+                                    <div className="flex justify-center gap-2">
+                                      <td>
+                                        <div className="flex justify-center ml-[90px] gap-3">
+                                          <Button className="flex items-center justify-center h-[28px] w-[28px] bg-green-500 rounded-[5px]">
+                                            <Img
+                                              src="images/img_group_34.png "
+                                              className="w-[20px] h-[20px]"
+                                            />
+                                          </Button>
+                                          <Button className="flex items-center justify-center h-[28px] w-[28px] bg-red-100 rounded-[5px]"
+                                          onClick={() => deleteRoom(room.id)}>
+                                            <Img
+                                              src="images/img_group_33.png"
+                                              className="w-[20px] h-[20px]"
+                                            />
+                                          </Button>
+                                        </div>
+                                      </td>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
+                              </tr>
+                            ))
+                          ) : (
+                            <tr>
+                              <td colSpan="6" className="text-center">No rooms available</td>
                             </tr>
-                          ))}
+                          )}
                         </tbody>
                       </table>
                     </div>

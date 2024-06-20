@@ -52,7 +52,7 @@ const HotelBookingDescriptionPageUIPage = () => {
 
   const handleBookNow = (roomId) => {
     if (isSignedIn) {
-      navigate(`/frameOne/${roomId}`);
+      navigate(`/room/${roomId}`);
     } else {
       alert("You need to sign in to book a room.");
       setTimeout(() => {

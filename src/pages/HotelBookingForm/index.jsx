@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Button, Img, Heading, Text, Input, TextArea } from "components";
 import Footer from "components/Footer";
 import Img1 from "../../assets/images/img_image_59.png" 
@@ -8,12 +8,18 @@ import Img3 from "../../assets/images/img_image_61.png"
 import Img4 from "../../assets/images/img_image_63.png" 
 import Img15 from "../../assets/images/img_calendar_1.png" 
 import Img16 from "../../assets/images/img_double_bed_1.png" 
+import { message } from "antd";
 
 const FrameOne=()=> {
   const [room, setRoom] = useState(null);
   const { roomId } = useParams();
   const [value, setValue] = useState(0);
+  const [bedCount, setBedCount] = useState(0);
   const [totalCost, setTotalCost] = useState(0);
+
+  const navigate = useNavigate();
+
+  const token = localStorage.getItem("token");
 
   // Fetch hotel and room data based on roomId
   useEffect(() => {
@@ -22,11 +28,10 @@ const FrameOne=()=> {
       .then((data) => {
         setRoom(data);
         setValue(data.price);
+        setBedCount(data.bedCount);
       })
       .catch((error) => console.error(error));
   }, [roomId]);
-
-  console.log(room);
   
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -37,9 +42,6 @@ const FrameOne=()=> {
   const [arrivalTime, setArrivalTime] = useState("");
   const [departureDate, setDepartureDate] = useState("");
   const [departureTime, setDepartureTime] = useState("");
-  
-
-  
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
@@ -77,22 +79,6 @@ const FrameOne=()=> {
     setDepartureTime(e.target.value);
   };
 
-  
-
-  const handleSaveWishList = () => {
-    console.log("Form data saved:", {
-      firstName,
-      lastName,
-      email,
-      phoneNumber,
-      special,
-      arrivalDate,
-      arrivalTime,
-      departureDate,
-      departureTime,
-    });
-  };
-
   useEffect(() => {
     const calculateTotalCost = () => {
       if (arrivalDate && departureDate && value) {
@@ -110,6 +96,46 @@ const FrameOne=()=> {
 
     calculateTotalCost();
   }, [arrivalDate, departureDate, value]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const requestBody = {
+      roomId,
+      arrivalDate,
+      departureDate,
+      userFirstName: firstName,
+      userLastName: lastName,
+      contactEmail: email,
+      contactTelephone: phoneNumber,
+      noOfBeds: bedCount.toString(),
+      specialRequest: special,
+      bookingPrice: totalCost.toString(),
+    };
+
+    try {
+      const response = await fetch("http://localhost:5000/hotel-booking/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+        body: JSON.stringify(requestBody),
+      });
+
+      if (response.ok) {
+        message.success("Booking successful");
+        navigate("/hotelbookingpage");
+        
+      } else {
+        const result = await response.json();
+        console.error("Booking failed:", result);
+        message.error("Booking failed: " + result.errorMessage);
+      }
+    } catch (error) {
+      console.error("Booking failed:", error);
+    }
+  };
 
   return (
     <>
@@ -313,10 +339,10 @@ const FrameOne=()=> {
                     <div className="flex flex-row justify-start items-center mt-[13px] gap-[22px]">
                       <Img src={Img16} alt="image_one" className="w-[26px] object-cover" />
 
-                      <input type="date" id="departureDate" name="departureDate" className="border border-gray-300 rounded-md p-2" value={arrivalDate} onChange={handleArrivalDateChange} />
+                      <input type="date" id="arrivalDate" name="departureDate" className="border border-gray-300 rounded-md p-2" value={arrivalDate} onChange={handleArrivalDateChange} />
 
                                     {/* Time input field */}
-                      <input type="time" id="departureTime" name="departureTime" className="border border-gray-300 rounded-md p-2" value={arrivalTime} onChange={handleArrivalTimeChange} />
+                      <input type="time" id="arrivalTime" name="departureTime" className="border border-gray-300 rounded-md p-2" value={arrivalTime} onChange={handleArrivalTimeChange} />
                      
                     </div>
                   </div>
@@ -344,10 +370,10 @@ const FrameOne=()=> {
                       <div className="flex flex-row justify-start items-center mt-[13px] gap-[22px]">
                               <Img src={Img16} alt="image_one" className="w-[26px] object-cover" />
                                    {/* Date input field */}
-                              <input type="date" id="departureDate" name="departureDate" className="border border-gray-300 rounded-md p-2"  onChange={handleDepartureDateChange} />
+                              <input type="date" id="departureDate" name="departureDate" className="border border-gray-300 rounded-md p-2" value={departureDate}  onChange={handleDepartureDateChange} />
 
                                     {/* Time input field */}
-                             <input type="time" id="departureTime" name="departureTime" className="border border-gray-300 rounded-md p-2" onChange={handleDepartureTimeChange}/>
+                             <input type="time" id="departureTime" name="departureTime" className="border border-gray-300 rounded-md p-2" value={departureTime} onChange={handleDepartureTimeChange}/>
                       </div>
                     </div>
                   </div>
@@ -417,7 +443,8 @@ const FrameOne=()=> {
 
                 <div className="flex flex-col justify-center bg-black items-start">
                   <div className="mt-[70px] text-black-900">Countinue Your Booking</div>
-                  <Button className="font-semibold min-w-[191px] mt-[20px] ml-[-10px] rounded-[10px] bg-black text-white">
+                  <Button className="font-semibold min-w-[191px] mt-[20px] ml-[-10px] rounded-[10px] bg-black text-white"
+                   onClick={handleSubmit}>
                     Pay Now
                   </Button>
                 </div>

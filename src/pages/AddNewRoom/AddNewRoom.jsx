@@ -8,6 +8,7 @@ import { message } from "antd";
 import { useNavigate } from "react-router-dom";
 
 export default function AddNewRoom() {
+  const [name, setName] = useState("");
   const [roomType, setRoomType] = useState("");
   const [bedCount, setBedCount] = useState("");
   const [facilities, setFacilities] = useState([]);
@@ -53,6 +54,7 @@ export default function AddNewRoom() {
     const token = localStorage.getItem("token"); // Replace with the actual token
 
     const requestData = {
+      name: name,
       type: roomType,
       bedCount: parseInt(bedCount, 10),
       facilities: facilities,
@@ -101,6 +103,21 @@ export default function AddNewRoom() {
             handleSubmit();
           }}
         >
+          <div className="mb-10">
+            <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="price">
+              Room Name
+            </label>
+            <input
+              className="border-b border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
+              id="name"
+              type="text"
+              placeholder="Room name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+            <hr className="mt-1 border-t-2 border-gray-300" />
+          </div>
           <div className="mb-10">
             <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="roomType">
               Room Type
