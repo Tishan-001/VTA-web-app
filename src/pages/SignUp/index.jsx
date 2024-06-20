@@ -8,6 +8,7 @@ import image2 from "../../../src/assets/images/eye2.png";
 import useInterSection from '../SignIn/userInterSection';
 import { message } from "antd";
 
+
 export default function SignUpPage() {
   const navigate = useNavigate();
   const location = useLocation();

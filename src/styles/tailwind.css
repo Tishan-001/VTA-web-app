@@ -17,7 +17,6 @@ input[type="password"]:not(:placeholder-shown) ~ .input-text{
 input:where(:not([type])),
 [type="email"],
 [type="url"],
-
 [type="number"],
 [type="date"],
 [type="datetime-local"],
@@ -43,7 +42,6 @@ select {
 [type="text"]:focus,
 [type="email"]:focus,
 [type="url"]:focus,
-
 [type="number"]:focus,
 [type="date"]:focus,
 [type="search"]:focus,
