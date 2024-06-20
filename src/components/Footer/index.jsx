@@ -9,7 +9,7 @@ const Footer = () => {
               <div class="mx-auto w-full max-w-screen-xl gap-20">
                 <div class="grid grid-cols-4 gap-4 px-[250px] md:px-4 m py-6 lg:py-8 md:grid-cols-2 mt-5">
                   <div >
-                      <h2 class="mb-10 text-sm font-semibold text-[27px] text-white-A700 uppercase dark:text-white">Company</h2>
+                      <h2 class="mb-10 text-sm font-semibold text-[27px] sm:!text-[20px] text-white-A700 uppercase dark:text-white">Company</h2>
                       <ul class="text-gray-500  dark:text-gray-400 font-medium">
                           <li class="mb-4">
                               <a href="" class=" hover:underline hover:text-cyan-50">Blog</a>
@@ -26,7 +26,7 @@ const Footer = () => {
                       </ul>
                   </div>
                   <div>
-                      <h2 class="mb-10 text-sm font-semibold text-white-A700 text-[27px] uppercase dark:text-white">Contact Us</h2>
+                      <h2 class="mb-10 text-sm font-semibold text-white-A700 text-[27px] sm:!text-[20px] uppercase dark:text-white">Contact Us</h2>
                       <ul class="text-gray-500 dark:text-gray-400 font-medium">
                           <li class="mb-4">
                               <a href="" class="hover:underline hover:text-cyan-50">NO: 1, Main Street, Galle, Sri Lanka</a>
@@ -41,7 +41,7 @@ const Footer = () => {
                       </ul>
                   </div>
                   <div>
-                      <h2 class="mb-10 text-sm font-semibold text-white-A700 text-[27px] uppercase dark:text-white">Quick Link</h2>
+                      <h2 class="mb-10 text-sm font-semibold text-white-A700 text-[27px] sm:!text-[20px] uppercase dark:text-white">Quick Link</h2>
                       <ul class="text-gray-500 dark:text-gray-400 font-medium">
                           <li class="mb-4">
                               <a href="" class="hover:underline hover:text-cyan-50">Packages</a>
@@ -55,9 +55,9 @@ const Footer = () => {
                       </ul>
                   </div>
                   <div>
-                      <h2 class="mb-10 text-sm font-semibold text-white-A700 text-[27px] uppercase dark:text-white leading-none">Social Share</h2>
+                      <h2 class="mb-10 text-sm font-semibold text-white-A700 text-[27px] sm:!text-[20px] uppercase dark:text-white leading-none">Social Share</h2>
                       
-                      <div class="flex mt-4 sm:justify-center md:mt-0 space-x-3 rtl:space-x-reverse">
+                      <div class="flex mt-4 sm:justify-center sm:space-x-1 md:mt-0 space-x-3 rtl:space-x-reverse">
                         <a href="" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
                         <Img  
                            className="h-[50px] w-[50px] bottom-[43%]"
