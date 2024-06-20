@@ -8,6 +8,8 @@ import Header from "components/Header";
 import { Input } from "components/Input";
 import Sidebar1 from "components/Sidebar1";
 import { articleData } from "../../../assets/data/articleData";
+import { message } from "antd";
+import { useNavigate } from "react-router-dom";
 
 export default function ArticalPage(...props) {
   const [searchBarValue, setSearchBarValue] = useState("");
@@ -15,6 +17,7 @@ export default function ArticalPage(...props) {
   const [guiderDetails, setGuiderDetails] = useState(""); // State to store guider details
   const email = localStorage.getItem("email");
   const [dropdownVisible, setDropdownVisible] = useState(false);
+  const navigate = useNavigate();
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
@@ -43,6 +46,11 @@ export default function ArticalPage(...props) {
 
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
+  };
+
+  const handleSignout = () => {
+    localStorage.clear(); // Clear localStorage or session-related data
+    navigate("/login"); // Redirect to sign-in page
   };
 
   return (
@@ -199,8 +207,8 @@ export default function ArticalPage(...props) {
                         </li>
                         <li>
                           <a
-                            href="#"
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            onClick={handleSignout}
                           >
                             Sign out
                           </a>

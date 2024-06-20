@@ -76,9 +76,6 @@ export default function Sidebar1({ onItemClick }) {
           >
             Booking Notification
           </MenuItem>
-         
-         
-         
         </Menu>
       </div>
     </Sidebar>

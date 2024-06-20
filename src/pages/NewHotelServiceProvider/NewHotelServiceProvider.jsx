@@ -85,7 +85,7 @@ export default function NewHotemServiceProvider() {
 
             if (response.ok) {
                 message.success("Hotel created successfully");
-                navegate("/adminhotel")
+                navegate("/admin-hotel")
             } else {
                 message.error(`Error: ${data.error}`);
             }
