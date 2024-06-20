@@ -8,6 +8,60 @@ module.exports = {
   theme: {
     screens: { md: { max: "1050px" }, sm: { max: "550px" } , xl: {max: "1280"} },
     extend: {
+
+
+      
+      keyframes: {
+        moveTopToBottom: {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+        moveBottomToTop: {
+          '0%': { transform: 'translateY(100%)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+        moveRightToLeft: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        moveLeftToRight: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        moveLeftToRight1: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        moveLeftToRight2: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        moveLeftToRight3: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        jump: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+      },
+      animation: {
+        moveTopToBottom: 'moveTopToBottom 1.5s ease-in-out',
+        moveBottomToTop: 'moveBottomToTop 1.5s ease-in-out',
+        moveRightToLeft: 'moveRightToLeft 1.5s ease-in-out',
+        moveLeftToRight: 'moveLeftToRight 1.5s ease-in-out',
+        moveLeftToRight1: 'moveLeftToRight1 2s ease-in-out',  
+        moveLeftToRight2: 'moveLeftToRight1 2.5s ease-in-out',  
+        moveLeftToRight3: 'moveLeftToRight1 3s ease-in-out',  
+        
+        jump: 'jump 1s infinite',
+      },
+
+
+
+
+
+
       colors: {
         white: {
           A700_7f: "#ffffff7f",

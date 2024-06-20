@@ -2,12 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+input[type="text1"]:focus ~ .input-text,
+input[type="text1"]:not(:placeholder-shown) ~ .input-text{
+  @apply text-blue-500 bg-white-A700 transform -translate-y-7 -translate-x-2 scale-75;
+}
+
+input[type="password"]:focus ~ .input-text,
+input[type="password"]:not(:placeholder-shown) ~ .input-text{
+  @apply text-blue-500 bg-white-A700 transform -translate-y-7 -translate-x-2 scale-75;
+}
+
 
 [type="text"],
 input:where(:not([type])),
 [type="email"],
 [type="url"],
-[type="password"],
 [type="number"],
 [type="date"],
 [type="datetime-local"],
@@ -33,7 +42,6 @@ select {
 [type="text"]:focus,
 [type="email"]:focus,
 [type="url"]:focus,
-[type="password"]:focus,
 [type="number"]:focus,
 [type="date"]:focus,
 [type="search"]:focus,
@@ -45,4 +53,3 @@ select:focus {
   --tw-ring-color: "#000000";
   --border-color: "#000000";
 }
-
