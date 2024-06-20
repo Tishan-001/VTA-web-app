@@ -1,0 +1,15 @@
+.placeholder-white::placeholder {
+    color: white;
+  }
+  
+  .center-list {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Or if you prefer grid layout */
+  .center-list {
+    display: grid;
+    place-items: center;
+  }
+  

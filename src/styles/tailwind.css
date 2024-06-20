@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type="text1"]:focus ~ .input-text,
+input[type="text1"]:not(:placeholder-shown) ~ .input-text{
+  @apply text-blue-500 bg-white-A700 transform -translate-y-7 -translate-x-2 scale-75;
+}
+
+input[type="password"]:focus ~ .input-text,
+input[type="password"]:not(:placeholder-shown) ~ .input-text{
+  @apply text-blue-500 bg-white-A700 transform -translate-y-7 -translate-x-2 scale-75;
+}
+
+
+[type="text"],
+input:where(:not([type])),
+[type="email"],
+[type="url"],
+
+[type="number"],
+[type="date"],
+[type="datetime-local"],
+[type="month"],
+[type="search"],
+[type="tel"],
+[type="time"],
+[type="week"],
+[multiple],
+textarea,
+select {
+  appearance: none;
+  background-color: transparent;
+  border-color: unset;
+  border-width: 0;
+  border-radius: unset;
+  padding: unset;
+  font-size: unset;
+  line-height: unset;
+}
+
+/* Override default focus colors for tailwindcss-forms https://github.com/tailwindlabs/tailwindcss-forms */
+[type="text"]:focus,
+[type="email"]:focus,
+[type="url"]:focus,
+
+[type="number"]:focus,
+[type="date"]:focus,
+[type="search"]:focus,
+[type="checkbox"]:focus,
+[type="radio"]:focus,
+[multiple]:focus,
+textarea:focus,
+select:focus {
+  --tw-ring-color: "#000000";
+  --border-color: "#000000";
+}
