@@ -35,7 +35,7 @@ export default function SignInPage() {
           navigate('/');
         }
         if(data.role === "TOURGUIDE") {
-          navigate("/adminguider")
+          navigate("/admin-guider")
         }
         if(data.role === "HOTEL") {
           navigate("/admin-hotel")

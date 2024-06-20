@@ -78,7 +78,7 @@ const ProjectRoutes = () => {
           <Route path="/location" element={<Location/>}/>
           <Route path="/admin" element={<Admin/>}/>
           <Route path="/admin-hotel" element={<AdminHotel/>}/>
-          <Route path="/adminguider" element={<AdminGuider/>}/>
+          <Route path="/admin-guider" element={<AdminGuider/>}/>
           <Route path="/admintransport" element={<AdminTravel/>}/>
           <Route path="/addadmindata" element={<AddAdminData/>}/>
           <Route path="/addfaq" element={<AddFAQ/>}/>

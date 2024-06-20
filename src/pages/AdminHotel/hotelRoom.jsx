@@ -20,10 +20,32 @@ export default function ArticalPage(...props) {
   const [currentPage, setCurrentPage] = useState(1);
   const articlesPerPage = 10;
   const token = localStorage.getItem('token');
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [hotelData, setHotelData] = useState('');
 
   useEffect(() => {
     fetchRooms();
+    fetchHotelData();
   }, []);
+
+  const toggleDropdown = () => {
+    setDropdownVisible(!dropdownVisible);
+  };
+
+  const fetchHotelData = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/hotels/get", {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+        }
+      });
+      const data = await response.json();
+      setHotelData(data);
+    } catch (error) {
+      console.error("Error fetching hotel data:", error);
+    }
+  };
 
   const fetchRooms = async () => {
     try {
@@ -67,6 +89,11 @@ export default function ArticalPage(...props) {
     navigate("/add-new-room");
   };
 
+  const handleSignout = () => {
+    localStorage.clear(); // Clear localStorage or session-related data
+    navigate("/login"); // Redirect to sign-in page
+  };
+
   const filteredArticles = articleData.filter((article) => {
     // Filter based on search bar value
     const isTitleMatch =
@@ -89,13 +116,55 @@ export default function ArticalPage(...props) {
                 </Heading>
                 <div className="flex justify-between items-center w-[25%] sm:w-full gap-5">
                   <Heading size="xl1" as="h5" className="mr-[20]">
-                    Nuwani Thushari
+                    {hotelData.name ? hotelData.name : "Hotel"}
                   </Heading>
-                  <Img
-                    src="images/img_image_75.png"
-                    alt="imageseventyfiv"
-                    className="h-[55px] w-[56px] rounded-[50%] mr-[30px]"
-                  />
+                  <button
+                    type="button"
+                    className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300"
+                    id="user-menu-button"
+                    aria-expanded="true"
+                    data-dropdown-toggle="user-dropdown"
+                    data-dropdown-placement="bottom"
+                    onClick={toggleDropdown}
+                  >
+                    <span className="sr-only">Open user menu</span>
+                    <img
+                      className="w-12 h-12 rounded-full"
+                      src={hotelData.photo ? hotelData.photo : "/images/profile-picture-3.jpg"}
+                      alt="user photo"
+                    />
+                  </button>
+
+                  {dropdownVisible && (
+                    <div className="absolute top-16 right-0 w-48 bg-white shadow-lg rounded-lg">
+                      <ul className="py-2" aria-labelledby="user-menu-button">
+                        <li>
+                          <a
+                            href="/new-hotel-add"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          >
+                            Create Profile
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          >
+                            Edit Profile
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            onClick={handleSignout}
+                          >
+                            Sign out
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
             </header>
