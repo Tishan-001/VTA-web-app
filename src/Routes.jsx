@@ -9,7 +9,7 @@ import AddPackagePublish from "pages/AddPackagePublish";
 import AddHotelData from "pages/AddHotelDetails/AddHotelData";
 import AddHotelPricing from "pages/AddHotelPricing/AddHotelPricing";
 import AddGuiderData from "pages/AddGuiderData/AddGuiderData";
-import AddVehicalData from "pages/AddVehicalVehical/AddVehicalData";
+import AddVehicalData from "pages/AddNewTransport/AddVehicalData";
 import AddVehicalPricing from "pages/AddVehicalPricing/AddVehicalPricing";
 import SignInPage from "pages/SignIn/SignIn";
 import EmailComformation from "pages/EmailComformation/EmailComformation";
@@ -23,9 +23,9 @@ import ChooseServiceProviders from "pages/ChooseServiceProviders/ChooseServicePr
 import NewTourPackage from "pages/NewTourPackage/NewTourPackage";
 import AddNewRoom from "pages/AddNewRoom/AddNewRoom";
 import AboutUs from "pages/About us/aboutus";
-import AddTranspotation from "pages/AddTranspotation/addTranspotation";
-import AddVehical from "pages/AddTranspotation/addTranspotation";
-
+import AddVehicle from "pages/AddVehical/addVehicle";
+import EditVehicle from "pages/AddVehical/editVehicle";
+import AddTranspotation from "pages/AddTranspotation/addTranportation";
 
 const HotelBookingpage = React.lazy(() => import("pages/HotelBookingpage"));
 const AllpackagesPageUI = React.lazy(() => import("pages/AllpackagesPageUI"));
@@ -98,7 +98,8 @@ const ProjectRoutes = () => {
           <Route path="/addnewroom" element={<AddNewRoom/>}/>
           <Route path="/aboutus" element={<AboutUs/>}/>
           <Route path="/addtranspotation" element={<AddTranspotation/>}/>
-          <Route path="/addVehical" element={<AddVehical/>}/>
+          <Route path="/addVehical" element={<AddVehicle/>}/>
+          <Route path="/editVehical" element={<EditVehicle/>}/>
         </Routes>
       </Router>
     </React.Suspense>

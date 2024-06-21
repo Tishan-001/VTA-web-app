@@ -1,12 +1,14 @@
 import React from "react";
 
 import { Button, Img, Text , Input } from "../../components";
+
 import { RatingBar } from "components/RatingBar";
 import { Heading } from "components/Heading";
 import Navbar from "components/Navbar";
 import Footer from "components/Footer";
 
 export default function TaxiDetail() {
+  
   return (
     <>
 
@@ -209,8 +211,6 @@ export default function TaxiDetail() {
                   300km available fuel
                 </Heading>
               </div>
-
-
             </div>
 
 
@@ -233,13 +233,7 @@ export default function TaxiDetail() {
                   
                </Text>
              </div>
-
-
            </div>
-          
-
-
-
             <Button
              className="cursor-pointer  hover:bg-[#5AB2FF] hover:text-black-900 font-medium leading-[normal] min-w-[190px] mt-[90px] ml-[480px] md:ml-[80px] rounded-[15px] text-center text-xl"
 
@@ -248,9 +242,6 @@ export default function TaxiDetail() {
             >
               Book Now
             </Button>
-
-
-
           </div>
         </div>
 
