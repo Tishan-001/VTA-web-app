@@ -1,5 +1,9 @@
 import React, {useEffect, useState} from "react";
 
+
+import { useInView } from "react-intersection-observer";
+import CountUp from "react-countup";
+
 import { Button, Img, Line, List, Text } from "components";
 
 import { Heading } from "components/Heading/index.jsx";
@@ -8,16 +12,34 @@ import { Link } from "react-router-dom";
 import Header from'../../components/Navbar.jsx';
 import Footer from "components/Footer";
 
+
+import useInterSection from './Animation.jsx';
+
 const LandingPageUIPage = () => {
 
   const [hotelCount, setHotelCount] = useState("");
   const [guidersCount, setGuidersCount] = useState("");
-  const [customerCount, setCustormerCount] = useState("");
+  const [customerCount, setCustomerCount] = useState("");
+  const [tranceportCount,setTranceportCount]=useState("");
+
+  const { ref: hotelRef, inView: hotelInView } = useInView();
+  const { ref: guidersRef, inView: guidersInView } = useInView();
+  const { ref: customerRef, inView: customerInView } = useInView();
+  const { ref: tranceRef,inView:tranceInView}=useInView();
+
+
+
+  const [contentRef, isContentVisible] = useInterSection({ threshold: 0.1 },true);
+  
+
+
+   
 
   useEffect(() => {
     fetchHotelCount();
     fetGuidersCount();
     fetCustomerCount();
+    fetTranceportCount();
   }, []);
 
   const fetchHotelCount = async () => {
@@ -53,7 +75,19 @@ const LandingPageUIPage = () => {
         throw new Error("Failed to fetch data");
       }
       const data = await response.json();
-      setCustormerCount(data);
+      setCustomerCount(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+  const fetTranceportCount = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/tranceport/count");
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const data = await response.json();
+      setTranceportCount(data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -65,11 +99,11 @@ const LandingPageUIPage = () => {
 
       <div className=" bg-bg1-20 flex flex-col font-inter items-center justify-start mx-auto pt-3 w-full">
 
-        <div className="md:h-[1024px] md:flex-col sm:h-[703px] h-[756px]   w-full mx-auto md:px-5 relative ">
+        <div className="md:h-[500px] md:flex-col sm:h-[450px] h-[756px]    w-full mx-auto md:px-5 relative ">
            <div className="absolute md:h-[1024px] h-[703px] inset-x-[0] mx-auto top-[0] w-full px-3">
 
               <Img
-                className="h-[703px] m-auto object-cover rounded-[30px] w-full"
+                className="h-[703px] sm:h-[450px] md:h-[500px] m-auto object-cover rounded-[30px] w-full"
                 src="images/img_rectangle4.png"
                 alt="heropicture"
               />
@@ -77,14 +111,14 @@ const LandingPageUIPage = () => {
               <div className="absolute flex flex-col justify-start right-[7%] top-[4%] w-[76%]">
 
                 <Text
-                  className="ml-2 md:ml-[10]  md:text-5xl sm:mt-[-20%] text-6xl text-black-900 text-center justify-start absolute mt-[100px] right-[14%] top-[10%]"
+                  className="ml-2 md:ml-[10]  md:text-5xl md:mt-[10px] sm:mt-[5%] sm:!text-[30px] text-6xl text-black-900 text-center justify-start absolute mt-[100px] right-[14%] top-[10%]"
                   size="txtInterBold60"
                 >
                   Traveling opens the doors to creating memories
                 </Text>
                 
                 <Text
-                  className=" md:ml-[0] ml-[-100px] mt-[300px] sm:mt-60 mr-[50px] sm:text-[21px] md:text-[23px] text-[25px] text-center text-white-A700 "
+                  className=" md:ml-[0] ml-[-100px] mt-[300px] sm:mt-[180px] md:mt-[200px] mr-[50px] sm:text-[20px] md:text-[23px] text-[25px] text-center text-white-A700 "
                   size="txtInterMedium25"
                 >
                   Exploring Sri Lanka is an unforgettable adventure
@@ -95,73 +129,75 @@ const LandingPageUIPage = () => {
 
         </div>
 
-        <div className="flex flex-row md:flex-col w-[92%] mt-[-115px] gap-[52px] z-[5]">
-            <div className="flex flex-col ml-12 sm:ml-[0px] md:ml-[0px] sm:mt-[200px] md:mt-[-80px] items-center justify-center w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700 shadow-bs2 rounded-[20px]">
-
-              <Text
-                  className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
-                  size="txtInterMedium40"
-              >
-                {customerCount !== null ? customerCount : 0} +
-              </Text>
-              <Text
-                  className="text-black-900 text-center text-xl"
-                  size="txtInterMedium20"
-              >
-                  Total Customer
-              </Text>
-          </div>
-
-            <div className="flex flex-col items-center justify-start w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700 shadow-bs2 rounded-[20px]">
-
-              <Text
-                className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
-                size="txtInterMedium40"
-              >
-                {guidersCount !== null ? guidersCount : 0} +
-              </Text>
-              <Text
-                className="text-black-900 text-center text-xl"
-                size="txtInterMedium20"
-              >
-                Tour Guiders
-              </Text>
-            </div>
-
-            <div className="flex flex-col items-center justify-center w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700 shadow-bs2 rounded-[20px]">
-
-              <Text
-                className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
-                size="txtInterMedium40"
-              >
-                {hotelCount !== null ? hotelCount : 0} +
-              </Text>
-              <Text
-                className="text-black-900 text-center text-xl"
-                size="txtInterMedium20"
-              >
-                Hotels
-              </Text>
-            </div>
-
+        <div className="flex flex-row md:flex-col w-[92%] mt-[-115px] md:mt-[100px] sm:mt-[-120px] gap-[52px] md:gap-[20px] z-[5]">
+          <div
+            ref={customerRef}
+            className="flex flex-col ml-12 sm:ml-[0px] md:ml-[0px] sm:mt-[200px] md:mt-[-80px] items-center justify-center w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700 shadow-bs2 rounded-[20px] hover:scale-105 cursor-pointer"
             
-
-            <div className="flex flex-col mr-12 items-center justify-center w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700_01 shadow-bs2 rounded-[20px]">
-
-              <Text
-                className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
-                size="txtInterMedium40"
-              >
-                700 +
-              </Text>
-              <Text
-                className="text-black-900 text-center text-xl"
-                size="txtInterMedium20"
-              >
-                Places
-              </Text>
-            </div>
+          >
+            <Text
+              className="sm:text-4xl md:text-[38px] text-[40px] text-[#32389e] text-center"
+              size="txtInterMedium40"
+            >
+              {customerInView ? <CountUp end={customerCount} duration={2} /> : customerCount} +
+            </Text>
+            <Text
+              className=" text-[#32389e] text-center !text-[21px]"
+              size="txtInterMedium20"
+            >
+              Total Customer
+            </Text>
+            
           </div>
+          <div
+            ref={guidersRef}
+            className="flex flex-col items-center justify-start w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700 shadow-bs2 rounded-[20px] hover:scale-105 cursor-pointer "
+          >
+            <Text
+              className="sm:text-4xl md:text-[38px] text-[40px] text-[#32389e]  text-center"
+              size="txtInterMedium40"
+            >
+              {guidersInView ? <CountUp end={guidersCount} duration={2} /> : guidersCount} +
+            </Text>
+            <Text
+              className="text-[#32389e] text-center !text-[21px]"
+              size="txtInterMedium20"
+            >
+              Tour Guiders
+            </Text>
+          </div>
+          <div
+            ref={hotelRef}
+            className="flex flex-col items-center justify-center w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700 shadow-bs2 rounded-[20px] hover:scale-105 cursor-pointer"
+          >
+            <Text
+              className="sm:text-4xl md:text-[38px] text-[40px] text-[#32389e]  text-center"
+              size="txtInterMedium40"
+            >
+              {hotelInView ? <CountUp end={hotelCount} duration={2} /> : hotelCount} +
+            </Text>
+            <Text
+              className="text-[#32389e]  text-center !text-[21px]"
+              size="txtInterMedium20"
+            >
+              Hotels
+            </Text>
+          </div>
+          <div ref={tranceRef} className="flex flex-col mr-12 items-center justify-center w-[22%] md:w-full gap-[9px] p-[17px] bg-white-A700_01 shadow-bs2 rounded-[20px] hover:scale-105 cursor-pointer">
+            <Text
+              className="sm:text-4xl md:text-[38px] text-[40px] text-[#32389e]  text-center"
+              size="txtInterMedium40"
+            >
+              {tranceInView ? <CountUp end={tranceportCount} duration={2}/>:tranceportCount}+
+            </Text>
+            <Text
+              className="text-[#32389e]  text-center !text-[21px]"
+              size="txtInterMedium20"
+            >
+              Transport
+            </Text>
+          </div>
+        </div>
 
         <div className="flex flex-col items-center justify-start max-w-[1268px] mt-[106px] mx-auto md:px-5 w-full">
          
@@ -173,13 +209,13 @@ const LandingPageUIPage = () => {
              
              
               <Text
-                className="text-black-900_b2 text-xl"
+                className="text-black-900_b2 text-xl sm:!text-[15px] "
                 size="txtInterMedium20Black900b2"
               >
                 Tour Packages
               </Text>
               <Text
-                className="sm:text-4xl md:text-[38px] text-[40px] text-black-900"
+                className="sm:text-4xl md:text-[38px] sm:!text-[30px] text-[40px] text-black-900"
                 size="txtInterBold40"
               >
                 Our Best Package
@@ -473,24 +509,25 @@ const LandingPageUIPage = () => {
               <Img
                  src="images/travel2.webp"
                 alt="image"
-                className="w-[50%] h-[650px] md:w-full md:h-auto object-cover rounded-[20px]"
+               
+                className=" w-[50%] h-[650px] md:w-full md:h-auto object-cover rounded-[20px] "
               />
 
 
               <div className="flex flex-col ml-[15px] items-start justify-start w-[47%] md:w-full  bg-c" >
-                <Text size="txtInterMedium20Black900b2" as="p" className="text-black-900_b2 text-xl ml-10">
+                <Text size="txtInterMedium20Black900b2" as="p" className="text-black-900_b2 text-xl ml-10 md:ml-[1px]  sm:!text-[15px]">
                   How it works
                 </Text>
-                <Text size="txtInterMedium50" as="p" className="text-black-900 w-max text-[41px] ml-10 ">
+                <Text size="txtInterMedium50" as="p" className="text-black-900 w-max text-[41px] ml-10 md:ml-[1px] sm:!text-[30px] ">
                   One Click For You
                 </Text>
 
                   <Link to="tourguidersui"> 
 
 
-                  <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[19px] p-[10px] bg-white-A700_01 rounded-[20px] ml-10 sm:ml-auto md:ml-[120px]  hover:bg-[#A0DEFF]  ">
+                  <div ref={contentRef} className={`flex flex-row hover:scale-110 cursor-pointer justify-end w-[350px] md:w-[500px] sm:w-[325px] mt-[19px] p-[10px] bg-white-A700_01 rounded-[20px] ml-10 sm:ml-auto md:ml-[120px]  hover:bg-[#A0DEFF] ${isContentVisible ? 'animate-moveRightToLeft' : ''} `}>
 
-                     <div className="flex flex-row sm:flex-Row justify-start items-start w-[100%] mb-3.5 gap-[28px] sm:gap-1">
+                     <div   className="flex flex-row sm:flex-Row justify-start items-start w-[100%] mb-3.5 gap-[28px] sm:gap-1 ">
                        
                         <Img
                              src="images/img_icon.png"
@@ -517,7 +554,7 @@ const LandingPageUIPage = () => {
                  <Link to="/tranportui"> 
 
 
-                 <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[12px] p-[8px] bg-white-A700_01  rounded-[20px] ml-10 sm:ml-auto md:ml-[120px]  hover:bg-[#A0DEFF] ">
+                 <div ref={contentRef} className={`flex flex-row justify-end hover:scale-110 cursor-pointer w-[350px] md:w-[500px] sm:w-[325px] mt-[12px] p-[8px] bg-white-A700_01  rounded-[20px] ml-10 sm:ml-auto md:ml-[120px]  hover:bg-[#A0DEFF] ${isContentVisible ? 'animate-moveRightToLeft1' : ''} `}>
 
                      <div className="flex flex-row sm:flex-Row justify-start items-start w-[100%] mb-3.5 gap-[28px] sm:gap-1">
                         <Img
@@ -541,7 +578,7 @@ const LandingPageUIPage = () => {
                  <Link to="/hotelbookingpage"> 
 
 
-                <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[12px] p-[8px] bg-white-A700_01 rounded-[20px] ml-10 sm:ml-auto md:ml-[120px]  hover:bg-[#A0DEFF]">
+                <div ref={contentRef} className={`flex flex-row justify-end hover:scale-110 cursor-pointer w-[350px] md:w-[500px] sm:w-[325px] mt-[12px] p-[8px] bg-white-A700_01 rounded-[20px] ml-10 sm:ml-auto md:ml-[120px]  hover:bg-[#A0DEFF] ${isContentVisible ? 'animate-moveRightToLeft2' : ''} `}>
 
                   <div className="flex flex-row sm:flex-row justify-start items-start w-[100%] mb-3.5 gap-[28px] sm:gap-1">
                     <Img
@@ -562,7 +599,7 @@ const LandingPageUIPage = () => {
 
                 <Link to="/medical">
 
-                <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[12px] p-[8px] bg-white-A700_01 rounded-[20px] ml-10 sm:ml-auto md:ml-[120px] hover:bg-[#A0DEFF]">
+                <div ref={contentRef} className={`flex flex-row justify-end hover:scale-110 cursor-pointer w-[350px] md:w-[500px] sm:w-[325px] mt-[12px] p-[8px] bg-white-A700_01 rounded-[20px] ml-10 sm:ml-auto md:ml-[120px] hover:bg-[#A0DEFF] ${isContentVisible ? 'animate-moveRightToLeft3' : ''} `}>
 
                   <div className="flex flex-row sm:flex-row  justify-start items-start w-[100%] mb-3.5 gap-[28px] sm:gap-1">
                     <Img
@@ -585,7 +622,7 @@ const LandingPageUIPage = () => {
 
                 <Link to="/allpackagespageui">
 
-                <div className="flex flex-row justify-end w-[350px] md:w-[400px] mt-[19px] p-[8px] bg-white-A700_01 rounded-[20px] ml-10 sm:ml-auto md:ml-[120px] hover:bg-[#A0DEFF]">
+              <div ref={contentRef} className={`flex flex-row justify-end hover:scale-110 cursor-pointer w-[350px] md:w-[500px] sm:w-[325px] mt-[19px] p-[8px] bg-white-A700_01 rounded-[20px] ml-10 sm:ml-auto md:ml-[120px] hover:bg-[#A0DEFF] ${isContentVisible ? 'animate-moveRightToLeft4' : ''} `}>
 
                   <div className="flex flex-row  justify-start items-start w-[100%] mb-3.5 gap-[28px] sm:gap-1">
                     <Img
@@ -610,7 +647,7 @@ const LandingPageUIPage = () => {
             </div>
           </div>
 
-          <div className="flex flex-col items-start justify-start mt-[150px] w-[100%]">
+          <div className="flex flex-col items-start justify-start mt-[150px] sm:mt-[50px] md:mt-[50px] w-[100%]">
           <Text
               className="text-black-900_b2 text-xl"
               size="txtInterMedium20Black900b2"
@@ -625,7 +662,7 @@ const LandingPageUIPage = () => {
             </Text>
             </div>
 
-          <div className="flex flex-col items-start justify-start mt-[2px] w-[90%] ">
+          <div className="flex flex-col items-start justify-start mt-[2px]  w-[90%] ">
            
             <div className="gap-5 md:gap-5 grid sm:grid-cols-1 md:grid-cols-2 grid-cols-4 justify-center min-h-[20%] mt-[58px] w-full">
               <div className="h-[200px] relative w-full duration-300 transform hover:scale-105 cursor-pointer">

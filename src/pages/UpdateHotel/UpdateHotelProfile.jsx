@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Img } from "../../components";
 import { Heading } from "components/Heading1";
 import { FileUpload } from "components/FileUpload";
 import { useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
-import { Upload, message } from "antd";
+import { message } from "antd";
 import "react-quill/dist/quill.snow.css";
-import Upload1 from "../fileUpload/upload";
 
 export default function NewHotemServiceProvider() {
 
     const token = localStorage.getItem('token');
     const navegate = useNavigate();
+
+    useEffect(() => {
+        fetchHotelData();
+    }, []);
 
     const [hotelData, setHotelData] = useState({
         name: '',
@@ -26,40 +29,51 @@ export default function NewHotemServiceProvider() {
         pricePerNight: '',
     });
 
+    const fetchHotelData = async () => {
+        try {
+          const response = await fetch("http://localhost:5000/hotels/get", {
+            method: "GET",
+            headers: {
+              "Authorization": `Bearer ${token}`,
+            }
+          });
+          const data = await response.json();
+          setHotelData(data);
+        } catch (error) {
+          console.error("Error fetching hotel data:", error);
+        }
+      };
+
     const handleImageUpload = async (files) => {
         const uploadedImages = [];
-      
         for (let file of files) {
-          const formData = new FormData();
-          formData.append("file", file);
-      
-          try {
-            const response = await fetch("http://localhost:5000/images/upload", {
-              method: "POST",
-              body: formData,
-            });
-      
-            const data = await response.text();
-      
-            if (response.ok) {
-              message.success("Image uploaded successfully");
-              uploadedImages.push(data);
-            } else {
-              message.error(`Error: ${data}`);
+            const formData = new FormData();
+            formData.append("file", file);
+
+            try {
+                const response = await fetch("http://localhost:5000/images/upload", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const data = await response.text();
+
+                if (response.ok) {
+                    message.success("Image uploaded successfully");
+                    uploadedImages.push(data);
+                } else {
+                    message.error(`Error: ${data}`);
+                }
+            } catch (error) {
+                console.error("Error uploading image:", error);
             }
-          } catch (error) {
-            console.error("Error uploading image:", error);
-            message.error("Error uploading image. Please try again.");
-          }
         }
-      
-        setHotelData((prevData) => ({
-          ...prevData,
-          media: [...prevData.media, ...uploadedImages],
+        
+        setHotelData(prevData => ({
+            ...prevData,
+            media: [...prevData.media, ...uploadedImages]
         }));
-      };
-      
-    
+    };
 
     const handleQuillChange = (value) => {
         setHotelData(prevData => ({
@@ -77,7 +91,7 @@ export default function NewHotemServiceProvider() {
         };
 
         try {
-            const response = await fetch("http://localhost:5000/hotels/create", {
+            const response = await fetch("http://localhost:5000/hotels/update", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -186,16 +200,20 @@ export default function NewHotemServiceProvider() {
                         <hr className="mt-1 border-t-2 border-gray-300"/>
                     </div>
                     {/* Images */}
-                   
-                   
-                   <section>
-                    <Upload1 onUpload={handleImageUpload}/>
-                   </section>
-                    
-
-
-
-
+                    <div className="mb-10">
+                     <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="images">Images</label>
+                     <FileUpload
+                                allowMultiple
+                                preview
+                                name="mainImage"
+                                Thumbnail={FileUpload.PreviewItem}
+                                onUpload={handleImageUpload}
+                                className="flex flex-col items-center w-[700px] h-[120px] gap-[15px] p-[18px] bg-blue_gray-100 rounded-[5px]"
+                            >
+                                <Img src="images/img_plus_3_1.png" alt="main_image_one" className="w-[25px] mt-[22px] object-cover" />
+                                <Heading size="1xl" as="p">Main Image</Heading>
+                            </FileUpload>
+                    </div>
                     {/* Price */}
                     <div className="mb-10">
                         <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="price">Price</label>

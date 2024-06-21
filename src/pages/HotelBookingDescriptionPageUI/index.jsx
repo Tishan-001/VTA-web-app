@@ -52,7 +52,7 @@ const HotelBookingDescriptionPageUIPage = () => {
 
   const handleBookNow = (roomId) => {
     if (isSignedIn) {
-      navigate(`/frameOne/${roomId}`);
+      navigate(`/room/${roomId}`);
     } else {
       alert("You need to sign in to book a room.");
       setTimeout(() => {
@@ -178,7 +178,33 @@ const HotelBookingDescriptionPageUIPage = () => {
                           className="text-white-A700 text-xl"
                           size="txtInterBold20WhiteA700_1"
                         >
-                          Availability
+                          {room.isAvailable ? (
+                                        <span
+                                          style={{
+                                            display: "block",
+                                            backgroundColor: "green",
+                                            padding: "3px",
+                                            borderRadius: "5px",
+                                            color: "white",
+                                            width: "100%",
+                                          }}
+                                        >
+                                          Available
+                                        </span>
+                                      ) : (
+                                        <span
+                                          style={{
+                                            display: "block",
+                                            backgroundColor: "red",
+                                            padding: "3px",
+                                            borderRadius: "5px",
+                                            color: "white",
+                                            width: "100%",
+                                          }}
+                                        >
+                                          UnAvailable
+                                        </span>
+                                      )}
                         </Text>
                         <Text
                           className="text-white-A700 text-xl"

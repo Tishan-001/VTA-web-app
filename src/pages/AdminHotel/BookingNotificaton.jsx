@@ -1,53 +1,83 @@
-import React, { useState } from "react";
-
-import { CloseSVG } from "../../assets/images";
-import { Img } from "components/Img";
+import React, { useState, useEffect } from "react";
 import { Button } from "components/Button_Second";
 import { Heading } from "components/Heading1";
-import Header from "components/Header";
-import { Input } from "components/Input";
 import { Text } from "components";
-import { TextArea } from "components/TextArea";
-
-import Sidebar1 from "components/Sidebar1";
-import { articleData } from "../../assets/data/articleData";
+import { useNavigate } from "react-router-dom";
 
 export default function ArticalPage(...props) {
   const [searchBarValue, setSearchBarValue] = React.useState("");
   const [showPopup, setShowPopup] = useState(false);
-
+  const [selectedBooking, setSelectedBooking] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const articlesPerPage = 10;
 
-  const togglePopup = () => {
+  const [hotelData, setHotelData] = useState('');
+  const [bookings, setBookings] = useState([]);
+  const token = localStorage.getItem('token');
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+
+  const navigate = useNavigate();
+
+  const toggleDropdown = () => {
+    setDropdownVisible(!dropdownVisible);
+  };
+
+  useEffect(() => {
+    fetchHotelData();
+    fetchBookingData();
+  }, []);
+
+  const fetchHotelData = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/hotels/get", {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+        }
+      });
+      const data = await response.json();
+      setHotelData(data);
+    } catch (error) {
+      console.error("Error fetching hotel data:", error);
+    }
+  };
+
+  const fetchBookingData = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/hotel-booking/get-bookings", {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+        }
+      });
+      const data = await response.json();
+      setBookings(data);
+    } catch (error) {
+      console.error("Error fetching booking data:", error);
+    }
+  };
+
+  const togglePopup = (booking) => {
+    setSelectedBooking(booking);
     setShowPopup(!showPopup);
   };
 
-  const filteredArticles = articleData.filter((article) => {
-    // Filter based on search bar value
-    const isTitleMatch =
-      article.title.toLowerCase().includes(searchBarValue.toLowerCase()) ||
-      searchBarValue === "";
-
-    // Filter based on selected service
-
-    return isTitleMatch;
-  });
-
-  // Logic to get current articles based on currentPage
+  const handleSignout = () => {
+    localStorage.clear(); // Clear localStorage or session-related data
+    navigate("/login"); // Redirect to sign-in page
+  };
 
   return (
     <>
       <div className="relative w-full bg-gray-300">
-        {showPopup && (
+        {showPopup && selectedBooking && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-            {/* Popup content */}
             <div className="bg-white p-8 rounded-lg">
               <div className="w-[700px] h-[600px] p-[37px] sm:p-5 bg-white-A700_01 rounded-[30px] shadow-bs2">
                 <div className="flex flex-col justify-center items-center gap-[20px] md:ml-0">
                   <svg
-                    class="h-8 w-8 text-green-500 ml-auto cursor-pointer"
-                    onClick={togglePopup}
+                    className="h-8 w-8 text-green-500 ml-auto cursor-pointer"
+                    onClick={() => togglePopup(null)}
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -72,73 +102,43 @@ export default function ArticalPage(...props) {
                   </div>
 
                   <div className="flex md:flex-col self-stretch justify-between items-start mt-[1px] gap-1">
-                    <Heading
-                      size="1xl"
-                      as="h2"
-                      className="mt-2 ml-[100px]"
-                    >
-                      Full Name :
-                    </Heading>
-                  </div>
-                  <div className="flex md:flex-col self-stretch justify-between items-start mt-[1px] gap-1">
-                    <Heading
-                      size="1xl"
-                      as="h2"
-                      className="mt-1 ml-[100px]"
-                    >
-                      Email Address :
-                    </Heading>
-                  </div>
-                  <div className="flex md:flex-col self-stretch justify-between items-start mt-[1px] gap-1">
-                    <Heading
-                      size="1xl"
-                      as="h2"
-                      className="mt-1 ml-[100px]"
-                    >
-                      Phone Number :
+                    <Heading size="1xl" as="h2" className="mt-2 ml-[100px]">
+                      Full Name: {selectedBooking.userFirstName} {selectedBooking.userLastName}
                     </Heading>
                   </div>
                   <div className="flex md:flex-col self-stretch justify-between items-start mt-[1px] gap-1">
                     <Heading size="1xl" as="h2" className="mt-1 ml-[100px]">
-                      place :
+                      Email Address: {selectedBooking.contactEmail}
                     </Heading>
                   </div>
                   <div className="flex md:flex-col self-stretch justify-between items-start mt-[1px] gap-1">
-                    <Heading
-                      size="1xl"
-                      as="h2"
-                      className="mt-1 ml-[100px]"
-                    >
-                      Arrival Date and Time :
+                    <Heading size="1xl" as="h2" className="mt-1 ml-[100px]">
+                      Phone Number: {selectedBooking.contactTelephone}
                     </Heading>
                   </div>
                   <div className="flex md:flex-col self-stretch justify-between items-start mt-[1px] gap-1">
-                    <Heading
-                      size="1xl"
-                      as="h2"
-                      className="mt-1 ml-[100px]"
-                    >
-                      Depature Date and Time :
+                    <Heading size="1xl" as="h2" className="mt-1 ml-[100px]">
+                      Arrival Date and Time: {new Date(selectedBooking.arrivalDate).toLocaleString()}
                     </Heading>
                   </div>
-
+                  <div className="flex md:flex-col self-stretch justify-between items-start mt-[1px] gap-1">
+                    <Heading size="1xl" as="h2" className="mt-1 ml-[100px]">
+                      Departure Date and Time: {new Date(selectedBooking.departureDate).toLocaleString()}
+                    </Heading>
+                  </div>
+                  <div className="flex md:flex-col self-stretch justify-between items-start mt-[1px] gap-1">
+                    <Heading size="1xl" as="h2" className="mt-1 ml-[100px]">
+                      Notice: {selectedBooking.specialRequest}
+                    </Heading>
+                  </div>
                   <div className="flex flex-row justify-center w-[41%] p-[11px] bg-teal-A100_99">
                     <div className="flex flex-col items-end justify-start w-[91%]  ml-5 mr-4 gap-0.5">
                       <div className="flex flex-row justify-between w-full">
-                        <Text
-                          className="text-2xl text-black-900  ml-0.5 mt-2"
-                          size="txtInterBold60"
-                        >
-                          Paid LKR 23000
+                        <Text className="text-2xl text-black-900  ml-0.5 mt-2" size="txtInterBold60">
+                          Paid LKR {selectedBooking.bookingPrice}
                         </Text>
                       </div>
                     </div>
-                  </div>
-
-                  <div className="flex justify-center  gap-3">
-                    <Button className="flex items-center justify-center w-[200px] h-[40px] bg-green-500 rounded-[5px]">
-                      Cancel Booking
-                    </Button>
                   </div>
                 </div>
               </div>
@@ -149,19 +149,61 @@ export default function ArticalPage(...props) {
         <div className="flex md:flex-col justify-center items-start">
           <div className="flex flex-col gap-[18px] flex-1">
             <header {...props}>
-              <div className="flex sm:flex-col self-end h-[100px] justify-between items-center w-full  gap-10 mx-auto md:p-5 max-w-full bg-white-A700 ">
+              <div className="flex sm:flex-col self-end h-[100px] justify-between items-center w-full gap-10 mx-auto md:p-5 max-w-full bg-white-A700">
                 <Heading size="2xl" as="h4" className="ml-[100px]">
-                  Transport Dashboard
+                  Hotel Dashboard
                 </Heading>
-                <div className="flex justify-between items-center w-[25%] sm:w-full gap-5 ">
-                  <Heading size="xl1" as="h5" className=" mr-[20]">
-                    Nuwani Thushari
+                <div className="flex justify-between items-center w-[25%] sm:w-full gap-5">
+                  <Heading size="xl1" as="h5" className="mr-[20]">
+                    {hotelData.name ? hotelData.name : "Hotel"}
                   </Heading>
-                  <Img
-                    src="images/img_image_75.png"
-                    alt="imageseventyfiv"
-                    className="h-[55px] w-[56px] rounded-[50%] mr-[30px]"
-                  />
+                  <button
+                    type="button"
+                    className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300"
+                    id="user-menu-button"
+                    aria-expanded="true"
+                    data-dropdown-toggle="user-dropdown"
+                    data-dropdown-placement="bottom"
+                    onClick={toggleDropdown}
+                  >
+                    <span className="sr-only">Open user menu</span>
+                    <img
+                      className="w-12 h-12 rounded-full"
+                      src={hotelData.photo ? hotelData.photo : "/images/profile-picture-3.jpg"}
+                      alt="user photo"
+                    />
+                  </button>
+
+                  {dropdownVisible && (
+                    <div className="absolute top-16 right-0 w-48 bg-white shadow-lg rounded-lg">
+                      <ul className="py-2" aria-labelledby="user-menu-button">
+                        <li>
+                          <a
+                            href="/new-hotel-add"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          >
+                            Create Profile
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          >
+                            Edit Profile
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            onClick={handleSignout}
+                          >
+                            Sign out
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
             </header>
@@ -179,11 +221,11 @@ export default function ArticalPage(...props) {
                         <tr>
                           <div className="flex md:flex-col justify-center items-center mb-[5px] mr-[140px]">
                             <div className="flex self-start justify-center items-center ml-[100px] gap-[11px]">
-                              <th>Email</th>
+                              <th>First Name</th>
                             </div>
 
                             <div className="flex self-start justify-center items-center ml-[210px] gap-[20px]">
-                              <th>Name</th>
+                              <th>Last Name</th>
                             </div>
 
                             <div className="flex self-start justify-center items-center  ml-[110px] gap-[11px]">
@@ -205,37 +247,43 @@ export default function ArticalPage(...props) {
                     <div className="w-full h-[470px] overflow-y-auto">
                       <table>
                         <tbody>
-                          {filteredArticles.map((article, index) => (
-                            <tr key={index}>
-                              <div className="flex flex-col gap-[15px] p-2.5">
-                                <div className="flex md:flex-col justify-center items-end  mr-[20px] flex-1">
-                                  <td style={{ width: "300px" }}>
-                                    {article.title}
-                                  </td>
-
-                                  <td style={{ width: "190px" }}>
-                                    {article.views}
-                                  </td>
-                                  <td style={{ width: "190px" }}>
-                                    {article.likes}
-                                  </td>
-
-                                  <div className="flex justify-center  gap-2">
-                                    <td>
-                                      <div className="flex justify-center ml-[90px] gap-3">
-                                        <Button
-                                          onClick={togglePopup}
-                                          className="flex items-center justify-center w-[100px] h-[40px] bg-green-500 rounded-[5px]"
-                                        >
-                                          View
-                                        </Button>
-                                      </div>
+                          {bookings && bookings.length > 0 ? (
+                            bookings.map((booking, index) => (
+                              <tr key={index}>
+                                <div className="flex flex-col gap-[15px] p-2.5">
+                                  <div className="flex md:flex-col justify-center items-end  mr-[20px] flex-1">
+                                    <td style={{ width: "300px" }}>
+                                      {booking.userFirstName}
                                     </td>
+  
+                                    <td style={{ width: "190px" }}>
+                                      {booking.userLastName}
+                                    </td>
+                                    <td style={{ width: "190px" }}>
+                                      {booking.roomName}
+                                    </td>
+  
+                                    <div className="flex justify-center  gap-2">
+                                      <td>
+                                        <div className="flex justify-center ml-[90px] gap-3">
+                                          <Button
+                                            onClick={() => togglePopup(booking)}
+                                            className="flex items-center justify-center w-[100px] h-[40px] bg-green-500 rounded-[5px]"
+                                          >
+                                            View
+                                          </Button>
+                                        </div>
+                                      </td>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
+                              </tr>
+                            ))
+                          ): (
+                            <tr>
+                              <td colSpan="6" className="text-center">No Booking available</td>
                             </tr>
-                          ))}
+                          )}
                         </tbody>
                       </table>
                     </div>
