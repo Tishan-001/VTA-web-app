@@ -21,6 +21,8 @@ function PreviewItem({ file, index, onRemove }) {
     onRemove(index);
   };
 
+  
+
   return (
     <div className="w-full h-full rounded-md flex flex-col min-h-[fit-content]">
       {isImage ? (
