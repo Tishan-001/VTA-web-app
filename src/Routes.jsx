@@ -19,6 +19,7 @@ import NewPassword from "pages/CreateNewPassword/CreateNewPassword";
 import AddAdminGallery from "pages/AddAdminGallery";
 import NewHotemServiceProvider from "pages/NewHotelServiceProvider/NewHotelServiceProvider";
 import NewTourGuideServiceProvider from "pages/NewTourGuideServiceProvider/NewTourGuideServiceProvider";
+import UpdateHotel from "pages/UpdateHotel/UpdateHotelProfile";
 import ChooseServiceProviders from "pages/ChooseServiceProviders/ChooseServiceProviders";
 import NewTourPackage from "pages/NewTourPackage/NewTourPackage";
 import AddNewRoom from "pages/AddNewRoom/AddNewRoom";
@@ -92,6 +93,7 @@ const ProjectRoutes = () => {
           <Route path="/addadmingallery" element={<AddAdminGallery/>}/>
           <Route path="/addadminpublish" element={<AddPackagePublish/>}/>
           <Route path="/new-hotel-add" element={<NewHotemServiceProvider/>}/>
+          <Route path="/update-hotel" element={<UpdateHotel/>}/>
           <Route path="/newtourguideserviceprovider" element={<NewTourGuideServiceProvider/>}/>
           <Route path="/chooseserviceproviders" element={<ChooseServiceProviders/>}/>
           <Route path="/newtourpackage" element={<NewTourPackage/>}/>
