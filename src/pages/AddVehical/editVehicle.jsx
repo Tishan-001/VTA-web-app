@@ -13,7 +13,7 @@ export default function EditVehicle() {
     const [vehicleCategory, setVehicleCategory] = useState(vehicle.vehicleCategory);
     const [features, setFeatures] = useState(vehicle.features || []);
     const [price, setPrice] = useState(vehicle.price);
-    const [media, setMedia] = useState(vehicle.photo || ''); // Initialize with existing photo URL if available
+    const [media, setMedia] = useState(vehicle.photo || ''); 
     const [vehicleId, setVehicleId] = useState(vehicle.id);
     const navigate = useNavigate();
 
