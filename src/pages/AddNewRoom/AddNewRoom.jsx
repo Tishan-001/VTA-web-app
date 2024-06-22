@@ -132,10 +132,10 @@ export default function AddNewRoom() {
               <option value="" disabled>
                 Select Room Type
               </option>
-              <option value="single">Single Room</option>
-              <option value="double">Double Room</option>
-              <option value="suite">Suite</option>
-              <option value="deluxe">Deluxe Room</option>
+              <option value="Single">Single Room</option>
+              <option value="Double">Double Room</option>
+              <option value="Suite">Suite</option>
+              <option value="Deluxe">Deluxe Room</option>
             </select>
           </div>
           <div className="mb-10">

@@ -19,6 +19,7 @@ import NewPassword from "pages/CreateNewPassword/CreateNewPassword";
 import AddAdminGallery from "pages/AddAdminGallery";
 import NewHotemServiceProvider from "pages/NewHotelServiceProvider/NewHotelServiceProvider";
 import NewTourGuideServiceProvider from "pages/NewTourGuideServiceProvider/NewTourGuideServiceProvider";
+import UpdateTourGuide from "pages/TourGuideUpdate/UpdateTourGude";
 import UpdateHotel from "pages/UpdateHotel/UpdateHotelProfile";
 import ChooseServiceProviders from "pages/ChooseServiceProviders/ChooseServiceProviders";
 import NewTourPackage from "pages/NewTourPackage/NewTourPackage";
@@ -28,6 +29,7 @@ import AddVehicle from "pages/AddVehical/addVehicle";
 import EditVehicle from "pages/AddVehical/editVehicle";
 import AddTranspotation from "pages/AddTranspotation/addTranportation";
 import Upload from "pages/fileUpload/upload"
+import TourGuideBooking from "pages/TourGuideBookig/tourguidebooking";
 
 
 const HotelBookingpage = React.lazy(() => import("pages/HotelBookingpage"));
@@ -96,15 +98,17 @@ const ProjectRoutes = () => {
           <Route path="/addadminpublish" element={<AddPackagePublish/>}/>
           <Route path="/new-hotel-add" element={<NewHotemServiceProvider/>}/>
           <Route path="/update-hotel" element={<UpdateHotel/>}/>
-          <Route path="/newtourguideserviceprovider" element={<NewTourGuideServiceProvider/>}/>
+          <Route path="/new-guide-add" element={<NewTourGuideServiceProvider/>}/>
+          <Route path="/update-guide" element={<UpdateTourGuide/>}/>
           <Route path="/chooseserviceproviders" element={<ChooseServiceProviders/>}/>
-          <Route path="/newtourpackage" element={<NewTourPackage/>}/>
+          <Route path="/new-tour-package" element={<NewTourPackage/>}/>
           <Route path="/add-new-room" element={<AddNewRoom/>}/>
           <Route path="/aboutus" element={<AboutUs/>}/>
           <Route path="/addtranspotation" element={<AddTranspotation/>}/>
           <Route path="/addVehical" element={<AddVehicle/>}/>
           <Route path="/editVehical" element={<EditVehicle/>}/>
           <Route path="/upload" element={<Upload/>}/>
+          <Route path="/tourguidebooking/:id" element={<TourGuideBooking/>}/>
         </Routes>
       </Router>
     </React.Suspense>

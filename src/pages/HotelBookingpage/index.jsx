@@ -6,6 +6,7 @@ import Searchbar from "./searchbar.jsx";
 import Filter from "./filter.jsx";
 import HotelList from "./hotelList.jsx";
 import Header from "../../components/Navbar.jsx";
+import { message } from "antd";
 
 const HotelBookingpagePage = () => {
   const [hotels, setHotels] = useState([]);
@@ -34,12 +35,31 @@ const HotelBookingpagePage = () => {
 
   const hotelListRef = useRef(null);
 
-  const filterHotelListByDestination = (destination) => {
-    const filteredList = hotels.filter((hotel) =>
-      hotel.city.toLowerCase() === destination.toLowerCase()
-    );
-    setFilteredHotelList(filteredList);
+  const filterHotelListByDestination = async (destination, checkInDate, checkOutDate) => {
+    try {
+      const response = await fetch('http://localhost:5000/hotels/get/filter/hotel', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          city: destination,
+          checkInDate: checkInDate,
+          checkOutDate: checkOutDate
+        })
+      });
+  
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+  
+      const filteredHotels = await response.json();
+      setFilteredHotelList(filteredHotels); // Update the state with the filtered hotels
+    } catch (error) {
+      console.error('Failed to fetch filtered hotels:', error);
+    }
   };
+  
   
   return (
     <>
