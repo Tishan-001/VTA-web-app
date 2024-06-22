@@ -30,6 +30,7 @@ import EditVehicle from "pages/AddVehical/editVehicle";
 import AddTranspotation from "pages/AddTranspotation/addTranportation";
 import Upload from "pages/fileUpload/upload"
 import TourGuideBooking from "pages/TourGuideBookig/tourguidebooking";
+import TransportBooking from "pages/TransportBooking/transportbooking";
 
 
 const HotelBookingpage = React.lazy(() => import("pages/HotelBookingpage"));
@@ -109,6 +110,7 @@ const ProjectRoutes = () => {
           <Route path="/editVehical" element={<EditVehicle/>}/>
           <Route path="/upload" element={<Upload/>}/>
           <Route path="/tourguidebooking/:id" element={<TourGuideBooking/>}/>
+          <Route path="/transportbooking/:trasportid/:vehicleid" element={<TransportBooking/>}/>
         </Routes>
       </Router>
     </React.Suspense>

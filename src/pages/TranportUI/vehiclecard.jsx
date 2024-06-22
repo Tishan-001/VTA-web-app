@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const VehicleCard = ({ vehicle, transportId }) => {
+  console.log(transportId);
   const navigate = useNavigate();
   return (
     <div className="h-[450px] relative rounded-[20px] shadow-bs w-full md:w-[90%]">
@@ -39,7 +40,7 @@ const VehicleCard = ({ vehicle, transportId }) => {
             </div>
             <Button
               className="absolute hover:bg-[#CAF4FF] hover:text-black-900 cursor-pointer font-bold h-max inset-y-[0] leading-[normal] min-w-[130px] my-auto right-[7%] rounded-[15px] text-center text-1xl mb-[5px]"
-              shape="round" onClick={()=>{navigate("/taxidetil",{ state: { vehicle }})}}
+              shape="round" onClick={()=>{navigate("/taxidetil",{ state: {vehicle: vehicle , transportId: transportId}})}}
             >
               Book Now
             </Button>
