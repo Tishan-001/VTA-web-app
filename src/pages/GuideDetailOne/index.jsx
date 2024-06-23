@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Button, Img, Line, List, Text } from "components";
 import { Heading } from "components/Heading";
 import Footer from "components/Footer";
@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 export default function GuideDetailOnePage() {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [tourGuide, setTourGuide] = useState("");
 
@@ -26,6 +27,11 @@ export default function GuideDetailOnePage() {
     }
     fetchData();
   }, [id]);
+
+  const handeleBook = () => {
+    const guiderId = tourGuide.id;
+    navigate(`/tourguidebooking/${guiderId}`);
+  }
 
   
 
@@ -142,15 +148,14 @@ export default function GuideDetailOnePage() {
                </Text>
              </div>
            </div>
-           <Link to="/payment" className="mb-[-200px]">
               <Button
                   color="bg-gray-600_99"
                   size="xl"
                   className="mt-[52px] h-14 bg-gray-600_99 sm:px-5 text-black-900 font-light shadow-xs min-w-[188px] rounded-[10px] sm:min-w-full hover:bg-green-500"
+                  onClick={() => handeleBook()}
                 >
                   Book Now
                 </Button>
-           </Link>
             
           </div>
         </div>

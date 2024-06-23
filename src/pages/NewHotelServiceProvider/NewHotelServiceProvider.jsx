@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import { Img } from "../../components";
-import { Heading } from "components/Heading1";
-import { FileUpload } from "components/FileUpload";
 import { useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
-import { Upload, message } from "antd";
+import { message } from "antd";
 import "react-quill/dist/quill.snow.css";
-import Upload1 from "../fileUpload/upload";
+import Upload from "../fileUpload/upload";
 
 export default function NewHotemServiceProvider() {
 
@@ -237,7 +234,7 @@ export default function NewHotemServiceProvider() {
                    
                    
                    <section>
-                    <Upload1 onUpload={handleImageUpload}/>
+                    <Upload onUpload={handleImageUpload}/>
                    </section>
                     
 

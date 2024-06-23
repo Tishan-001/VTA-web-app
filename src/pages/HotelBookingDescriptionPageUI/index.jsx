@@ -4,9 +4,14 @@ import Footer from "components/Footer";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Facility from "./facility";
+
 import Image1 from "../../assets/images/img_12129860mapl.png";
 
 import Img1 from "../../assets/images/wifi.jpg"
+
+
+import { message } from "antd";
+
 
 const HotelBookingDescriptionPageUIPage = () => {
   const { id } = useParams();
@@ -66,15 +71,19 @@ const HotelBookingDescriptionPageUIPage = () => {
     setMainImage(newImage);
   };
 
-  const handleBookNow = (roomId) => {
-    if (isSignedIn) {
+  const handleBookNow = (roomId, isAvailable) => {
+    if (isSignedIn && isAvailable) {
       navigate(`/room/${roomId}`);
-    } else {
-      alert("You need to sign in to book a room.");
-      setTimeout(() => {
-        navigate('/login');
-      }, 2000);
     }
+    if(!isAvailable) {
+      message.success("Room is not available for booking");
+    }
+      if (!isSignedIn) {
+        message.info("You need to sign in to book a room");
+        setTimeout(() => {
+          navigate('/login');
+        }, 5000);
+      }
   };
 
   return (
@@ -245,7 +254,7 @@ const HotelBookingDescriptionPageUIPage = () => {
                       <Button
                         className="cursor-pointer font-light leading-[normal] mb-[5px] min-w-[130px] mt-[9px] text-center text-xl"
                         shape="round"
-                        onClick={() => handleBookNow(room.id)}
+                        onClick={() => handleBookNow(room.id, room.isAvailable)}
                       >
                       Book Now
                       </Button>

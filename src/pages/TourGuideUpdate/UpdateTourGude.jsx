@@ -15,10 +15,33 @@ export default function NewTourGuideServiceProvider() {
     const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
     const [media, setMedia] = useState('');
-    const [starRating, setStarRating] = useState('');
     const navigate = useNavigate();
 
     const token = localStorage.getItem('token');
+
+    useEffect(() => {
+        fetch('http://localhost:5000/tourguides/guider', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            setName(data.name);
+            setEmail(data.email);
+            setMobile(data.mobile);
+            setAddress(data.address);
+            setPrice(data.price);
+            setDescription(data.description);
+            setMedia(data.media);
+            console.log(data); // Log the fetched guider details
+          })
+          .catch((error) => {
+            message.error(error)
+          });
+      },[]);
+
+
 
     const handleUpload = async (files) => {
         try {
@@ -46,8 +69,8 @@ export default function NewTourGuideServiceProvider() {
     
     const handleSubmit = async () => {
         try {
-            const response = await fetch("http://localhost:5000/tourguides/register", {
-                method: "POST",
+            const response = await fetch("http://localhost:5000/tourguides/update", {
+                method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
                     // Add your token here
@@ -60,7 +83,6 @@ export default function NewTourGuideServiceProvider() {
                     address: address,
                     media: media,
                     price: price,
-                    starRating: starRating,
                     description: description
                 })
             });
@@ -69,7 +91,7 @@ export default function NewTourGuideServiceProvider() {
             console.log("Response:", data);
 
             if (response.ok) {
-                message.success("Tour Guide registered successfully");
+                message.success("Tour Guide updated successfully");
                 navigate("/admin-guider")
             } else {
                 // Handle error response, e.g., display error message to the user
@@ -119,12 +141,6 @@ export default function NewTourGuideServiceProvider() {
                     <div className="mb-10">
                         <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="price">Price</label>
                         <input className="border-b border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500" id="price" type="text" placeholder="Price" onChange={(e) => setPrice(e.target.value)} value={price} />
-                        <hr className="mt-1 border-t-2 border-gray-300" />
-                    </div>
-
-                    <div className="mb-10">
-                        <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="price">Ratting</label>
-                        <input className="border-b border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500" id="price" type="text" placeholder="Start Ratting" onChange={(e) => setStarRating(e.target.value)} value={starRating} />
                         <hr className="mt-1 border-t-2 border-gray-300" />
                     </div>
 
