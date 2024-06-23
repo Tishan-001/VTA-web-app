@@ -24,6 +24,8 @@ export default function NewHotemServiceProvider() {
         description: '',
         media: [],
         pricePerNight: '',
+        type:'',
+        category:'',
     });
 
     const handleImageUpload = async (files) => {
@@ -58,15 +60,9 @@ export default function NewHotemServiceProvider() {
           media: [...prevData.media, ...uploadedImages],
         }));
       };
-      
-    
 
-    const handleQuillChange = (value) => {
-        setHotelData(prevData => ({
-            ...prevData,
-            description: value
-        }));
-    };
+      
+      
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
@@ -112,6 +108,7 @@ export default function NewHotemServiceProvider() {
             <div className="mb-8 mt-20 rounded-3xl shadow-md">
                 <form className="bg-white shadow-2xl rounded-3xl px-8 pt-6 pb-8" onSubmit={handleFormSubmit}>
                     {/* Name of the Company */}
+                   
                     <div className="mb-10">
                         <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="companyName">Hotel Name</label>
                         <input className="w-full mt-2 py-2 px-3 text-gray-700 border-b-2 border-gray-300 focus:outline-none" 
@@ -122,6 +119,57 @@ export default function NewHotemServiceProvider() {
                             onChange={(e) => setHotelData({ ...hotelData, name: e.target.value })}/>
                         <hr className="mt-1 border-t-2 border-gray-300"/>
                     </div>
+                   
+                    <div className="mb-10">
+                        <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="companyName">Hotel Type</label>
+                       
+                        
+                        <select
+                                className="w-full mt-2 py-2 px-3 text-gray-700 border-b-2 border-gray-300 focus:outline-none"
+                                id="companyType"
+                                value={hotelData.type}
+                                onChange={(e) => setHotelData({ ...hotelData, type: e.target.value })}
+                                required
+                                >
+                                <option value="" disabled>
+                                    Select Hotel Type
+                                </option>
+                                <option value="single">Hotel</option>
+                                <option value="double">Apartments</option>
+                                <option value="suite">Villas</option>
+                                
+                      </select>
+                      
+                    </div>
+
+                    <div className="mb-10">
+                        <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="companyName">Hotel Category</label>
+                       
+                        
+                        <select
+                                className="w-full mt-2 py-2 px-3 text-gray-700 border-b-2 border-gray-300 focus:outline-none"
+                                id="companyType"
+                                value={hotelData.category}
+                                onChange={(e) => setHotelData({ ...hotelData, category: e.target.value })}
+                                required
+                                >
+                                <option value="" disabled>
+                                    Select Hotel Category
+                                </option>
+                                <option value="single">3 Star</option>
+                                <option value="double">4 Star</option>
+                                <option value="suite">5 Star</option>
+                                
+                      </select>
+                      
+                    </div>
+
+
+
+
+
+
+
                     {/* Address */}
                     <div className="mb-10">
                         <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="addresss">Address</label>
@@ -213,10 +261,19 @@ export default function NewHotemServiceProvider() {
                     <div className="flex flex-col self-stretch">
                         <div className="mt-[17px]">
                             <div className="flex flex-col">
-                                <ReactQuill value={hotelData.description} onChange={handleQuillChange} />
+                       
+                         <textarea id="message" rows="4" value={hotelData.description} onChange={(e) => setHotelData({ ...hotelData, description: e.target.value })} class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+
+                                
+                                
                             </div>
                         </div>
                     </div>
+
+                    
+
+
+
                     {/* Save Button */}
                     <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                         <button onClick={handleFormSubmit} className="bg-blue-500 mt-3 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline" type="submit">

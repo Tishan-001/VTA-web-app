@@ -2,7 +2,7 @@ import React,{useState, useEffect} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button, Img, Heading, Text, Input, TextArea } from "components";
 import Footer from "components/Footer";
-import Img1 from "../../assets/images/img_image_59.png" 
+import Img1 from "../../assets/images/ok.png" 
 import Img2 from "../../assets/images/img_image_60.png" 
 import Img3 from "../../assets/images/img_image_61.png" 
 import Img4 from "../../assets/images/img_image_63.png" 
@@ -137,6 +137,14 @@ const FrameOne=()=> {
     }
   };
 
+  const chunkArray = (arr, chunkSize) => {
+    const chunks = [];
+    for (let i = 0; i < arr.length; i += chunkSize) {
+      chunks.push(arr.slice(i, chunkSize + i));
+    }
+    return chunks;
+  };
+
   return (
     <>
       <div className="flex flex-col items-center justify-start w-full">
@@ -147,74 +155,34 @@ const FrameOne=()=> {
               <Img
                 src={room?.photo}
                 alt={room?.type}
-                className="w-[52%] object-cover rounded-[30px]"
+                className=" w-[700px] object-cover rounded-[30px]"
               />
               <div className="flex flex-col items-start justify-start w-[46%]">
 
                 <Text className="md:text-4xl text-4xl text-black-900"
                 size="txtInterBold40" >  Room Amenities
                 </Text>
-                <div className="flex flex-row justify-start w-full mt-2.5">
-                  <div className="flex flex-row justify-between items-center w-full">
-                    <div className="flex flex-col items-center justify-start w-[17%] gap-[15px]">
-                     
-                      <div className="flex flex-row justify-start items-start w-full gap-3">
-                        <Img src={Img1} alt="imagefiftynine" className="w-[55px] object-cover" />
-                        <Text size="s" as="p" className="mt-4">
-                          Safe
-                        </Text>
-                      </div>
-
-
-                      <div className="flex flex-row justify-start items-start w-full gap-3">
-                        <Img src={Img1} alt="imagefiftynine" className="w-[55px] object-cover" />
-                        <Text size="s" as="p" className="mt-4">
-                          Safe
-                        </Text>
-                      </div>
-
+                
+                
+                <div className="flex flex-col justify-start w-full mt-2.5 gap-4">
+                  {chunkArray(room?.facilities || [], 3).map((facilityGroup, rowIndex) => (
+                    <div key={rowIndex} className="flex flex-row justify-between items-center w-full">
+                      {facilityGroup.map((facility, index) => (
+                        <div key={index} className="flex flex-row justify-start items-start w-[30%] gap-3">
+                          <Img src={Img1} alt="imagefiftynine" className="w-[40px]  object-cover" />
+                          <Text size="s" as="p" className=" !text-[20px] ">
+                            {facility}
+                          </Text>
+                        </div>
+                      ))}
                     </div>
-
-                    <div className="flex flex-col items-center justify-start w-[17%] gap-[15px]">
-                     
-                      <div className="flex flex-row justify-start items-start w-full gap-3">
-                        <Img src={Img2} alt="imagefiftynine" className="w-[55px] object-cover" />
-                        <Text size="s" as="p" className="mt-4">
-                        Service
-                        </Text>
-                      </div>
-
-
-                      <div className="flex flex-row justify-start items-start w-full gap-3">
-                        <Img src={Img2} alt="imagefiftynine" className="w-[55px] object-cover" />
-                        <Text size="s" as="p" className="mt-4">
-                        Service
-                        </Text>
-                      </div>
-
-                    </div>
-
-                    <div className="flex flex-col items-center justify-start w-[17%] gap-[15px]">
-                     
-                      <div className="flex flex-row justify-start items-start w-full gap-3">
-                        <Img src={Img3} alt="imagefiftynine" className="w-[55px] object-cover" />
-                        <Text size="s" as="p" className="mt-4">
-                        Luggage
-                        </Text>
-                      </div>
-
-
-                      <div className="flex flex-row justify-start items-start w-full gap-3">
-                        <Img src={Img3} alt="imagefiftynine" className="w-[55px] object-cover" />
-                        <Text size="s" as="p" className="mt-4">
-                        Luggage
-                        </Text>
-                      </div>
-
-                    </div>
-                  </div>
-
+                  ))}
                 </div>
+
+
+
+
+
                 <Text 
                 className="md:text-4xl text-4xl text-black-900 mt-10"
                 size="txtInterBold40">Bed Type
