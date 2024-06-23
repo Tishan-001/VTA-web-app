@@ -5,12 +5,13 @@ import { RatingBar } from "components/RatingBar";
 import { Heading } from "components/Heading";
 import Navbar from "components/Navbar";
 import Footer from "components/Footer";
-import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
+
 
 export default function TaxiDetail() {
   const location = useLocation();
-    const { vehicle ,transportId} = location.state;
+  const { vehicle} = location.state;
+  const navigate = useNavigate();
 
   console.log(vehicle); // Log to check the params
 
@@ -142,9 +143,9 @@ export default function TaxiDetail() {
                 </Text>
               </div>
             </div>
-            <Button className="cursor-pointer hover:bg-[#5AB2FF] hover:text-black-900 font-medium leading-[normal] min-w-[190px] mt-[90px] ml-[480px] md:ml-[80px] rounded-[15px] text-center text-xl" color="black_900_01" size="lg1">
-              
-              <Link to ={`/transportbooking/${transportId}/${vehicle.id}`}>Book Now</Link>
+            <Button className="cursor-pointer hover:bg-[#5AB2FF] hover:text-black-900 font-medium leading-[normal] min-w-[190px] mt-[90px] ml-[480px] md:ml-[80px] rounded-[15px] text-center text-xl" color="black_900_01" size="lg1"
+            onClick={()=>{navigate("/transportbooking",{ state: {vehicle: vehicle}})}}>
+              Book Now
             </Button>
           </div>
         </div>

@@ -48,8 +48,6 @@ export default function ArticalPage(...props) {
                 setTransportName(data.name);
                 setTransportImage(data.imageUrl);
                 setCreateState(true);
-                setVehicles(data.vehicles);
-                console.log(transportName);
               }
             } catch (error) {
               console.error('Error parsing JSON:', error);
@@ -61,8 +59,41 @@ export default function ArticalPage(...props) {
         .catch((error) => {
           console.error("Error fetching transport: ", error);
         });
+        handleGetVehicles();
     }
-  }, [token]);
+  }, [token,vehicles]);
+
+  const handleGetVehicles= ()=>{
+    fetch(`http://localhost:5000/vehicle/by-transport`,{
+      headers: {
+        'Authorization': `Bearer ${token}`,
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.text();
+      
+      })
+      .then((text) => {
+        if (text) {
+          try {
+            const data = JSON.parse(text);
+            if (data != null) {
+              setVehicles(data)
+            }
+          } catch (error) {
+            console.error('Error parsing JSON:', error);
+          }
+        } else {
+          console.log("Error fetching transport: Empty response received");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching transport: ", error);
+      });
+  }
 
   const handleCreate= ()=>{
     navigate("/addVehical");
@@ -77,7 +108,7 @@ export default function ArticalPage(...props) {
     try {
 
 
-        const response = await fetch("http://localhost:5000/transports/delete/vehicle", {
+        const response = await fetch("http://localhost:5000/vehicle/delete", {
             method: "DELETE",
             headers: {
               'Authorization': `Bearer ${token}`,
@@ -273,7 +304,7 @@ export default function ArticalPage(...props) {
 
                     <table>
                       <tbody>
-                       {vehicles.map((vehicle, index) => (
+                       {vehicles.length>0 ? (vehicles.map((vehicle, index) => (
                           <tr key={index}>
 
                           <div className="flex flex-col gap-[2px] p-2.5">
@@ -316,7 +347,9 @@ export default function ArticalPage(...props) {
                           
                           </tr>
 
-                        ))}
+                        ))):(<h3>No available vehicles!</h3>)
+                          
+                      }
 
                       </tbody>
                     </table>

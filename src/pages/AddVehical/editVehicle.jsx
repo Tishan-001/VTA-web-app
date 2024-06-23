@@ -47,7 +47,7 @@ export default function EditVehicle() {
         e.preventDefault();
         
         try {
-            const response = await fetch("http://localhost:5000/transports/update/vehicle", {
+            const response = await fetch("http://localhost:5000/vehicle/update", {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

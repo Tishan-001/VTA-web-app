@@ -110,7 +110,7 @@ const ProjectRoutes = () => {
           <Route path="/editVehical" element={<EditVehicle/>}/>
           <Route path="/upload" element={<Upload/>}/>
           <Route path="/tourguidebooking/:id" element={<TourGuideBooking/>}/>
-          <Route path="/transportbooking/:trasportid/:vehicleid" element={<TransportBooking/>}/>
+          <Route path="/transportbooking" element={<TransportBooking/>}/>
         </Routes>
       </Router>
     </React.Suspense>

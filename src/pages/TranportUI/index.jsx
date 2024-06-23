@@ -16,28 +16,18 @@ const TransportUIPage = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/transports/");
+      const response = await fetch("http://localhost:5000/vehicle/");
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
       const data = await response.json();
-      setTransports(data);
-      fetchVehicles(data);
+      setVehicles(data);
+      
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
 
-  const fetchVehicles = (data) => {
-    try {
-      const allVehicles = data.reduce((acc, transport) => {
-        return acc.concat(transport.vehicles.map(vehicle => ({ ...vehicle, transportId: transport.id })));
-      }, []);
-      setVehicles(allVehicles);
-    } catch (error) {
-      console.error("Error fetching vehicle:", error);
-    }
-  };
 
   return (
     <>
@@ -96,7 +86,7 @@ const TransportUIPage = () => {
 
           <div className="md:gap-5 gap-[61px] grid sm:grid-cols-1 md:grid-cols-2 grid-cols-4 justify-center min-h-[auto] mt-[45px] w-[105%] md:ml-[10px] md:w-full">
             {vehicles.map((vehicle, index) => (
-              <VehicleCard key={index} vehicle={vehicle} transportId={vehicle.transportId} />
+              <VehicleCard key={index} vehicle={vehicle} />
             ))}
           </div>
         </div>

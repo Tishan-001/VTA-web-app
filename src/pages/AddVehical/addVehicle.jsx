@@ -42,7 +42,7 @@ export default function AddVehicle() {
         e.preventDefault();
         
         try {
-            const response = await fetch("http://localhost:5000/transports/add/vehicle", {
+            const response = await fetch("http://localhost:5000/vehicle/add", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -61,7 +61,7 @@ export default function AddVehicle() {
             console.log("Response:", data);
             if (response.ok) {
                 alert("Data saved successfully");
-                navigate("/admintransport");
+                //navigate("/admintransport");
             } else {
                 console.error("Error:", data.error);
             }
