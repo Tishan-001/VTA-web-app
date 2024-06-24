@@ -85,10 +85,6 @@ export default function ArticalPage(...props) {
     setShowPopup(!showPopup);
   };
 
-  const clickRoomAdd = () => {
-    navigate("/add-new-room");
-  };
-
   const handleSignout = () => {
     localStorage.clear(); // Clear localStorage or session-related data
     navigate("/login"); // Redirect to sign-in page
@@ -120,7 +116,7 @@ export default function ArticalPage(...props) {
                   </Heading>
                   <button
                     type="button"
-                    className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300"
+                    className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 mr-20"
                     id="user-menu-button"
                     aria-expanded="true"
                     data-dropdown-toggle="user-dropdown"
@@ -169,24 +165,9 @@ export default function ArticalPage(...props) {
               </div>
             </header>
 
-            <div className="flex justify-center w-[98%] md:w-full ml-[9px]">
-              <div className="flex flex-col items-center justify-center w-[1140px] gap-[18px] p-[11px] bg-gray-100 rounded-[20px]">
+            <div className="flex justify-center  w-[98%] h-[780px] md:w-full ml-[9px] mb-[10px]">
+              <div className="flex flex-col items-center justify-center w-[95%]  gap-[18px] p-[11px] bg-gray-100 rounded-[20px]">
                 <div className="flex flex-col w-[96%] md:w-full mt-[5px] gap-[23px]">
-                  <div className="flex sm:flex-col justify-between gap-5">
-                    <Button
-                      leftIcon={
-                        <Img
-                          src="images/img_plus_1.png"
-                          alt="plus 1"
-                          className="w-[17px] h-[17px]"
-                        />
-                      }
-                      className="flex items-center justify-center h-[53px] pl-[17px] pr-[22px] gap-4 sm:pr-5 text-white-A700 text-center text-xl font-bold bg-blue_gray-200 min-w-[138px] rounded-[10px]"
-                      onClick={clickRoomAdd}
-                    >
-                      Create
-                    </Button>
-                  </div>
 
                   <div>
                     <div className="w-full h-px bg-blue_gray-200" />
@@ -195,7 +176,7 @@ export default function ArticalPage(...props) {
                       <thead>
                         <tr>
                           <div className="flex md:flex-col justify-center items-center mb-[5px] mr-[120px]">
-                            <div className="flex self-start justify-center items-center ml-[32px] gap-[11px]">
+                            <div className="flex self-start justify-center items-center ml-[150px] gap-[11px]">
                               <th>Hotel Rooms</th>
                             </div>
 
@@ -238,48 +219,52 @@ export default function ArticalPage(...props) {
                         <tbody>{rooms && rooms.length > 0 ? (
                             rooms.map((room) => (
                               <tr key={room.id}>
-                                <div className="flex flex-col gap-[2px] p-2.5">
-                                  <div className="flex md:flex-col justify-center items-end mr-[20px] flex-1">
-                                    <td style={{ width: "180px" }}>{room.name}</td>
-                                    <td style={{ width: "200px" }}>
+                                <div className="flex flex-col gap-[px] p-2.5">
+                                  <div className="flex md:flex-col items-end mr-[20px] flex-1">
+                                    <td className="ml-[140px]">{room.name}</td>
+                                    <td className="ml-[100px]" >
                                       <img
                                         src={room.photo}
                                         alt="room"
                                         className="w-[37px] object-cover rounded-[5px]"
                                       />
                                     </td>
-                                    <td style={{ width: "190px" }}>{room.price}</td>
-                                    <td style={{ width: "190px" }}>{room.bedCount}</td>
-                                    <td style={{ width: "100px" }}>
+                                    <td className="ml-[142px]">{room.price}</td>
+                                    <td className="ml-[145px]">{room.bedCount}</td>
+                                    <td>
                                       {room.isAvailable ? (
                                         <span
+                                        className="ml-[190px]"
                                           style={{
                                             display: "block",
                                             backgroundColor: "green",
                                             padding: "3px",
                                             borderRadius: "5px",
                                             color: "white",
-                                            width: "100%",
+                                            width: "35%",
+                                            textAlign: "center",
                                           }}
                                         >
                                           Available
                                         </span>
                                       ) : (
                                         <span
+                                        className="ml-[190px]"
                                           style={{
                                             display: "block",
                                             backgroundColor: "red",
                                             padding: "3px",
                                             borderRadius: "5px",
                                             color: "white",
-                                            width: "100%",
+                                            width: "35%",
+                                            textAlign: "center",
                                           }}
                                         >
                                           UnAvailable
                                         </span>
                                       )}
                                     </td>
-                                    <div className="flex justify-center gap-2">
+                                    <div className="flex justify-center gap-2 ml-[40px]">
                                       <td>
                                         <div className="flex justify-center ml-[90px] gap-3">
                                           <Button className="flex items-center justify-center h-[28px] w-[28px] bg-green-500 rounded-[5px]">
@@ -312,7 +297,7 @@ export default function ArticalPage(...props) {
                     </div>
                   </div>
 
-                  <div className="w-full h-[2px] bg-blue_gray-200" />
+                  <div className="w-full mt-[190px] h-[2px] bg-blue_gray-200" />
                 </div>
               </div>
             </div>

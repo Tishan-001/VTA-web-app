@@ -185,7 +185,8 @@ export default function NewHotemServiceProvider() {
                     {/* Images */}
                    
                    
-                   <section>
+                   <section className="mb-10">
+                   <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="mobile">Images</label>
                     <Upload onUpload={handleImageUpload}/>
                    </section>
                     
