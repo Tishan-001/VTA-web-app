@@ -4,13 +4,13 @@ import TourCard from "./hotelListCard";
 
 const HotelList = ({ hotelList }) => {
   return (
-    <>
+    <div className="grid grid-cols-2 md:grid-cols-1 gap-4">
       {hotelList?.map((tour) => (
-        <div lg="4" className="mb-4" key={tour.id}>
+        <div key={tour.id}>
           <TourCard tour={tour} />
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
