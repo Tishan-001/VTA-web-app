@@ -1,28 +1,133 @@
-import React, { useState } from "react";
-
-import { CloseSVG } from "../../assets/images";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {  Img} from "components/Img";
 import {Button} from "components/Button_Second";
 import { Heading } from "components/Heading1";
-import Header from "components/Header";
-import { Input } from "components/Input";
-import { Text } from "components";
-import { TextArea } from "components/TextArea";
-
-import Sidebar1 from "components/Sidebar1";
 import { articleData } from "../../assets/data/articleData";
+
 
 export default function ArticalPage(...props) {
   const [searchBarValue, setSearchBarValue] = React.useState("");
   const [showPopup, setShowPopup] = useState(false); 
-
+  const [transportName, setTransportName] = useState('');
+  const [transportImage, setTransportImage] = useState('');
+  const [vehicles, setVehicles] = useState([]);
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [createState,setCreateState]=useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const articlesPerPage = 10;
+  const navigate = useNavigate();
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
 
+  const toggleDropdown = () => {
+    setDropdownVisible(!dropdownVisible);
+  };
+  const token = localStorage.getItem('token');  
+  useEffect(() => {
+    if (token) {
+      fetch(`http://localhost:5000/transports/transport`,{
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.text();
+        
+        })
+        .then((text) => {
+          if (text) {
+            try {
+              const data = JSON.parse(text);
+              if (data != null) {
+                setTransportName(data.name);
+                setTransportImage(data.imageUrl);
+                setCreateState(true);
+              }
+            } catch (error) {
+              console.error('Error parsing JSON:', error);
+            }
+          } else {
+            console.log("Error fetching transport: Empty response received");
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching transport: ", error);
+        });
+        handleGetVehicles();
+    }
+  }, [token,vehicles]);
+
+  const handleGetVehicles= ()=>{
+    fetch(`http://localhost:5000/vehicle/by-transport`,{
+      headers: {
+        'Authorization': `Bearer ${token}`,
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.text();
+      
+      })
+      .then((text) => {
+        if (text) {
+          try {
+            const data = JSON.parse(text);
+            if (data != null) {
+              setVehicles(data)
+            }
+          } catch (error) {
+            console.error('Error parsing JSON:', error);
+          }
+        } else {
+          console.log("Error fetching transport: Empty response received");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching transport: ", error);
+      });
+  }
+
+  const handleCreate= ()=>{
+    navigate("/addVehical");
+  }
+  const handleView = (vehicle)=>{
+    navigate("/taxidetil",{ state: { vehicle } });
+  }
+  const handleEdit = (vehicle)=>{
+    navigate("/editVehical",{ state: { vehicle }});
+  }
+  const handleDelete = async (vehicle) => {
+    try {
+
+
+        const response = await fetch("http://localhost:5000/vehicle/delete", {
+            method: "DELETE",
+            headers: {
+              'Authorization': `Bearer ${token}`,
+            },
+            body: vehicle.id
+        });
+
+        const data =  await response.text();
+        console.log("Delete Response:", data);
+        if (response.ok) {
+          setVehicles((prevVehicles) => prevVehicles.filter((v) => v.id !== vehicle.id));
+          alert("Vehicle deleted successfully");
+        } else {
+                console.error("Error:", data.error);
+        }
+    } catch (error) {
+        console.error("Upload Error:", error);
+    }
+};
 
   const filteredArticles = articleData.filter((article) => {
     // Filter based on search bar value
@@ -36,7 +141,7 @@ export default function ArticalPage(...props) {
   });
 
   // Logic to get current articles based on currentPage
-  
+
 
   return (
     <>
@@ -54,39 +159,60 @@ export default function ArticalPage(...props) {
                         </Heading>
                         <div className="flex justify-between items-center w-[25%] sm:w-full gap-5 ">
                             <Heading size="xl1" as="h5" className=" mr-[20]">
-                            Nuwani Thushari
+                            {transportName}
                             </Heading>
-                            <Img
-                            src="images/img_image_75.png"
-                            alt="imageseventyfiv"
-                            className="h-[55px] w-[56px] rounded-[50%] mr-[30px]"
-                            />
+                            <button
+                              type="button"
+                              className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 mr-[20px]"
+                              id="user-menu-button"
+                              aria-expanded="true"
+                              data-dropdown-toggle="user-dropdown"
+                              data-dropdown-placement="bottom"
+                              onClick={toggleDropdown}
+                            >
+                              <span className="sr-only">Open user menu</span>
+                              <img
+                                className="w-12 h-12 rounded-full "
+                                src={transportImage ? transportImage: "images/img_image_75.png"}
+                                alt="user photo"
+                              />
+                            </button>
                         </div>
+                       
+                  {dropdownVisible && (
+                    <div className="absolute top-16 right-0 w-48 bg-white shadow-lg rounded-lg">
+                      <ul className="py-2" aria-labelledby="user-menu-button">
+                        {!createState &&(<li>
+                          <a
+                            href="/addtranspotation"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          >
+                            Create Profile
+                          </a>
+                        </li>)}
+                        <li>
+                          <a
+                            href="/addtranspotation"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          >
+                            Edit Profile
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          >
+                            Sign out
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
                         </div>
               </header>
            
            
-           
-           
-           
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-            
 
             <div className="flex justify-center  w-[98%] md:w-full ml-[9px]">
               <div className="flex flex-col items-center justify-center w-[1140px]  gap-[18px] p-[11px] bg-gray-100 rounded-[20px] ">
@@ -102,6 +228,7 @@ export default function ArticalPage(...props) {
                     <Button
                       leftIcon={<Img src="images/img_plus_1.png" alt="plus 1" className="w-[17px] h-[17px]" />}
                       className="flex items-center justify-center h-[53px] pl-[17px] pr-[22px] gap-4 sm:pr-5 text-white-A700 text-center text-xl font-bold bg-blue_gray-200 min-w-[138px] rounded-[10px]"
+                      onClick = {handleCreate}
                     >
                       Create
                     </Button>
@@ -120,7 +247,7 @@ export default function ArticalPage(...props) {
                          <div className="flex md:flex-col justify-center items-center mb-[5px] mr-[120px]">
                             <div className="flex self-start justify-center items-center ml-[32px] gap-[11px]">
                               
-                              <th >Hotel Rooms</th>
+                              <th >Vehicles</th>
                             </div>
 
                             <div className="flex self-start justify-center items-center ml-[100px] gap-[20px]">
@@ -129,12 +256,12 @@ export default function ArticalPage(...props) {
                             </div>
                             
 
-                            <div className="flex self-start justify-center items-center  ml-[120px] gap-[11px]">
+                            {/* <div className="flex self-start justify-center items-center  ml-[120px] gap-[11px]">
                               <Img src="images/img_eye_1.png" alt="eyeone_one" className="w-[21px] object-cover" />
                               <Heading as="h5" className="ml-[13px]">
                               <th >Views</th>
                               </Heading>
-                            </div>
+                            </div> */}
 
                             <div className="flex self-start justify-center items-center ml-[110px] gap-[11px]">
                             <Img
@@ -177,25 +304,19 @@ export default function ArticalPage(...props) {
 
                     <table>
                       <tbody>
-
-
-
-
-
-                       {filteredArticles.map((article, index) => (
+                       {vehicles.length>0 ? (vehicles.map((vehicle, index) => (
                           <tr key={index}>
 
                           <div className="flex flex-col gap-[2px] p-2.5">
                               <div className="flex md:flex-col justify-center items-end  mr-[20px] flex-1">
                               
-                              <td style={{ width: "180px" }}>{article.title}</td>
+                              <td style={{ width: "180px" }}>{vehicle.type}</td>
                         <td style={{ width: "200px" }}>
-                          <img src={article.imageSrc} alt="article" className="w-[37px] object-cover rounded-[5px]" />
+                          <img src={vehicle.photo} alt="article" className="w-[37px] object-cover rounded-[5px]" />
                         </td>
-                        <td style={{ width: "190px"  }}>{article.views}</td>
-                        <td style={{ width: "190px" }}>{article.likes}</td>
+                        <td style={{ width: "190px" }}>{vehicle.ratings}</td>
                         <td style={{ width: "100px" }}>
-                          {article.Status === "Availabel" ? (
+                          {/* {article.Status === "Availabel" ? (
                             <span style={{ display: "block", backgroundColor: "green", padding: "3px", borderRadius: "5px", color: "white",width:"100%" }}>
                               Available
                             </span>
@@ -203,20 +324,20 @@ export default function ArticalPage(...props) {
                             <span style={{  display: "block",backgroundColor: "red", padding: "3px", borderRadius: "5px", color: "white",width:"100%" }}>
                               UnAvailable
                             </span>
-                          )}
+                          )} */}
                         </td>
-                        
-
-
                                 
                                 <div className="flex justify-center  gap-2">
                                   <td>
                                     <div className="flex justify-center ml-[90px] gap-3">
+                                    <Button className="flex items-center justify-center h-[28px] w-[28px] bg-green-500 rounded-[5px]">
+                                        <Img src="images/img_group_34.png " className="w-[20px] h-[20px]" onClick={() => handleView(vehicle)}/>
+                                      </Button>
                                       <Button className="flex items-center justify-center h-[28px] w-[28px] bg-green-500 rounded-[5px]">
-                                        <Img src="images/img_group_34.png " className="w-[20px] h-[20px]" />
+                                        <Img src="images/img_group_34.png " className="w-[20px] h-[20px]" onClick={()=>handleEdit(vehicle)}/>
                                       </Button>
                                       <Button className="flex items-center justify-center h-[28px] w-[28px] bg-red-100 rounded-[5px]">
-                                        <Img src="images/img_group_33.png" className="w-[20px] h-[20px]" />
+                                        <Img src="images/img_group_33.png" className="w-[20px] h-[20px]" onClick={()=>handleDelete(vehicle)} />
                                       </Button>
                                     </div>
                                   </td>
@@ -226,7 +347,9 @@ export default function ArticalPage(...props) {
                           
                           </tr>
 
-                        ))}
+                        ))):(<h3>No available vehicles!</h3>)
+                          
+                      }
 
                       </tbody>
                     </table>
@@ -239,37 +362,6 @@ export default function ArticalPage(...props) {
                   </div>
               </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           </div>
         </div>
       </div>
