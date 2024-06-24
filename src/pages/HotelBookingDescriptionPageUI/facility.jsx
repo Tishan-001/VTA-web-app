@@ -12,6 +12,8 @@ const facility = () => {
     <div className="centered-container">
       <section className="about section">
         <div className='secContainer'>
+          
+          
           <div className="mainContent container grid">
             <div className="singleItem">
               <div className="content">
