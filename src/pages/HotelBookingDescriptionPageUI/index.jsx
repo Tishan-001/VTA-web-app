@@ -4,14 +4,9 @@ import Footer from "components/Footer";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Facility from "./facility";
-
 import Image1 from "../../assets/images/img_12129860mapl.png";
 
 import Img1 from "../../assets/images/wifi.jpg"
-
-
-import { message } from "antd";
-
 
 const HotelBookingDescriptionPageUIPage = () => {
   const { id } = useParams();
@@ -71,19 +66,15 @@ const HotelBookingDescriptionPageUIPage = () => {
     setMainImage(newImage);
   };
 
-  const handleBookNow = (roomId, isAvailable) => {
-    if (isSignedIn && isAvailable) {
+  const handleBookNow = (roomId) => {
+    if (isSignedIn) {
       navigate(`/room/${roomId}`);
+    } else {
+      alert("You need to sign in to book a room.");
+      setTimeout(() => {
+        navigate('/login');
+      }, 2000);
     }
-    if(!isAvailable) {
-      message.success("Room is not available for booking");
-    }
-      if (!isSignedIn) {
-        message.info("You need to sign in to book a room");
-        setTimeout(() => {
-          navigate('/login');
-        }, 5000);
-      }
   };
 
   return (
@@ -254,7 +245,7 @@ const HotelBookingDescriptionPageUIPage = () => {
                       <Button
                         className="cursor-pointer font-light leading-[normal] mb-[5px] min-w-[130px] mt-[9px] text-center text-xl"
                         shape="round"
-                        onClick={() => handleBookNow(room.id, room.isAvailable)}
+                        onClick={() => handleBookNow(room.id)}
                       >
                       Book Now
                       </Button>
@@ -276,7 +267,7 @@ const HotelBookingDescriptionPageUIPage = () => {
                 </Text>
                 <section>
                 <div className="flex flex-row justify-start w-full md:w-[70%] sm:mt-[50px] mt-2.5">
-                  <div className="flex flex-row sm:flex-col md:gap-[80px] justify-between items-center w-full gap-[200px] sm:gap-[50px] ">
+                  <div className="flex flex-row sm:flex-col md:gap-[80px] justify-between items-center w-full gap-[200px] sm:gap-[10px] ">
                     <div className="flex flex-col sm:flex-row items-center justify-start w-[90%] gap-[15px] sm:ml-[-30px]  sm:gap-[80px]">
                      
                       <div className="flex flex-row justify-start items-start w-full gap-3">
