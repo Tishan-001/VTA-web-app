@@ -44,7 +44,7 @@ const LandingPageUIPage = () => {
 
   const fetchHotelCount = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/hotels/count`);
+      const response = await fetch("https://vtasrilanka.azurewebsites.net/hotels/count");
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
