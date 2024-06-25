@@ -7,6 +7,7 @@ import { Heading } from "components/Heading1";
 import image2 from "../../../src/assets/images/eye2.png";
 import useInterSection from './userInterSection';
 import { message } from "antd";
+import { BASE_URL } from "../../config";
 
 
 export default function SignInPage() {
@@ -30,7 +31,7 @@ export default function SignInPage() {
     }),
     onSubmit: async (values) => {
       try {
-        const response = await fetch("http://localhost:5000/auth/login/email", {
+        const response = await fetch(`${BASE_URL}/auth/login/email`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json"

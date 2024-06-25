@@ -6,6 +6,7 @@ import Header from "../../components/Navbar.jsx";
 import SearchBar from "./searchbar";
 import VehicleCard from "./vehiclecard";
 import Ui from "../../assets/images/transportUI_1.jpg"
+import { BASE_URL } from "config.js";
 
 const TransportUIPage = () => {
   const [transports, setTransports] = useState([]);
@@ -17,7 +18,7 @@ const TransportUIPage = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/vehicle/");
+      const response = await fetch(`${BASE_URL}/vehicle/`);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }

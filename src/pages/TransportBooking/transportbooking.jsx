@@ -8,6 +8,7 @@ import { message } from "antd";
 import { useLocation } from "react-router-dom";
 import TBook1 from "../../assets/images/TB2.webp"
 import Navbar from "components/Navbar";
+import { BASE_URL } from "config";
 
 
 const TransportBooking = () => {
@@ -90,7 +91,7 @@ const TransportBooking = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/transport-booking/create", {
+      const response = await fetch(`${BASE_URL}/transport-booking/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

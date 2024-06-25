@@ -4,6 +4,7 @@ import Footer from "components/Footer";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../../components/Navbar.jsx";
 import Searchbar from "./searchbar.jsx";
+import { BASE_URL } from "config.js";
 
 const AllpackagesPageUIPage = () => {
   const [tourPackages, setTourPackages] = useState([]);
@@ -18,7 +19,7 @@ const AllpackagesPageUIPage = () => {
 
   const fetchTourPackages = async () => {
     try {
-      const response = await fetch("http://localhost:5000/tourpackage/");
+      const response = await fetch(`${BASE_URL}/tourpackage/`);
       if (!response.ok) {
         throw new Error("Failed to fetch tour packages");
       }

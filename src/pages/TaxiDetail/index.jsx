@@ -6,6 +6,7 @@ import { Heading } from "components/Heading";
 import Navbar from "components/Navbar";
 import Footer from "components/Footer";
 import { useNavigate, useLocation } from "react-router-dom";
+import { BASE_URL } from "config";
 
 const featureIcons = {
   "Without Driver": "/images/img_th_removebg_preview.png",
@@ -26,7 +27,7 @@ export default function TaxiDetail() {
 
   useEffect(() => {
     if (vehicle) {
-      fetch(`http://localhost:5000/transports/transport-id/${vehicle.transportId}`)
+      fetch(`${BASE_URL}/transports/transport-id/${vehicle.transportId}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);

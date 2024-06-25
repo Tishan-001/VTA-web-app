@@ -5,6 +5,7 @@ import { FileUpload } from "components/FileUpload";
 import { useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { BASE_URL } from "config";
 
 export default function AddTranspotation() {
     const [name, setName] = useState('');
@@ -20,7 +21,7 @@ export default function AddTranspotation() {
             const formData = new FormData();
             formData.append("file", files[0]); // Assuming only one file is selected
 
-            const response = await fetch("http://localhost:5000/images/upload", {
+            const response = await fetch(`${BASE_URL}/images/upload`, {
                 method: "POST",
                 body: formData
             });
@@ -41,7 +42,7 @@ export default function AddTranspotation() {
     const handleSubmit = async (e)=>{
         e.preventDefault()
         try {
-            const response = await fetch("http://localhost:5000/transports/create", {
+            const response = await fetch(`${BASE_URL}/transports/create`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

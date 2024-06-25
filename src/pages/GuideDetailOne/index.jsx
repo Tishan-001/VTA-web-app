@@ -5,6 +5,7 @@ import { Heading } from "components/Heading";
 import Footer from "components/Footer";
 import { Link } from "react-router-dom";
 import Navbar from "components/Navbar";
+import { BASE_URL } from "config";
 
 
 export default function GuideDetailOnePage() {
@@ -16,7 +17,7 @@ export default function GuideDetailOnePage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/tourguides/tourguide/${id}`);
+        const response = await fetch(`${BASE_URL}/tourguides/tourguide/${id}`);
         if(!response.ok) {
           throw new Error("Failed to fetch data");
         }

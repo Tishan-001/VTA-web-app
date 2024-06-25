@@ -3,13 +3,14 @@ import { Button, Img, Text } from "../../components";
 import { Heading } from "components/Heading";
 import { useParams } from "react-router-dom";
 import Footer from "components/Footer";
+import { BASE_URL } from "config";
 
 export default function TourPackageDescriptionPageUIPage() {
   const { id } = useParams();
   const [tourData, setTourData] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/tourpackage/${id}`)
+    fetch(`${BASE_URL}/tourpackage/${id}`)
       .then((response) => response.json())
       .then((data) => setTourData(data))
       .catch((error) => console.error("Error fetching tour data:", error));

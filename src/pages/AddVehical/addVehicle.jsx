@@ -3,6 +3,7 @@ import { Img } from "../../components";
 import { Heading } from "components/Heading1";
 import { FileUpload } from "components/FileUpload";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "config";
 
 export default function AddVehicle() {
     const [vehicleType, setVehicleType] = useState('');
@@ -17,7 +18,7 @@ export default function AddVehicle() {
             const formData = new FormData();
             formData.append("file", files[0]); // Assuming only one file is selected
 
-            const response = await fetch("http://localhost:5000/images/upload", {
+            const response = await fetch(`${BASE_URL}/images/upload`, {
                 method: "POST",
                 body: formData
             });
@@ -42,7 +43,7 @@ export default function AddVehicle() {
         e.preventDefault();
         
         try {
-            const response = await fetch("http://localhost:5000/vehicle/add", {
+            const response = await fetch(`${BASE_URL}/vehicle/add`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

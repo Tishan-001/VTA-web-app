@@ -7,6 +7,9 @@ import Filter from "./filter.jsx";
 import HotelList from "./hotelList.jsx";
 import Header from "../../components/Navbar.jsx";
 import { message } from "antd";
+import { BASE_URL } from "config.js";
+
+
 
 const HotelBookingpagePage = () => {
   const [hotels, setHotels] = useState([]);
@@ -28,7 +31,7 @@ const HotelBookingpagePage = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/hotels/");
+      const response = await fetch(`${BASE_URL}/hotels/`);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -143,7 +146,7 @@ const HotelBookingpagePage = () => {
 
   const filterHotelListByDestination = async (destination, checkInDate, checkOutDate) => {
     try {
-      const response = await fetch('http://localhost:5000/hotels/get/filter/hotel', {
+      const response = await fetch('${BASE_URL}/hotels/get/filter/hotel', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

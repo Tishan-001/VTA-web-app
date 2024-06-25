@@ -4,6 +4,7 @@ import { Heading } from "components/Heading1";
 import { FileUpload } from "components/FileUpload";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { BASE_URL } from "config";
 
 export default function EditVehicle() {
     const location = useLocation();
@@ -22,7 +23,7 @@ export default function EditVehicle() {
             const formData = new FormData();
             formData.append("file", files[0]); // Assuming only one file is selected
 
-            const response = await fetch("http://localhost:5000/images/upload", {
+            const response = await fetch(`${BASE_URL}/images/upload`, {
                 method: "POST",
                 body: formData
             });
@@ -47,7 +48,7 @@ export default function EditVehicle() {
         e.preventDefault();
         
         try {
-            const response = await fetch("http://localhost:5000/vehicle/update", {
+            const response = await fetch(`${BASE_URL}/vehicle/update`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

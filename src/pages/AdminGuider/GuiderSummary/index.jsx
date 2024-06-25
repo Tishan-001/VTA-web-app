@@ -9,6 +9,7 @@ import { Input } from "components/Input";
 import Sidebar1 from "components/Sidebar1";
 import { message } from "antd";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "config";
 
 export default function ArticalPage(...props) {
   const [searchBarValue, setSearchBarValue] = useState("");
@@ -28,7 +29,7 @@ export default function ArticalPage(...props) {
   };
 
   useEffect(() => {
-    fetch('http://localhost:5000/tour-guide-booking/get-bookings', {
+    fetch(`${BASE_URL}/tour-guide-booking/get-bookings`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
@@ -44,7 +45,7 @@ export default function ArticalPage(...props) {
   },[]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/tourguides/guider', {
+    fetch(`${BASE_URL}/tourguides/guider`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }

@@ -4,6 +4,7 @@ import {  Img} from "components/Img";
 import {Button} from "components/Button_Second";
 import { Heading } from "components/Heading1";
 import { articleData } from "../../assets/data/articleData";
+import { BASE_URL } from "config";
 
 
 export default function ArticalPage(...props) {
@@ -28,7 +29,7 @@ export default function ArticalPage(...props) {
   const token = localStorage.getItem('token');  
   useEffect(() => {
     if (token) {
-      fetch(`http://localhost:5000/transports/transport`,{
+      fetch(`${BASE_URL}/transports/transport`,{
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -64,7 +65,7 @@ export default function ArticalPage(...props) {
   }, [token,vehicles]);
 
   const handleGetVehicles= ()=>{
-    fetch(`http://localhost:5000/vehicle/by-transport`,{
+    fetch(`${BASE_URL}/vehicle/by-transport`,{
       headers: {
         'Authorization': `Bearer ${token}`,
       },
@@ -108,7 +109,7 @@ export default function ArticalPage(...props) {
     try {
 
 
-        const response = await fetch("http://localhost:5000/vehicle/delete", {
+        const response = await fetch(`${BASE_URL}/vehicle/delete`, {
             method: "DELETE",
             headers: {
               'Authorization': `Bearer ${token}`,

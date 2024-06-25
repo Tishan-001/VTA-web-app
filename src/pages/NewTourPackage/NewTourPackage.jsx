@@ -6,6 +6,7 @@ import Upload from "../fileUpload/upload";
 import { Text } from "components/Text";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { BASE_URL } from "config";
 
 export default function NewTourPackage() {
 
@@ -119,7 +120,7 @@ export default function NewTourPackage() {
           formData.append("file", file);
       
           try {
-            const response = await fetch("http://localhost:5000/images/upload", {
+            const response = await fetch(`${BASE_URL}/images/upload`, {
               method: "POST",
               body: formData,
             });
@@ -147,7 +148,7 @@ export default function NewTourPackage() {
 
     const handleSubmit = async () => {
       try {
-          const response = await fetch("http://localhost:5000/tourpackage/create", {
+          const response = await fetch(`${BASE_URL}/tourpackage/create`, {
               method: "POST",
               headers: {
                   "Content-Type": "application/json",
