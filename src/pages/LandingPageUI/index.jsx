@@ -44,7 +44,7 @@ const LandingPageUIPage = () => {
 
   const fetchHotelCount = async () => {
     try {
-      const response = await fetch("${BASE_URL}/hotels/count");
+      const response = await fetch(`${BASE_URL}/hotels/count`);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -82,7 +82,7 @@ const LandingPageUIPage = () => {
   }
   const fetTranceportCount = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/tranceport/count`);
+      const response = await fetch(`${BASE_URL}/transports/count`);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
