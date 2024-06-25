@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Button, Img, Text } from "components";
 import Footer from "components/Footer";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/Navbar.jsx";
 import Searchbar from "./searchbar.jsx";
 
 const AllpackagesPageUIPage = () => {
   const [tourPackages, setTourPackages] = useState([]);
+  const [filteredPackages, setFilteredPackages] = useState([]);
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
@@ -34,6 +35,17 @@ const AllpackagesPageUIPage = () => {
     setIsSignedIn(!!token);
   };
 
+  const filterPackagesByDestination = (destination) => {
+    const filtered = tourPackages.filter(pkg => 
+      pkg.name.toLowerCase().includes(destination.toLowerCase())
+    );
+    setFilteredPackages(filtered);
+  };
+
+  const clearSearch = () => {
+    setFilteredPackages([]);
+  };
+
   const handleBookNow = (packageId) => {
     if (isSignedIn) {
       navigate(`/packagedetails/${packageId}`);
@@ -57,9 +69,9 @@ const AllpackagesPageUIPage = () => {
               src="images/travel4.jpg"
               alt="rectangleFour"
             />
-            <div className="absolute flex flex-col md:gap-10 gap-[388px] justify-start right-[5%] top-[5%] w-[77%] mt-[450px] md:mt-[300px]">
+            <div className="absolute flex flex-col md:gap-10 gap-[388px] justify-start align-middle left-[650px] top-[5%] w-[77%] mt-[450px] md:mt-[300px]">
               <section>
-                <Searchbar/>
+                <Searchbar filterHotelListByDestination={filterPackagesByDestination} />
               </section>
             </div>
           </div>
@@ -79,7 +91,7 @@ const AllpackagesPageUIPage = () => {
             </div>
           )}
           <div className="gap-16 md:gap-5 grid sm:grid-cols-1 md:grid-cols-2 grid-cols-4 justify-center min-h-[auto] mt-[49px] w-[105%]  md:w-full md:ml-auto">
-            {tourPackages.map((tourPackage) => (
+            {(filteredPackages.length > 0 ? filteredPackages : tourPackages).map((tourPackage) => (
               <div key={tourPackage.id} className="hover:cursor-pointer h-[450px]  hover:relative relative rounded-[20px] hover:shadow-bs shadow-bs hover:w-full w-[100%]">
                 <Img
                   className="h-[450px] m-auto object-cover rounded-[20px] w-full"
