@@ -7,7 +7,8 @@ import { Text } from "components";
 import Header from "components/Header";
 import { Input } from "components/Input";
 import Sidebar1 from "components/Sidebar1";
-import { articleData } from "../../../assets/data/articleData";
+import { message } from "antd";
+import { useNavigate } from "react-router-dom";
 
 export default function ArticalPage(...props) {
   const [searchBarValue, setSearchBarValue] = useState("");
@@ -15,34 +16,58 @@ export default function ArticalPage(...props) {
   const [guiderDetails, setGuiderDetails] = useState(""); // State to store guider details
   const email = localStorage.getItem("email");
   const [dropdownVisible, setDropdownVisible] = useState(false);
+  const navigate = useNavigate();
+  const [bookings, setBookings] = useState([]);
+  const [selectBooking, setSelectBooking] = useState('');
 
-  const togglePopup = () => {
+  const token = localStorage.getItem("token");
+
+  const togglePopup = (booking) => {
     setShowPopup(!showPopup);
+    setSelectBooking(booking);
   };
 
-  const filteredArticles = articleData.filter((article) => {
-    const isTitleMatch =
-      article.title.toLowerCase().includes(searchBarValue.toLowerCase()) ||
-      searchBarValue === "";
-    return isTitleMatch;
-  });
+  useEffect(() => {
+    fetch('http://localhost:5000/tour-guide-booking/get-bookings', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setBookings(data);
+        console.log(data); // Log the fetched guider details
+      })
+      .catch((error) => {
+        message.error(error)
+      });
+  },[]);
 
   useEffect(() => {
-    if (email) {
-      fetch(`http://localhost:5000/tourguides/guider/${email}`)
-        .then((response) => response.json())
-        .then((data) => {
-          setGuiderDetails(data);
-          console.log(guiderDetails); // Store fetched guider details
-        })
-        .catch((error) => {
-          console.error("Error fetching guider details:", error);
-        });
-    }
-  }, [email, guiderDetails]);
+    fetch('http://localhost:5000/tourguides/guider', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setGuiderDetails(data);
+        console.log(data); // Log the fetched guider details
+      })
+      .catch((error) => {
+        message.error(error)
+      });
+  },[]);
+
+
 
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
+  };
+
+  const handleSignout = () => {
+    localStorage.clear(); // Clear localStorage or session-related data
+    navigate("/login"); // Redirect to sign-in page
   };
 
   return (
@@ -56,7 +81,7 @@ export default function ArticalPage(...props) {
                 <div className="flex flex-col justify-center items-center gap-[20px] md:ml-0">
                   <svg
                     className="h-8 w-8 text-green-500 ml-auto cursor-pointer"
-                    onClick={togglePopup}
+                    onClick={() => togglePopup(null)}
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -82,32 +107,32 @@ export default function ArticalPage(...props) {
 
                   <div className="flex md:flex-col self-stretch justify-between items-start mt-[1px] gap-1">
                     <Heading size="1xl" as="h2" className="mt-2 ml-[100px]">
-                      Full Name :
+                      Full Name : {selectBooking?.firstName} {selectBooking?.lastName}
                     </Heading>
                   </div>
                   <div className="flex md:flex-col self-stretch justify-between items-start mt-[1px] gap-1">
                     <Heading size="1xl" as="h2" className="mt-1 ml-[100px]">
-                      Email Address :
+                      Email Address : {selectBooking?.email}
                     </Heading>
                   </div>
                   <div className="flex md:flex-col self-stretch justify-between items-start mt-[1px] gap-1">
                     <Heading size="1xl" as="h2" className="mt-1 ml-[100px]">
-                      Phone Number :
+                      Phone Number : {selectBooking?.phoneNumber}
                     </Heading>
                   </div>
                   <div className="flex md:flex-col self-stretch justify-between items-start mt-[1px] gap-1">
                     <Heading size="1xl" as="h2" className="mt-1 ml-[100px]">
-                      place :
+                      Start Date and Time : {new Date(selectBooking?.startDate).toLocaleString()}
                     </Heading>
                   </div>
                   <div className="flex md:flex-col self-stretch justify-between items-start mt-[1px] gap-1">
                     <Heading size="1xl" as="h2" className="mt-1 ml-[100px]">
-                      Arrival Date and Time :
+                      End Date and Time : {new Date(selectBooking?.endDate).toLocaleString()}
                     </Heading>
                   </div>
                   <div className="flex md:flex-col self-stretch justify-between items-start mt-[1px] gap-1">
                     <Heading size="1xl" as="h2" className="mt-1 ml-[100px]">
-                      Depature Date and Time :
+                      Special Request : {selectBooking?.specialRequest}
                     </Heading>
                   </div>
 
@@ -118,16 +143,10 @@ export default function ArticalPage(...props) {
                           className="text-2xl text-black-900 ml-0.5 mt-2"
                           size="txtInterBold60"
                         >
-                          Paid LKR 23000
+                          Paid LKR {selectBooking?.price}.00
                         </Text>
                       </div>
                     </div>
-                  </div>
-
-                  <div className="flex justify-center gap-3">
-                    <Button className="flex items-center justify-center w-[200px] h-[40px] bg-green-500 rounded-[5px]">
-                      Cancel Booking
-                    </Button>
                   </div>
                 </div>
               </div>
@@ -183,7 +202,7 @@ export default function ArticalPage(...props) {
                       <ul className="py-2" aria-labelledby="user-menu-button">
                         <li>
                           <a
-                            href="/newtourguideserviceprovider"
+                            href="/new-guide-add"
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                           >
                             Create Profile
@@ -191,7 +210,7 @@ export default function ArticalPage(...props) {
                         </li>
                         <li>
                           <a
-                            href="#"
+                            href="/update-guide"
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                           >
                             Edit Profile
@@ -199,8 +218,8 @@ export default function ArticalPage(...props) {
                         </li>
                         <li>
                           <a
-                            href="#"
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            onClick={handleSignout}
                           >
                             Sign out
                           </a>
@@ -273,16 +292,16 @@ export default function ArticalPage(...props) {
                             <tr>
                               <div className="flex md:flex-col justify-center items-center mb-[5px] mr-[140px]">
                                 <div className="flex self-start justify-center items-center ml-[120px] gap-[11px]">
-                                  <th>Email</th>
+                                  <th>Name</th>
                                 </div>
 
                                 <div className="flex self-start justify-center items-center ml-[240px] gap-[20px]">
-                                  <th>From</th>
+                                  <th>Start Date</th>
                                 </div>
 
                                 <div className="flex self-start justify-center items-center ml-[30px] gap-[11px]">
                                   <Heading as="h5" className="ml-[35px]">
-                                    <th>To</th>
+                                    <th>End Date</th>
                                   </Heading>
                                 </div>
 
@@ -299,37 +318,43 @@ export default function ArticalPage(...props) {
                         <div className="w-full h-[420px] overflow-y-auto">
                           <table>
                             <tbody>
-                              {filteredArticles.map((article, index) => (
-                                <tr key={index}>
-                                  <div className="flex flex-col gap-[15px] p-2.5">
-                                    <div className="flex md:flex-col justify-center items-end flex-1">
-                                      <td style={{ width: "300px" }}>
-                                        {article.title}
-                                      </td>
-
-                                      <td style={{ width: "100px" }}>
-                                        {article.views}
-                                      </td>
-                                      <td style={{ width: "100px" }}>
-                                        {article.likes}
-                                      </td>
-
-                                      <div className="flex justify-center gap-2">
-                                        <td>
-                                          <div className="flex justify-center ml-[60px] gap-3">
-                                            <Button
-                                              onClick={togglePopup}
-                                              className="flex items-center justify-center w-[100px] h-[40px] bg-green-500 rounded-[5px]"
-                                            >
-                                              View
-                                            </Button>
-                                          </div>
+                              {bookings && bookings.length > 0 ? (
+                                bookings.map((booking, index) => (
+                                  <tr key={index}>
+                                    <div className="flex flex-col gap-[15px] p-2.5">
+                                      <div className="flex md:flex-col justify-center items-end flex-1">
+                                        <td style={{ width: "300px" }}>
+                                          {booking.firstName}
                                         </td>
+  
+                                        <td style={{ width: "100px" }}>
+                                          {booking.startDate}
+                                        </td>
+                                        <td style={{ width: "100px" }}>
+                                          {booking.endDate}
+                                        </td>
+  
+                                        <div className="flex justify-center gap-2">
+                                          <td>
+                                            <div className="flex justify-center ml-[60px] gap-3">
+                                              <Button
+                                                onClick={() => togglePopup(booking)}
+                                                className="flex items-center justify-center w-[100px] h-[40px] bg-green-500 rounded-[5px]"
+                                              >
+                                                View
+                                              </Button>
+                                            </div>
+                                          </td>
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
+                                  </tr>
+                                ))
+                              ) : (
+                                <tr>
+                                  <td colSpan="6" className="text-center">No Booking available</td>
                                 </tr>
-                              ))}
+                              )}
                             </tbody>
                           </table>
                         </div>

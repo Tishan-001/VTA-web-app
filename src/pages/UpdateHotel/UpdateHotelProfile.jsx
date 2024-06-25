@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Img } from "../../components";
+import { Heading } from "components/Heading1";
+import Upload from "../fileUpload/upload";
 import { useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
 import { message } from "antd";
 import "react-quill/dist/quill.snow.css";
-import Upload from "../fileUpload/upload";
 
 export default function NewHotemServiceProvider() {
 
     const token = localStorage.getItem('token');
     const navegate = useNavigate();
+
+    useEffect(() => {
+        fetchHotelData();
+    }, []);
 
     const [hotelData, setHotelData] = useState({
         name: '',
@@ -21,45 +27,55 @@ export default function NewHotemServiceProvider() {
         description: '',
         media: [],
         pricePerNight: '',
-        type:'',
-        category:'',
     });
+
+    const fetchHotelData = async () => {
+        try {
+          const response = await fetch("http://localhost:5000/hotels/get", {
+            method: "GET",
+            headers: {
+              "Authorization": `Bearer ${token}`,
+            }
+          });
+          const data = await response.json();
+          setHotelData(data);
+        } catch (error) {
+          console.error("Error fetching hotel data:", error);
+        }
+      };
 
     const handleImageUpload = async (files) => {
         const uploadedImages = [];
-      
         for (let file of files) {
-          const formData = new FormData();
-          formData.append("file", file);
-      
-          try {
-            const response = await fetch("http://localhost:5000/images/upload", {
-              method: "POST",
-              body: formData,
-            });
-      
-            const data = await response.text();
-      
-            if (response.ok) {
-              message.success("Image uploaded successfully");
-              uploadedImages.push(data);
-            } else {
-              message.error(`Error: ${data}`);
-            }
-          } catch (error) {
-            console.error("Error uploading image:", error);
-            message.error("Error uploading image. Please try again.");
-          }
-        }
-      
-        setHotelData((prevData) => ({
-          ...prevData,
-          media: [...prevData.media, ...uploadedImages],
-        }));
-      };
+            const formData = new FormData();
+            formData.append("file", file);
 
-      
-      
+            try {
+                const response = await fetch("http://localhost:5000/images/upload", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const data = await response.text();
+
+                if (response.ok) {
+                    message.success("Image uploaded successfully");
+                    uploadedImages.push(data);
+                } else {
+                    message.error(`Error: ${data}`);
+                }
+            } catch (error) {
+                console.error("Error uploading image:", error);
+            }
+        }
+        
+        setHotelData(prevData => ({
+            ...prevData,
+            media: [...prevData.media, ...uploadedImages]
+        }));
+    };
+
+   
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
@@ -70,7 +86,7 @@ export default function NewHotemServiceProvider() {
         };
 
         try {
-            const response = await fetch("http://localhost:5000/hotels/create", {
+            const response = await fetch("http://localhost:5000/hotels/update", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -105,7 +121,6 @@ export default function NewHotemServiceProvider() {
             <div className="mb-8 mt-20 rounded-3xl shadow-md">
                 <form className="bg-white shadow-2xl rounded-3xl px-8 pt-6 pb-8" onSubmit={handleFormSubmit}>
                     {/* Name of the Company */}
-                   
                     <div className="mb-10">
                         <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="companyName">Hotel Name</label>
                         <input className="w-full mt-2 py-2 px-3 text-gray-700 border-b-2 border-gray-300 focus:outline-none" 
@@ -116,57 +131,6 @@ export default function NewHotemServiceProvider() {
                             onChange={(e) => setHotelData({ ...hotelData, name: e.target.value })}/>
                         <hr className="mt-1 border-t-2 border-gray-300"/>
                     </div>
-                   
-                    <div className="mb-10">
-                        <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="companyName">Hotel Type</label>
-                       
-                        
-                        <select
-                                className="w-full mt-2 py-2 px-3 text-gray-700 border-b-2 border-gray-300 focus:outline-none"
-                                id="companyType"
-                                value={hotelData.type}
-                                onChange={(e) => setHotelData({ ...hotelData, type: e.target.value })}
-                                required
-                                >
-                                <option value="" disabled>
-                                    Select Hotel Type
-                                </option>
-                                <option value="single">Hotel</option>
-                                <option value="double">Apartments</option>
-                                <option value="suite">Villas</option>
-                                
-                      </select>
-                      
-                    </div>
-
-                    <div className="mb-10">
-                        <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="companyName">Hotel Category</label>
-                       
-                        
-                        <select
-                                className="w-full mt-2 py-2 px-3 text-gray-700 border-b-2 border-gray-300 focus:outline-none"
-                                id="companyType"
-                                value={hotelData.category}
-                                onChange={(e) => setHotelData({ ...hotelData, category: e.target.value })}
-                                required
-                                >
-                                <option value="" disabled>
-                                    Select Hotel Category
-                                </option>
-                                <option value="single">3 Star</option>
-                                <option value="double">4 Star</option>
-                                <option value="suite">5 Star</option>
-                                
-                      </select>
-                      
-                    </div>
-
-
-
-
-
-
-
                     {/* Address */}
                     <div className="mb-10">
                         <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="addresss">Address</label>
@@ -231,17 +195,10 @@ export default function NewHotemServiceProvider() {
                         <hr className="mt-1 border-t-2 border-gray-300"/>
                     </div>
                     {/* Images */}
-                   
-                   
-                   <section className="mb-10">
-                   <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="mobile">Images</label>
+                    <section className="mb-10">
+                    <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="mobile">Images</label>
                     <Upload onUpload={handleImageUpload}/>
                    </section>
-                    
-
-
-
-
                     {/* Price */}
                     <div className="mb-10">
                         <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="price">Price</label>
@@ -267,11 +224,6 @@ export default function NewHotemServiceProvider() {
                             </div>
                         </div>
                     </div>
-
-                    
-
-
-
                     {/* Save Button */}
                     <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                         <button onClick={handleFormSubmit} className="bg-blue-500 mt-3 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline" type="submit">

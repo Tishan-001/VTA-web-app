@@ -1,22 +1,27 @@
 import React, { useState } from "react";
 import { Img } from "components/Img";
 import { MenuItem, Menu, Sidebar } from "react-pro-sidebar";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Heading } from "components/Heading1";
 
 export default function Sidebar1({ onItemClick }) {
   const [selectedMenuItem, setSelectedMenuItem] = useState("Dashboard");
+  const navigate = useNavigate();
 
   const handleMenuItemClick = (itemName) => {
     setSelectedMenuItem(itemName);
     onItemClick(itemName);
   };
 
+  const clickRoomAdd = () => {
+    navigate("/add-new-room");
+  };
+
   return (
     <Sidebar
       width="370px !important"
       collapsedWidth="50px !important"
-      className="flex flex-col h-[720px]   p-[3px] bg-white-A700 "
+      className="flex flex-col h-[910px]   p-[3px] bg-white-A700 "
     >
       <div className="flex flex-col items-end w-[85%] md:w-full mb-[4px] gap-[59px]">
         <div className="flex justify-end w-[69%] md:w-full mr-[58px]">
@@ -76,9 +81,20 @@ export default function Sidebar1({ onItemClick }) {
           >
             Booking Notification
           </MenuItem>
-         
-         
-         
+
+          <MenuItem className="mt-[15px]"
+            icon={
+              <Img
+                src="images/img_artical_1.png"
+                alt="articalone_one"
+                className="h-[28px] w-[28px] object-cover"
+              />
+            }
+            onClick={clickRoomAdd}
+            active={selectedMenuItem === "Room"}
+          >
+            Add New Room
+          </MenuItem>
         </Menu>
       </div>
     </Sidebar>

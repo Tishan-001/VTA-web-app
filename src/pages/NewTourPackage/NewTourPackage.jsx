@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Img } from "../../components";
+import { message } from "antd";
 import { Heading } from "components/Heading1";
-import { FileUpload } from "components/FileUpload";
+import Upload from "../fileUpload/upload";
 import { Text } from "components/Text";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
@@ -111,54 +111,36 @@ export default function NewTourPackage() {
     };
 
     
-    const handleCoverImageUpload = async (files) => {
-      try {
+    const handleImageUpload = async (files) => {
+        const uploadedImages = [];
+      
+        for (let file of files) {
           const formData = new FormData();
-          formData.append("file", files[0]); // Assuming only one file is selected
-
-          const response = await fetch("http://localhost:5000/images/upload", {
+          formData.append("file", file);
+      
+          try {
+            const response = await fetch("http://localhost:5000/images/upload", {
               method: "POST",
-              body: formData
-          });
-
-          const data =  await response.text();
-          console.log("Upload Response:", data);
-
-          if (response.ok) {
-               setCoverImage(data); // Assuming the response contains the URL of the uploaded image
-              console.log("Image uploaded successfully");
-          } else {
-              console.error("Upload Error:", data.error);
+              body: formData,
+            });
+      
+            const data = await response.text();
+      
+            if (response.ok) {
+              message.success("Image uploaded successfully");
+              uploadedImages.push(data);
+            } else {
+              message.error(`Error: ${data}`);
+            }
+          } catch (error) {
+            console.error("Error uploading image:", error);
+            message.error("Error uploading image. Please try again.");
           }
-      } catch (error) {
-          console.error("Upload Error:", error);
-      }
-    };
-
-    const handleGalleryImageUpload = async (files) => {
-      try {
-          const formData = new FormData();
-          formData.append("file", files[0]);
-          console.log("formData",formData) // Assuming only one file is selected
-
-          const response = await fetch("http://localhost:5000/images/upload", {
-              method: "POST",
-              body: formData
-          });
-
-          const data =  await response.text();
-          console.log("Upload Response:", data);
-
-          if (response.ok) {
-               setGalleryImages([...galleryImages, data]);
-              console.log("Image uploaded successfully");
-          } else {
-              console.error("Upload Error:", data.error);
-          }
-      } catch (error) {
-          console.error("Upload Error:", error);
-      }
-    };
+        }
+      
+        setCoverImage(uploadedImages[0]);
+        setGalleryImages((prevImages) => [...prevImages, ...uploadedImages]);
+      };
 
     console.log("galleryImages",galleryImages)
     console.log("timeplane",inputs)
@@ -195,7 +177,7 @@ export default function NewTourPackage() {
           console.log("Response:", data);
 
           if (response.ok) {
-              alert("Tour Package created successfully");
+              message.success("Package created successfully");
               navigate('/admin');
           } else {
               console.error("Error:", data);
@@ -254,88 +236,12 @@ export default function NewTourPackage() {
             </div>
 
             <Heading size="lg" as="h2" className="text-gray-700">
-                Cover Image
+                Images
             </Heading>
-           <div className="flex md:flex-row justify-between items-start gap-4 mt-[10px] mb-[10px]">
-                                  
-                <div className="flex md:flex-col w-[80%] md:w-full mt-[1px] gap-[5px] md:p-5">
-                <FileUpload
-                    allowMultiple
-                    preview
-                    name="column"
-                    Thumbnail={FileUpload.PreviewItem}
-                    onUpload={handleCoverImageUpload}
-                    placeholder={() => ( <Heading  size="1xl" as="p">Main Image</Heading>)}
-                    className="flex flex-row items-center w-[200px] h-[120px] gap-[15px] p-[18px] bg-blue_gray-100 rounded-[5px]"
-                >
-                    <Img src="images/img_plus_3_1.png" alt="main_image_one" className="w-[25px] mt-[22px] object-cover" />
-                    <Heading  size="1xl" as="p">Main Image</Heading>                                    
-                </FileUpload>   
-                </div>
-            </div>
-            
-            <Heading size="lg" as="h2" className="text-gray-700">
-                Gallery Images
-            </Heading>
-            <div className="flex md:flex-row justify-between items-start gap-4 mt-[10px] mb-[10px]">
-                                  
-                <div className="flex md:flex-col w-[80%] md:w-full mt-[1px] gap-[5px] md:p-5">
-                <FileUpload
-                    allowMultiple
-                    preview
-                    name="column"
-                    Thumbnail={FileUpload.PreviewItem}
-                    onUpload={handleGalleryImageUpload}
-                    placeholder={() => ( <Heading  size="1xl" as="p">Gallery Image</Heading>)}
-                    className="flex flex-row items-center w-[200px] h-[120px] gap-[15px] p-[18px] bg-blue_gray-100 rounded-[5px]"
-                >
-                    <Img src="images/img_plus_3_1.png" alt="main_image_one" className="w-[25px] mt-[22px] object-cover" />
-                    <Heading  size="1xl" as="p">Gallery Image</Heading>                                    
-                </FileUpload>   
-                </div>
-                <div className="flex md:flex-col w-[80%] md:w-full mt-[1px] gap-[5px] md:p-5">
-                <FileUpload
-                    allowMultiple
-                    preview
-                    name="column"
-                    Thumbnail={FileUpload.PreviewItem}
-                    onUpload={handleGalleryImageUpload}
-                    placeholder={() => ( <Heading  size="1xl" as="p">Gallery Image</Heading>)}
-                    className="flex flex-row items-center w-[200px] h-[120px] gap-[15px] p-[18px] bg-blue_gray-100 rounded-[5px]"
-                >
-                    <Img src="images/img_plus_3_1.png" alt="main_image_one" className="w-[25px] mt-[22px] object-cover" />
-                    <Heading  size="1xl" as="p">Gallery Image</Heading>                                    
-                </FileUpload>   
-                </div>
-                <div className="flex md:flex-col w-[80%] md:w-full mt-[1px] gap-[5px] md:p-5">
-                <FileUpload
-                    allowMultiple
-                    preview
-                    name="column"
-                    Thumbnail={FileUpload.PreviewItem}
-                    onUpload={handleGalleryImageUpload}
-                    placeholder={() => ( <Heading  size="1xl" as="p">Gallery Image</Heading>)}
-                    className="flex flex-row items-center w-[200px] h-[120px] gap-[15px] p-[18px] bg-blue_gray-100 rounded-[5px]"
-                >
-                    <Img src="images/img_plus_3_1.png" alt="main_image_one" className="w-[25px] mt-[22px] object-cover" />
-                    <Heading  size="1xl" as="p">Gallery Image</Heading>                                    
-                </FileUpload>   
-                </div>
-                <div className="flex md:flex-col w-[80%] md:w-full mt-[1px] gap-[5px] md:p-5">
-                <FileUpload
-                    allowMultiple
-                    preview
-                    name="column"
-                    Thumbnail={FileUpload.PreviewItem}
-                    onUpload={handleGalleryImageUpload}
-                    placeholder={() => ( <Heading  size="1xl" as="p">Gallery Image</Heading>)}
-                    className="flex flex-row items-center w-[200px] h-[120px] gap-[15px] p-[18px] bg-blue_gray-100 rounded-[5px]"
-                >
-                    <Img src="images/img_plus_3_1.png" alt="main_image_one" className="w-[25px] mt-[22px] object-cover" />
-                    <Heading  size="1xl" as="p">Gallery Image</Heading>                                    
-                </FileUpload>   
-                </div>
-            </div>
+           
+           <section>
+           <Upload onUpload={handleImageUpload} />
+           </section>
             
             <div className="mb-2">
                         <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="description">Description</label>

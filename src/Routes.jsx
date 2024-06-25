@@ -19,12 +19,16 @@ import NewPassword from "pages/CreateNewPassword/CreateNewPassword";
 import AddAdminGallery from "pages/AddAdminGallery";
 import NewHotemServiceProvider from "pages/NewHotelServiceProvider/NewHotelServiceProvider";
 import NewTourGuideServiceProvider from "pages/NewTourGuideServiceProvider/NewTourGuideServiceProvider";
+import UpdateTourGuide from "pages/TourGuideUpdate/UpdateTourGude";
+import UpdateHotel from "pages/UpdateHotel/UpdateHotelProfile";
 import ChooseServiceProviders from "pages/ChooseServiceProviders/ChooseServiceProviders";
 import NewTourPackage from "pages/NewTourPackage/NewTourPackage";
 import AddNewRoom from "pages/AddNewRoom/AddNewRoom";
 import AboutUs from "pages/About us/aboutus";
 import AddTranspotation from "pages/AddTranspotation/addTranspotation";
 import AddVehical from "pages/AddTranspotation/addTranspotation";
+import Upload from "pages/fileUpload/upload"
+import TourGuideBooking from "pages/TourGuideBookig/tourguidebooking";
 
 
 const HotelBookingpage = React.lazy(() => import("pages/HotelBookingpage"));
@@ -58,7 +62,7 @@ const ProjectRoutes = () => {
           <Route path="*" element={<NotFound />} />
           <Route path="/allpackagespageui" element={<AllpackagesPageUI />} />
           <Route path="/hotelbookingpage" element={<HotelBookingpage />} />
-          <Route path="/frameOne/:roomId" element={<FrameOne />} />
+          <Route path="/room/:roomId" element={<FrameOne />} />
           <Route path='/tours/:id' element={<HotelBookingDescriptionPageUI />} />
           <Route path="/tranportui" element={<TranportUIPage />} />
           <Route path="/tourguidersui" element={<TourGuidersUI />} />
@@ -77,8 +81,8 @@ const ProjectRoutes = () => {
           <Route path="/locationdetails" element={<Locationdetails/>}/>
           <Route path="/location" element={<Location/>}/>
           <Route path="/admin" element={<Admin/>}/>
-          <Route path="/adminhotel" element={<AdminHotel/>}/>
-          <Route path="/adminguider" element={<AdminGuider/>}/>
+          <Route path="/admin-hotel" element={<AdminHotel/>}/>
+          <Route path="/admin-guider" element={<AdminGuider/>}/>
           <Route path="/admintransport" element={<AdminTravel/>}/>
           <Route path="/addadmindata" element={<AddAdminData/>}/>
           <Route path="/addfaq" element={<AddFAQ/>}/>
@@ -91,14 +95,18 @@ const ProjectRoutes = () => {
           <Route path="/payment" element={<Payment/>}/>
           <Route path="/addadmingallery" element={<AddAdminGallery/>}/>
           <Route path="/addadminpublish" element={<AddPackagePublish/>}/>
-          <Route path="/newhotemserviceprovider" element={<NewHotemServiceProvider/>}/>
-          <Route path="/newtourguideserviceprovider" element={<NewTourGuideServiceProvider/>}/>
+          <Route path="/new-hotel-add" element={<NewHotemServiceProvider/>}/>
+          <Route path="/update-hotel" element={<UpdateHotel/>}/>
+          <Route path="/new-guide-add" element={<NewTourGuideServiceProvider/>}/>
+          <Route path="/update-guide" element={<UpdateTourGuide/>}/>
           <Route path="/chooseserviceproviders" element={<ChooseServiceProviders/>}/>
-          <Route path="/newtourpackage" element={<NewTourPackage/>}/>
-          <Route path="/addnewroom" element={<AddNewRoom/>}/>
+          <Route path="/new-tour-package" element={<NewTourPackage/>}/>
+          <Route path="/add-new-room" element={<AddNewRoom/>}/>
           <Route path="/aboutus" element={<AboutUs/>}/>
           <Route path="/addtranspotation" element={<AddTranspotation/>}/>
           <Route path="/addVehical" element={<AddVehical/>}/>
+          <Route path="/upload" element={<Upload/>}/>
+          <Route path="/tourguidebooking/:id" element={<TourGuideBooking/>}/>
         </Routes>
       </Router>
     </React.Suspense>
