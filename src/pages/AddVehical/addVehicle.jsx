@@ -6,11 +6,20 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "config";
 
 export default function AddVehicle() {
+    const vehicleCategories = [
+        "TUKTUK",
+        "CAR",
+        "VAN",
+        "BIKE",
+        "JEEP"
+      ];
     const [vehicleType, setVehicleType] = useState('');
     const [vehicleCategory, setVehicleCategory] = useState('');
-    const [features, setFeatures] = useState(['']); // Initialize with one empty feature input
+    const [features, setFeatures] = useState([]); // Initialize with one empty feature input
     const [price, setPrice] = useState('');
     const [media, setMedia] = useState('');
+    const [location,setLocation]=useState('');
+    const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
     const navigate = useNavigate();
 
     const handleUpload = async (files) => {
@@ -36,6 +45,13 @@ export default function AddVehicle() {
             console.error("Upload Error:", error);
         }
     };
+    const handleCheckboxChange = (checkbox) => {
+        setSelectedCheckboxes((prevSelected) =>
+            prevSelected.includes(checkbox)
+                ? prevSelected.filter((item) => item !== checkbox)
+                : [...prevSelected, checkbox]
+        );
+    };
 
     const token = localStorage.getItem('token');  
 
@@ -54,7 +70,8 @@ export default function AddVehicle() {
                     vehicleCategory: vehicleCategory,
                     photo: media,
                     price: price,
-                    features: features // Ensure features is an array
+                    location: location,
+                    features: [...features, ...selectedCheckboxes]
                 })
             });
 
@@ -78,7 +95,10 @@ export default function AddVehicle() {
     };
 
     const addFeature = () => {
-        setFeatures([...features, ""]);
+        // Check if the last item in features is not an empty string before adding a new one
+        if (features.length === 0 || features[features.length - 1] !== "") {
+            setFeatures([...features, ""]);
+        }
     };
 
     const removeFeature = (index) => {
@@ -102,28 +122,41 @@ export default function AddVehicle() {
                     </div>
 
                     <div className="mb-10">
-                        <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="mobile">Vehicle Category</label>
-                        <input className="border-b border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500" id="mobile" type="text" placeholder="Vehicle Category" onChange={(e) => setVehicleCategory(e.target.value)} value={vehicleCategory} />
+            <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="vehicleCategory">Vehicle Category</label>
+            <select
+              className="border-b border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
+              id="vehicleCategory"
+              value={vehicleCategory}
+              onChange={(e) => setVehicleCategory(e.target.value)}
+            >
+              <option value="">Select Vehicle Category</option>
+              {vehicleCategories.map((category, index) => (
+                <option key={index} value={category}>{category}</option>
+              ))}
+            </select>
+            <hr className="mt-1 border-t-2 border-gray-300" />
+          </div>
+                    <div className="mb-10">
+                        <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="mobile">Location</label>
+                        <input className="border-b border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500" id="mobile" type="text" placeholder="Vehicle Category" onChange={(e) => setLocation(e.target.value)} value={location} />
                         <hr className="mt-1 border-t-2 border-gray-300" />
                     </div>
 
                     <div className="mb-10">
-                        <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="mobile">Features</label>
-                        {features.map((feature, index) => (
-                            <div key={index} className="flex items-center mb-2">
-                                <input
-                                    className="border-b border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
-                                    type="text"
-                                    placeholder="Feature"
-                                    value={feature}
-                                    onChange={(e) => handleFeatureChange(index, e.target.value)}
-                                />
-                                <button type="button" onClick={() => removeFeature(index)} className="ml-2 text-red-500">Remove</button>
-                            </div>
-                        ))}
-                        <button type="button" onClick={addFeature} className="mt-2 text-blue-500">Add Feature</button>
+                        <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="checkbox-features">Additional Features</label>
+                        <div className="grid grid-cols-2 gap-2">
+                            {["Without Driver", "300km available fuel", "200km available fuel", "4 Seat Available", "Vehicle Tracking", "400L Space Available", "2 Raincort"].map((feature) => (
+                                <label key={feature} className="flex items-center">
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedCheckboxes.includes(feature)}
+                                        onChange={() => handleCheckboxChange(feature)}
+                                    />
+                                    <span className="ml-2 text-gray-700">{feature}</span>
+                                </label>
+                            ))}
+                        </div>
                     </div>
-
                     <div className="mb-10">
                         <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="price">Price</label>
                         <input className="border-b border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500" id="price" type="text" placeholder="Price" onChange={(e) => setPrice(e.target.value)} value={price} />
