@@ -55,15 +55,6 @@ const FrameOne=()=> {
     }
   }, [roomId]);
   
-
-
-
-
-
-
-
-
-
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -162,7 +153,8 @@ const FrameOne=()=> {
   return (
     <>
 
-{hotel && roomType && (
+<div>
+  
     
       <div className="flex flex-col items-center justify-start w-full">
         <div className="flex flex-col items-center justify-start w-full bg-white-A700">
@@ -170,8 +162,8 @@ const FrameOne=()=> {
             <div className="h-[123px] w-full bg-gray-600 max-w-[1418px] rounded-[30px]" />
             <div className="flex flex-row justify-start items-start w-full mt-[38px] gap-[35px] max-w-[1308px]">
               <Img
-                src={roomType.photo}
-                alt={roomType.type}
+                // src={roomType.photo}
+                // alt={roomType.type}
                 className="w-[52%] object-cover rounded-[30px]"
               />
 
@@ -322,37 +314,32 @@ const FrameOne=()=> {
                    
                    
                       <div className="h-[72px] w-full ml-1 relative rounded  mb-2">
-                         <Text size="xl" as="p" className="w-max left-[6%] bottom-0 top-0 m-auto !font-light absolute">
+                         <Text size="xl" as="p" className="w-max m-auto !font-light absolute">
                               Enter your first name
                          </Text>
-                         <input type="text" placeholder="Enter your first name" className="w-full left-0 bottom-0 right-0 top-0 m-auto absolute rounded-md" size="md" value={firstName} onChange={handleFirstNameChange} />
+                         <input type="text" placeholder="Enter your first name" className="w-full top-[50px] m-auto absolute rounded-md" size="md" value={firstName} onChange={handleFirstNameChange} />
                       </div>
 
                       <div className="h-[72px] w-full ml-1 relative rounded  mb-2">
-                           <Text size="xl" as="p" className="w-max left-[6%] bottom-0 top-0 m-auto !font-light absolute">
+                           <Text size="xl" as="p" className="w-max bottom-0 top-0 m-auto !font-light absolute">
                                 Enter your Last name
                            </Text>
-                          <input type="text" placeholder="Enter your last name" className="w-full left-0 bottom-0 right-0 top-0 m-auto absolute rounded-md" size="md" value={lastName} onChange={handleLastNameChange} />
+                          <input type="text" placeholder="Enter your last name" className="w-full top-[50px] m-auto absolute rounded-md" size="md" value={lastName} onChange={handleLastNameChange} />
                       </div>
 
-
-                        <Text as="h5" className="mt-[17px] ml-[11px]">
-                           Confirmation email goes to this address
-                        </Text>
-
-                     <div className="h-[72px] w-full ml-1 relative rounded border border-gray-300 mb-2">
-                            <Text size="xl" as="p" className="w-max left-[6%] bottom-0 top-0 m-auto !font-light absolute">
-                             Enter your Email address
-                             </Text>
-                           <input type="text" placeholder="Enter your email address" className="w-full left-0 bottom-0 right-0 top-0 m-auto absolute rounded-md" size="md" value={email} onChange={handleEmailChange} />
-                      </div>
+                      <div className="h-[72px] w-full ml-1 relative rounded  mb-2">
+                              <Text size="xl" as="p" className="w-max bottom-0 top-0 m-auto !font-light absolute">
+                              Enter your Email address
+                              </Text>
+                            <input type="text" placeholder="Enter your email address" className="w-full top-[50px] m-auto absolute rounded-md" size="md" value={email} onChange={handleEmailChange} />
+                        </div>
 
 
-                      <div className="h-[72px] w-full ml-1 relative rounded border border-gray-300 mb-2">
-                            <Text size="xl" as="p" className="w-max left-[6%] bottom-0 top-0 m-auto !font-light absolute">
+                      <div className="h-[72px] w-full ml-1 relative rounded  mb-2">
+                            <Text size="xl" as="p" className="w-max bottom-0 top-0 m-auto !font-light absolute">
                             Enter your Telephone number
                              </Text>
-                           <input type="text" placeholder="Enter your email address" className="w-full left-0 bottom-0 right-0 top-0 m-auto absolute rounded-md" size="md" value={phoneNumber} onChange={handlePhoneNumberChange} />
+                           <input type="text" placeholder="Enter your email address" className="w-full top-[50px] m-auto absolute rounded-md" size="md" value={phoneNumber} onChange={handlePhoneNumberChange} />
                       </div>
                     
                   </div>
@@ -762,7 +749,8 @@ const FrameOne=()=> {
         </div>
       </div>
 
-)}
+
+</div>
     </>
   );
 }
