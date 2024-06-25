@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Header from "../../components/Navbar.jsx";
 import SearchBar from "./searchbar";
 import VehicleCard from "./vehiclecard";
+import Ui from "../../assets/images/transportUI_1.jpg"
 
 const TransportUIPage = () => {
   const [transports, setTransports] = useState([]);
@@ -63,10 +64,10 @@ const TransportUIPage = () => {
     <>
       <Header />
       <div className="bg-bg1-20 flex flex-col font-inter items-center justify-end mx-auto pt-3 px-1 md:px-1 w-full">
-        <div className="h-[723px] md:h-[600px] px-20 md:px-1 mx-auto relative w-full">
+        <div className="h-[723px] md:h-[600px] px-5 md:px-1 mx-auto relative w-full">
           <Img
             className="h-[723px] md:h-[600px] m-auto object-cover rounded-[30px] w-full"
-            src="images/img_rectangle4_723x1418.png"
+            src={Ui}
             alt="rectangleFour"
           />
           <section>
@@ -89,7 +90,7 @@ const TransportUIPage = () => {
                 <div className="h-72 relative w-full overflow-hidden rounded-lg transition-transform duration-300 transform hover:scale-105">
                   <Img
                     className="h-full w-full object-cover"
-                    src={`images/img_52_${index}.png`}
+                    src={`images/img_520_${index}.png`}
                     alt={category}
                   />
                   <Button

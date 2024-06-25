@@ -71,7 +71,7 @@ export default function ArticalPage(...props) {
     <>
       <div className="relative w-full bg-gray-300">
         {showPopup && selectedBooking && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="fixed inset-0 z-50 flex items-center ml-[780px] bg-black bg-opacity-50">
             <div className="bg-white p-8 rounded-lg">
               <div className="w-[700px] h-[600px] p-[37px] sm:p-5 bg-white-A700_01 rounded-[30px] shadow-bs2">
                 <div className="flex flex-col justify-center items-center gap-[20px] md:ml-0">
@@ -159,7 +159,7 @@ export default function ArticalPage(...props) {
                   </Heading>
                   <button
                     type="button"
-                    className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300"
+                    className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 mr-20"
                     id="user-menu-button"
                     aria-expanded="true"
                     data-dropdown-toggle="user-dropdown"
@@ -175,7 +175,7 @@ export default function ArticalPage(...props) {
                   </button>
 
                   {dropdownVisible && (
-                    <div className="absolute top-16 right-0 w-48 bg-white shadow-lg rounded-lg">
+                    <div className="absolute top-16 right-0 w-48 bg-white shadow-lg rounded-lg mr-20">
                       <ul className="py-2" aria-labelledby="user-menu-button">
                         <li>
                           <a
@@ -208,7 +208,7 @@ export default function ArticalPage(...props) {
               </div>
             </header>
 
-            <div className="flex justify-center  w-[98%] md:w-full ml-[9px]">
+            <div className="flex justify-center  w-[98%] md:w-full ml-[9px] h-[780px]">
               <div className="flex flex-col items-center justify-center w-[95%]  gap-[18px] p-[11px] bg-gray-100 rounded-[20px] ">
                 <div className="flex flex-col w-[96%] md:w-full mt-[5px] gap-[23px]">
                   <div className="flex sm:flex-col justify-between gap-5"></div>
@@ -219,22 +219,24 @@ export default function ArticalPage(...props) {
                     <table className="flex sm:flex-col justify-between items-start gap-5 p-[7px]">
                       <thead>
                         <tr>
-                          <div className="flex md:flex-col justify-center items-center mb-[5px] mr-[140px]">
-                            <div className="flex self-start justify-center items-center ml-[100px] gap-[11px]">
+                          <div className="flex md:flex-col items-center mb-[5px]">
+                            <div className="flex self-start items-center ml-[210px] gap-[11px]">
                               <th>First Name</th>
                             </div>
 
-                            <div className="flex self-start justify-center items-center ml-[210px] gap-[20px]">
+                            <div className="flex self-start items-center ml-[230px] gap-[20px]">
                               <th>Last Name</th>
                             </div>
 
-                            <div className="flex self-start justify-center items-center  ml-[110px] gap-[11px]">
-                              <Heading as="h5" className="ml-[13px]">
-                                <th>Room No</th>
-                              </Heading>
+                            <div className="flex self-start items-center ml-[210px] gap-[20px]">
+                              <th>Room Name</th>
                             </div>
 
-                            <div className="flex self-start justify-center items-center ml-[140px] gap-[11px]">
+                            <div className="flex self-start items-center ml-[210px] gap-[20px]">
+                              <th>Action</th>
+                            </div>
+
+                            <div className="flex self-start items-center ml-[140px] gap-[11px]">
                               <th></th>
                             </div>
                           </div>
@@ -251,21 +253,21 @@ export default function ArticalPage(...props) {
                             bookings.map((booking, index) => (
                               <tr key={index}>
                                 <div className="flex flex-col gap-[15px] p-2.5">
-                                  <div className="flex md:flex-col justify-center items-end  mr-[20px] flex-1">
-                                    <td style={{ width: "300px" }}>
+                                  <div className="flex md:flex-col items-end  mr-[20px] flex-1">
+                                    <td className="ml-[220px]">
                                       {booking.userFirstName}
                                     </td>
   
-                                    <td style={{ width: "190px" }}>
+                                    <td className="ml-[260px]">
                                       {booking.userLastName}
                                     </td>
-                                    <td style={{ width: "190px" }}>
+                                    <td className="ml-[210px]">
                                       {booking.roomName}
                                     </td>
   
                                     <div className="flex justify-center  gap-2">
                                       <td>
-                                        <div className="flex justify-center ml-[90px] gap-3">
+                                        <div className="flex justify-center ml-[180px] gap-3">
                                           <Button
                                             onClick={() => togglePopup(booking)}
                                             className="flex items-center justify-center w-[100px] h-[40px] bg-green-500 rounded-[5px]"
@@ -289,7 +291,7 @@ export default function ArticalPage(...props) {
                     </div>
                   </div>
 
-                  <div className="w-[100%] ml-[20px] h-px bg-blue_gray-200" />
+                  <div className="w-[100%] mt-[180px] mb-[30px] ml-[20px] h-px bg-blue_gray-200" />
                 </div>
               </div>
             </div>

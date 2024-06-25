@@ -7,14 +7,14 @@ import { useNavigate } from "react-router-dom";
 const VehicleCard = ({ vehicle}) => {
   const navigate = useNavigate();
   return (
-    <div className="h-[450px] relative rounded-[20px] shadow-bs w-full md:w-[90%]">
+    <div className="h-[450px] sm:h-[400px] sm:w-full sm:ml-[-10px] relative rounded-[20px] shadow-bs w-full md:w-[90%]">
       <Img
-        className="h-[450px] m-auto object-cover rounded-[20px] w-full"
+        className="h-[450px] sm:h-[400px] sm:w-full m-auto object-cover rounded-[20px] w-full"
         src={vehicle.photo}
         alt="Vehicle"
       />
-      <div className="absolute flex flex-col md:gap-[252px] gap-[252px] h-max inset-[0] justify-center m-auto w-[93%]">
-        <div className="bg-gray-700_66_01 flex flex-row gap-2.5 items-center justify-end md:ml-[0] ml-[200px] mr-2 p-[5px] rounded-[18px] w-[29%] md:w-full">
+      <div className="absolute flex flex-col md:gap-[252px] gap-[290px] h-max mt-[10px] inset-[0] justify-center m-auto w-[93%] :w-[] ">
+        <div className="bg-gray-700_66_01 flex flex-row gap-2.5 sm:w-[30%]  sm:ml-[10px] items-center justify-end md:ml-[0] ml-[200px] mr-2 p-[5px] rounded-[18px] w-[29%] md:w-[29%]">
           <Img
             className="h-[21px] w-[22px]"
             src="images/img_star6_9.svg"

@@ -177,7 +177,7 @@ export default function NewTourPackage() {
           console.log("Response:", data);
 
           if (response.ok) {
-              alert("Tour Package created successfully");
+              message.success("Package created successfully");
               navigate('/admin');
           } else {
               console.error("Error:", data);

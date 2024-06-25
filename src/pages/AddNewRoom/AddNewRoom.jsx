@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { Img } from "../../components";
-import { FileUpload } from "components/FileUpload";
-import { Heading } from "components/Heading1";
+import Upload from "../fileUpload/upload";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { message } from "antd";
@@ -26,7 +24,7 @@ export default function AddNewRoom() {
     }
   };
 
-  const handleUpload = async (files) => {
+  const handleImageUpload = async (files) => {
     try {
         const formData = new FormData();
         formData.append("file", files[0]); // Assuming only one file is selected
@@ -239,23 +237,10 @@ export default function AddNewRoom() {
             <hr className="mt-1 border-t-2 border-gray-300" />
           </div>
 
-          <Heading size="lg" as="h2" className="text-gray-700">
-            Image
-          </Heading>
-          <div className="flex md:flex-row justify-between items-start gap-4 mt-[10px] mb-[10px]">
-            <FileUpload
-              allowMultiple
-              preview
-              name="column"
-              Thumbnail={FileUpload.PreviewItem}
-              onUpload={handleUpload}// Assuming only one file is uploaded
-              placeholder={() => <Heading size="1xl" as="p">Main Image</Heading>}
-              className="flex flex-row items-center w-[200px] h-[120px] gap-[15px] p-[18px] bg-blue_gray-100 rounded-[5px]"
-            >
-              <Img src="images/img_plus_3_1.png" alt="main_image_one" className="w-[25px] mt-[22px] object-cover" />
-              <Heading size="1xl" as="p">Main Image</Heading>
-            </FileUpload>
-          </div>
+          <section className="mb-10">
+                   <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="mobile">Images</label>
+                    <Upload onUpload={handleImageUpload}/>
+                   </section>
 
           <div className="mb-2">
             <label className="block text-gray-700 text-2xl font-bold mb-2 mt-[50px]" htmlFor="description">
