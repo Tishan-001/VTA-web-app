@@ -15,8 +15,13 @@ const TransportUIPage = () => {
   const hotelListRef = useRef(null);
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    if(!isSearchPerformed){
+      fetchData();
+    }else{
+      setVehicles(filteredVehicles);
+    }
+    
+  }, [isSearchPerformed]);
 
   const fetchData = async () => {
     try {
@@ -25,8 +30,8 @@ const TransportUIPage = () => {
         throw new Error("Failed to fetch data");
       }
       const data = await response.json();
-      setVehicles(data);
-      setFilteredVehicles(data); // Initially set filtered vehicles to all vehicles
+      setFilteredVehicles(data);
+      setVehicles(data) // Initially set filtered vehicles to all vehicles
     } catch (error) {
       console.error("Error fetching data:", error);
     }
