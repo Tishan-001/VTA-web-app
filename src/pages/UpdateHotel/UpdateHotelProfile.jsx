@@ -15,7 +15,7 @@ export default function NewHotemServiceProvider() {
 
     useEffect(() => {
         fetchHotelData();
-    });
+    }, []);
 
     const [hotelData, setHotelData] = useState({
         name: '',
