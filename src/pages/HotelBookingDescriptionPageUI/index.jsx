@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+  import React, { useState, useEffect } from "react";
 import { Button, Img, List, Text } from "components";
 import Footer from "components/Footer";
 import { useParams } from "react-router-dom";
@@ -7,6 +7,7 @@ import Facility from "./facility";
 import Image1 from "../../assets/images/img_12129860mapl.png";
 
 import Img1 from "../../assets/images/wifi.jpg"
+import { BASE_URL } from "config";
 
 const HotelBookingDescriptionPageUIPage = () => {
   const { id } = useParams();
@@ -24,7 +25,7 @@ const HotelBookingDescriptionPageUIPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/hotels/");
+        const response = await fetch(`${BASE_URL}/hotels/`);
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }

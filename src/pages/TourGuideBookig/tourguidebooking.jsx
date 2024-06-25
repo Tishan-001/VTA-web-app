@@ -5,6 +5,10 @@ import Footer from "components/Footer";
 import Img15 from "../../assets/images/img_calendar_1.png" 
 import Img16 from "../../assets/images/img_double_bed_1.png" 
 import { message } from "antd";
+import Navbar from "components/Navbar";
+import TBook1 from "../../assets/images/GBBooking.jpg"
+import { BASE_URL } from "config";
+
 
 const TourGuideBooking=()=> {
   const { id } = useParams();
@@ -17,7 +21,7 @@ const TourGuideBooking=()=> {
 
   // Fetch hotel and room data based on roomId
   useEffect(() => {
-    fetch(`http://localhost:5000/tourguides/tourguide/${id}`, {
+    fetch(`${BASE_URL}/tourguides/tourguide/${id}`, {
       method: 'GET'
     })
       .then((response) => response.json())
@@ -112,7 +116,7 @@ const TourGuideBooking=()=> {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/tour-guide-booking/create", {
+      const response = await fetch(`${BASE_URL}/tour-guide-booking/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -137,15 +141,27 @@ const TourGuideBooking=()=> {
 
   return (
     <>
+    <Navbar/>
       <div className="flex flex-col items-center justify-start w-full">
         <div className="flex flex-col items-center justify-start w-full bg-white-A700">
           <div className="flex flex-col items-center justify-start w-full mt-[21px]">
+
+             <div >
+
+            <Img
+              src={TBook1}
+              
+              className=" w-[700px] h-[400px] object-cover ml-[-20px] sm:ml-[0px] sm:mt-[10px] md:ml-[40px] md:px-[6px] md:w-[650px] sm:w-full  sm:px-[6px] sm:h-[300px] rounded-[30px]"
+            />
+
+            </div>   
             
             <div className="flex flex-col items-end justify-start w-full mt-[84px] gap-[31px] max-w-[1141px]">
 
+            
 
-              <div className="flex flex-row justify-start w-full p-[30px] border-blue_gray-100 border-2 border-solid rounded-[30px]">
-                <div className="flex flex-col items-start justify-start w-[93%] mt-1 ml-[38px] gap-8">
+              <div className="flex flex-row justify-start w-full md:w-[98%] sm:mr-[2px] p-[30px] border-blue_gray-100 border-2 border-solid rounded-[30px]">
+                <div className="flex flex-col items-start justify-start w-[93%] mt-1 ml-[38px] sm:ml-[10px] gap-8">
                 <Text className="text-2xl text-black-900" size="txtInterBold60">Tour Guide Booking Now</Text>
 
 
@@ -154,32 +170,32 @@ const TourGuideBooking=()=> {
                    
                    
                   <div className="h-[72px] w-full ml-1 relative rounded  mb-2">
-                         <Text size="xl" as="p" className="w-max m-auto !font-light absolute">
+                         <Text size="xl" as="p" className="w-max m-auto !text-[20px] text-black-900 absolute">
                               Enter your first name
                          </Text>
-                         <input type="text" placeholder="Enter your first name" className="w-full top-[50px] m-auto absolute rounded-md" size="md" value={firstName} onChange={handleFirstNameChange} />
+                         <input type="textbox" placeholder="Enter your first name" className="w-full h-[40px] ml-[5px] mt-[-10px] !text-[18px] border-2 border-blue_gray-100 top-[50px] m-auto absolute rounded-md" size="md" value={firstName} onChange={handleFirstNameChange} />
                       </div>
 
                       <div className="h-[72px] w-full ml-1 relative rounded  mb-2">
-                           <Text size="xl" as="p" className="w-max bottom-0 top-0 m-auto !font-light absolute">
+                           <Text size="xl" as="p" className="w-max bottom-0 top-0 m-auto !text-[20px] text-black-900 absolute">
                                 Enter your Last name
                            </Text>
-                          <input type="text" placeholder="Enter your last name" className="w-full top-[50px] m-auto absolute rounded-md" size="md" value={lastName} onChange={handleLastNameChange} />
+                          <input type="textbox" placeholder="Enter your last name" className="w-full h-[40px] ml-[5px] mt-[-10px] !text-[18px] border-2 border-blue_gray-100 top-[50px] m-auto absolute rounded-md"size="md" value={lastName} onChange={handleLastNameChange} />
                       </div>
 
                       <div className="h-[72px] w-full ml-1 relative rounded  mb-2">
-                              <Text size="xl" as="p" className="w-max bottom-0 top-0 m-auto !font-light absolute">
+                              <Text size="xl" as="p" className="w-max bottom-0 top-0 m-auto !text-[20px] text-black-900 absolute">
                               Enter your Email address
                               </Text>
-                            <input type="text" placeholder="Enter your email address" className="w-full top-[50px] m-auto absolute rounded-md" size="md" value={email} onChange={handleEmailChange} />
+                            <input type="textbox" placeholder="Enter your email address" className="w-full h-[40px] ml-[5px] mt-[-10px] !text-[18px] border-2 border-blue_gray-100 top-[50px] m-auto absolute rounded-md" size="md" value={email} onChange={handleEmailChange} />
                         </div>
 
 
                       <div className="h-[72px] w-full ml-1 relative rounded  mb-2">
-                            <Text size="xl" as="p" className="w-max bottom-0 top-0 m-auto !font-light absolute">
+                            <Text size="xl" as="p" className="w-max bottom-0 top-0 m-auto !text-[20px] text-black-900 absolute">
                             Enter your Telephone number
                              </Text>
-                           <input type="text" placeholder="Enter your email address" className="w-full top-[50px] m-auto absolute rounded-md" size="md" value={phoneNumber} onChange={handlePhoneNumberChange} />
+                           <input type="textbox" placeholder="Enter your email address" className="w-full h-[40px] ml-[5px] mt-[-10px] !text-[18px] border-2 border-blue_gray-100 top-[50px] m-auto absolute rounded-md" size="md" value={phoneNumber} onChange={handlePhoneNumberChange} />
                       </div>
                     
                   </div>
@@ -187,25 +203,25 @@ const TourGuideBooking=()=> {
               </div>
               
               <div className="flex flex-col items-start justify-start w-full p-[25px] border-blue_gray-100 border-2 border-solid rounded-[30px]">
-                <Text  className="text-2xl text-black-900 mt-[7px] ml-[55px]"   size="txtInterBold60">
+                <Text  className="text-2xl text-black-900 mt-[7px] ml-[55px] sm:ml-[10px]"   size="txtInterBold60">
                   Special requests
                 </Text>
 
 
-                <Text size="xl" as="p" className="mt-7 ml-[55px] !font-normal">
+                <Text size="xl" as="p" className="mt-7 ml-[55px] !font-normal sm:ml-[10px]">
                   Special requests cannot be guaranteed – but the property will do its best to meet your needs. You can
                   always make a special request after your booking is complete!
                 </Text>
 
              
 
-                <input name="textarea" placeholder="Please write your requests in English or Czech. (optional)" className="w-[90%] border border-gray-400 h-20 rounded-[10px]  mt-[21px] ml-[55px]" value={special} onChange={handleSpecialChange} />
+                <input name="textarea" placeholder="Please  write your requests in English or Czech. (optional)" className="w-[90%] border sm:ml-[10px] border-gray-400 h-20 rounded-[10px]  mt-[21px] ml-[55px]" value={special} onChange={handleSpecialChange} />
               </div>
 
 
               <div className="flex flex-col w-full pb-[124px] gap-[23px]">
                 <div className="flex flex-row justify-start w-full p-[29px] border-blue_gray-100 border-2 border-solid rounded-[30px]">
-                  <div className="flex flex-col items-start justify-start w-[59%] mb-[11px] ml-12">
+                  <div className="flex flex-col items-start justify-start w-[59%] sm:w-[80%] sm:ml-[10px] mb-[11px] ml-12">
                    
                     <Text className="text-2xl text-black-900  ml-0.5"   size="txtInterBold60">
                       Your Start Date & time{" "}
@@ -234,7 +250,7 @@ const TourGuideBooking=()=> {
 
 
                 <div className="flex flex-row justify-start w-full p-[29px] border-blue_gray-100 border-2 border-solid rounded-[30px]">
-                    <div className="flex flex-col items-start justify-start w-[59%] mb-[11px] ml-12">
+                    <div className="flex flex-col items-start justify-start w-[59%] sm:ml-[10px] sm:w-[100%] mb-[11px] ml-12">
         
                         <Text className="text-2xl text-black-900 ml-0.5" size="txtInterBold60">
                             Your End Date & time{" "}
@@ -263,14 +279,14 @@ const TourGuideBooking=()=> {
                   </div>
               </div>
 
-              <div className="flex flex-row justify-between items-start w-[95%]">
-                <div className="flex flex-row justify-center w-[41%] p-[11px] bg-teal-A100_99">
+              <div className="flex flex-row sm:flex sm:flex-col  sm:mt-[-100px]  justify-between items-start w-[95%]">
+                <div className="flex flex-row justify-center w-[41%] md:w-full md:ml-[-10px] p-[11px] bg-teal-A100_99">
                   <div className="flex flex-col items-end justify-start w-[91%] mb-[29px] ml-5 mr-4 gap-0.5">
                     <div className="flex flex-col justify-between w-full">
                       <Text className="text-black-900 pt-[20px] ml-0.5"   size="">
                         Price Per Day: LKR {value ? value : 0}.00
                       </Text>
-                     <Text className="mt-[10px] text-2xl text-black-900 bold" size="txtInterBold60" as="p" >
+                     <Text className="mt-[10px] text-2xl text-red-100 bold" size="txtInterBold60" as="p" >
                       Total Cost: LKR {totalCost.toFixed(2)}
                     </Text>
                     <Text size="lg" as="p" className="mt-[10px] !text-black-900_99 !font-normal">
@@ -282,12 +298,12 @@ const TourGuideBooking=()=> {
                 </div>
 
 
-                <div className="flex flex-col justify-center bg-black items-start">
+                <div className="flex flex-col mt-[-20px] sm:ml-[80px] justify-center bg-black items-start">
                   <div className="mt-[70px] text-black-900">Countinue Your Booking</div>
-                  <Button className="font-semibold min-w-[191px] mt-[20px] ml-[-10px] rounded-[10px] bg-black text-white"
+                  <button className="font-semibold bg-black-900 hover:bg-cyan-500 h-[50px] min-w-[191px] mt-[20px] ml-[-10px] rounded-[10px] text-white-A700"
                    onClick={handleSubmit}>
                     Pay Now
-                  </Button>
+                  </button>
                 </div>
               </div>
             </div>

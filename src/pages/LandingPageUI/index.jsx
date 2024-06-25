@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 import Header from'../../components/Navbar.jsx';
 import Footer from "components/Footer";
 
+import { BASE_URL } from "config.js";
+
 
 import useInterSection from './Animation.jsx';
 
@@ -42,7 +44,7 @@ const LandingPageUIPage = () => {
 
   const fetchHotelCount = async () => {
     try {
-      const response = await fetch("http://localhost:5000/hotels/count");
+      const response = await fetch("${BASE_URL}/hotels/count");
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -55,7 +57,7 @@ const LandingPageUIPage = () => {
 
   const fetGuidersCount = async () => {
     try {
-      const response = await fetch("http://localhost:5000/tourguides/count");
+      const response = await fetch(`${BASE_URL}/tourguides/count`);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -68,7 +70,7 @@ const LandingPageUIPage = () => {
 
   const fetCustomerCount = async () => {
     try {
-      const response = await fetch("http://localhost:5000/auth/count");
+      const response = await fetch(`${BASE_URL}/auth/count`);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -80,7 +82,7 @@ const LandingPageUIPage = () => {
   }
   const fetTranceportCount = async () => {
     try {
-      const response = await fetch("http://localhost:5000/tranceport/count");
+      const response = await fetch(`${BASE_URL}/tranceport/count`);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }

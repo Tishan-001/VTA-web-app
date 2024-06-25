@@ -10,6 +10,7 @@ import Img15 from "../../assets/images/img_calendar_1.png"
 import Img16 from "../../assets/images/img_double_bed_1.png" 
 import Header from "components/Navbar";
 import { message } from "antd";
+import { BASE_URL } from "config";
 
 const FrameOne=()=> {
   const [room, setRoom] = useState(null);
@@ -24,7 +25,7 @@ const FrameOne=()=> {
 
   // Fetch hotel and room data based on roomId
   useEffect(() => {
-    fetch(`http://localhost:5000/hotels/get/room/${roomId}`)
+    fetch(`${BASE_URL}/hotels/get/room/${roomId}`)
       .then((response) => response.json())
       .then((data) => {
         setRoom(data);
@@ -115,7 +116,7 @@ const FrameOne=()=> {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/hotel-booking/create", {
+      const response = await fetch("${BASE_URL}/hotel-booking/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

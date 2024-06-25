@@ -5,16 +5,15 @@ import { FileUpload } from "components/FileUpload";
 import { useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { BASE_URL } from "config";
 
 export default function AddTranspotation() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [mobile, setMobile] = useState('');
     const [address, setAddress] = useState('');
-    const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
     const [media, setMedia] = useState('');
-    const [starRating, setStarRating] = useState('');
     const navigate = useNavigate();
 
     const handleUpload = async (files) => {
@@ -22,7 +21,7 @@ export default function AddTranspotation() {
             const formData = new FormData();
             formData.append("file", files[0]); // Assuming only one file is selected
 
-            const response = await fetch("http://localhost:5000/images/upload", {
+            const response = await fetch(`${BASE_URL}/images/upload`, {
                 method: "POST",
                 body: formData
             });
@@ -40,6 +39,43 @@ export default function AddTranspotation() {
             console.error("Upload Error:", error);
         }
     };
+    const handleSubmit = async (e)=>{
+        e.preventDefault()
+        try {
+            const response = await fetch(`${BASE_URL}/transports/create`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.getItem('token')}`
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    mobile: mobile,
+                    address: address,
+                    media: media,
+                    description: description
+                })
+            });
+
+            const data = await response.text();
+            console.log("Response:", data);
+			if (response.ok) {
+				alert("Data save successfully");
+                navigate("/admintransport");
+			} else {
+				// Handle error response, e.g., display error message to the user
+                console.error("Error:", data.error);
+			}
+		} catch (error) {
+			console.error("Error:", error);
+            // Handle network error or other unexpected errors
+		}
+    }
+
+    const handleCancle = ()=>{
+        navigate("/admintransport");
+    }
 
     return (
       <div className="container mx-auto max-w-5xl py-8">
@@ -50,6 +86,11 @@ export default function AddTranspotation() {
 
       <div className="mb-8 mt-20 rounded-3xl shadow-md">
           <form className="bg-white shadow-2xl rounded-3xl px-8 pt-6 pb-8">
+                    <div className="mb-10">
+                        <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="price">Name</label>
+                        <input className="border-b border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500" id="name" type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} value={name} />
+                        <hr className="mt-1 border-t-2 border-gray-300" />
+                    </div>
 
                     <div className="mb-10">
                         <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="email">Email</label>
@@ -66,12 +107,6 @@ export default function AddTranspotation() {
                     <div className="mb-10">
                         <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="mobile">Address</label>
                         <input className="border-b border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500" id="mobile" type="text" placeholder="Address" onChange={(e) => setAddress(e.target.value)} value={address} />
-                        <hr className="mt-1 border-t-2 border-gray-300" />
-                    </div>
-
-                    <div className="mb-10">
-                        <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="price">Price</label>
-                        <input className="border-b border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500" id="price" type="text" placeholder="Price" onChange={(e) => setPrice(e.target.value)} value={price} />
                         <hr className="mt-1 border-t-2 border-gray-300" />
                     </div>
 
@@ -128,9 +163,14 @@ export default function AddTranspotation() {
                         </div>
                     </div>
 
-                    <div className="mt-12">
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline" type="button">
+                    <div className="mt-12 flex justify-between" >
+                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline"
+                         type="button" onClick={handleSubmit}>
                             Save
+                        </button>
+                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline"
+                         type="button" onClick={handleCancle}>
+                            Cancel
                         </button>
                     </div>
                 </form>

@@ -4,6 +4,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { message } from "antd";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "config";
 
 export default function AddNewRoom() {
   const [name, setName] = useState("");
@@ -29,7 +30,7 @@ export default function AddNewRoom() {
         const formData = new FormData();
         formData.append("file", files[0]); // Assuming only one file is selected
 
-        const response = await fetch("http://localhost:5000/images/upload", {
+        const response = await fetch(`${BASE_URL}/images/upload`, {
             method: "POST",
             body: formData
         });
@@ -61,7 +62,7 @@ export default function AddNewRoom() {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/hotels/add/room", {
+      const response = await fetch(`${BASE_URL}/hotels/add/room`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

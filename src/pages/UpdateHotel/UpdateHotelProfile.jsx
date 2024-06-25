@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
 import { message } from "antd";
 import "react-quill/dist/quill.snow.css";
+import { BASE_URL } from "config";
 
 export default function NewHotemServiceProvider() {
 
@@ -31,7 +32,7 @@ export default function NewHotemServiceProvider() {
 
     const fetchHotelData = async () => {
         try {
-          const response = await fetch("http://localhost:5000/hotels/get", {
+          const response = await fetch(`${BASE_URL}/hotels/get`, {
             method: "GET",
             headers: {
               "Authorization": `Bearer ${token}`,
@@ -51,7 +52,7 @@ export default function NewHotemServiceProvider() {
             formData.append("file", file);
 
             try {
-                const response = await fetch("http://localhost:5000/images/upload", {
+                const response = await fetch(`${BASE_URL}/images/upload`, {
                     method: "POST",
                     body: formData
                 });
@@ -86,7 +87,7 @@ export default function NewHotemServiceProvider() {
         };
 
         try {
-            const response = await fetch("http://localhost:5000/hotels/update", {
+            const response = await fetch(`${BASE_URL}/hotels/update`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

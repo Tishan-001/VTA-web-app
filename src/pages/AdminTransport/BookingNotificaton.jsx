@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 import { CloseSVG } from "../../assets/images";
 import { Img } from "components/Img";
@@ -11,17 +11,96 @@ import { TextArea } from "components/TextArea";
 
 import Sidebar1 from "components/Sidebar1";
 import { articleData } from "../../assets/data/articleData";
+import { BASE_URL } from "config";
 
 export default function ArticalPage(...props) {
   const [searchBarValue, setSearchBarValue] = React.useState("");
   const [showPopup, setShowPopup] = useState(false);
-
+  const [transportName, setTransportName] = useState('');
+  const [transportImage, setTransportImage] = useState('');
+  const [bookings, setBookings] = useState([]);
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [createState,setCreateState]=useState(false);
+  
   const [currentPage, setCurrentPage] = useState(1);
   const articlesPerPage = 10;
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
+
+  const toggleDropdown = () => {
+    setDropdownVisible(!dropdownVisible);
+  };
+  const token = localStorage.getItem('token');  
+  useEffect(() => {
+    if (token) {
+      fetch(`${BASE_URL}/transports/transport`,{
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.text();
+        
+        })
+        .then((text) => {
+          if (text) {
+            try {
+              const data = JSON.parse(text);
+              if (data != null) {
+                setTransportName(data.name);
+                setTransportImage(data.imageUrl);
+                setCreateState(true);
+              }
+            } catch (error) {
+              console.error('Error parsing JSON:', error);
+            }
+          } else {
+            console.log("Error fetching transport: Empty response received");
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching transport: ", error);
+        });
+        
+    }
+    handleGetBookings();
+  }, [token]);
+  const handleGetBookings= ()=>{
+    fetch(`${BASE_URL}/transport-booking/get-bookings-service`,{
+      headers: {
+        'Authorization': `Bearer ${token}`,
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.text();
+      
+      })
+      .then((text) => {
+        if (text) {
+          try {
+            const data = JSON.parse(text);
+            if (data != null) {
+              setBookings(data)
+            }
+          } catch (error) {
+            console.error('Error parsing JSON:', error);
+          }
+        } else {
+          console.log("Error fetching transport: Empty response received");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching transport: ", error);
+      });
+  }
 
   const filteredArticles = articleData.filter((article) => {
     // Filter based on search bar value
@@ -148,23 +227,67 @@ export default function ArticalPage(...props) {
 
         <div className="flex md:flex-col justify-center items-start">
           <div className="flex flex-col gap-[18px] flex-1">
-            <header {...props}>
-              <div className="flex sm:flex-col self-end h-[100px] justify-between items-center w-full  gap-10 mx-auto md:p-5 max-w-full bg-white-A700 ">
-                <Heading size="2xl" as="h4" className="ml-[100px]">
-                  Transport Dashboard
-                </Heading>
-                <div className="flex justify-between items-center w-[25%] sm:w-full gap-5 ">
-                  <Heading size="xl1" as="h5" className=" mr-[20]">
-                    Nuwani Thushari
-                  </Heading>
-                  <Img
-                    src="images/img_image_75.png"
-                    alt="imageseventyfiv"
-                    className="h-[55px] w-[56px] rounded-[50%] mr-[30px]"
-                  />
-                </div>
-              </div>
-            </header>
+          <header {...props}>
+                        <div className="flex sm:flex-col self-end h-[100px] justify-between items-center w-full  gap-10 mx-auto md:p-5 max-w-full bg-white-A700 ">
+                        
+                        <Heading size="2xl" as="h4" className="ml-[100px]">
+                            Transport Dashbord
+                        </Heading>
+                        <div className="flex justify-between items-center w-[25%] sm:w-full gap-5 ">
+                            <Heading size="xl1" as="h5" className=" mr-[20]">
+                            {transportName}
+                            </Heading>
+                            <button
+                              type="button"
+                              className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 mr-[20px]"
+                              id="user-menu-button"
+                              aria-expanded="true"
+                              data-dropdown-toggle="user-dropdown"
+                              data-dropdown-placement="bottom"
+                              onClick={toggleDropdown}
+                            >
+                              <span className="sr-only">Open user menu</span>
+                              <img
+                                className="w-12 h-12 rounded-full "
+                                src={transportImage ? transportImage: "images/img_image_75.png"}
+                                alt="user photo"
+                              />
+                            </button>
+                        </div>
+                       
+                  {dropdownVisible && (
+                    <div className="absolute top-16 right-0 w-48 bg-white shadow-lg rounded-lg">
+                      <ul className="py-2" aria-labelledby="user-menu-button">
+                        {!createState &&(<li>
+                          <a
+                            href="/addtranspotation"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          >
+                            Create Profile
+                          </a>
+                        </li>)}
+                        <li>
+                          <a
+                            href="/addtranspotation"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          >
+                            Edit Profile
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          >
+                            Sign out
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
+                        </div>
+              </header>
+           
 
             <div className="flex justify-center  w-[98%] md:w-full ml-[9px]">
               <div className="flex flex-col items-center justify-center w-[95%]  gap-[18px] p-[11px] bg-gray-100 rounded-[20px] ">
@@ -205,19 +328,21 @@ export default function ArticalPage(...props) {
                     <div className="w-full h-[470px] overflow-y-auto">
                       <table>
                         <tbody>
-                          {filteredArticles.map((article, index) => (
+
+                          {/* Mapping bookings to the table */}
+                          {bookings.map((booking, index) => (
                             <tr key={index}>
                               <div className="flex flex-col gap-[15px] p-2.5">
                                 <div className="flex md:flex-col justify-center items-end  mr-[20px] flex-1">
                                   <td style={{ width: "300px" }}>
-                                    {article.title}
+                                    {booking.bookingStartDate}
                                   </td>
 
                                   <td style={{ width: "190px" }}>
-                                    {article.views}
+                                    {booking.bookingEndDate}
                                   </td>
                                   <td style={{ width: "190px" }}>
-                                    {article.likes}
+                                    {booking.likes}
                                   </td>
 
                                   <div className="flex justify-center  gap-2">

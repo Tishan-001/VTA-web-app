@@ -4,6 +4,8 @@ import { Button, Img, Line, List, Text } from "components";
 import { Heading } from "components/Heading";
 import Footer from "components/Footer";
 import { Link } from "react-router-dom";
+import Navbar from "components/Navbar";
+import { BASE_URL } from "config";
 
 
 export default function GuideDetailOnePage() {
@@ -15,7 +17,7 @@ export default function GuideDetailOnePage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/tourguides/tourguide/${id}`);
+        const response = await fetch(`${BASE_URL}/tourguides/tourguide/${id}`);
         if(!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -41,26 +43,28 @@ export default function GuideDetailOnePage() {
   
   return (
     <>
+
+    <Navbar/>
      
       <div className="flex flex-col items-center justify-start w-full pt-4 gap-[200px]  bg-bg1-20">
         <div className="flex flex-col items-center justify-start w-full md:px-5 px-10">
           <div className="flex flex-col items-center justify-start w-full">
-            <div className="flex flex-col items-start justify-start w-full pl-[79px] pr-14 py-[79px] md:p-5 bg-lime-800 rounded-[30px]">
+            <div className="flex flex-col items-start justify-start w-[80%] md:w-full h-[300px] pl-[79px] pr-14 py-[79px] md:p-5 bg-lime-800 rounded-[30px]">
               <div className="flex flex-col items-start justify-center mt-[11px] mb-[61px] gap-[45px]">
                  <Text
-                      className="md:text-5xl sm:text-4xl text-[80px] text-white-A700"
+                      className="md:text-5xl sm:text-4xl text-[50px] text-white-A700"
                       size="txtInterBold80"
                  >
                   Book Your Guide
                 </Text>
                 <Text
-                className="text-3xl sm:text-2xl md:text-2xl text-white-A700"
+                className="text-2xl sm:text-2xl md:text-2xl text-white-A700"
                 size="txtInterMedium30">
                   Embark on Your Journey Where Dreams Meet Destinations - Book Your Adventure with Seamless Ease
                 </Text>
               </div>
             </div>
-            <div className="flex flex-row md:flex-col justify-between items-center w-[83%] md:w-full mt-[100px] md:gap-10">
+            <div className="flex flex-row md:flex-col justify-between items-center w-[63%] md:w-full mt-[100px] md:gap-10">
               <Img
                 src={tourGuide.media}
                 alt="circleimage"
@@ -73,7 +77,7 @@ export default function GuideDetailOnePage() {
                       <Img
                         src="../images/img_image_56.png"
                         alt="imagefiftysix"
-                        className="w-[59px] md:h-auto object-cover"
+                        className="w-[40px] md:h-auto object-cover"
                       />
                        <div className="flex flex-row justify-start w-[82%] sm:w-full p-7 sm:p-5 bg-gray-600_99 rounded-[20px]">
                         <Text size="md" as="p" className="w-[85%] ml-3.5 !text-black-900_02 !font-medium">
@@ -87,11 +91,11 @@ export default function GuideDetailOnePage() {
                       <Img
                         src="../images/img_12_129860_map_l.png"
                         alt="imagefiftysix"
-                        className="w-[59px] md:h-auto object-cover"
+                        className="w-[40px] md:h-auto object-cover"
                       />
                      
                       <div className="flex flex-row justify-start w-[82%] sm:w-full p-7 sm:p-5 bg-gray-600_99 rounded-[20px]">
-                        <Text size="md" as="p" className="w-[85%] ml-3.5 !text-black-900_02 !font-medium">
+                        <Text size="md" as="p" className="w-[40%] ml-3.5 !text-black-900_02 !font-medium">
                           <>
                             {tourGuide.address}
                           </>
@@ -103,7 +107,7 @@ export default function GuideDetailOnePage() {
                       <Img
                         src="../images/img_depositphotos_8.png"
                         alt="imagefiftysix"
-                        className="w-[59px] md:h-auto object-cover"
+                        className="w-[40px] md:h-auto object-cover"
                       />
                         <div className="flex flex-row  gap-[40px] justify-start w-[82%] sm:w-full p-7 sm:p-5 bg-gray-600_99 rounded-[20px]">
                         <Text size="md" as="p" className="w-[85%] ml-3.5 !text-black-900_02 !font-medium">
@@ -118,7 +122,7 @@ export default function GuideDetailOnePage() {
                       <Img
                         src="../images/img_download_removebg_preview.png"
                         alt="imagefiftysix"
-                        className="w-[59px] md:h-auto object-cover"
+                        className="w-[40px] md:h-auto object-cover"
                       />
                      <div className="flex flex-row justify-start w-[82%] sm:w-full p-7 sm:p-5 bg-gray-600_99 rounded-[20px]">
                         <Text size="md" as="p" className="w-[85%] ml-3.5 !text-black-900_02 !font-medium">

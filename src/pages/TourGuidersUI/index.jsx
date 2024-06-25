@@ -4,6 +4,8 @@ import Footer from "components/Footer";
 import { Link, useNavigate } from "react-router-dom";
 import Header from '../../components/Navbar.jsx';
 import SearchBar from "./searchbar";
+import Navbar from "../../components/Navbar.jsx";
+import { BASE_URL } from "config.js";
 
 const TourGuidersUIPage = () => {
   const [tourGuides, setTourGuides] = useState([]);
@@ -18,7 +20,7 @@ const TourGuidersUIPage = () => {
 
   const fetchTourGuides = async () => {
     try {
-      const response = await fetch("http://localhost:5000/tourguides/");
+      const response = await fetch(`${BASE_URL}/tourguides/`);
       if (!response.ok) {
         throw new Error("Failed to fetch tour guides");
       }
@@ -47,26 +49,28 @@ const TourGuidersUIPage = () => {
 
   return (
     <>
+
+    <Navbar/>
       
       <div className="bg-bg1-20 flex flex-col font-inter items-center justify-start mx-auto pt-3 w-full">
        
-        <div className="h-[703px] mt-[10px] md:h-[500px] mx-auto md:px-5 relative  w-full">
+        <div className="h-[650px] mt-[10px] md:h-[500px] mx-auto md:px-5 relative  w-full">
          
-          <div className="absolute h-[703px] md:h-[500px] inset-[0] justify-center px-10 md:px-2 m-auto w-full">
+          <div className="absolute h-[650px] md:h-[500px] inset-[0] justify-center px-10 md:px-2 m-auto w-full">
 
             <Img
-              className="h-[800px] md:h-[600px] m-auto object-cover rounded-[30px] w-full"
+              className="h-[650px] md:h-[500px] m-auto object-cover rounded-[30px] w-full"
               src="images/img_rectangle4_1.png"
               alt="rectangleFour"
             />
-            <div className="absolute flex flex-col md:gap-10 gap-[399px] justify-start right-[8%] top-[30%] w-[76%] mt-[450px] md:mt-[70px]">
+            <div className="absolute flex flex-col  md:gap-10 gap-[399px] justify-start right-[8%] top-[30%] w-[76%] mt-[280px] md:mt-[-20px]">
                   <section>
                     <SearchBar/>
                   </section>
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-start justify-start max-w-[1334px] mt-[120px] md:mt-[150px] mx-auto md:px-5 w-full">
+        <div className="flex flex-col items-start justify-start max-w-[1334px] mt-[120px] md:mt-[80px] mx-auto md:px-5 w-full">
           <Text className="text-black-900_b2 text-xl" size="txtInterMedium20">
             Tour Guiders
           </Text>
@@ -90,7 +94,7 @@ const TourGuidersUIPage = () => {
                   alt={tourGuide.name}
                 />
                 <div className="absolute flex flex-col md:gap-50 gap-[280px] h-max inset-[0] justify-center m-auto w-[93%]">
-                  <div className="bg-gray-700_66_01 flex flex-row gap-2.5 items-center justify-end md:ml-[240px] sm:ml-[280px] ml-[188px] mr-1 p-[5px] rounded-[18px] w-[29%] md:w-[29%]">
+                  <div className="bg-gray-700_66_01 flex flex-row gap-2.5 items-center justify-end md:ml-[240px] sm:ml-[220px] ml-[188px] mr-1 p-[5px] rounded-[18px] w-[29%] md:w-[29%]">
                     <Img className="h-[21px] w-[22px]" src="images/img_star6.svg" alt="starSix" />
                     <Text className="mr-4 text-white-A700_01 text-xl" size="txtInterMedium20WhiteA70001">
                       {tourGuide.starRating}

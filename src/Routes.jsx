@@ -9,7 +9,7 @@ import AddPackagePublish from "pages/AddPackagePublish";
 import AddHotelData from "pages/AddHotelDetails/AddHotelData";
 import AddHotelPricing from "pages/AddHotelPricing/AddHotelPricing";
 import AddGuiderData from "pages/AddGuiderData/AddGuiderData";
-import AddVehicalData from "pages/AddVehicalVehical/AddVehicalData";
+import AddVehicalData from "pages/AddNewTransport/AddVehicalData";
 import AddVehicalPricing from "pages/AddVehicalPricing/AddVehicalPricing";
 import SignInPage from "pages/SignIn/SignIn";
 import EmailComformation from "pages/EmailComformation/EmailComformation";
@@ -25,10 +25,12 @@ import ChooseServiceProviders from "pages/ChooseServiceProviders/ChooseServicePr
 import NewTourPackage from "pages/NewTourPackage/NewTourPackage";
 import AddNewRoom from "pages/AddNewRoom/AddNewRoom";
 import AboutUs from "pages/About us/aboutus";
-import AddTranspotation from "pages/AddTranspotation/addTranspotation";
-import AddVehical from "pages/AddTranspotation/addTranspotation";
+import AddVehicle from "pages/AddVehical/addVehicle";
+import EditVehicle from "pages/AddVehical/editVehicle";
+import AddTranspotation from "pages/AddTranspotation/addTranportation";
 import Upload from "pages/fileUpload/upload"
 import TourGuideBooking from "pages/TourGuideBookig/tourguidebooking";
+import TransportBooking from "pages/TransportBooking/transportbooking";
 
 
 const HotelBookingpage = React.lazy(() => import("pages/HotelBookingpage"));
@@ -67,7 +69,7 @@ const ProjectRoutes = () => {
           <Route path="/tranportui" element={<TranportUIPage />} />
           <Route path="/tourguidersui" element={<TourGuidersUI />} />
           <Route path="/guidedetil/:id" element={<GuideDetail/>}/>
-          <Route path="/taxidetil" element={<TaxiDetail/>}/>
+          <Route path="/taxidetil" element={<TaxiDetail />} />  
           <Route path="/packagedetails/:id" element={<PackageDetails/>}/>
           <Route path="/medical" element={<Medical/>}/>
           <Route path="/signup" element={<Signup/>}/>
@@ -104,9 +106,11 @@ const ProjectRoutes = () => {
           <Route path="/add-new-room" element={<AddNewRoom/>}/>
           <Route path="/aboutus" element={<AboutUs/>}/>
           <Route path="/addtranspotation" element={<AddTranspotation/>}/>
-          <Route path="/addVehical" element={<AddVehical/>}/>
+          <Route path="/addVehical" element={<AddVehicle/>}/>
+          <Route path="/editVehical" element={<EditVehicle/>}/>
           <Route path="/upload" element={<Upload/>}/>
           <Route path="/tourguidebooking/:id" element={<TourGuideBooking/>}/>
+          <Route path="/transportbooking" element={<TransportBooking/>}/>
         </Routes>
       </Router>
     </React.Suspense>

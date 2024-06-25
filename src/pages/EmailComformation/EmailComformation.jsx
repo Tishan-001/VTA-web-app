@@ -7,6 +7,7 @@ import { Input } from "components/Input";
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
+import { BASE_URL } from "config";
 
 export default function EmailComformation() {
 
@@ -22,7 +23,7 @@ export default function EmailComformation() {
 
   const handleSubmit = async () => { 
     try {
-      const response = await fetch("http://localhost:5000/auth/register/email/verify", {
+      const response = await fetch(`${BASE_URL}/auth/register/email/verify`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
