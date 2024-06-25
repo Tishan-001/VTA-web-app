@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Button, Img, List, Text } from "components";
 import Footer from "components/Footer";
 import { Link } from "react-router-dom";
@@ -9,6 +9,9 @@ import VehicleCard from "./vehiclecard";
 const TransportUIPage = () => {
   const [transports, setTransports] = useState([]);
   const [vehicles, setVehicles] = useState([]);
+  const [filteredVehicles, setFilteredVehicles] = useState([]);
+  const [isSearchPerformed, setIsSearchPerformed] = useState(false);
+  const hotelListRef = useRef(null);
 
   useEffect(() => {
     fetchData();
@@ -22,12 +25,39 @@ const TransportUIPage = () => {
       }
       const data = await response.json();
       setVehicles(data);
-      
+      setFilteredVehicles(data); // Initially set filtered vehicles to all vehicles
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
 
+  const filterHotelListBylocation = async (location, startDate, endDate, category) => {
+    try {
+      const response = await fetch('http://localhost:5000/vehicle/available', {
+        method: 'GET', // Use POST instead of GET when sending a body
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          location: location,
+          bookingStartDate: startDate,
+          bookingEndDate: endDate,
+          category: category
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      setFilteredVehicles(data); // Update the state with the filtered vehicles
+      setIsSearchPerformed(true); // Set search performed to true
+      console.log('Filtered vehicles:', filteredVehicles); // Log the filtered vehicles for debugging
+    } catch (error) {
+      console.error('Failed to fetch filtered vehicles:', error);
+    }
+  };
 
   return (
     <>
@@ -41,7 +71,7 @@ const TransportUIPage = () => {
           />
           <section>
             <div className="absolute flex flex-col md:gap-10 gap-[402px] justify-start right-[1%] top-[80%] md:top-[28%] w-[85%]">
-              <SearchBar />
+              <SearchBar hotelListRef={hotelListRef} filterHotelListBylocation={filterHotelListBylocation} />
             </div>
           </section>
         </div>
@@ -84,8 +114,8 @@ const TransportUIPage = () => {
             Our Best Transportation
           </Text>
 
-          <div className="md:gap-5 gap-[61px] grid sm:grid-cols-1 md:grid-cols-2 grid-cols-4 justify-center min-h-[auto] mt-[45px] w-[105%] md:ml-[10px] md:w-full">
-            {vehicles.map((vehicle, index) => (
+          <div ref={hotelListRef} className="md:gap-5 gap-[61px] grid sm:grid-cols-1 md:grid-cols-2 grid-cols-4 justify-center min-h-[auto] mt-[45px] w-[105%] md:ml-[10px] md:w-full">
+            {(isSearchPerformed ? filteredVehicles : vehicles).map((vehicle, index) => (
               <VehicleCard key={index} vehicle={vehicle} />
             ))}
           </div>

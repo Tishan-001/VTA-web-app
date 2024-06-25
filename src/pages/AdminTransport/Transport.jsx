@@ -104,6 +104,10 @@ export default function ArticalPage(...props) {
   const handleEdit = (vehicle)=>{
     navigate("/editVehical",{ state: { vehicle }});
   }
+  const handleSignout = () => {
+    localStorage.clear(); // Clear localStorage or session-related data
+    navigate("/login"); // Redirect to sign-in page
+  };
   const handleDelete = async (vehicle) => {
     try {
 
@@ -202,6 +206,7 @@ export default function ArticalPage(...props) {
                           <a
                             href="#"
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            onClick={handleSignout}
                           >
                             Sign out
                           </a>

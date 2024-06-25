@@ -10,6 +10,7 @@ export default function AddVehicle() {
     const [features, setFeatures] = useState(['']); // Initialize with one empty feature input
     const [price, setPrice] = useState('');
     const [media, setMedia] = useState('');
+    const [location,setLocation]=useState('');
     const navigate = useNavigate();
 
     const handleUpload = async (files) => {
@@ -53,6 +54,7 @@ export default function AddVehicle() {
                     vehicleCategory: vehicleCategory,
                     photo: media,
                     price: price,
+                    location: location,
                     features: features // Ensure features is an array
                 })
             });
@@ -103,6 +105,11 @@ export default function AddVehicle() {
                     <div className="mb-10">
                         <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="mobile">Vehicle Category</label>
                         <input className="border-b border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500" id="mobile" type="text" placeholder="Vehicle Category" onChange={(e) => setVehicleCategory(e.target.value)} value={vehicleCategory} />
+                        <hr className="mt-1 border-t-2 border-gray-300" />
+                    </div>
+                    <div className="mb-10">
+                        <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="mobile">Location</label>
+                        <input className="border-b border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500" id="mobile" type="text" placeholder="Vehicle Category" onChange={(e) => setLocation(e.target.value)} value={location} />
                         <hr className="mt-1 border-t-2 border-gray-300" />
                     </div>
 
