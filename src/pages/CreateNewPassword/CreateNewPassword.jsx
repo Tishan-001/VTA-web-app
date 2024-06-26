@@ -13,6 +13,7 @@ import { BASE_URL } from "config";
 export default function NewPassword() {
 
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const navigate = useNavigate();
 
@@ -69,27 +70,33 @@ export default function NewPassword() {
             </Heading>
 
             <Text className="mb-5 w-[400px]">Enter the email address associated with your account to initiate the password recovery process. We'll send you instructions on how to reset your password shortly.</Text>
+            <div className="flex flex-col justify-center items-center text-center">
             <Input
                 color="deep_purple_400"
                 shape="square"
                 type="password"
-                name="name"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="New Password"
-                className="w-[400px] sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
+                className="w-[400px] sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-gray-300"
               />
               <Input
                 color="deep_purple_400"
                 shape="square"
                 type="password"
-                name="name"
+                value={confirmPassword}
+                name="conformPassword"
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="Re-enter Password"
-                className="w-[400px] sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
+                className="w-[400px] sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-gray-300"
               />
+            </div>
 
 
 
             <Button onClick={handleSubmit} size="xl" color="bg-deep_purple-400" as="h2" className="!text-white-A700 mt-5 w-[150px] bg-[#854a9bcc] p-3 rounded-[5px] tracking-[3.60px]">
-                Submit
+              Save
             </Button>
             
             

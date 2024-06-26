@@ -77,6 +77,31 @@ const TransportBooking = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if(!firstName) {
+      message.error("Please enter your first name");
+    }
+    if(!lastName) {
+      message.error("Please enter your last name");
+    }
+    if(!contactNo) {
+      message.error("Please enter your contact number");
+    }
+    if(!bookingStartDate) {
+      message.error("Please enter your booking start date");
+    }
+    if(!bookingEndDate) {
+      message.error("Please enter your booking end date");
+    }
+    if(!pickUpLocation) {
+      message.error("Please enter your pick up location");
+    }
+    if(!dropOffLocation) {
+      message.error("Please enter your drop off location");
+    }
+    if(!totalCost) {
+      message.error("Please enter your total cost");
+    }
+
     const requestBody = {
       userName: firstName + lastName,
       contactNo : contactNo,

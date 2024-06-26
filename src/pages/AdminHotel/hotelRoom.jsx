@@ -11,6 +11,7 @@ import { TextArea } from "components/TextArea";
 import Sidebar1 from "components/Sidebar1";
 import { articleData } from "../../assets/data/articleData";
 import { message } from "antd";
+import { BASE_URL } from "config";
 
 export default function ArticalPage(...props) {
   const [searchBarValue, setSearchBarValue] = React.useState("");
@@ -34,7 +35,7 @@ export default function ArticalPage(...props) {
 
   const fetchHotelData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/hotels/get", {
+      const response = await fetch(`${BASE_URL}/hotels/get`, {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -49,7 +50,7 @@ export default function ArticalPage(...props) {
 
   const fetchRooms = async () => {
     try {
-      const response = await fetch("http://localhost:5000/hotels/get/rooms", {
+      const response = await fetch(`${BASE_URL}/hotels/get/rooms`, {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -64,7 +65,7 @@ export default function ArticalPage(...props) {
 
   const deleteRoom = async (roomId) => {
     try {
-      const response = await fetch(`http://localhost:5000/hotels/delete/room/${roomId}`, {
+      const response = await fetch(`${BASE_URL}/hotels/delete/room/${roomId}`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${token}`, 
