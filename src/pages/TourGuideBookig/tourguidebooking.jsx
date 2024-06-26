@@ -101,6 +101,47 @@ const TourGuideBooking=()=> {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if(!firstName) {
+      message.error("Please enter your first name");
+      return;
+    }
+    if(!lastName) {
+      message.error("Please enter your last name");
+      return;
+    }
+    if(!email) {
+      message.error("Please enter your email");
+      return;
+    }
+    if(!phoneNumber) {
+      message.error("Please enter your phone number");
+      return;
+    }
+    if(!arrivalDate) {
+      message.error("Please enter your arrival date");
+      return;
+    }
+    if(!departureDate) {
+      message.error("Please enter your departure date");
+      return;
+    }
+    if(!totalCost) {
+      message.error("Please enter your total cost");
+      return;
+    }
+    if(!special) {
+      message.error("Please enter your special request");
+      return;
+    }
+    if(!arrivalTime) {
+      message.error("Please enter your arrival time");
+      return;
+    }
+    if(!departureTime) {
+      message.error("Please enter your departure time");
+      return;
+    }
+
     const requestBody = {
       tourGuideId: id,
       startDate: arrivalDate,

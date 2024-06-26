@@ -5,9 +5,49 @@ import { Button, Img, Line, List, Text } from "components";
 import { Heading } from "components/Heading1";
 import { Input } from "components/Input";
 import { useState } from 'react';
+import { message } from "antd";
+import { useNavigate, useParams } from "react-router-dom";
+import { BASE_URL } from "config";
 
 
 export default function NewPassword() {
+
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const navigate = useNavigate();
+
+  const token = useParams().token
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(`${BASE_URL}/auth/forgot/password`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          password: password,
+        }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        console.log(data);
+        navigate("/");
+        message.success("Password changed successfully");
+      } else {
+        // Handle error response, e.g., display error message to the user 
+        console.error("Error:", data.message);
+        message.error(data.message);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      message.error("Error sending email");
+    }
+  };
 
   return (
     <>
@@ -30,27 +70,33 @@ export default function NewPassword() {
             </Heading>
 
             <Text className="mb-5 w-[400px]">Enter the email address associated with your account to initiate the password recovery process. We'll send you instructions on how to reset your password shortly.</Text>
+            <div className="flex flex-col justify-center items-center text-center">
             <Input
                 color="deep_purple_400"
                 shape="square"
                 type="password"
-                name="name"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="New Password"
-                className="w-[400px] sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
+                className="w-[400px] sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-gray-300"
               />
               <Input
                 color="deep_purple_400"
                 shape="square"
                 type="password"
-                name="name"
+                value={confirmPassword}
+                name="conformPassword"
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="Re-enter Password"
-                className="w-[400px] sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
+                className="w-[400px] sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-gray-300"
               />
+            </div>
 
 
 
-            <Button size="xl" color="bg-deep_purple-400" as="h2" className="!text-white-A700 mt-5 w-[150px] bg-[#854a9bcc] p-3 rounded-[5px] tracking-[3.60px]">
-                Sign in
+            <Button onClick={handleSubmit} size="xl" color="bg-deep_purple-400" as="h2" className="!text-white-A700 mt-5 w-[150px] bg-[#854a9bcc] p-3 rounded-[5px] tracking-[3.60px]">
+              Save
             </Button>
             
             
@@ -99,4 +145,5 @@ export default function NewPassword() {
       
     </>
   );
+
 }

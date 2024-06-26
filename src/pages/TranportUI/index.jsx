@@ -17,7 +17,6 @@ const TransportUIPage = () => {
 
   useEffect(() => {
     fetchData();
-    
   }, []);
 
   const fetchData = async () => {
@@ -36,7 +35,7 @@ const TransportUIPage = () => {
 
   const filterHotelListBylocation = async (location, startDate, endDate, category) => {
     try {
-      const response = await fetch('http://localhost:5000/vehicle/available', {
+      const response = await fetch(`${BASE_URL}/vehicle/available`, {
         method: 'POST', // Use POST instead of GET when sending a body
         headers: {
           'Content-Type': 'application/json'
@@ -61,6 +60,7 @@ const TransportUIPage = () => {
       console.error('Failed to fetch filtered vehicles:', error);
     }
   };
+
 
   return (
     <>

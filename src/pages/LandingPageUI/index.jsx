@@ -42,18 +42,18 @@ const LandingPageUIPage = () => {
     fetchData();
   }, []);
 
-  const fetchTransportCount = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/transports/count");
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      const data = await response.json();
-      setTranceportCount(data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+  // const fetchTransportCount = async () => {
+  //   try {
+  //     const response = await fetch("http://localhost:5000/transports/count");
+  //     if (!response.ok) {
+  //       throw new Error("Failed to fetch data");
+  //     }
+  //     const data = await response.json();
+  //     setTranceportCount(data);
+  //   } catch (error) {
+  //     console.error("Error fetching data:", error);
+  //   }
+  // };
 
   const fetchHotelCount = async () => {
     try {

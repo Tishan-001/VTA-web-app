@@ -3,6 +3,7 @@ import { Button } from "components/Button_Second";
 import { Heading } from "components/Heading1";
 import { Text } from "components";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "config";
 
 export default function ArticalPage(...props) {
   const [searchBarValue, setSearchBarValue] = React.useState("");
@@ -29,7 +30,7 @@ export default function ArticalPage(...props) {
 
   const fetchHotelData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/hotels/get", {
+      const response = await fetch(`${BASE_URL}/hotels/get`, {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -44,7 +45,7 @@ export default function ArticalPage(...props) {
 
   const fetchBookingData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/hotel-booking/get-bookings", {
+      const response = await fetch(`${BASE_URL}/hotel-booking/get-bookings`, {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -254,20 +255,20 @@ export default function ArticalPage(...props) {
                               <tr key={index}>
                                 <div className="flex flex-col gap-[15px] p-2.5">
                                   <div className="flex md:flex-col items-end  mr-[20px] flex-1">
-                                    <td className="ml-[220px]">
+                                    <td className="ml-[220px] w-[300px]">
                                       {booking.userFirstName}
                                     </td>
   
-                                    <td className="ml-[260px]">
+                                    <td className="ml-[20px] w-[300px]">
                                       {booking.userLastName}
                                     </td>
-                                    <td className="ml-[210px]">
+                                    <td className="ml-[-10px] w-[300px]">
                                       {booking.roomName}
                                     </td>
   
                                     <div className="flex justify-center  gap-2">
                                       <td>
-                                        <div className="flex justify-center ml-[180px] gap-3">
+                                        <div className="flex justify-center ml-[-10px] gap-3">
                                           <Button
                                             onClick={() => togglePopup(booking)}
                                             className="flex items-center justify-center w-[100px] h-[40px] bg-green-500 rounded-[5px]"

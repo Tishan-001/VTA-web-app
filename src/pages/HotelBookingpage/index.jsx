@@ -146,7 +146,7 @@ const HotelBookingpagePage = () => {
 
   const filterHotelListByDestination = async (destination, checkInDate, checkOutDate) => {
     try {
-      const response = await fetch('${BASE_URL}/hotels/get/filter/hotel', {
+      const response = await fetch(`${BASE_URL}/hotels/get/filter/hotel`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
