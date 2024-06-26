@@ -138,7 +138,7 @@ export default function ArticalPage(...props) {
                         <li>
                           <a
                             href="/new-hotel-add"
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white-A700"
                           >
                             Create Profile
                           </a>
@@ -146,14 +146,14 @@ export default function ArticalPage(...props) {
                         <li>
                           <a
                             href="/update-hotel"
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white-A700"
                           >
                             Edit Profile
                           </a>
                         </li>
                         <li>
                           <a
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white-A700"
                             onClick={handleSignout}
                           >
                             Sign out
@@ -177,11 +177,11 @@ export default function ArticalPage(...props) {
                       <thead>
                         <tr>
                           <div className="flex md:flex-col justify-center items-center mb-[5px] mr-[120px]">
-                            <div className="flex self-start justify-center items-center ml-[150px] gap-[11px]">
+                            <div className="flex self-start justify-center items-center ml-[120px] gap-[20px]">
                               <th>Hotel Rooms</th>
                             </div>
 
-                            <div className="flex self-start justify-center items-center ml-[100px] gap-[20px]">
+                            <div className="flex self-start justify-center items-center ml-[150px] gap-[20px]">
                               <th>Image</th>
                             </div>
 
@@ -221,21 +221,25 @@ export default function ArticalPage(...props) {
                             rooms.map((room) => (
                               <tr key={room.id}>
                                 <div className="flex flex-col gap-[px] p-2.5">
-                                  <div className="flex md:flex-col items-end mr-[20px] flex-1">
-                                    <td className="ml-[140px]">{room.name}</td>
-                                    <td className="ml-[100px]" >
+                                  <div className="flex md:flex-col items-end ml-[80px]  flex-1">
+                                    <div> 
+                                    <td className="w-[200px]">{room.name}</td>
+                                    </div>
+                                    <div className="ml-[100px]"> 
+                                    <td className="" >
                                       <img
                                         src={room.photo}
                                         alt="room"
                                         className="w-[37px] object-cover rounded-[5px]"
                                       />
                                     </td>
+                                    </div>
                                     <td className="ml-[142px]">{room.price}</td>
                                     <td className="ml-[145px]">{room.bedCount}</td>
-                                    <td>
+                                    <td className="w-[300px]">
                                       {room.isAvailable ? (
                                         <span
-                                        className="ml-[190px]"
+                                        className="ml-[190px] "
                                           style={{
                                             display: "block",
                                             backgroundColor: "green",
@@ -265,7 +269,7 @@ export default function ArticalPage(...props) {
                                         </span>
                                       )}
                                     </td>
-                                    <div className="flex justify-center gap-2 ml-[40px]">
+                                    <div className="flex justify-center gap-2 ml-[10px]">
                                       <td>
                                         <div className="flex justify-center ml-[90px] gap-3">
                                           <Button className="flex items-center justify-center h-[28px] w-[28px] bg-green-500 rounded-[5px]">

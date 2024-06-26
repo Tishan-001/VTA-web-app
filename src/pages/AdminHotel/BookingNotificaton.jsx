@@ -255,20 +255,20 @@ export default function ArticalPage(...props) {
                               <tr key={index}>
                                 <div className="flex flex-col gap-[15px] p-2.5">
                                   <div className="flex md:flex-col items-end  mr-[20px] flex-1">
-                                    <td className="ml-[220px]">
+                                    <td className="ml-[220px] w-[300px]">
                                       {booking.userFirstName}
                                     </td>
   
-                                    <td className="ml-[260px]">
+                                    <td className="ml-[20px] w-[300px]">
                                       {booking.userLastName}
                                     </td>
-                                    <td className="ml-[210px]">
+                                    <td className="ml-[-10px] w-[300px]">
                                       {booking.roomName}
                                     </td>
   
                                     <div className="flex justify-center  gap-2">
                                       <td>
-                                        <div className="flex justify-center ml-[180px] gap-3">
+                                        <div className="flex justify-center ml-[-10px] gap-3">
                                           <Button
                                             onClick={() => togglePopup(booking)}
                                             className="flex items-center justify-center w-[100px] h-[40px] bg-green-500 rounded-[5px]"
