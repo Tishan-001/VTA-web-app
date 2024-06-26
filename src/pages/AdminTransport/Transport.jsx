@@ -252,12 +252,24 @@ export default function ArticalPage(...props) {
                          <div className="flex md:flex-col justify-center items-center mb-[5px] mr-[120px]">
                             <div className="flex self-start justify-center items-center ml-[32px] gap-[11px]">
                               
-                              <th >Vehicles</th>
+                              <th >Vehicle</th>
                             </div>
 
                             <div className="flex self-start justify-center items-center ml-[100px] gap-[20px]">
                               
                               <th >Image</th>
+                            </div>
+                            <div className="flex self-start justify-center items-center ml-[100px] gap-[20px]">
+                              
+                              <th >Category</th>
+                            </div>
+                            <div className="flex self-start justify-center items-center ml-[80px] gap-[20px]">
+                              
+                              <th >Location</th>
+                            </div>
+                            <div className="flex self-start justify-center items-center ml-[80px] gap-[20px]">
+                              
+                              <th >Price</th>
                             </div>
                             
 
@@ -268,28 +280,7 @@ export default function ArticalPage(...props) {
                               </Heading>
                             </div> */}
 
-                            <div className="flex self-start justify-center items-center ml-[110px] gap-[11px]">
-                            <Img
-                                src="images/img_like_1_1.png"
-                                alt="like1one_one"
-                                className="self-start w-[15px] object-cover"
-                              />
-                              <Heading as="h5" className="ml-[13px]">
-                              <th >Rating</th>
-                              </Heading>
-                            </div>
-
-                            <div className="flex self-start justify-center items-center ml-[150px] gap-[11px]">
-                            <Img
-                                src="images/img_share_1_1.png"
-                                alt="share1one_one"
-                                className="self-start w-[15px] object-cover"
-                              />
-                              <Heading as="h5" className="ml-[13px]">
-                              <th >Status</th>
-                              </Heading>
-                              
-                            </div>
+                         
 
                             <div className="flex self-start justify-center items-center ml-[150px] gap-[11px]">
                               
@@ -316,10 +307,13 @@ export default function ArticalPage(...props) {
                               <div className="flex md:flex-col justify-center items-end  mr-[20px] flex-1">
                               
                               <td style={{ width: "180px" }}>{vehicle.type}</td>
-                        <td style={{ width: "200px" }}>
+                        <td style={{ width: "150px" }}>
                           <img src={vehicle.photo} alt="article" className="w-[37px] object-cover rounded-[5px]" />
                         </td>
-                        <td style={{ width: "190px" }}>{vehicle.ratings}</td>
+                        <td style={{ width: "150px" }}>{vehicle.vehicleCategory}</td>
+                        <td style={{ width: "150px" }}>{vehicle.location}</td>
+                        <td style={{ width: "150px" }}>{vehicle.price}</td>
+                        
                         <td style={{ width: "100px" }}>
                           {/* {article.Status === "Availabel" ? (
                             <span style={{ display: "block", backgroundColor: "green", padding: "3px", borderRadius: "5px", color: "white",width:"100%" }}>

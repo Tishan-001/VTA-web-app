@@ -196,7 +196,7 @@ export default function ArticalPage(...props) {
                       as="h2"
                       className="mt-1 ml-[100px]"
                     >
-                      Depature Date and Time :
+                      Depature Date and Time : 
                     </Heading>
                   </div>
 
@@ -308,11 +308,27 @@ export default function ArticalPage(...props) {
                               <th>Name</th>
                             </div>
 
-                            <div className="flex self-start justify-center items-center  ml-[110px] gap-[11px]">
+                            <div className="flex self-start justify-center items-center  ml-[90px] gap-[11px]">
                               <Heading as="h5" className="ml-[13px]">
-                                <th>Room No</th>
+                                <th>Booking Start</th>
                               </Heading>
                             </div>
+                            <div className="flex self-start justify-center items-center  ml-[90px] gap-[11px]">
+                              <Heading as="h5" className="ml-[13px]">
+                                <th>Booking End</th>
+                              </Heading>
+                            </div>
+                            <div className="flex self-start justify-center items-center  ml-[60px] gap-[11px]">
+                              <Heading as="h5" className="ml-[13px]">
+                                <th>Pick Up</th>
+                              </Heading>
+                            </div>
+                            <div className="flex self-start justify-center items-center  ml-[50px] gap-[11px]">
+                              <Heading as="h5" className="ml-[13px]">
+                                <th>Drop Off</th>
+                              </Heading>
+                            </div>
+
 
                             <div className="flex self-start justify-center items-center ml-[140px] gap-[11px]">
                               <th></th>
@@ -355,7 +371,7 @@ export default function ArticalPage(...props) {
 
                                   <div className="flex justify-center  gap-2">
                                     <td>
-                                      <div className="flex justify-center ml-[90px] gap-3">
+                                      <div className="flex justify-center ml-[20px] gap-3">
                                         <Button
                                           onClick={togglePopup}
                                           className="flex items-center justify-center w-[100px] h-[40px] bg-green-500 rounded-[5px]"
