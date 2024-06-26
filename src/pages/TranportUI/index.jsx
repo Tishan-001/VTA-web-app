@@ -16,13 +16,9 @@ const TransportUIPage = () => {
   const hotelListRef = useRef(null);
 
   useEffect(() => {
-    if(!isSearchPerformed){
-      fetchData();
-    }else{
-      setVehicles(filteredVehicles);
-    }
+    fetchData();
     
-  }, [isSearchPerformed]);
+  }, []);
 
   const fetchData = async () => {
     try {
@@ -41,7 +37,7 @@ const TransportUIPage = () => {
   const filterHotelListBylocation = async (location, startDate, endDate, category) => {
     try {
       const response = await fetch('http://localhost:5000/vehicle/available', {
-        method: 'GET', // Use POST instead of GET when sending a body
+        method: 'POST', // Use POST instead of GET when sending a body
         headers: {
           'Content-Type': 'application/json'
         },
@@ -60,7 +56,7 @@ const TransportUIPage = () => {
       const data = await response.json();
       setFilteredVehicles(data); // Update the state with the filtered vehicles
       setIsSearchPerformed(true); // Set search performed to true
-      console.log('Filtered vehicles:', filteredVehicles); // Log the filtered vehicles for debugging
+      console.log('Filtered vehicles:', data); // Log the filtered vehicles for debugging
     } catch (error) {
       console.error('Failed to fetch filtered vehicles:', error);
     }
