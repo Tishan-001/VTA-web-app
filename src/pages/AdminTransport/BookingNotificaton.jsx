@@ -333,15 +333,24 @@ export default function ArticalPage(...props) {
                             <tr key={index}>
                               <div className="flex flex-col gap-[15px] p-2.5">
                                 <div className="flex md:flex-col justify-center items-end  mr-[20px] flex-1">
-                                  <td style={{ width: "300px" }}>
+                                <td style={{ width: "300px" }}>
+                                    {booking.userEmail}
+                                  </td>
+                                <td style={{ width: "200px" }}>
+                                    {booking.userName}
+                                  </td>
+                                  <td style={{ width: "150px" }}>
                                     {booking.bookingStartDate}
                                   </td>
 
-                                  <td style={{ width: "190px" }}>
+                                  <td style={{ width: "150px" }}>
                                     {booking.bookingEndDate}
                                   </td>
-                                  <td style={{ width: "190px" }}>
-                                    {booking.likes}
+                                  <td style={{ width: "100px" }}>
+                                    {booking.pickUpLocation}
+                                  </td>
+                                  <td style={{ width: "100px" }}>
+                                    {booking.dropOffLocation}
                                   </td>
 
                                   <div className="flex justify-center  gap-2">
