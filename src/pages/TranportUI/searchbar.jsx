@@ -21,7 +21,7 @@ const SearchBar = ({ hotelListRef, filterHotelListBylocation }) => {
         hotelListRef.current.scrollIntoView({ behavior: 'smooth' });
     }
     if (location.trim() !== "" || bookingStartDate !== "" || bookingEndDate !== "") {
-      filterHotelListBylocation(location, bookingStartDate, bookingEndDate,category); // Call the filter function
+      filterHotelListBylocation(location, bookingStartDate, bookingEndDate,category.toUpperCase()); // Call the filter function
     }
   };
 
