@@ -7,6 +7,8 @@ import Img16 from "../../assets/images/img_double_bed_1.png"
 import { message } from "antd";
 import Navbar from "components/Navbar";
 import TBook1 from "../../assets/images/GBBooking.jpg"
+import { BASE_URL } from "config";
+
 
 const TourGuideBooking=()=> {
   const { id } = useParams();
@@ -19,7 +21,7 @@ const TourGuideBooking=()=> {
 
   // Fetch hotel and room data based on roomId
   useEffect(() => {
-    fetch(`http://localhost:5000/tourguides/tourguide/${id}`, {
+    fetch(`${BASE_URL}/tourguides/tourguide/${id}`, {
       method: 'GET'
     })
       .then((response) => response.json())
@@ -114,7 +116,7 @@ const TourGuideBooking=()=> {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/tour-guide-booking/create", {
+      const response = await fetch(`${BASE_URL}/tour-guide-booking/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -7,6 +7,7 @@ import { Heading } from "components/Heading1";
 import image2 from "../../../src/assets/images/eye2.png";
 import useInterSection from '../SignIn/userInterSection';
 import { message } from "antd";
+import { BASE_URL } from "config";
 
 
 export default function SignUpPage() {
@@ -48,7 +49,7 @@ export default function SignUpPage() {
     }),
     onSubmit: async (values) => {
       try {
-        const response = await fetch("http://localhost:5000/auth/register/email", {
+        const response = await fetch(`${BASE_URL}/auth/register/email`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json"

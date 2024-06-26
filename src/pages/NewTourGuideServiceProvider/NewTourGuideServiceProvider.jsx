@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { message } from "antd";
+import { BASE_URL } from "config";
 
 export default function NewTourGuideServiceProvider() {
     const [name, setName] = useState('');
@@ -25,7 +26,7 @@ export default function NewTourGuideServiceProvider() {
             const formData = new FormData();
             formData.append("file", files[0]); // Assuming only one file is selected
 
-            const response = await fetch("http://localhost:5000/images/upload", {
+            const response = await fetch(`${BASE_URL}/images/upload`, {
                 method: "POST",
                 body: formData
             });
@@ -46,7 +47,7 @@ export default function NewTourGuideServiceProvider() {
     
     const handleSubmit = async () => {
         try {
-            const response = await fetch("http://localhost:5000/tourguides/register", {
+            const response = await fetch(`${BASE_URL}/tourguides/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

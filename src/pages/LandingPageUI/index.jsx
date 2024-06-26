@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 import Header from'../../components/Navbar.jsx';
 import Footer from "components/Footer";
 
+import { BASE_URL } from "config.js";
+
 
 import useInterSection from './Animation.jsx';
 
@@ -26,20 +28,18 @@ const LandingPageUIPage = () => {
   const { ref: guidersRef, inView: guidersInView } = useInView();
   const { ref: customerRef, inView: customerInView } = useInView();
   const { ref: tranceRef,inView:tranceInView}=useInView();
+  const [tourpackage, setTourpackage] = useState([]);
 
 
 
   const [contentRef, isContentVisible] = useInterSection({ threshold: 0.1 },true);
   
-
-
-   
-
   useEffect(() => {
     fetchHotelCount();
     fetGuidersCount();
     fetCustomerCount();
-    fetchTransportCount();
+    fetTranceportCount();
+    fetchData();
   }, []);
 
   const fetchTransportCount = async () => {
@@ -57,7 +57,7 @@ const LandingPageUIPage = () => {
 
   const fetchHotelCount = async () => {
     try {
-      const response = await fetch("http://localhost:5000/hotels/count");
+      const response = await fetch(`${BASE_URL}/hotels/count`);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -70,7 +70,7 @@ const LandingPageUIPage = () => {
 
   const fetGuidersCount = async () => {
     try {
-      const response = await fetch("http://localhost:5000/tourguides/count");
+      const response = await fetch(`${BASE_URL}/tourguides/count`);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -83,7 +83,7 @@ const LandingPageUIPage = () => {
 
   const fetCustomerCount = async () => {
     try {
-      const response = await fetch("http://localhost:5000/auth/count");
+      const response = await fetch(`${BASE_URL}/auth/count`);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -95,7 +95,7 @@ const LandingPageUIPage = () => {
   }
   const fetTranceportCount = async () => {
     try {
-      const response = await fetch("http://localhost:5000/tranceport/count");
+      const response = await fetch(`${BASE_URL}/transports/count`);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -105,6 +105,19 @@ const LandingPageUIPage = () => {
       console.error("Error fetching data:", error);
     }
   }
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`${BASE_URL}/tourpackage/`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const data = await response.json();
+      setTourpackage(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   return ( 
     <>
@@ -237,263 +250,70 @@ const LandingPageUIPage = () => {
               <div className="flex flex-col ml-5 mr-5 items-start justify-start w-full">
 
               <List
-
                 className="sm:flex-col   flex-row md:gap-10 gap-16 grid sm:grid-cols-1 md:grid-cols-2 grid-cols-4 justify-center mt-[70px] md:ml-[-15px] md:w-full  w-[100%] "
                 orientation="horizontal">
-
-
-                <div className="h-[400px] relative rounded-[20px] shadow-bs w-full duration-1000 transform hover:scale-105 cursor-pointer">
-                  <Img
-                    className="h-[400px] w-full m-auto object-cover rounded-[20px] sm:w-full "
-                    src="images/img_52.png"
-                    alt="FiftyTwo"
-                  />
-                  <div className="absolute flex flex-col  gap-[230px] md:gap-[200px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
-                    <div className="flex flex-row items-center mt-[10px] justify-between w-[97%] md:w-full" >
-                      <Button
-                        className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
-                        shape="round"
-                        color="gray_700_66"
-                        size="xs"
-                      >
-                        7 Days
-                      </Button>
-                      <div className="bg-gray-700_66 flex flex-row gap-2.5 items-center justify-center p-[5px] rounded-[18px]">
-                        <Img
-                          className="h-[21px] ml-[9px] w-[22px]"
-                          src="images/img_star6.svg"
-                          alt="starSix"
-                        />
-                        <Text
-                          className="mr-4 text-white-A700_01 text-xl"
-                          size="txtInterMedium20WhiteA70001"
+                  {tourpackage.slice(0, 4).map((tourpackage) => (
+                    <div className="h-[400px] relative rounded-[20px] shadow-bs w-full duration-1000 transform hover:scale-105 cursor-pointer">
+                    <Img
+                      className="h-[400px] w-full m-auto object-cover rounded-[20px] sm:w-full "
+                      src={tourpackage.image}
+                      alt="FiftyTwo"
+                    />
+                    <div className="absolute flex flex-col  gap-[230px] md:gap-[200px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
+                      <div className="flex flex-row items-center mt-[10px] justify-between w-[97%] md:w-full" >
+                        <Button
+                          className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
+                          shape="round"
+                          color="gray_700_66"
+                          size="xs"
                         >
-                          4.9
-                        </Text>
-                      </div>
-                    </div>
-
-
-                    <div className="bg-gray-600_99  flex flex-col items-center justify-end p-[11px] rounded-[20px] w-full ">
-                      <div className="flex flex-col items-start justify-start mt-[9px] w-[97%] md:w-full">
-                        <Text
-                          className="text-[15px] text-white-A700"
-                          size="txtInterLight15"
-                        >
-                          29 AUGUST - 29 AUGUST
-                        </Text>
-                        <div className="flex flex-row gap-[39px] items-start justify-between w-full">
+                          {tourpackage.duration}
+                        </Button>
+                        <div className="bg-gray-700_66 flex flex-row gap-2.5 items-center justify-center p-[5px] rounded-[18px]">
+                          <Img
+                            className="h-[21px] ml-[9px] w-[22px]"
+                            src="images/img_star6.svg"
+                            alt="starSix"
+                          />
                           <Text
-                            className="text-white-A700 text-xl"
-                            size="txtInterSemiBold20"
+                            className="mr-4 text-white-A700_01 text-xl"
+                            size="txtInterMedium20WhiteA70001"
                           >
-                            Minneriya National Park
-                          </Text>
-                          <Text
-                            className="text-white-A700 text-xl"
-                            size="txtInterMedium20WhiteA700"
-                          >
-                            $285
+                            {tourpackage.ratting}
                           </Text>
                         </div>
                       </div>
-                    </div>
-
-                  </div>
-
-                </div>
-
-                <div className="h-[400px] relative rounded-[20px] shadow-bs w-full duration-1000 transform hover:scale-105 cursor-pointer">
-
-                  <Img
-                    className="h-[400px] w-full m-auto object-cover rounded-[20px] sm:w-full "
-                    src="images/img_51.png"
-                    alt="FiftyOne"
-                  />
-
-                  <div className="absolute flex flex-col  gap-[230px] md:gap-[200px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
-                   
-                   
-                    <div className="flex flex-row items-center mt-[10px] justify-between w-[97%] md:w-full" >
-                      <Button
-                        className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
-                        shape="round"
-                        color="gray_700_66"
-                        size="xs"
-                      >
-                        7 Days
-                      </Button>
-
-                      
-                      <div className="bg-gray-700_66 flex flex-row gap-2.5 items-center justify-center p-[5px] rounded-[18px]">
-                        <Img
-                          className="h-[21px] ml-[9px] w-[22px]"
-                          src="images/img_star6.svg"
-                          alt="starSix"
-                        />
-                        <Text
-                          className="mr-4 text-white-A700_01 text-xl"
-                          size="txtInterMedium20WhiteA70001"
-                        >
-                          4.9
-                        </Text>
-                      </div>
-                      
-                    </div>
-
-
-                    <div className="bg-gray-600_99  flex flex-col items-center justify-end p-[11px] rounded-[20px] w-full">
-                      <div className="flex flex-col items-start justify-start mt-[9px] w-[97%] md:w-full">
-                        <Text
-                          className="text-[15px] text-white-A700"
-                          size="txtInterLight15"
-                        >
-                          29 AUGUST - 29 AUGUST
-                        </Text>
-                        <div className="flex flex-row gap-[39px] items-start justify-between w-full">
+  
+  
+                      <div className="bg-gray-600_99  flex flex-col items-center justify-end p-[11px] rounded-[20px] w-full ">
+                        <div className="flex flex-col items-start justify-start mt-[9px] w-[97%] md:w-full">
                           <Text
-                            className="text-white-A700 text-xl"
-                            size="txtInterSemiBold20"
+                            className="text-[15px] text-white-A700"
+                            size="txtInterLight15"
                           >
-                            Minneriya National Park
+                            {tourpackage.startDate} - {tourpackage.endDate}
                           </Text>
-                          <Text
-                            className="text-white-A700 text-xl"
-                            size="txtInterMedium20WhiteA700"
-                          >
-                            $285
-                          </Text>
+                          <div className="flex flex-row gap-[39px] items-start justify-between w-full">
+                            <Text
+                              className="text-white-A700 text-xl"
+                              size="txtInterSemiBold20"
+                            >
+                              {tourpackage.name}
+                            </Text>
+                            <Text
+                              className="text-white-A700 text-xl"
+                              size="txtInterMedium20WhiteA700"
+                            >
+                              ${tourpackage.price}
+                            </Text>
+                          </div>
                         </div>
                       </div>
+  
                     </div>
-
+  
                   </div>
-
-                </div>
-
-                <div className="h-[400px] relative rounded-[20px] shadow-bs w-full duration-1000 transform hover:scale-105 cursor-pointer">
-                  <Img
-                    className="h-[400px] w-full m-auto object-cover rounded-[20px] sm:w-full "
-                    src="images/img_52_500x380.png"
-                    alt="FiftyTwo"
-                  />
-                  <div className="absolute flex flex-col  gap-[230px] md:gap-[200px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
-                    <div className="flex flex-row items-center mt-[10px] justify-between w-[97%] md:w-full" >
-                      <Button
-                        className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
-                        shape="round"
-                        color="gray_700_66"
-                        size="xs"
-                      >
-                        7 Days
-                      </Button>
-                      <div className="bg-gray-700_66 flex flex-row gap-2.5 items-center justify-center p-[5px] rounded-[18px]">
-                        <Img
-                          className="h-[21px] ml-[9px] w-[22px]"
-                          src="images/img_star6.svg"
-                          alt="starSix"
-                        />
-                        <Text
-                          className="mr-4 text-white-A700_01 text-xl"
-                          size="txtInterMedium20WhiteA70001"
-                        >
-                          4.9
-                        </Text>
-                      </div>
-                      
-                    </div>
-
-
-                    <div className="bg-gray-600_99  flex flex-col items-center justify-end p-[11px] rounded-[20px] w-full">
-                      <div className="flex flex-col items-start justify-start mt-[9px] w-[97%] md:w-full">
-                        <Text
-                          className="text-[15px] text-white-A700"
-                          size="txtInterLight15"
-                        >
-                          29 AUGUST - 29 AUGUST
-                        </Text>
-                        <div className="flex flex-row gap-[39px] items-start justify-between w-full">
-                          <Text
-                            className="text-white-A700 text-xl"
-                            size="txtInterSemiBold20"
-                          >
-                            Minneriya National Park
-                          </Text>
-                          <Text
-                            className="text-white-A700 text-xl"
-                            size="txtInterMedium20WhiteA700"
-                          >
-                            $285
-                          </Text>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-
-
-                </div>
-
-                <div className="h-[400px] relative rounded-[20px] shadow-bs w-full duration-1000 transform hover:scale-105 cursor-pointer">
-                  <Img
-                    className="h-[400px] w-full m-auto object-cover rounded-[20px] sm:w-full "
-                    src="images/img_52.png"
-                    alt="FiftyTwo"/>
-                  <div className="absolute flex flex-col  gap-[230px] md:gap-[200px] h-max inset-[0] items-center justify-center m-auto w-[93%]">
-                    <div className="flex flex-row items-center mt-[10px] justify-between w-[97%] md:w-full" >
-                      <Button
-                        className="cursor-pointer font-medium leading-[normal] min-w-[100px] text-center text-xl"
-                        shape="round"
-                        color="gray_700_66"
-                        size="xs"
-                      >
-                        7 Days
-                      </Button>
-
-                      
-                      <div className="bg-gray-700_66 flex flex-row gap-2.5 items-center justify-center p-[5px] rounded-[18px]">
-                        <Img
-                          className="h-[21px] ml-[9px] w-[22px]"
-                          src="images/img_star6.svg"
-                          alt="starSix"
-                        />
-                        <Text
-                          className="mr-4 text-white-A700_01 text-xl"
-                          size="txtInterMedium20WhiteA70001"
-                        >
-                          4.9
-                        </Text>
-                      </div>
-                      
-                    </div>
-
-
-                    <div className="bg-gray-600_99  flex flex-col items-center justify-end p-[11px] rounded-[20px] w-full">
-                      <div className="flex flex-col items-start justify-start mt-[9px] w-[97%] md:w-full">
-                        <Text
-                          className="text-[15px] text-white-A700"
-                          size="txtInterLight15"
-                        >
-                          29 AUGUST - 29 AUGUST
-                        </Text>
-                        <div className="flex flex-row gap-[39px] items-start justify-between w-full">
-                          <Text
-                            className="text-white-A700 text-xl"
-                            size="txtInterSemiBold20"
-                          >
-                            Minneriya National Park
-                          </Text>
-                          <Text
-                            className="text-white-A700 text-xl"
-                            size="txtInterMedium20WhiteA700"
-                          >
-                            $285
-                          </Text>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  ))}
 
               </List>
 

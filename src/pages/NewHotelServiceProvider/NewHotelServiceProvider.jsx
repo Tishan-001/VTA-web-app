@@ -4,6 +4,7 @@ import ReactQuill from "react-quill";
 import { message } from "antd";
 import "react-quill/dist/quill.snow.css";
 import Upload from "../fileUpload/upload";
+import { BASE_URL } from "config";
 
 export default function NewHotemServiceProvider() {
 
@@ -33,7 +34,7 @@ export default function NewHotemServiceProvider() {
           formData.append("file", file);
       
           try {
-            const response = await fetch("http://localhost:5000/images/upload", {
+            const response = await fetch(`${BASE_URL}/images/upload`, {
               method: "POST",
               body: formData,
             });
@@ -70,7 +71,7 @@ export default function NewHotemServiceProvider() {
         };
 
         try {
-            const response = await fetch("http://localhost:5000/hotels/create", {
+            const response = await fetch(`${BASE_URL}/hotels/create`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

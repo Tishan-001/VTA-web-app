@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from '../../components/Navbar.jsx';
 import SearchBar from "./searchbar";
 import Navbar from "../../components/Navbar.jsx";
+import { BASE_URL } from "config.js";
 
 const TourGuidersUIPage = () => {
   const [tourGuides, setTourGuides] = useState([]);
@@ -19,7 +20,7 @@ const TourGuidersUIPage = () => {
 
   const fetchTourGuides = async () => {
     try {
-      const response = await fetch("http://localhost:5000/tourguides/");
+      const response = await fetch(`${BASE_URL}/tourguides/`);
       if (!response.ok) {
         throw new Error("Failed to fetch tour guides");
       }

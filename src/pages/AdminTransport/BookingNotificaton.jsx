@@ -11,6 +11,7 @@ import { TextArea } from "components/TextArea";
 
 import Sidebar1 from "components/Sidebar1";
 import { articleData } from "../../assets/data/articleData";
+import { BASE_URL } from "config";
 
 export default function ArticalPage(...props) {
   const [searchBarValue, setSearchBarValue] = React.useState("");
@@ -34,7 +35,7 @@ export default function ArticalPage(...props) {
   const token = localStorage.getItem('token');  
   useEffect(() => {
     if (token) {
-      fetch(`http://localhost:5000/transports/transport`,{
+      fetch(`${BASE_URL}/transports/transport`,{
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -70,7 +71,7 @@ export default function ArticalPage(...props) {
     handleGetBookings();
   }, [token]);
   const handleGetBookings= ()=>{
-    fetch(`http://localhost:5000/transport-booking/get-bookings-service`,{
+    fetch(`${BASE_URL}/transport-booking/get-bookings-service`,{
       headers: {
         'Authorization': `Bearer ${token}`,
       },
