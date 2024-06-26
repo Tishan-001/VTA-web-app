@@ -13,10 +13,6 @@ export default function NewHotemServiceProvider() {
     const token = localStorage.getItem('token');
     const navegate = useNavigate();
 
-    useEffect(() => {
-        fetchHotelData();
-    }, []);
-
     const [hotelData, setHotelData] = useState({
         name: '',
         address: '',
@@ -30,20 +26,24 @@ export default function NewHotemServiceProvider() {
         pricePerNight: '',
     });
 
-    const fetchHotelData = async () => {
-        try {
-          const response = await fetch(`${BASE_URL}/hotels/get`, {
-            method: "GET",
-            headers: {
-              "Authorization": `Bearer ${token}`,
+    useEffect(() => {
+        const fetchHotelData = async () => {
+            try {
+                const response = await fetch(`${BASE_URL}/hotels/get`, {
+                    method: "GET",
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                    }
+                });
+                const data = await response.json();
+                setHotelData(data);
+            } catch (error) {
+                console.error("Error fetching hotel data:", error);
             }
-          });
-          const data = await response.json();
-          setHotelData(data);
-        } catch (error) {
-          console.error("Error fetching hotel data:", error);
-        }
-      };
+        };
+
+        fetchHotelData();
+    }, [token]);
 
     const handleImageUpload = async (files) => {
         const uploadedImages = [];

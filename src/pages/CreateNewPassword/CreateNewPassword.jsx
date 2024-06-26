@@ -5,9 +5,48 @@ import { Button, Img, Line, List, Text } from "components";
 import { Heading } from "components/Heading1";
 import { Input } from "components/Input";
 import { useState } from 'react';
+import { message } from "antd";
+import { useNavigate, useParams } from "react-router-dom";
+import { BASE_URL } from "config";
 
 
 export default function NewPassword() {
+
+  const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
+
+  const token = useParams().token
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(`${BASE_URL}/auth/forgot/password`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          password: password,
+        }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        console.log(data);
+        navigate("/");
+        message.success("Password changed successfully");
+      } else {
+        // Handle error response, e.g., display error message to the user 
+        console.error("Error:", data.message);
+        message.error(data.message);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      message.error("Error sending email");
+    }
+  };
 
   return (
     <>
@@ -49,8 +88,8 @@ export default function NewPassword() {
 
 
 
-            <Button size="xl" color="bg-deep_purple-400" as="h2" className="!text-white-A700 mt-5 w-[150px] bg-[#854a9bcc] p-3 rounded-[5px] tracking-[3.60px]">
-                Sign in
+            <Button onClick={handleSubmit} size="xl" color="bg-deep_purple-400" as="h2" className="!text-white-A700 mt-5 w-[150px] bg-[#854a9bcc] p-3 rounded-[5px] tracking-[3.60px]">
+                Submit
             </Button>
             
             
@@ -99,4 +138,5 @@ export default function NewPassword() {
       
     </>
   );
+
 }

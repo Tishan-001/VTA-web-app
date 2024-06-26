@@ -16,6 +16,7 @@ const featureIcons = {
   "Vehicle Tracking": "/images/img_6881962_removebg_preview.png",
   "400L Space Available": "/images/img_th_removebg_preview_111x114.png",
   "2 Raincort": "/images/Raincoat.png",
+  "250 max speed": "/images/img_285_2857331_gas.png"
 
 };
 

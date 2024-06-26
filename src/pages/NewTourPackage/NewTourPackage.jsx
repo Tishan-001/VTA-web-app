@@ -28,10 +28,10 @@ export default function NewTourPackage() {
     const [description, setDescription] = useState("");
   
     const handleTextClick = (text, index) => {
-      const [date, reservation, description] = text.split(" - ");
+      const [place, date, reservation, description] = text.split(" - ");
       
       // Update the state with the extracted data
-      setUpdateFaqInputs([{ updatedate: date, updatereservation: reservation, updatedescription: description, index }]);
+      setUpdateFaqInputs([{updatedplace: place, updatedate: date, updatereservation: reservation, updatedescription: description, index }]);
       setShowAddFAQButton(false);
       
       setInputText(text); // Set the input text to the entire clicked text
@@ -87,15 +87,16 @@ export default function NewTourPackage() {
     
     
    const handleUpdate = () => {
-    const index = updatefaqInputs[0]?.index; 
+    const index = updatefaqInputs[0]?.index;
+    const updatedPlace = updatefaqInputs[0]?.updatedplace; 
     const updatedDate = updatefaqInputs[0]?.updatedate;  
     const updatedReservation = updatefaqInputs[0]?.updatereservation; 
     const updatedDescription = updatefaqInputs[0]?.updatedescription; 
   
-    if (index !== undefined && updatedDate !== undefined && updatedReservation !== undefined && updatedDescription !== undefined) {
+    if (index !== undefined && updatedPlace !== undefined && updatedDate !== undefined && updatedReservation !== undefined && updatedDescription !== undefined) {
       
       const updatedDisplayTexts = [...displayTexts];
-      updatedDisplayTexts[index] = `${updatedDate} - ${updatedReservation} - ${updatedDescription}`;
+      updatedDisplayTexts[index] = `${updatedPlace}` `${updatedDate} - ${updatedReservation} - ${updatedDescription}`;
       setDisplayTexts(updatedDisplayTexts);
   
       setUpdateFaqInputs([]);
@@ -147,6 +148,28 @@ export default function NewTourPackage() {
     console.log("timeplane",inputs)
 
     const handleSubmit = async () => {
+      if(!packageName) {
+        message.error("Please enter package name");
+      }
+      if(!startDate) {
+        message.error("Please enter start date");
+      }
+      if(!endDate) {
+        message.error("Please enter end date");
+      }
+      if(!description) {
+        message.error("Please enter description");
+      }
+      if(!coverImage) {
+        message.error("Please select cover image");
+      }
+      if(!galleryImages) {
+        message.error("Please select gallery images");
+      }
+      if(!price) {
+        message.error("Please enter price");
+      }
+
       try {
           const response = await fetch(`${BASE_URL}/tourpackage/create`, {
               method: "POST",
@@ -165,10 +188,11 @@ export default function NewTourPackage() {
                   image: coverImage,
                   price: price,
                   timePlaneList: inputs.map(input => ({
-                    id: input[0]?.id, 
+                    id: input[0]?.id,
+                    place: input[0]?.place, 
                     date: input[0]?.date, 
                     reservation: input[0]?.reservation, 
-                    description: input[0]?.description 
+                    description: input[0]?.describe
                   })),
                   gallery: galleryImages
               })
@@ -304,6 +328,12 @@ export default function NewTourPackage() {
                 {updatefaqInputs.map((updatefaq, index) => (
                 <div key={index} className="mt-4 flex flex-col">
                     <input
+                    value={updatefaq.updateplace || ''}
+                    onChange={(e) => handleAddInputs(index, "updateplace", e.target.value)}
+                    className="mt-2 border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:border-teal-400"
+                    placeholder="Enter updated place"
+                    />
+                    <input
                     value={updatefaq.updatedate || ''}
                     onChange={(e) => handleAddInputs(index, "updatedate", e.target.value)}
                     className="mt-2 border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:border-teal-400"
@@ -339,6 +369,13 @@ export default function NewTourPackage() {
                 )}
                 {faqInputs.map((faq, index) => (
                 <div key={index} className="mt-4 flex flex-col">
+                    <textarea
+                    value={faq.place}
+                    onChange={(e) => handleInputChange(index, "place", e.target.value)}
+                    placeholder="Place"
+                    rows={1}
+                    className="mt-2 border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:border-teal-400"
+                    />
                     <textarea
                     value={faq.date}
                     onChange={(e) => handleInputChange(index, "date", e.target.value)}

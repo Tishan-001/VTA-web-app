@@ -7,15 +7,24 @@ import { useLocation } from "react-router-dom";
 import { BASE_URL } from "config";
 
 export default function EditVehicle() {
+    
     const location = useLocation();
     const { vehicle } = location.state;
-
+    const vehicleCategories = [
+        "TUKTUK",
+        "CAR",
+        "VAN",
+        "BIKE",
+        "JEEP"
+      ];
     const [vehicleType, setVehicleType] = useState(vehicle.type);
     const [vehicleCategory, setVehicleCategory] = useState(vehicle.vehicleCategory);
     const [features, setFeatures] = useState(vehicle.features || []);
     const [price, setPrice] = useState(vehicle.price);
-    const [media, setMedia] = useState(vehicle.photo || ''); 
+    const [media, setMedia] = useState(vehicle.photo || '');
+    const [city,setCity]=useState(vehicle.location); 
     const [vehicleId, setVehicleId] = useState(vehicle.id);
+    const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
     const navigate = useNavigate();
 
     const handleUpload = async (files) => {
@@ -60,7 +69,7 @@ export default function EditVehicle() {
                     vehicleCategory: vehicleCategory,
                     photo: media,
                     price: price,
-                    features: features // Ensure features is an array
+                    features: [...features, ...selectedCheckboxes]
                 })
             });
 
@@ -77,6 +86,14 @@ export default function EditVehicle() {
 		}
     };
 
+    const handleCheckboxChange = (checkbox) => {
+        setSelectedCheckboxes((prevSelected) =>
+            prevSelected.includes(checkbox)
+                ? prevSelected.filter((item) => item !== checkbox)
+                : [...prevSelected, checkbox]
+        );
+    };
+
     const handleFeatureChange = (index, value) => {
         const newFeatures = [...features];
         newFeatures[index] = value;
@@ -84,7 +101,10 @@ export default function EditVehicle() {
     };
 
     const addFeature = () => {
-        setFeatures([...features, ""]);
+        // Check if the last item in features is not an empty string before adding a new one
+        if (features.length === 0 || features[features.length - 1] !== "") {
+            setFeatures([...features, ""]);
+        }
     };
 
     const removeFeature = (index) => {
@@ -112,26 +132,40 @@ export default function EditVehicle() {
                     </div>
 
                     <div className="mb-10">
-                        <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="mobile">Vehicle Category</label>
-                        <input className="border-b border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500" id="mobile" type="text" placeholder="Vehicle Category" onChange={(e) => setVehicleCategory(e.target.value)} value={vehicleCategory} />
+            <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="vehicleCategory">Vehicle Category</label>
+            <select
+              className="border-b border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
+              id="vehicleCategory"
+              value={vehicleCategory}
+              onChange={(e) => setVehicleCategory(e.target.value)}
+            >
+              <option value="">Select Vehicle Category</option>
+              {vehicleCategories.map((category, index) => (
+                <option key={index} value={category}>{category}</option>
+              ))}
+            </select>
+            <hr className="mt-1 border-t-2 border-gray-300" />
+          </div>
+                    <div className="mb-10">
+                        <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="mobile">Location</label>
+                        <input className="border-b border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500" id="mobile" type="text" placeholder="Vehicle Category" onChange={(e) => setCity(e.target.value)} value={city} />
                         <hr className="mt-1 border-t-2 border-gray-300" />
                     </div>
 
                     <div className="mb-10">
-                        <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="mobile">Features</label>
-                        {features.map((feature, index) => (
-                            <div key={index} className="flex items-center mb-2">
-                                <input
-                                    className="border-b border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
-                                    type="text"
-                                    placeholder="Feature"
-                                    value={feature}
-                                    onChange={(e) => handleFeatureChange(index, e.target.value)}
-                                />
-                                <button type="button" onClick={() => removeFeature(index)} className="ml-2 text-red-500">Remove</button>
-                            </div>
-                        ))}
-                        <button type="button" onClick={addFeature} className="mt-2 text-blue-500">Add Feature</button>
+                        <label className="block text-gray-700 text-2xl font-bold mb-2" htmlFor="checkbox-features">Additional Features</label>
+                        <div className="grid grid-cols-2 gap-2">
+                            {["Without Driver", "300km available fuel", "200km available fuel", "4 Seat Available", "Vehicle Tracking", "400L Space Available", "2 Raincort"].map((feature) => (
+                                <label key={feature} className="flex items-center">
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedCheckboxes.includes(feature)}
+                                        onChange={() => handleCheckboxChange(feature)}
+                                    />
+                                    <span className="ml-2 text-gray-700">{feature}</span>
+                                </label>
+                            ))}
+                        </div>
                     </div>
 
                     <div className="mb-10">
