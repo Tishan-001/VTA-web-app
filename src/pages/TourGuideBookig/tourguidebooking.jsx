@@ -325,10 +325,10 @@ const TourGuideBooking=()=> {
                   <div className="flex flex-col items-end justify-start w-[91%] mb-[29px] ml-5 mr-4 gap-0.5">
                     <div className="flex flex-col justify-between w-full">
                       <Text className="text-black-900 pt-[20px] ml-0.5"   size="">
-                        Price Per Day: LKR {value ? value : 0}.00
+                        Price Per Day: $ {value ? value : 0}.00
                       </Text>
                      <Text className="mt-[10px] text-2xl text-red-100 bold" size="txtInterBold60" as="p" >
-                      Total Cost: LKR {totalCost.toFixed(2)}
+                      Total Cost: $ {totalCost.toFixed(2)}
                     </Text>
                     <Text size="lg" as="p" className="mt-[10px] !text-black-900_99 !font-normal">
                       Includes taxes and charges

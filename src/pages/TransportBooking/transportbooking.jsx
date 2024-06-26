@@ -79,27 +79,35 @@ const TransportBooking = () => {
 
     if(!firstName) {
       message.error("Please enter your first name");
+      return;
     }
     if(!lastName) {
       message.error("Please enter your last name");
+      return;
     }
     if(!contactNo) {
       message.error("Please enter your contact number");
+      return;
     }
     if(!bookingStartDate) {
       message.error("Please enter your booking start date");
+      return;
     }
     if(!bookingEndDate) {
       message.error("Please enter your booking end date");
+      return;
     }
     if(!pickUpLocation) {
       message.error("Please enter your pick up location");
+      return;
     }
     if(!dropOffLocation) {
       message.error("Please enter your drop off location");
+      return
     }
     if(!totalCost) {
       message.error("Please enter your total cost");
+      return;
     }
 
     const requestBody = {
@@ -316,10 +324,10 @@ const TransportBooking = () => {
     <div className="flex flex-col items-end justify-start w-[91%] mb-[29px] ml-5 mr-4 gap-0.5">
       <div className="flex flex-col justify-between w-full">
         <Text className="text-black-900 pt-[20px] ml-0.5"   size="">
-          Price Per Night: LKR {value ? value : 0}.00
+          Price Per Night: $ {value ? value : 0}.00
         </Text>
        <Text className="mt-[10px] text-2xl text-red-100 bold" size="txtInterBold60" as="p" >
-        Total Cost: LKR {totalCost.toFixed(2)}
+        Total Cost: $ {totalCost.toFixed(2)}
       </Text>
       <Text size="lg" as="p" className="mt-[10px] !text-black-900_99 !font-normal">
         Includes taxes and charges

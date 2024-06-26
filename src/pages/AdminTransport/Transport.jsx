@@ -331,7 +331,7 @@ export default function ArticalPage(...props) {
                                   <td>
                                     <div className="flex justify-center ml-[90px] gap-3">
                                     <Button className="flex items-center justify-center h-[28px] w-[28px] bg-green-500 rounded-[5px]">
-                                        <Img src="images/img_group_34.png " className="w-[20px] h-[20px]" onClick={() => handleView(vehicle)}/>
+                                        <Img src="images/img_eye_1.png " className="w-[20px] h-[20px]" onClick={() => handleView(vehicle)}/>
                                       </Button>
                                       <Button className="flex items-center justify-center h-[28px] w-[28px] bg-green-500 rounded-[5px]">
                                         <Img src="images/img_group_34.png " className="w-[20px] h-[20px]" onClick={()=>handleEdit(vehicle)}/>

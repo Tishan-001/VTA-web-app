@@ -104,34 +104,42 @@ const FrameOne=()=> {
 
     if(!firstName) {
       message.error("Please enter your first name");
+      return;
     }
 
     if(!lastName) {
       message.error("Please enter your last name");
+      return;
     }
 
     if(!email) {
       message.error("Please enter your email");
+      return;
     }
 
     if(!phoneNumber) {
       message.error("Please enter your phone number");
+      return;
     }
 
     if(!arrivalDate) {
       message.error("Please enter your arrival date");
+      return;
     }
 
     if(!departureDate) {
       message.error("Please enter your departure date");
+      return;
     }
 
     if(!totalCost) {
       message.error("Please enter your total cost");
+      return;
     }
 
     if(!special) {
       message.error("Please enter your special request");
+      return;
     }
 
     const requestBody = {
@@ -434,10 +442,10 @@ const FrameOne=()=> {
                   <div className="flex flex-col items-end justify-start w-[91%]  mb-[29px] ml-5 md:ml-[120px] sm:ml-[20px] mr-4 gap-0.5">
                     <div className="flex flex-col justify-between w-full">
                       <Text className="text-black-900 pt-[20px] ml-0.5"   size="">
-                        Price Per Night: LKR {value ? value : 0}.00
+                        Price Per Night: $ {value ? value : 0}.00
                       </Text>
                      <Text className="mt-[10px] text-2xl hover: text-red-100 bold" size="txtInterBold60" as="p" >
-                      Total Cost: LKR {totalCost.toFixed(2)}
+                      Total Cost: $ {totalCost.toFixed(2)}
                     </Text>
                     <Text size="lg" as="p" className="mt-[10px] !text-black-900_99 !font-normal">
                       Includes taxes and charges

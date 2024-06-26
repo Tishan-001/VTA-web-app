@@ -70,7 +70,7 @@ const AllpackagesPageUIPage = () => {
               src="images/travel4.jpg"
               alt="rectangleFour"
             />
-            <div className="absolute flex flex-col md:gap-10 gap-[388px] justify-start align-middle left-[650px] top-[5%] w-[77%] mt-[450px] md:mt-[300px]">
+            <div className="absolute flex flex-col md:gap-10 gap-[388px] justify-start align-middle left-[650px] md:left-[65px] md:h-[250px] top-[5%] w-[77%] mt-[450px] md:mt-[300px]">
               <section>
                 <Searchbar filterHotelListByDestination={filterPackagesByDestination} />
               </section>
@@ -79,7 +79,7 @@ const AllpackagesPageUIPage = () => {
         </div>
 
         {/* Tour Packages */}
-        <div className="flex flex-col items-start justify-start max-w-[1271px] mt-[68px] mx-auto md:px-5 w-full">
+        <div className="flex flex-col items-start justify-start max-w-[1271px]  mt-[68px] mx-auto md:px-5 w-full">
           <Text className="text-black-900_b2 text-xl" size="txtInterMedium20Black900b2">
             Tour Packages
           </Text>
@@ -93,9 +93,9 @@ const AllpackagesPageUIPage = () => {
           )}
           <div className="gap-16 md:gap-5 grid sm:grid-cols-1 md:grid-cols-2 grid-cols-4 justify-center min-h-[auto] mt-[49px] w-[105%]  md:w-full md:ml-auto">
             {(filteredPackages.length > 0 ? filteredPackages : tourPackages).map((tourPackage) => (
-              <div key={tourPackage.id} className="hover:cursor-pointer h-[450px]  hover:relative relative rounded-[20px] hover:shadow-bs shadow-bs hover:w-full w-[100%]">
+              <div key={tourPackage.id} className="hover:cursor-pointer h-[450px]  hover:relative relative rounded-[20px] hover:shadow-bs sm:w-[90%] shadow-bs hover:w-full w-[100%]">
                 <Img
-                  className="h-[450px] m-auto object-cover rounded-[20px] w-full"
+                  className="h-[450px] m-auto object-cover rounded-[20px] w-full "
                   src={tourPackage.image}
                   alt={tourPackage.name}
                 />

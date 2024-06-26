@@ -305,7 +305,7 @@ export default function ArticalPage(...props) {
                               <th>Email</th>
                             </div>
 
-                            <div className="flex self-start justify-center items-center ml-[210px] gap-[20px]">
+                            <div className="flex self-start justify-center items-center ml-[290px] gap-[20px]">
                               <th>Name</th>
                             </div>
 

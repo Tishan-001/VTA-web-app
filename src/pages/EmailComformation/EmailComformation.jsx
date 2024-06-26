@@ -58,8 +58,8 @@ export default function EmailComformation() {
     <>
       
       
-      <div className="flex flex-row md:flex-col justify-center  bg-white-A700_01 items-center h-[700px] w-[70%] gap-[33px] left-0 bottom-0 right-0 top-0 m-auto md:gap-5 shadow-bs absolute rounded-[10px]">
-        <div className="relative w-[52%] h-[700px] md:w-full md:h-[544px] rounded-bl-[10px] rounded-tl-[10px] overflow-hidden">
+      <div className="flex flex-row md:flex-col justify-center  bg-white-A700_01 items-center h-[700px] w-[70%] md:h-[600px]  md:w-[95%] md:px-[10px] gap-[33px] left-0 bottom-0 right-0 top-0 m-auto md:gap-5 shadow-bs absolute rounded-[10px]">
+        <div className="relative w-[52%]  h-[700px] md:w-full md:h-[600px] rounded-bl-[10px] rounded-tl-[10px] overflow-hidden">
           <div className="absolute inset-0 bg-opacity-50 bg-[#854a9bcc]"></div>
           <Img
             src="images/img_signup_1.png"
@@ -74,7 +74,7 @@ export default function EmailComformation() {
               Sign Up Now
             </Heading>
 
-            <Text className="mb-5">An OTP has been send to your Email please verify it below</Text>
+            <Text className="mb-5 mt-[-200px]">An OTP has been send to your Email please verify it below</Text>
             <textarea
                 id="message"
                 name="message"
@@ -87,7 +87,7 @@ export default function EmailComformation() {
               Verify
             </Button>
             <Text size="lg" as="p" className="mt-5 !text-black-900">
-              <span className="text-black-900_66">Didn't Recieve OTP ?</span>
+              <span className="text-black-900_66 md:!text-[18px] mb:[-30px]">Didn't Recieve OTP ?</span>
               <span className="text-black-900"></span>
               <a href=""><span className="text-[#854a9bcc] "> Sign Up</span></a>
             </Text>
@@ -98,7 +98,7 @@ export default function EmailComformation() {
 
         
        
-        <div className="w-[80%] h-[250px]"> 
+        <div className="w-[80%] h-[250px] hidden"> 
         <div className="flex flex-col items-center justify-start w-[36%] h-max left-[15%] bottom-0 top-0 p-[31px] m-auto sm:p-5 rounded-tl-[10px] rounded-bl-[10px] absolute">
           <Text size="2xl" as="p" className="!text-white-A700">
             Virtual Travel Assistant
