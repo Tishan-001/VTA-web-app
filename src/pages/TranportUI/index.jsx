@@ -17,7 +17,6 @@ const TransportUIPage = () => {
 
   useEffect(() => {
     fetchData();
-    
   }, []);
 
   const fetchData = async () => {
@@ -61,6 +60,7 @@ const TransportUIPage = () => {
       console.error('Failed to fetch filtered vehicles:', error);
     }
   };
+
 
   return (
     <>
