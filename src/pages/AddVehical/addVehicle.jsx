@@ -78,7 +78,7 @@ export default function AddVehicle() {
             console.log("Response:", data);
             if (response.ok) {
                 alert("Data saved successfully");
-                //navigate("/admintransport");
+                navigate("/admintransport");
             } else {
                 console.error("Error:", data.error);
             }
