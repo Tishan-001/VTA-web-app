@@ -15,7 +15,7 @@ const VehicleCard = ({ vehicle}) => {
       />
       <div className="absolute flex flex-col md:gap-[252px] gap-[290px] h-max mt-[10px] inset-[0] justify-center m-auto w-[93%] :w-[] ">
         <div className="bg-gray-700_66_01 flex flex-row gap-2.5 sm:w-[30%]  sm:ml-[10px] items-center justify-end md:ml-[0] ml-[200px] mr-2 p-[5px] rounded-[18px] w-[29%] md:w-[29%]">
-          <Img
+          {/* <Img
             className="h-[21px] w-[22px]"
             src="images/img_star6_9.svg"
             alt="starSix"
@@ -25,7 +25,7 @@ const VehicleCard = ({ vehicle}) => {
             size="txtInterMedium20WhiteA70001"
           >
             {vehicle.ratings}
-          </Text>
+          </Text> */}
         </div>
         <div className="bg-gray-600_99 flex flex-col items-center justify-end p-3.5 rounded-[20px] w-full">
           <div className="flex flex-row items-start justify-between mt-[5px] w-[94%] md:w-full">

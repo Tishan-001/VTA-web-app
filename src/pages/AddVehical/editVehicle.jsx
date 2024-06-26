@@ -67,6 +67,7 @@ export default function EditVehicle() {
                     id: vehicleId,
                     type: vehicleType,
                     vehicleCategory: vehicleCategory,
+                    city: city,
                     photo: media,
                     price: price,
                     features: [...features, ...selectedCheckboxes]
