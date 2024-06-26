@@ -50,7 +50,7 @@ export default function Location() {
                           <div className="flex sm:flex-col justify-center gap-[20px] sm:gap-[20px] sm mt-[2px]">
                             <div className="h-[200px] relative  sm:h-[200px] sm:w-full  ">
                                     <Img
-                                    src="images/images/img_image_73.png"
+                                    src="images/images/image.png"
                                     alt="imageseventythr"
                                     className="h-[240px] w-[400px] object-cover rounded-[10px]  sm:h-[200px] sm:w-full "
                                   />
@@ -60,7 +60,7 @@ export default function Location() {
                                     color="gray_600_99"
                                     
                                   >
-                                    <Link to="/locationdetails"> Galle Fort{" "}</Link>
+                                    <Link> Sigiriya Lion Rock{" "}</Link>
                                   
                                   </Button>
                             </div>
@@ -86,7 +86,7 @@ export default function Location() {
                             <div className="h-[200px] relative  sm:h-[200px] sm:w-full ">
                                  
                                   <Img
-                                    src="images/images/img_image_73.png"
+                                    src="images/images/temple_of _Tooth.jpg"
                                     alt="imageseventythr"
                                     className="h-[240px] w-[400px] object-cover rounded-[10px]  sm:h-[200px] sm:w-full "
                                   />
@@ -96,7 +96,7 @@ export default function Location() {
                                     color="gray_600_99"
                                     
                                   >
-                                    <Link to="/locationdetails"> Galle Fort{" "}</Link>
+                                    <Link> Temple of the Tooth{" "}</Link>
                                   
                                   </Button>
                             </div>
@@ -113,7 +113,7 @@ export default function Location() {
                           <div className="flex sm:flex-col justify-center gap-[20px] mt-[2px]">
                             <div className="h-[200px] relative   sm:h-[200px] sm:w-full ">
                                     <Img
-                                    src="images/images/img_image_73.png"
+                                    src="images/images/Ella.jpg"
                                     alt="imageseventythr"
                                     className="h-[240px] w-[400px]  sm:h-[200px] sm:w-full  object-cover rounded-[10px]"
                                   />
@@ -123,7 +123,7 @@ export default function Location() {
                                     color="gray_600_99"
                                     
                                   >
-                                    <Link to="/locationdetails"> Galle Fort{" "}</Link>
+                                    <Link> Ella{" "}</Link>
                                   
                                   </Button>
                             </div>
@@ -133,7 +133,7 @@ export default function Location() {
                             <div className="h-[200px]  sm:h-[200px] sm:w-full  relative ">
                                  
                                   <Img
-                                    src="images/images/img_image_73.png"
+                                    src="images/images/Yala.jpeg"
                                     alt="imageseventythr"
                                     className="h-[240px] w-[400px]  sm:h-[200px] sm:w-full  object-cover rounded-[10px]"
                                   />
@@ -143,7 +143,7 @@ export default function Location() {
                                     color="gray_600_99"
                                     
                                   >
-                                    <Link to="/locationdetails"> Galle Fort{" "}</Link>
+                                    <Link> Yala National Park{" "}</Link>
                                   
                                   </Button>
                             </div>
@@ -151,7 +151,7 @@ export default function Location() {
 
                             <div className="h-[200px]   sm:h-[200px] sm:w-full  relative ">
                                   <Img
-                                    src="images/images/img_image_72.png"
+                                    src="images/images/NuwaraEliya.jpg"
                                     alt="imageseventytwo"
                                     className="w-[200px] h-[240px]   sm:h-[200px] sm:w-full  object-cover rounded-[10px]"
                                   />
@@ -161,7 +161,7 @@ export default function Location() {
                                     color="gray_600_99"
                                     
                                   >
-                                    <Link to="/locationdetails"> Galle Fort{" "}</Link>
+                                    <Link> Nuwara Eliya{" "}</Link>
                                   
                                   </Button>
                             </div>
@@ -177,7 +177,7 @@ export default function Location() {
                           <div className="flex sm:flex-col justify-center gap-[20px] mt-[2px]">
                             <div className="h-[200px]  sm:h-[200px] sm:w-full  relative ">
                                     <Img
-                                    src="images/images/img_image_73.png"
+                                    src="images/images/Polonnaruwa.jpg"
                                     alt="imageseventythr"
                                     className="h-[240px] w-[400px]  sm:h-[200px]   object-cover rounded-[10px]"
                                   />
@@ -187,7 +187,7 @@ export default function Location() {
                                     color="gray_600_99"
                                     
                                   >
-                                    <Link to="/locationdetails"> Galle Fort{" "}</Link>
+                                    <Link> Polonnaruwa{" "}</Link>
                                   
                                   </Button>
                             </div>
@@ -204,7 +204,7 @@ export default function Location() {
                                     color="gray_600_99"
                                     
                                   >
-                                    <Link to="/locationdetails"> Galle Fort{" "}</Link>
+                                    <Link to="/locationdetails"> Galle{" "}</Link>
                                   
                                   </Button>
                             </div>
@@ -212,7 +212,7 @@ export default function Location() {
                             <div className="h-[200px]  sm:h-[200px] sm:w-full  relative ">
                                  
                                   <Img
-                                    src="images/images/img_image_73.png"
+                                    src="images/images/Anuradhapura.jpg"
                                     alt="imageseventythr"
                                     className="h-[240px] w-[400px]   sm:h-[200px] sm:w-full  object-cover rounded-[10px]"
                                   />
@@ -222,7 +222,7 @@ export default function Location() {
                                     color="gray_600_99"
                                     
                                   >
-                                    <Link to="/locationdetails"> Galle Fort{" "}</Link>
+                                    <Link to="/locationdetails"> Anuradapura{" "}</Link>
                                   
                                   </Button>
                             </div>

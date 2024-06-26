@@ -1,22 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Button, Img, Text } from "components";
 import Footer from "components/Footer";
 import { Link, useNavigate } from "react-router-dom";
-import Header from '../../components/Navbar.jsx';
-import SearchBar from "./searchbar";
 import Navbar from "../../components/Navbar.jsx";
+import SearchBar from "./searchbar";
 import { BASE_URL } from "config.js";
 
 const TourGuidersUIPage = () => {
   const [tourGuides, setTourGuides] = useState([]);
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [filterTourGuides, setFilterTourGuid] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     fetchTourGuides();
     checkSignInStatus();
   }, []);
+
+  useEffect(() => {
+    setFilterTourGuid(tourGuides);
+  }, [tourGuides]);
 
   const fetchTourGuides = async () => {
     try {
@@ -43,30 +47,34 @@ const TourGuidersUIPage = () => {
       setErrorMessage("You need to sign in to book a tour guider.");
       setTimeout(() => {
         navigate('/login');
-      }, 5000); // Redirect after 2 seconds
+      }, 5000); // Redirect after 5 seconds
     }
+  };
+
+  const hotelListRef = useRef(null);
+
+  const filterHotelListByDestination = (destination) => {
+    const filteredList = tourGuides.filter((tourGuide) =>
+      tourGuide.address && tourGuide.address.toLowerCase() === destination.toLowerCase()
+    );
+    setFilterTourGuid(filteredList);
   };
 
   return (
     <>
-
-    <Navbar/>
-      
+      <Navbar />
       <div className="bg-bg1-20 flex flex-col font-inter items-center justify-start mx-auto pt-3 w-full">
-       
-        <div className="h-[650px] mt-[10px] md:h-[500px] mx-auto md:px-5 relative  w-full">
-         
+        <div className="h-[650px] mt-[10px] md:h-[500px] mx-auto md:px-5 relative w-full">
           <div className="absolute h-[650px] md:h-[500px] inset-[0] justify-center px-10 md:px-2 m-auto w-full">
-
             <Img
               className="h-[650px] md:h-[500px] m-auto object-cover rounded-[30px] w-full"
               src="images/img_rectangle4_1.png"
               alt="rectangleFour"
             />
-            <div className="absolute flex flex-col  md:gap-10 gap-[399px] justify-start right-[8%] top-[30%] w-[76%] mt-[280px] md:mt-[-20px]">
-                  <section>
-                    <SearchBar/>
-                  </section>
+            <div className="absolute flex flex-col md:gap-10 gap-[399px] justify-start right-[8%] top-[30%] w-[76%] mt-[280px] md:mt-[-20px]">
+              <section>
+                <SearchBar hotelListRef={hotelListRef} filterHotelListByDestination={filterHotelListByDestination} />
+              </section>
             </div>
           </div>
         </div>
@@ -74,10 +82,7 @@ const TourGuidersUIPage = () => {
           <Text className="text-black-900_b2 text-xl" size="txtInterMedium20">
             Tour Guiders
           </Text>
-          <Text
-            className="sm:text-3xl md:text-[38px] text-[40px] text-black-900"
-            size="txtInterBold40"
-          >
+          <Text className="sm:text-3xl md:text-[38px] text-[40px] text-black-900" size="txtInterBold40">
             Our Best Tour Guiders
           </Text>
           {errorMessage && (
@@ -86,7 +91,7 @@ const TourGuidersUIPage = () => {
             </div>
           )}
           <div className="md:gap-5 gap-[70px] grid sm:grid-cols-1 md:grid-cols-2 grid-cols-4 justify-center min-h-[auto] mt-9 w-[105%] md:w-full md:ml-auto">
-            {tourGuides.map((tourGuide, index) => (
+            {filterTourGuides.map((tourGuide, index) => (
               <div key={index} className="h-[450px] relative rounded-[20px] shadow-bs w-full">
                 <Img
                   className="h-[450px] m-auto object-cover rounded-[20px] w-full"
