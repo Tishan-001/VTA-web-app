@@ -5,9 +5,45 @@ import { Button, Img, Line, List, Text } from "components";
 import { Heading } from "components/Heading1";
 import { Input } from "components/Input";
 import { useState } from 'react';
+import { message } from "antd";
+import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "config";
 
 
 export default function FogotPassword() {
+
+  const [email, setEmail] = useState('');
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(`${BASE_URL}/auth/forgot/password`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+        }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        console.log(data);
+        navigate("/");
+        message.success("Email sent successfully");
+      } else {
+        // Handle error response, e.g., display error message to the user 
+        console.error("Error:", data.message);
+        message.error(data.message);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      message.error("Error sending email");
+    }
+  };
 
   return (
     <>
@@ -36,12 +72,14 @@ export default function FogotPassword() {
                 type="email"
                 name="name"
                 placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-[400px] sm:w-full mt-5 !text-deep_purple-400_01 pb-2 border-b-2 border-gray-300"
               />
 
 
 
-            <Button size="xl" color="bg-deep_purple-400" as="h2" className="!text-white-A700 mt-5 w-[150px] bg-[#854a9bcc] p-3 rounded-[5px] tracking-[3.60px]">
+            <Button onClick={handleSubmit} size="xl" color="bg-deep_purple-400" as="h2" className="!text-white-A700 mt-5 w-[150px] bg-[#854a9bcc] p-3 rounded-[5px] tracking-[3.60px]">
               Send
             </Button>
             

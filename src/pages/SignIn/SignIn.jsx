@@ -145,7 +145,7 @@ export default function SignInPage() {
                   Remember Me
                 </label>
               </div>
-              <a href="#" className="ml-auto font-bold text-[#854a9bcc]">
+              <a href="/fogotpassword" className="ml-auto font-bold text-[#854a9bcc]">
                 Forgot Password ?
               </a>
             </div>

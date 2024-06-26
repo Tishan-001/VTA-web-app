@@ -3,6 +3,7 @@ import { Button } from "components/Button_Second";
 import { Heading } from "components/Heading1";
 import { Text } from "components";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "config";
 
 export default function ArticalPage(...props) {
   const [searchBarValue, setSearchBarValue] = React.useState("");
@@ -29,7 +30,7 @@ export default function ArticalPage(...props) {
 
   const fetchHotelData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/hotels/get", {
+      const response = await fetch(`${BASE_URL}/hotels/get`, {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -44,7 +45,7 @@ export default function ArticalPage(...props) {
 
   const fetchBookingData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/hotel-booking/get-bookings", {
+      const response = await fetch(`${BASE_URL}/hotel-booking/get-bookings`, {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,
